@@ -3,8 +3,11 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.1'
 
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+# Use Postgress as the database for Active Record
+gem 'pg'
+
+
+gem 'twitter-bootstrap-rails', github: 'seyhunak/twitter-bootstrap-rails', branch: 'bootstrap3'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -23,6 +26,10 @@ gem 'jquery-rails'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
+gem 'jquery-turbolinks'
+
+# Use Devise for user management
+gem 'devise'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
@@ -30,6 +37,36 @@ gem 'jbuilder', '~> 1.2'
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
+end
+
+group :production do
+  #for Heroku
+  gem 'rails_12factor'
+end
+
+group :test, :development do
+  gem 'rspec-rails'
+  gem 'ffaker'
+  gem 'database_cleaner'
+  gem 'capybara'
+end
+
+group :development do
+  gem 'annotate'
+end
+
+group :test do
+  gem 'guard-rspec'
+  gem 'shoulda-matchers', '~> 2.4.0'
+  gem 'factory_girl_rails'
+  gem 'simplecov', :require => false
+  gem 'rb-fsevent', :require => false if RUBY_PLATFORM =~ /darwin/i
+  gem 'json_spec'
+  gem 'rake'
+end
+
+group :test, :darwin do
+  gem 'rb-fsevent'
 end
 
 # Use ActiveModel has_secure_password
