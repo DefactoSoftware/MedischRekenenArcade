@@ -1,0 +1,17 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: mra_development
+  pool: 5
+  username: YOUR USERNAME
+  password:
+  template: template0
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: mra_test
+  pool: 5
+  username: YOUR USERNAME
+  password:
+  template: template0
