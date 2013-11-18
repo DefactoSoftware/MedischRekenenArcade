@@ -16,13 +16,54 @@ class Problem < ActiveRecord::Base
   has_many :steps
   has_many :skills, through: :steps
 
-  def generate_1
-    problem = self.create(question: "How much is 1 + 1?")
-    difficulty = 1
-    difficulty.times do
-      Step.create()
+  AVAILABLE_SKILLS = ["adding", "dividing", "multiplying", "subtracting"]
+
+  def add_step(skill, variable1, variable2)
+    Step.generate_step(self, skill, variable1, variable2)
+
+  end
+
+  def self.Maxisporin
+    unit = "ml";
+    variable1 = Float(0.25 + rand(1...9) * 0.25)
+    variable2 = Float(1 + rand(1...4))
+    variable3 = Float(0.1 + rand(1...14) * 0.1)
+    variable4 = Float(0.01 + rand(1...9) * 0.1)
+    theory = "Geef een patient parentaal #{variable1} Maxisporin per dag, verdeeld over #{variable2} injecties." +
+                                      "In voorraad is Maxisporin #{variable3}. Dit poeder dient opgelost te worden in 4ml aqua bidestillata ter verkrijging van #{variable4} injectievloeistof.";
+    question = "Hoeveel #{unit} injecteer je per keer?";
+    problem = Problem.create(question: question, theory:theory)
+
+    step1 = problem.add_step(Skill.where(name: AVAILABLE_SKILLS[1]).first_or_create, variable1, variable2)
+    step2 = problem.add_step(Skill.where(name: AVAILABLE_SKILLS[1]).first_or_create, variable3, variable4)
+    problem.update_attributes(formula: "#{step1.formula} / #{step2.formula}")
+  end
+
+  def get_result
+    eval(formula)
+  end
+
+  def get_formula
+    if formula.nil?
+      "#{steps.last.value1} #{steps.last.symbol} #{steps.last.value2}"
+    else
+      "(#{formula}) #{steps.last.symbol} #{steps.last.value2}"
     end
   end
 
+  def self.generate_random(steps)
+    problem = self.create
+    steps.times do
+      problem.add_step(Skill.get_random, (problem.steps.last ? problem.steps.last.get_result : Float(rand(1...100)) ) , Float(rand(1...100)))
+      problem.update_attributes(formula: problem.get_formula)
+    end
+    problem
+  end
 
+  def self.generate_random_with_skills(difficulty, skills)
+    problem = self.create
+    difficulty.times do
+      problem.add_step(skills[rand(0...skills.count-1)], Variable.create(value: problem.steps.last.get_result), Variable.create(value: rand(1...100)))
+    end
+  end
 end

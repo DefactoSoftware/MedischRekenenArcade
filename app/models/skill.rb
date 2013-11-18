@@ -11,4 +11,12 @@
 class Skill < ActiveRecord::Base
   belongs_to :step
   belongs_to :user_skill
+
+  def self.get_random
+    min = 0
+    max = Skill.count
+    puts min
+    puts max
+    Skill.all[rand(min...max)]
+  end
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131118133207) do
+ActiveRecord::Schema.define(version: 20131118124749) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,17 +32,12 @@ ActiveRecord::Schema.define(version: 20131118133207) do
     t.datetime "updated_at"
   end
 
-  create_table "step_variables", force: true do |t|
-    t.integer  "step_id"
-    t.integer  "variable_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "steps", force: true do |t|
-    t.string   "formula"
     t.integer  "skill_id"
     t.integer  "problem_id"
+    t.float    "value1"
+    t.float    "value2"
+    t.string   "symbol"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -81,12 +76,5 @@ ActiveRecord::Schema.define(version: 20131118133207) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
-
-  create_table "variables", force: true do |t|
-    t.string   "key"
-    t.string   "value"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
 end

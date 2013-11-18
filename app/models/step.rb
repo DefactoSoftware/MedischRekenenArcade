@@ -3,41 +3,41 @@
 # Table name: steps
 #
 #  id         :integer          not null, primary key
-#  formula    :string(255)
 #  skill_id   :integer
 #  problem_id :integer
+#  value1     :float
+#  value2     :float
+#  symbol     :string(255)
 #  created_at :datetime
 #  updated_at :datetime
 #
 
 class Step < ActiveRecord::Base
-  has_many :step_variables
   belongs_to :skill
   belongs_to :problem
 
+  after_create :set_symbol
 
-  def self.generate_step(problem, skill, variable1, variable2)
-    step = Step.create(problem: problem, formula: create_formula(skill.name, variable1.value, variable2.value), skill: skill)
-    create_step_variables(step, variable1, variable2)
-    step
+  def self.generate_step(problem, skill, value1, value2)
+    step = Step.create(problem: problem, skill: skill, value1: value1, value2: value2)
   end
 
-  def self.create_step_variables(step, variable1, variable2)
-    StepVariable.create(step: step, variable: variable1)
-    StepVariable.create(step: step, variable: variable2)
-  end
-
-  def self.create_formula(skill_name, value1, value2)
-    case skill_name
+  def set_symbol
+    case skill.name
       when "adding"
-        formula = "(#{value1} + #{value2})"
+        symbol = "+"
       when "subtracting"
-        formula = "(#{value1} - #{value2})"
+        symbol = "-"
       when "multiplying"
-        formula = "(#{value1} * #{value2})"
+        symbol = "*"
       when "dividing"
-        formula = "(#{value1} / #{value2})"
+        symbol = "/"
     end
+    self.update_attributes(symbol: symbol)
+  end
+
+  def formula
+    "(#{value1} #{symbol} #{value2})"
   end
 
   def get_result
