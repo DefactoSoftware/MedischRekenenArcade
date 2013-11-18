@@ -1,8 +1,8 @@
 class CreateUserSkills < ActiveRecord::Migration
   def change
     create_table :user_skills do |t|
-      t.references :users
-      t.references :skills
+      t.references :user
+      t.references :skill
       t.float :level
       t.timestamps
     end
