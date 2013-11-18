@@ -1,0 +1,17 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: learning_spaces_development
+  pool: 5
+  username: YOUR_USERNAME
+  password:
+  template: template0
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: learning_spaces_test
+  pool: 5
+  username: YOUR_USERNAME
+  password:
+  template: template0
