@@ -31,4 +31,24 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
   belongs_to :user_skill
+  belongs_to :user_group
+  has_many :points
+
+  has_many :friendships
+  has_many :friends, :through => :friendships
+  has_many :inverse_friendships, :class_name => "Friendship", :foreign_key => "friend_id"
+  has_many :inverse_friends, :through => :inverse_friendships, :source => :user
+
+  def get_points
+    points = Point.where(user: self).to_a
+    total = 0
+    points.each do |p|
+      if p.decrease
+        total = total - p.amount
+      else
+        total = total + p.amount
+      end
+    end
+    total
+  end
 end
