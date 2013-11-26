@@ -20,4 +20,10 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  title: "Medical Calculation"
+  menu:
+    settings: "Settings"
+    statistiscs: "Statistiscs"
+    practice: "Practice"
+    logout: "Log out"
+    login: "Log in"
