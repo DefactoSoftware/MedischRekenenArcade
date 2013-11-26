@@ -28,6 +28,7 @@ describe Problem do
       Skill.create(name:"multiplying")
       Skill.create(name:"subtracting")
     end
+
     it "should create a Problem with amount of steps equal to difficulty" do
       difficulty = rand(1...10)
       problem = Problem.generate_random(difficulty)

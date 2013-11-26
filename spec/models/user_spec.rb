@@ -39,4 +39,12 @@ describe User do
   it "should not create a user when email is not specified" do
     expect { User.create(email: "test2@example.com", password: "test1234") }.to raise_error
   end
+
+  it "should accumulate points" do
+    user = User.create(email: "test@example.com", username: "test", password: "test1234")
+    Point.create(user: user, amount: 6)
+    Point.create(user: user, amount: 3, decrease:true)
+    Point.create(user: user, amount: 9)
+    expect(user.get_points).to eq(12)
+  end
 end
