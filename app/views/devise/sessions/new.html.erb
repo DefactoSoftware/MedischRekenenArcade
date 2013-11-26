@@ -1,0 +1,29 @@
+<% if !devise_error_messages!.empty? %><div id="error" class="dialog"><div class="container"><%= devise_error_messages! %></div></div><% end %>
+<div class="row">
+  <div class="col-lg-4 col-md-4 col-sm-2 col-xs-1"></div>
+  <div class="col-lg-4 col-md-4 col-sm-8 col-xs-8 form-wrapper">
+    <h2>Sign in</h2>
+
+    <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+    <div class="form-group">
+      <%= f.email_field :email, :autofocus => true, class: "form-control flat", placeholder: "Email" %>
+      <span class="input-icon fui-user"></span>
+    </div>
+
+    <div class="form-group">
+      <%= f.password_field :password, class: "form-control flat", placeholder: "Password" %>
+      <span class="input-icon fui-lock"></span>
+    <div class="form-group">
+      <% if devise_mapping.rememberable? -%>
+        <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
+      <% end -%>
+    </div>
+    <div class="form-group">
+      <div><%= f.submit "Sign in", id: "sign_in", class: "btn-submit btn btn-primary btn-block btn-lg" %></div>
+    </div>
+    <% end %>
+    <div class="form-group">
+      <%= render "devise/shared/links" %>
+    </div>
+  </div>
+</div>
