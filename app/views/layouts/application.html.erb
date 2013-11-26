@@ -7,8 +7,42 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<div class="navbar">
+  <div class="navbar-header">
+    <a href="#" class="navbar-brand"><%= t("title") %> : <%= current_user ? "NHL" : "-" %></a>
+  </div>
+  <div class="navbar-inner">
+    <ul class="nav pull-right">
+      <% if current_user %>
+        <li>
+          <%= link_to user_path(current_user) do %>
+            <img src="<%= current_user.profilepicture_url%>" class="img-circle" width="40px" height="40px">
+            <%= current_user.username %>
+          <% end %>
+          <ul>
+            <li><%= link_to edit_user_registration_path(current_user) do %><%= t("menu.settings")%><% end %></li>
+            <li><a href="#" ><%= t("menu.statistics") %></a></li>
+            <li><%= link_to leaderboard_path(current_user) do %><%= t("menu.leaderboards") %><% end %></li>
+          </ul>
+        </li>
+        <li><a href="#"><%= t("menu.challenges") %></a></li>
+        <li><a href="#"><%= t("menu.practice") %></a></li>
+        <li><%= link_to destroy_user_session_path, :method => :delete do %><%= t("menu.logout")%><% end %></li>
+      <% else %>
+        <li><%= link_to new_user_session_path do %><%= t("menu.login")%><% end %></li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<% if notice %>
  <p class="notice"><%= notice %></p>
+<% end %>
+<% if alert %>
  <p class="alert"><%= alert %></p>
+<% end %>
+
+
 <%= yield %>
 
 </body>
