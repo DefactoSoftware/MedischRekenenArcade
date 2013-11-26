@@ -22,6 +22,7 @@
 #  profilepicture_url     :string(255)      default("http://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/John_Doe.jpg/220px-John_Doe.jpg")
 #  created_at             :datetime
 #  updated_at             :datetime
+#  user_group_id          :integer
 #
 
 require 'spec_helper'
