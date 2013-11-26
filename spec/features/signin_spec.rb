@@ -13,6 +13,6 @@ describe "the user process", type: :feature do
     expect(page).to have_content "Log out"
     expect(page).to have_content user.username
     click_link "Log out"
-    expect(page).to have_content "Sign in"
+    expect(page).to have_content "Log in"
   end
 end
