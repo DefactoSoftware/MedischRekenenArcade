@@ -23,4 +23,26 @@
   display: none;
 }
 
+.answers {
+  padding:0px 20px 10px 20px;
+}
+
+.dropdown-toggle:hover {
+  cursor: pointer;
+  background-color:#2ecc71;
+}
+
+#selectedUnit {
+  background-color:#2ecc71;
+}
+
+.btn-practice  {
+  width: 32%;
+}
+
+.answer_field {
+  height:100px;
+}
+
+
 

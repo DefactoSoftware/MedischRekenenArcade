@@ -22,6 +22,15 @@ $(document).ready(function() {
 });
 
 $(document).ready(function() {
+  $(".unit_select").on("click", function(element){
+    console.log($(element.target)[0]);
+    $("#selectedUnit").html($(element.target)[0].dataset.sign);
+  });
+  //select first unit
+  $(".unit_select")[0].click();
+})
+
+$(document).ready(function() {
   $("#skipQuestion").on("click", function(e) {
     event.preventDefault();
     location.reload();

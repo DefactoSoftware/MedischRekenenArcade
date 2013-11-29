@@ -24,7 +24,7 @@ class Problem < ActiveRecord::Base
   end
 
   def self.Maxisporin
-    unit = "dr";
+    unit = "ml";
     variable1 = Float(0.25 + rand(1...9) * 0.25).round(2)
     variable2 = Float(1 + rand(1...4)).round(2)
     variable3 = Float(0.1 + rand(1...22) * 0.1).round(2)
