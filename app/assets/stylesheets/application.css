@@ -12,3 +12,15 @@
  *= require_tree .
  *= flat-ui
  */
+
+
+
+.highlight {
+  background-color: yellow;
+}
+
+.help {
+  display: none;
+}
+
+

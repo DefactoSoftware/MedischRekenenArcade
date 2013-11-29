@@ -1,17 +1,16 @@
 # == Schema Information
 #
-# Table name: user_skills
+# Table name: answers
 #
 #  id         :integer          not null, primary key
+#  value      :float
 #  user_id    :integer
-#  skill_id   :integer
-#  level      :float
+#  problem_id :integer
 #  created_at :datetime
 #  updated_at :datetime
 #
 
-require 'spec_helper'
-
-describe UserSkill do
-
+class Answer < ActiveRecord::Base
+  belongs_to :user
+  belongs_to :problem
 end

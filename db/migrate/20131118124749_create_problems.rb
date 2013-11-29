@@ -5,8 +5,6 @@ class CreateProblems < ActiveRecord::Migration
       t.string :question
       t.string :theory
       t.float  :difficulty
-      t.string :unit
-
       t.timestamps
     end
   end

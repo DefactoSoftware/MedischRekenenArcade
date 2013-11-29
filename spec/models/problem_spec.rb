@@ -7,9 +7,9 @@
 #  question   :string(255)
 #  theory     :string(255)
 #  difficulty :float
-#  unit       :string(255)
 #  created_at :datetime
 #  updated_at :datetime
+#  unit_id    :integer
 #
 
 require 'spec_helper'

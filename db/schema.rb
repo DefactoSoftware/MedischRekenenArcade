@@ -11,10 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131125143536) do
+ActiveRecord::Schema.define(version: 20131129131920) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "answers", force: true do |t|
+    t.float    "value"
+    t.integer  "user_id"
+    t.integer  "problem_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "friendships", force: true do |t|
     t.integer  "user_id"
@@ -36,9 +44,9 @@ ActiveRecord::Schema.define(version: 20131125143536) do
     t.string   "question"
     t.string   "theory"
     t.float    "difficulty"
-    t.string   "unit"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "unit_id"
   end
 
   create_table "skills", force: true do |t|
@@ -57,11 +65,23 @@ ActiveRecord::Schema.define(version: 20131125143536) do
     t.datetime "updated_at"
   end
 
-  create_table "user_group", force: true do |t|
+  create_table "unit_groups", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "unit_groups", ["name"], name: "index_unit_groups_on_name", unique: true, using: :btree
+
+  create_table "units", force: true do |t|
+    t.string   "name"
+    t.string   "sign"
+    t.integer  "unit_group_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "units", ["name"], name: "index_units_on_name", unique: true, using: :btree
 
   create_table "user_groups", force: true do |t|
     t.string   "name"

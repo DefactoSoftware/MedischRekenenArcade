@@ -19,27 +19,27 @@
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
 
-en:
-  title: "Medical Calculation"
-  unit: "Unit"
-  streak: "Streak"
-  points: "Points"
-  session: "Session"
+nl:
+  title: "Medisch Rekenen"
+  unit: "Eenheid"
+  streak: "Reeks"
+  points: "Punten"
+  session: "Sessie"
   menu:
-    challenges: "Challenges"
-    settings: "Settings"
-    statistiscs: "Statistiscs"
-    practice: "Practice"
-    logout: "Log out"
+    challenges: "Uitdagingen"
+    settings: "Instellingen"
+    statistiscs: "Statistieken"
+    practice: "Oefenen"
+    logout: "Log uit"
     login: "Log in"
   calculator:
-    info: "If you're stuck you can use this simple calculator. This does however reduce your score"
+    info: "Als je vast zit kan je deze simpele rekenmachine gebruiken. Dit verlaagt wel je score"
   practice:
-    submit_button: "Send"
-    header: "Practice your skills"
-    answer_label: "Answer"
-    skipquestion: "Skip"
+    submit_button: "Stuur"
+    header: "Oefen je skills"
+    answer_label: "Antwoord"
+    skipquestion: "Overslaan"
     helpquestion: "Help!"
   answer:
-    correct: "Correct! Your score went up by %{points}"
-    wrong: "Unfortunately that was not correct :( Your streak was reset"
+    correct: "Goedzo! Je score ging omhoog met %{points}"
+    wrong: "Helaas was dat niet goed.. :( Je reeks is op 0 gezet"

@@ -1,17 +1,15 @@
 # == Schema Information
 #
-# Table name: user_skills
+# Table name: unit_groups
 #
 #  id         :integer          not null, primary key
-#  user_id    :integer
-#  skill_id   :integer
-#  level      :float
+#  name       :string(255)
 #  created_at :datetime
 #  updated_at :datetime
 #
 
 require 'spec_helper'
 
-describe UserSkill do
-
+describe UnitGroup do
+  pending "add some examples to (or delete) #{__FILE__}"
 end

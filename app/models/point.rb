@@ -12,4 +12,9 @@
 
 class Point < ActiveRecord::Base
   belongs_to :user
+
+  def self.increase(value=1, user)
+    create(value:value, user: user)
+  end
+
 end
