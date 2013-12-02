@@ -13,7 +13,7 @@ describe "routing to" do
     end
 
     it "to #destroy" do
-      expect(get: "/friendships/1").to route_to(
+      expect(delete: "/friendships/1").to route_to(
         controller: "friendships",
         action: "destroy",
         id: "1"
@@ -46,6 +46,11 @@ describe "routing to" do
     end
   end
 
+  describe "answers" do
+    it "to #create" do
+      expect(post: "/answers").to route_to("answers#create")
+    end
+  end
 
 
 end
