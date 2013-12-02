@@ -13,5 +13,7 @@
 require 'spec_helper'
 
 describe Unit do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe "Associations" do
+    it { should belong_to(:unit_group) }
+  end
 end

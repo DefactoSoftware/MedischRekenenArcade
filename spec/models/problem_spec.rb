@@ -17,6 +17,7 @@ require 'spec_helper'
 describe Problem do
   describe "Associations" do
     it { should have_many(:steps) }
+    it { should belong_to(:unit) }
   end
 
 
@@ -33,12 +34,6 @@ describe Problem do
       difficulty = rand(1...10)
       problem = Problem.generate_random(difficulty)
       expect(problem.steps.count).to eq(difficulty)
-      problem.steps.each do |step|
-        puts step.formula
-        puts step.get_result
-      end
-      puts problem.formula
-      puts problem.get_result
     end
 
   end

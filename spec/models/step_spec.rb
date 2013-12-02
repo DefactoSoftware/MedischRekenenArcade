@@ -15,6 +15,11 @@
 require 'spec_helper'
 
 describe Step do
+  describe "Associations" do
+    it { should belong_to(:problem) }
+    it { should belong_to(:skill) }
+  end
+
   let(:var1) { Float(rand(1...20)) }
   let(:var2) { Float(rand(1...20)) }
 

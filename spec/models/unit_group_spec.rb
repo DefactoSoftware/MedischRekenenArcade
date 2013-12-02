@@ -11,5 +11,7 @@
 require 'spec_helper'
 
 describe UnitGroup do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe "Associations" do
+    it { should have_many(:units) }
+  end
 end

@@ -12,5 +12,4 @@
 
 class Unit < ActiveRecord::Base
   belongs_to :unit_group
-  belongs_to :problem
 end

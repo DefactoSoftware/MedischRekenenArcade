@@ -11,6 +11,6 @@
 #
 
 class UserSkill < ActiveRecord::Base
-  has_many :users
-  has_many :skills
+  belongs_to :user
+  belongs_to :skill
 end
