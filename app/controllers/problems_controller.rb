@@ -1,6 +1,6 @@
 class ProblemsController < ApplicationController
   before_action :authenticate_user!
-  def show
+  def index
     @problem = Problem.Maxisporin
   end
 end

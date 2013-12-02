@@ -22,14 +22,14 @@
           <ul>
             <li><%= link_to edit_user_registration_path(current_user) do %><%= t("menu.settings")%><% end %></li>
             <li><a href="#" ><%= t("menu.statistics") %></a></li>
-            <li><%= link_to leaderboard_path(current_user) do %><%= t("menu.leaderboards") %><% end %></li>
+            <li><%= link_to leaderboards_path do %><%= t("menu.leaderboards") %><% end %></li>
           </ul>
         </li>
         <li><a href="#"><%= t("menu.challenges") %></a></li>
         <li><%= link_to practice_path do %><%= t("menu.practice") %><% end %></li>
-        <li><%= link_to destroy_user_session_path, :method => :delete do %><%= t("menu.logout")%><% end %></li>
+        <li><%= link_to destroy_user_session_path, id:"menu_logout", :method => :delete do %><%= t("menu.logout")%><% end %></li>
       <% else %>
-        <li><%= link_to new_user_session_path do %><%= t("menu.login")%><% end %></li>
+        <li><%= link_to new_user_session_path, id:"menu_login" do %><%= t("menu.login")%><% end %></li>
       <% end %>
     </ul>
   </div>
