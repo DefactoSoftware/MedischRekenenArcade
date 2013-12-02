@@ -1,15 +1,15 @@
 MedischRekenenArcade::Application.routes.draw do
   devise_for :users
 
-  resources :friendships, only: [:create, :delete]
+  resources :friendships, only: [:create, :destroy]
 
   root to: "home#index"
 
   resources :users, only: [:show,:index]
 
-  resources :leaderboards, only: [:show, :index]
+  resources :leaderboards, only: [:index]
 
-  get 'practice', to: 'problems#show'
+  get 'practice', to: 'problems#index'
 
   resources :answers, only: [:create]
 end
