@@ -30,7 +30,8 @@ class Problem < ActiveRecord::Base
     variable3 = Float(0.1 + rand(1...22) * 0.1).round(2)
     variable4 = Float(0.1 + rand(1...9) * 0.2).round(2)
     theory = "Geef een patient parentaal #{variable1} Maxisporin per dag, verdeeld over #{variable2} injecties." +
-                                      "In voorraad is Maxisporin #{variable3}. Dit poeder dient opgelost te worden in 4ml aqua bidestillata ter verkrijging van #{variable4} injectievloeistof.";
+             "In voorraad is Maxisporin #{variable3}. Dit poeder dient opgelost te worden in 4ml aqua bidestillata" +
+             "ter verkrijging van #{variable4} injectievloeistof."
     question = "Hoeveel #{unit} injecteer je per keer?";
     problem = Problem.create(question: question, theory:theory, unit: Unit.where(sign:unit).first)
 
@@ -55,7 +56,11 @@ class Problem < ActiveRecord::Base
   def self.generate_random(steps)
     problem = self.create
     steps.times do
-      problem.add_step(Skill.get_random, (problem.steps.last ? problem.steps.last.get_result : Float(rand(1...100)) ), Float(rand(1...100)))
+      problem.add_step(
+        Skill.get_random,
+        (problem.steps.last ? problem.steps.last.get_result : Float(rand(1...100)) ),
+        Float(rand(1...100))
+      )
       problem.update_attributes(formula: problem.get_formula)
     end
     problem
@@ -64,7 +69,11 @@ class Problem < ActiveRecord::Base
   def self.generate_random_with_skills(difficulty, skills)
     problem = self.create
     difficulty.times do
-      problem.add_step(skills[rand(0...skills.count-1)], Variable.create(value: problem.steps.last.get_result), Variable.create(value: rand(1...100)))
+      problem.add_step(
+        skills[rand(0...skills.count-1)],
+        Variable.create(value: problem.steps.last.get_result),
+        Variable.create(value: rand(1...100))
+      )
     end
   end
 end

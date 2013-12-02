@@ -35,7 +35,6 @@ describe FriendshipsController do
       expect {
         get :destroy, id: friendship.id
       }.to change(Friendship, :count).by(-1)
-      puts response.body
     end
   end
 end
