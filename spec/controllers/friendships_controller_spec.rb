@@ -12,8 +12,7 @@ describe FriendshipsController do
 
     it "returns 201" do
       post :create, friendship: friendship_attributes
-      puts response.body
-      expect(response.status).to eq(201)
+      expect(response.status).to eq(200)
     end
 
     it "creates a new friendship" do
@@ -29,6 +28,14 @@ describe FriendshipsController do
   end
 
   describe "DELETE destroy" do
-
+    it "deletes a friendship" do
+      @request.env['HTTP_REFERER'] = root_path
+      sign_in user1.reload
+      friendship = Friendship.create(user_id: user1.id, friend_id: user2.id)
+      expect {
+        get :destroy, id: friendship.id
+      }.to change(Friendship, :count).by(-1)
+      puts response.body
+    end
   end
 end

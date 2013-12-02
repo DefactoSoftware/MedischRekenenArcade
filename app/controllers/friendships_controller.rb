@@ -3,17 +3,21 @@ class FriendshipsController < ApplicationController
   def create
     @friendship = current_user.friendships.build(:friend_id => params[:friend_id])
     if @friendship.save
-      redirect_to root_url, status: 201
+      redirect_to root_url, status: :ok
     else
-      redirect_to root_url, status: 422
+      redirect_to root_url, status: :unprocessable_entity
     end
   end
 
   def destroy
     @friendship = current_user.friendships.find(params[:id])
-    @friendship.destroy
-    flash[:notice] = "Removed friendship."
-    redirect_to current_user
+    puts params[:id]
+    puts @friendship
+    if @friendship.destroy
+      redirect_to request.referer, status: :ok
+    else
+      redirect_to request.referer, status: :unprocessable_entity
+    end
   end
 
   def friendship_parameters
