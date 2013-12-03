@@ -128,9 +128,9 @@ module MathDifficultyHelper
 
   def compute_addition_difficulty(numbers)
     if numbers.length == 0
-      return 0
+      return 0, 0
     elsif numbers.length == 1
-      return 0
+      return numbers[0], 0
     end
 
     num1 = numbers[0]
@@ -182,12 +182,110 @@ module MathDifficultyHelper
       sum.push(carry.to_s)
     end
 
+    sum = sum.reverse()
+    sum = sum.join("")
+    sum = sum.to_i
+
     numbers = [sum] + numbers[2...numbers.length]
 
-    sub_difficulty = compute_addition_difficulty(numbers)
+    sum, sub_difficulty = compute_addition_difficulty(numbers)
 
     difficulty += sub_difficulty
 
-    return difficulty
+    return sum, difficulty
+  end
+
+  def get_single_digit_multiplication_difficulty(d1, d2)
+    if d1 == 0 or d2 == 0
+      return 0, 1
+    end
+
+    res = d1 * d2
+    difficulty = ((4/Float(81)) * res).ceil
+
+    # odd numbers are harder to multiply except 1 and 5
+    if ![1,5].include? d1 and ![1,5].include? d2 and (is_odd(d1) or is_odd(d2))
+      difficulty += 1
+    end
+
+    return res, difficulty.to_i
+  end
+
+  def compute_simple_multiplication_difficulty(num, digit)
+    num = num.to_s
+
+    result = []
+    md = @multiplication_difficulties
+    carry = 0
+    difficulty = 0
+
+    num.chars.reverse.each_with_index do |d, index|
+      d = d.to_i
+      res, s_diff = get_single_digit_multiplication_difficulty(d, digit)
+      difficulty += s_diff
+
+      if carry > 0
+        res, carry_sum_difficulty = compute_addition_difficulty([res, carry])
+        difficulty += carry_sum_difficulty + md[:carry]
+      end
+
+      carry = res/10
+      result_digit = (res.to_s[-1...res.to_s.length]).to_i
+      result.push(result_digit.to_s)
+    end
+
+    if carry > 0
+      result.append(carry.to_s)
+    end
+
+    result = result.reverse()
+    result = result.join("")
+    result = result.to_i
+    return result, difficulty
+  end
+
+  def compute_multiplication_difficulty(numbers)
+    if numbers.length == 0
+      return 1, 0
+    elsif numbers.length == 1
+      return numbers[0], 0
+    end
+
+    num1 = numbers[0]
+    num2 = numbers[1]
+
+    if num1 < num2
+      num1, num2 = num2, num1
+    end
+
+    num2 = num2.to_s
+
+    difficulty = 0
+    borrow = 0
+    md = @multiplication_difficulties
+    m_numbers = []
+
+    num2.chars.reverse.each_with_index do |d, index|
+      d = d.to_i
+      m_number, m_diff = compute_simple_multiplication_difficulty(num1, d)
+      difficulty += m_diff
+
+      if index > 0
+        m_number = (m_number * (10 ** index)).to_i
+        difficulty += md[:offset]
+      end
+
+      m_numbers.push(m_number)
+    end
+
+    m_numbers_sum, m_numbers_diff = compute_addition_difficulty(m_numbers)
+    difficulty += m_numbers_diff
+
+    numbers = [m_numbers_sum] + numbers[2...numbers.length]
+    product, m_diff = compute_multiplication_difficulty(numbers)
+
+    difficulty += m_diff
+
+    return product, difficulty
   end
 end
