@@ -48,7 +48,7 @@ module MathDifficultyHelper
     if next_digit > 0
       num[index+1] = (next_digit-1).to_s
     else
-      num[index+1] = 9.to_s
+      num[index+1] = 0.to_s
       num_borrows += do_borrow(num, index+1)
     end
     num_borrows
@@ -72,7 +72,7 @@ module MathDifficultyHelper
     num2 = num2.to_s
 
     max_length = [num1.length, num2.length].max
-    puts "#{max_length} max length"
+
     num1 = num1.rjust(max_length, '0')
     num2 = num2.rjust(max_length, '0')
 
@@ -84,11 +84,7 @@ module MathDifficultyHelper
     num1 = num1.reverse
     num2 = num2.reverse
 
-    puts "#{num1} reverse #{num2}"
-
     num1.chars.zip(num2.chars).map.each_with_index do |n,index|
-      puts "#{n} n"
-      puts "index #{index} , #{n[0]} , #{n[1]}"
       d1 = n[0].to_i
       d2 = n[1].to_i
 
@@ -96,20 +92,20 @@ module MathDifficultyHelper
       d2_is_even = is_even d2
 
       if d1 > d2
-        if d1 == 0
+        if d1 == 0 or d2 == 0
           difficulty += sd[:digit_zero]
         elsif d1_is_even and d2_is_even
           difficulty += sd[:even_even]
         elsif !d1_is_even and !d2_is_even
           difficulty += sd[:odd_odd]
-        elsif d1_is_even != d2_is_even
+        elsif d1_is_even and !d2_is_even
           difficulty += sd[:even_odd]
         end
         ddiff = d1-d2
       elsif d1 < d2
         num_borrows = do_borrow(num1, index)
         difficulty += sd[:borrow]*num_borrows
-        ddiff = 10 + d1 - d2
+        ddiff = num_borrows + (d1 - d2)
         difficulty += sd[:twodigit_digit]
       elsif d1 == d2
         difficulty += sd[:same_digits]
@@ -117,8 +113,7 @@ module MathDifficultyHelper
       end
       difference.push(ddiff.to_s)
     end
-
-    difference.reverse
+    difference = difference.reverse
     difference = difference.join("")
     difference = difference.to_i
 
@@ -128,6 +123,6 @@ module MathDifficultyHelper
 
     difficulty += sub_difficulty
 
-    return difference, difficulty
+    return difficulty
   end
 end
