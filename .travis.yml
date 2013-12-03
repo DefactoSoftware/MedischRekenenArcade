@@ -1,0 +1,17 @@
+rvm: 2.0.0-p247
+deploy:
+  provider: heroku
+  api_key:
+    secure: iIIANKuKFttllQDBOWqflCMg25ozb1unmLrLn0bz6XhFdBOkdk8EVdsO/02Fm6oQnkfSCSN2bdEjlggci9HSrN/jKWA20gvKozfnh/vb85qyfknISuy8Fe1LfSHr+b3h+WfUPQJqmgqrec+2hjHvMD0Kwj2PqbIEW2am5CHvR+Q=
+  app: medischrekenen
+  on:
+    repo: DefactoSoftware/MedischRekenenArcade
+  run: "rake db:migrate"
+bundler_args: --without debug development
+script:
+- bundle exec rake db:test:prepare
+- bundle exec rake
+before_script:
+- cp config/database.travis.yml config/database.yml
+- psql -c 'create database mra_test' -U postgres
+

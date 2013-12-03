@@ -23,7 +23,7 @@ class Problem < ActiveRecord::Base
     Step.generate_step(self, skill, variable1, variable2)
   end
 
-  def self.Maxisporin
+  def self.maxisporin
     unit = "ml";
     variable1 = Float(0.25 + rand(1...9) * 0.25).round(2)
     variable2 = Float(1 + rand(1...4)).round(2)
