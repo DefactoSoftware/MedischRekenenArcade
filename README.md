@@ -1,11 +1,8 @@
 MedischRekenenArcade
 ====================
 
-Development branch
 [![Build Status](https://magnum.travis-ci.com/DefactoSoftware/MedischRekenenArcade.png?token=DyMYzapeFyRPapys4APx&branch=development)](https://magnum.travis-ci.com/DefactoSoftware/MedischRekenenArcade)
 
-Master branch
-[![Build Status](https://magnum.travis-ci.com/DefactoSoftware/MedischRekenenArcade.png?token=DyMYzapeFyRPapys4APx&branch=master)](https://magnum.travis-ci.com/DefactoSoftware/MedischRekenenArcade)
 
 **System dependencies:**
 - Ruby 2.0 (install with [rbenv](https://github.com/sstephenson/rbenv))
