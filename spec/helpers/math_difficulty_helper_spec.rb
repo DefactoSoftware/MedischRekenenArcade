@@ -59,6 +59,10 @@ describe "MathDifficultyHelper" do
       expect(MathDifficultyHelper.compute_addition_difficulty([0,1])).to eq([1,1])
     end
 
+    it "should return 1" do
+      expect(MathDifficultyHelper.compute_addition_difficulty([0,1,1])).to eq([2,3])
+    end
+
     it "should return 2" do
       expect(MathDifficultyHelper.compute_addition_difficulty([1,1])).to eq([2,2])
     end
@@ -171,6 +175,28 @@ describe "MathDifficultyHelper" do
 
     it "should return 31" do
       expect(MathDifficultyHelper.compute_multiplication_difficulty([17,29,3])).to eq([1479,31])
+    end
+  end
+
+  describe "#compute_multiples_difficulty" do
+    it "should return [50,14]" do
+      expect(MathDifficultyHelper.compute_multiples_difficulty(10,5)).to eq([50,14])
+    end
+
+    it "should return [63,39]" do
+      expect(MathDifficultyHelper.compute_multiples_difficulty(7,9)).to eq([63,39])
+    end
+
+    it "should return [5,14]" do
+      expect(MathDifficultyHelper.compute_multiples_difficulty(1,5)).to eq([5,10])
+    end
+
+    it "should return [50,14]" do
+      expect(MathDifficultyHelper.compute_multiples_difficulty(0,6)).to eq([0,5])
+    end
+
+    it "should return [50,14]" do
+      expect(MathDifficultyHelper.compute_multiples_difficulty(99,3)).to eq([297,18])
     end
   end
 end
