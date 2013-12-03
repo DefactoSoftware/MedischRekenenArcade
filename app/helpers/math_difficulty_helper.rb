@@ -56,9 +56,9 @@ module MathDifficultyHelper
 
   def compute_subtraction_difficulty(numbers)
     if numbers.length == 0
-      return 0
+      return 0, 0
     elsif numbers.length == 1
-      return 0
+      return numbers[0], 0
     end
 
     num1 = numbers[0]
@@ -84,7 +84,7 @@ module MathDifficultyHelper
     num1 = num1.reverse
     num2 = num2.reverse
 
-    num1.chars.zip(num2.chars).map.each_with_index do |n,index|
+    num1.chars.zip(num2.chars).each_with_index do |n,index|
       d1 = n[0].to_i
       d2 = n[1].to_i
 
@@ -105,13 +105,13 @@ module MathDifficultyHelper
       elsif d1 < d2
         num_borrows = do_borrow(num1, index)
         difficulty += sd[:borrow]*num_borrows
-        ddiff = num_borrows + (d1 - d2)
+        ddiff = 10 + d1 - d2
         difficulty += sd[:twodigit_digit]
       elsif d1 == d2
         difficulty += sd[:same_digits]
         ddiff = 0
       end
-      difference.push(ddiff.to_s)
+      difference.append(ddiff.to_s)
     end
     difference = difference.reverse
     difference = difference.join("")
@@ -119,11 +119,11 @@ module MathDifficultyHelper
 
     numbers = [difference] + numbers[2...numbers.length]
 
-    sub_difficulty = compute_subtraction_difficulty(numbers)
+    difference, sub_difficulty = compute_subtraction_difficulty(numbers)
 
     difficulty += sub_difficulty
 
-    return difficulty
+    return difference, difficulty
   end
 
   def compute_addition_difficulty(numbers)
@@ -297,4 +297,84 @@ module MathDifficultyHelper
     return multiple, difficulty
   end
 
+  def compute_multiple_less_than_number_difficulty(num, max_num)
+    multiple = max_num - (max_num % num)
+    n = multiple / num
+
+    multiple, difficulty = compute_multiples_difficulty(num, n)
+    return multiple, difficulty
+  end
+
+  def compute_division_difficulty(dividend, divisor, precision)
+    if divisor == 0
+     raise 'Division by Zero'
+    end
+    if dividend == 0
+     return [0, 0, 1]
+    end
+
+    dividend = dividend.to_s
+    divisor  = dividend.to_s
+
+    difficulty = 0
+    previous_multiples_difficulty = 0
+    precision_reached = 0
+    decimal_point_used = 0
+    dd = @division_difficulties
+    num = []
+    quotient = []
+
+    num = dividend[0]
+    difficulty += dd[:use_digit]
+    index = 0
+
+    while 1
+      q_digit = num.to_i / divisor.to_i
+
+      multiple, multiple_difficulty = compute_multiples_difficulty(divisor.to_i, q_digit)
+      difficulty += (multiple_difficulty.abs - previous_multiples_difficulty.abs).to_i
+      if previous_multiples_difficulty
+        difficulty += dd[:multiple_lookup]
+      end
+      previous_multiples_difficulty = [multiple_difficulty, previous_multiples_difficulty].max
+
+      quotient.append(q_digit.to_s)
+      difficulty += dd[:quotient_update]
+
+      if decimal_point_used > 0
+        precision_reached += 1
+      end
+
+      num, sub_difficulty = compute_subtraction_difficulty([num.to_i, multiple])
+      difficulty += sub_difficulty
+      num = num.to_s
+
+      index += 1
+
+      if index == dividend.length
+        if precision == 0
+          break
+        end
+        quotient.push('.')
+        difficulty += dd[:quotient_update]
+        decimal_point_used = 1
+      end
+      if !decimal_point_used
+        num += dividend[index]
+      else
+        num += '0'
+      end
+
+      difficulty += dd[:use_digit]
+
+      if (num.length == 1 and num.to_i != 0) or precision_reached >= (precision + 1)
+        break
+      end
+    end
+
+    remainder = num.to_i
+    quotient = Float(quotient.join(""))
+
+    return quotient, remainder, difficulty
+  end
 end
