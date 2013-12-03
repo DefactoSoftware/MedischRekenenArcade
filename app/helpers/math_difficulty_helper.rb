@@ -162,7 +162,9 @@ module MathDifficultyHelper
         difficulty += ad[:even_even]
       elsif !d1_is_even and !d2_is_even
         difficulty += ad[:odd_odd]
-      elsif d1_is_even and !d2_is_even or !d1_is_even and d2_is_even
+      elsif d1_is_even and !d2_is_even
+        difficulty += ad[:even_odd]
+      elsif !d1_is_even and d2_is_even
         difficulty += ad[:even_odd]
       end
 
@@ -288,4 +290,11 @@ module MathDifficultyHelper
 
     return product, difficulty
   end
+
+  def compute_multiples_difficulty(num, n)
+    numbers = [num] * n
+    multiple, difficulty = compute_addition_difficulty(numbers)
+    return multiple, difficulty
+  end
+
 end
