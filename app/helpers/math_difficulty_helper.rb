@@ -56,9 +56,9 @@ module MathDifficultyHelper
 
   def compute_subtraction_difficulty(numbers)
     if numbers.length == 0
-      return 0,0
+      return 0
     elsif numbers.length == 1
-      return numbers[0], 0
+      return 0
     end
 
     num1 = numbers[0]
@@ -119,7 +119,72 @@ module MathDifficultyHelper
 
     numbers = [difference] + numbers[2...numbers.length]
 
-    difference, sub_difficulty = compute_subtraction_difficulty(numbers)
+    sub_difficulty = compute_subtraction_difficulty(numbers)
+
+    difficulty += sub_difficulty
+
+    return difficulty
+  end
+
+  def compute_addition_difficulty(numbers)
+    if numbers.length == 0
+      return 0
+    elsif numbers.length == 1
+      return 0
+    end
+
+    num1 = numbers[0]
+    num2 = numbers[1]
+
+    num1 = num1.to_s
+    num2 = num2.to_s
+
+    max_length = [num1.length, num2.length].max
+
+    num1 = num1.rjust(max_length, '0')
+    num2 = num2.rjust(max_length, '0')
+
+    difficulty = 0
+    carry = 0
+    ad = @addition_difficulties
+    sum = []
+
+    num1.chars.reverse.zip(num2.chars.reverse).map.each_with_index do |n,index|
+      d1 = n[0].to_i
+      d2 = n[1].to_i
+
+      d1_is_even = is_even d1
+      d2_is_even = is_even d2
+
+      if d1 == 0 or d2 == 0
+        difficulty += ad[:digit_zero]
+      elsif d1_is_even and d2_is_even
+        difficulty += ad[:even_even]
+      elsif !d1_is_even and !d2_is_even
+        difficulty += ad[:odd_odd]
+      elsif d1_is_even and !d2_is_even or !d1_is_even and d2_is_even
+        difficulty += ad[:even_odd]
+      end
+
+      dsum = d1 + d2 + carry
+
+      if dsum > 9
+        carry = 1
+        difficulty += ad[:carry]
+      else
+        carry = 0
+      end
+
+      sum.push((dsum % 10).to_s)
+    end
+
+    if carry
+      sum.push(carry.to_s)
+    end
+
+    numbers = [sum] + numbers[2...numbers.length]
+
+    sub_difficulty = compute_addition_difficulty(numbers)
 
     difficulty += sub_difficulty
 
