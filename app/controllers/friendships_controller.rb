@@ -11,8 +11,6 @@ class FriendshipsController < ApplicationController
 
   def destroy
     @friendship = current_user.friendships.find(params[:id])
-    puts params[:id]
-    puts @friendship
     if @friendship.destroy
       redirect_to request.referer, status: :ok
     else
