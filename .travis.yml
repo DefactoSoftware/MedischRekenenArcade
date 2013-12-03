@@ -8,6 +8,7 @@ deploy:
     repo: DefactoSoftware/MedischRekenenArcade
   run: "rake db:migrate"
 bundler_args: --without debug development
+cache: bundler
 script:
 - bundle exec rake db:test:prepare
 - bundle exec rake
