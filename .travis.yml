@@ -14,4 +14,5 @@ script:
 before_script:
 - cp config/database.travis.yml config/database.yml
 - psql -c 'create database mra_test' -U postgres
-
+notifications:
+  hipchat: [7b824636fc093068b166694c2cd86f]@[Medisch Rekenen Arcade]
