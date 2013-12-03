@@ -55,7 +55,6 @@ module MathDifficultyHelper
   end
 
   def compute_subtraction_difficulty(numbers)
-    puts "once"
     if numbers.length == 0
       return 0,0
     elsif numbers.length == 1
@@ -65,12 +64,15 @@ module MathDifficultyHelper
     num1 = numbers[0]
     num2 = numbers[1]
 
+    if num1 < num2
+      num1, num2 = num2, num1
+    end
+
     num1 = num1.to_s
     num2 = num2.to_s
 
-    puts "Num #{num1} - #{num2}"
-
     max_length = [num1.length, num2.length].max
+    puts "#{max_length} max length"
     num1 = num1.rjust(max_length, '0')
     num2 = num2.rjust(max_length, '0')
 
@@ -82,23 +84,25 @@ module MathDifficultyHelper
     num1 = num1.reverse
     num2 = num2.reverse
 
-    num1.chars.zip(num2.chars).map do |d1, d2|
-      d1 = d1.to_i
-      d2 = d2.to_i
+    puts "#{num1} reverse #{num2}"
+
+    num1.chars.zip(num2.chars).map.each_with_index do |n,index|
+      puts "#{n} n"
+      puts "index #{index} , #{n[0]} , #{n[1]}"
+      d1 = n[0].to_i
+      d2 = n[1].to_i
 
       d1_is_even = is_even d1
       d2_is_even = is_even d2
 
       if d1 > d2
-        if !d1 or !d2
+        if d1 == 0
           difficulty += sd[:digit_zero]
         elsif d1_is_even and d2_is_even
           difficulty += sd[:even_even]
         elsif !d1_is_even and !d2_is_even
           difficulty += sd[:odd_odd]
-        elsif d1_is_even and !d2_is_even
-          difficulty += sd[:even_odd]
-        elsif d2_is_even and !d1_is_even
+        elsif d1_is_even != d2_is_even
           difficulty += sd[:even_odd]
         end
         ddiff = d1-d2
@@ -111,7 +115,6 @@ module MathDifficultyHelper
         difficulty += sd[:same_digits]
         ddiff = 0
       end
-      puts "#{ddiff} ddiff"
       difference.push(ddiff.to_s)
     end
 
