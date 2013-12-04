@@ -14,7 +14,8 @@ MedischRekenenArcade
 **Setup:**
 - run `bundle install`
 - setup config/database.yml (use database.yml.example as base)
-- run `rake db:migrate`
+- run `rake db:setup && rake db:migrate` to set up the development db (make sure to have postgres running)
+- run `rake db:test:prepare` to set up the test db
 
 **Running things:**
 - To start the server run `rails server` or `rails s`, this will launch the app on port 3000
