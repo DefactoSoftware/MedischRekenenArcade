@@ -6,7 +6,7 @@ deploy:
   app: medischrekenen
   on:
     repo: DefactoSoftware/MedischRekenenArcade
-  run: "rake db:migrate"
+  run: rake db:migrate
 bundler_args: --without debug development
 cache: bundler
 script:
@@ -15,4 +15,7 @@ script:
 before_script:
 - cp config/database.travis.yml config/database.yml
 - psql -c 'create database mra_test' -U postgres
-
+notifications:
+  hipchat:
+    rooms:
+      secure: PmeANJ22pAsyq/r+iTy2N1Ps42CktFvCG6cnSG2DVsK6FBl+v9fdRRIkZO5mSTKAk2rBwc58GZG610t+vwC4g87NT1BFKaspvMEvNoeXbq/4GwP/Li9mhdbxs20XOCFZu0ClOwCLomXB1FDU0q0yEl1fUSBBNGtDmmtsGUUGINU=
