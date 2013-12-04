@@ -9,6 +9,7 @@ MedischRekenenArcade
 - Rubygems
 - Bundler (`gem install bundler`)
 - PostgreSQL (http://postgresapp.com/)
+- Redis (http://redis.io/download)
 
 **Setup:**
 - run `bundle install`
