@@ -10,9 +10,6 @@ class LeaderboardsController < ApplicationController
 
   private
   def user_group_users
-    users = User.where(user_group: current_user.user_group)
-    user_ids = users.map do |user|
-      user.id
-    end
+    User.where(user_group: current_user.user_group).map(&:id)
   end
 end
