@@ -2,6 +2,8 @@ MedischRekenenArcade::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
   config.action_mailer.default_url_options = { :host => 'medischrekenen.herokuapp.com' }
 
+  config.assets.initialize_on_precompile = false
+
   # Code is not reloaded between requests.
   config.cache_classes = true
 
@@ -79,6 +81,4 @@ MedischRekenenArcade::Application.configure do
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
 
-  uri = URI.parse(ENV["REDISCLOUD_URL"])
-  $redis = Redis.new(:host => uri.host, :port => uri.port, :password => uri.password)
 end
