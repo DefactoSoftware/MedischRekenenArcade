@@ -78,4 +78,7 @@ MedischRekenenArcade::Application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
+
+  uri = URI.parse(ENV["REDISCLOUD_URL"])
+  $redis = Redis.new(:host => uri.host, :port => uri.port, :password => uri.password)
 end
