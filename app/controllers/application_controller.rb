@@ -4,8 +4,6 @@ class ApplicationController < ActionController::Base
   before_filter :update_sanitized_params, if: :devise_controller?
   protect_from_forgery with: :exception
 
-  #I18n.default_locale = "nl"
-
   protected
   def update_sanitized_params
     devise_parameter_sanitizer.for(:sign_up) {|u| u.permit(:email, :username, :name, :password, :password_confirmation, :profile_picture_url)}
