@@ -5,6 +5,9 @@ describe LeaderboardsController do
   let(:user1) { FactoryGirl.create(:user, user_group: user_group) }
   let(:user2) { FactoryGirl.create(:user, user_group: user_group) }
   let(:user3) { FactoryGirl.create(:user) }
+  let(:random_score1) { rand(10..20) }
+  let(:random_score2) { rand(21..50) }
+  let(:random_score3) { rand(51..100) }
 
 
   describe "GET index" do
@@ -13,7 +16,6 @@ describe LeaderboardsController do
 
       sign_in user1.reload
 
-      random_score1, random_score2, random_score3 = rand(10..20), rand(21..50), rand(51..100)
       Point.increase(random_score1,user1)
       Point.increase(random_score2,user2)
       Point.increase(random_score3,user3)
