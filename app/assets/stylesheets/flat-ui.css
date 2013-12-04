@@ -1192,7 +1192,6 @@ fieldset[disabled] .btn-link:focus {
 }
 .navbar {
   font-size: 16px;
-  border-radius: 6px;
   border: none;
 }
 .navbar .navbar-brand {
@@ -1784,10 +1783,10 @@ fieldset[disabled] .btn-link:focus {
   .navbar .nav-collapse:after {
     content: " ";
     /* 1 */
-  
+
     display: table;
     /* 2 */
-  
+
   }
   .navbar .nav-collapse:after {
     clear: both;

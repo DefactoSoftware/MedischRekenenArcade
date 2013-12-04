@@ -8,6 +8,7 @@ class AnswersController < ApplicationController
     end
   end
 
+  private
   def answer_parameters
     params.require(:answer).permit(:problem_id, :value)
   end

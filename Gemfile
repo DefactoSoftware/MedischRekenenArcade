@@ -6,6 +6,8 @@ gem 'rails', '4.0.1'
 # Use Postgress as the database for Active Record
 gem 'pg'
 
+#Redis leaderboard
+gem 'leaderboard'
 
 gem 'twitter-bootstrap-rails', github: 'seyhunak/twitter-bootstrap-rails', branch: 'bootstrap3'
 

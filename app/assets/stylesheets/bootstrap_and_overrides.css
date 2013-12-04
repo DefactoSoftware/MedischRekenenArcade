@@ -9,8 +9,11 @@
 
 .navbar {
   margin-bottom:0px;
+  border-radius:0px;
+  box-shadow: 0px 2px 20px rgba(0,0,0,0.3);
 }
 
 .dialog {
   border-bottom: 2px solid #d6dbdf;
 }
+

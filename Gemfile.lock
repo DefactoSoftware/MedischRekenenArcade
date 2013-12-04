@@ -101,6 +101,8 @@ GEM
     json_spec (1.1.1)
       multi_json (~> 1.0)
       rspec (~> 2.0)
+    leaderboard (3.4.0)
+      redis
     listen (2.2.0)
       celluloid (>= 0.15.2)
       rb-fsevent (>= 0.9.3)
@@ -151,6 +153,7 @@ GEM
       ffi (>= 0.5.0)
     rdoc (3.12.2)
       json (~> 1.4)
+    redis (3.0.6)
     rspec (2.14.1)
       rspec-core (~> 2.14.0)
       rspec-expectations (~> 2.14.0)
@@ -227,6 +230,7 @@ DEPENDENCIES
   jquery-rails
   jquery-turbolinks
   json_spec
+  leaderboard
   pg
   rails (= 4.0.1)
   rails_12factor
