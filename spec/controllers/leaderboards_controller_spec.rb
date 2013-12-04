@@ -8,32 +8,34 @@ describe LeaderboardsController do
 
 
   describe "GET index" do
-    before :each do
-      Leaderboard.new('test_highscores').delete_leaderboard
-    end
-
     it "Assigns 3 variables with scores" do
+      Leaderboard.new('test_highscores').delete_leaderboard
+
       sign_in user1.reload
-      Point.increase(3,user1)
-      Point.increase(2,user2)
-      Point.increase(5,user3)
+
+      random_score1, random_score2, random_score3 = rand(10..20), rand(21..50), rand(51..100)
+      Point.increase(random_score1,user1)
+      Point.increase(random_score2,user2)
+      Point.increase(random_score3,user3)
+
       get :index
+
       expect(assigns(:top_scores)).to be_an_instance_of(Array)
       expect(assigns(:top_scores).length).to be(3)
-      expect(assigns(:top_scores)[0][:score]).to eq(5.0)
-      expect(assigns(:top_scores)[1][:score]).to eq(3.0)
-      expect(assigns(:top_scores)[2][:score]).to eq(2.0)
+      expect(assigns(:top_scores)[0][:score]).to eq(random_score3)
+      expect(assigns(:top_scores)[1][:score]).to eq(random_score2)
+      expect(assigns(:top_scores)[2][:score]).to eq(random_score1)
 
       expect(assigns(:around_me_scores)).to be_an_instance_of(Array)
       expect(assigns(:around_me_scores).length).to eq(3)
-      expect(assigns(:around_me_scores)[0][:score]).to eq(5.0)
-      expect(assigns(:around_me_scores)[1][:score]).to eq(3.0)
-      expect(assigns(:around_me_scores)[2][:score]).to eq(2.0)
+      expect(assigns(:around_me_scores)[0][:score]).to eq(random_score3)
+      expect(assigns(:around_me_scores)[1][:score]).to eq(random_score2)
+      expect(assigns(:around_me_scores)[2][:score]).to eq(random_score1)
 
       expect(assigns(:user_group_scores)).to be_an_instance_of(Array)
       expect(assigns(:user_group_scores).length).to eq(2)
-      expect(assigns(:user_group_scores)[0][:score]).to eq(3.0)
-      expect(assigns(:user_group_scores)[1][:score]).to eq(2.0)
+      expect(assigns(:user_group_scores)[0][:score]).to eq(random_score1)
+      expect(assigns(:user_group_scores)[1][:score]).to eq(random_score2)
     end
 
     it "returns a 200 code when logged in" do
