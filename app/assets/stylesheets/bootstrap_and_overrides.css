@@ -7,3 +7,10 @@
   */
 
 
+.navbar {
+  margin-bottom:0px;
+}
+
+.dialog {
+  border-bottom: 2px solid #d6dbdf;
+}

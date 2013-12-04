@@ -23,6 +23,10 @@
   display: none;
 }
 
+.notice {
+  position: fixed;
+}
+
 .answers {
   padding:0px 20px 10px 20px;
 }
@@ -30,10 +34,14 @@
 .dropdown-toggle:hover {
   cursor: pointer;
   background-color:#2ecc71;
+  border-color:#2ecc71;
 }
 
 #selectedUnit {
   background-color:#2ecc71;
+  border-color:#2ecc71;
+  border-bottom-right-radius: 6px;
+  border-top-right-radius: 6px;
 }
 
 .btn-practice  {
@@ -41,7 +49,12 @@
 }
 
 .answer_field {
-  height:100px;
+  font-size: 20px;
+}
+
+#answer_value{
+  font-size:40px;
+  border-color: #2ecc71;
 }
 
 

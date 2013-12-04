@@ -14,7 +14,7 @@
         <div class="form-group">
           <div class="input-group answer-field">
             <span class="input-group-addon dropdown-toggle" data-toggle="dropdown"><%= t("unit") %></span>
-            <%= f.text_area :value, class:"form-control" %>
+            <%= f.text_area :value, class:"form-control", rows:"1", required: true %>
             <span class="input-group-addon" id="selectedUnit"></span>
             <ul class="dropdown-menu">
               <% @problem.unit.unit_group.units.each do |unit| %>

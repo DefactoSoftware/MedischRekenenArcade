@@ -18,10 +18,8 @@
 //= require_tree .
 
 
-$(document).ready(function() {
-  color_vars($("#theory"));
-});
 
+//Functions for making answering view interactive
 $(document).ready(function() {
   $(".unit_select").on("click", function(element){
     console.log($(element.target)[0]);
@@ -50,7 +48,19 @@ $(document).ready(function() {
 })
 
 $(document).ready(function() {
-  setTimeout(function () { closeNotices(); closeAlerts(); }, 10000);
+  $("#answer_value").on("keypress", function(e){
+    var code = e.keyCode || e.which;
+    if(code == 13) {
+      e.preventDefault();
+      $("#answer_value").parent().parent().parent().submit();
+    }
+  })
+
+})
+
+//Functions to close alerts and notices
+$(document).ready(function() {
+  setTimeout(function () { closeNotices(); closeAlerts(); }, 3000);
 });
 
 var closeNotices = function() {
@@ -67,6 +77,7 @@ var closeAlerts = function() {
   }
 }
 
+//Function for highlighting variables
 var color_vars = function(element) {
   var html = $(element).html();
   var split = html.split(" ");
@@ -83,6 +94,10 @@ var color_vars = function(element) {
   }
   $(element).html(newhtml);
 };
+
+$(document).ready(function() {
+  color_vars($("#theory"));
+});
 
 function hasNumbers(t) {
   return /\d/.test(t);
