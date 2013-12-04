@@ -41,11 +41,11 @@ describe "MathDifficultyHelper" do
       expect(MathDifficultyHelper.compute_subtraction_difficulty([4,3])).to eq([1,3])
     end
 
-    xit "should return difficulty 10" do
+    it "should return difficulty 10" do
       expect(MathDifficultyHelper.compute_subtraction_difficulty([100,1])).to eq([99,10])
     end
 
-    xit "should return difficulty 22" do
+    it "should return difficulty 22" do
       expect(MathDifficultyHelper.compute_subtraction_difficulty([5000007,9])).to eq([4999998,22])
     end
   end
@@ -201,15 +201,15 @@ describe "MathDifficultyHelper" do
   end
 
   describe "#compute_division" do
-    xit "should return [10.0, 4, 6]" do
+    it "should return [10.0, 4, 6]" do
       expect(MathDifficultyHelper.compute_division_difficulty(54,5,0)).to eq([10.0, 4, 6])
     end
 
-    xit "should return [10.0, 0, 6]" do
+    it "should return [10.0, 0, 6]" do
       expect(MathDifficultyHelper.compute_division_difficulty(50,5,0)).to eq([10.0, 0, 6])
     end
 
-    xit "should return [95.0, 5, 60]" do
+    it "should return [95.0, 5, 60]" do
       expect(MathDifficultyHelper.compute_division_difficulty(575, 6, 0)).to eq([95.0, 5, 60])
     end
 
