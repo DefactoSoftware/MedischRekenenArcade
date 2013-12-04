@@ -1,9 +1,5 @@
 class LeaderboardsController < ApplicationController
   before_action :authenticate_user!
-  def show
-
-  end
-
   def index
     highscore_lb = Leaderboard.new('highscores')
     @top_scores = highscore_lb.leaders(10)
