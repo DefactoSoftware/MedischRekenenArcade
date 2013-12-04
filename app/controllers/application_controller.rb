@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   before_filter :update_sanitized_params, if: :devise_controller?
   protect_from_forgery with: :exception
 
-  I18n.default_locale = "nl"
+  #I18n.default_locale = "nl"
 
   protected
   def update_sanitized_params
