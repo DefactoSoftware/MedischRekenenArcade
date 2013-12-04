@@ -1,39 +1,59 @@
 <div class="row">
   <div class="col-md-4 col-lg-4">
-    <h2>Wereld</h2>
-    <table>
+    <h2>Top</h2>
+    <table class="table">
       <thead>
         <tr>
+          <td>Rank</td>
           <td>Name</td>
           <td>Score</td>
         </tr>
       </thead>
+      <% @top_scores.each do |score| %>
+        <tr>
+          <td>#<%= score[:rank] %>
+          <td><%= User.find(score[:member]).name %></td>
+          <td><%= score[:score] %></td>
+        </tr>
+      <% end %>
     </table>
   </div>
   <div class="col-md-4 col-lg-4">
-    <h2>NHL</h2>
-    <table>
+    <h2><%= current_user.user_group.name %></h2>
+    <table class="table table-striped">
       <thead>
         <tr>
+          <td>Rank</td>
           <td>Name</td>
           <td>Score</td>
         </tr>
       </thead>
+      <% @user_group_scores.each do |score| %>
+        <tr>
+          <td>#<%= score[:rank] %></td>
+          <td><%= User.find(score[:member]).name %></td>
+          <td><%= score[:score] %></td>
+        </tr>
+      <% end %>
     </table>
   </div>
   <div class="col-md-4 col-lg-4">
-    <h2>Vrienden</h2>
-    <table>
+    <h2>Around me</h2>
+    <table class="table table-striped">
       <thead>
         <tr>
+          <td>Rank</td>
           <td>Name</td>
           <td>Score</td>
         </tr>
       </thead>
-      <tr>
-        <td>Marthyn</td>
-        <td>100</td>
-      </tr>
+      <% @around_me_scores.each do |score| %>
+        <tr>
+          <td>#<%= score[:rank] %></td>
+          <td><%= User.find(score[:member]).name %></td>
+          <td><%= score[:score] %></td>
+        </tr>
+      <% end %>
     </table>
   </div>
 </div>

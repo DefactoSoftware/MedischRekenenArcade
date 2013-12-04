@@ -13,8 +13,14 @@
 class Point < ActiveRecord::Base
   belongs_to :user
 
+  after_create :update_leaderboard
+
   def self.increase(value=1, user)
-    create(value:value, user: user)
+    create(amount:value, user: user)
   end
 
+  def update_leaderboard
+    highscore_lb = Leaderboard.new('highscores')
+    highscore_lb.rank_member(user_id, user.get_points)
+  end
 end

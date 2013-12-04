@@ -55,7 +55,10 @@ $(document).ready(function() {
       $("#answer_value").parent().parent().parent().submit();
     }
   })
+});
 
+$("#answer_value").ready(function() {
+  $("#answer_value").focus()
 })
 
 //Functions to close alerts and notices
