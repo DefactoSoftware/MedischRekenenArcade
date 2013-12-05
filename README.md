@@ -9,7 +9,7 @@ MedischRekenenArcade
 - Rubygems
 - Bundler (`gem install bundler`)
 - PostgreSQL (http://postgresapp.com/)
-- Redis (http://redis.io/download)
+- Redis (http://redis.io/download or `brew install redis` on OSX)
 
 **Setup:**
 - run `bundle install`
@@ -18,6 +18,7 @@ MedischRekenenArcade
 - run `rake db:test:prepare` to set up the test db
 
 **Running things:**
+- Launch redis: (`redis-server`)
 - To start the server run `rails server` or `rails s`, this will launch the app on port 3000
 - To run the specs run `rake spec` or `rspec`, to run a single file you can `rspec /path/to/your/file`
 - To have Guard automatically listen for file changes and run the appropriate specs run `bundle exec guard` from the app root
