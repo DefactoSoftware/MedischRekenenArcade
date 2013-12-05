@@ -5,6 +5,7 @@ require 'rspec/rails'
 require 'rspec/autorun'
 require 'database_cleaner'
 require 'capybara/rspec'
+require 'ruby-debug' if Gem::Specification::find_all_by_name('ruby-debug').any?
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
