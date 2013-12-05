@@ -6,12 +6,12 @@
 
     <%= form_for(resource, :as => resource_name, :url => confirmation_path(resource_name), :html => { :method => :post }) do |f| %>
     <div class="form-group">
-      <%= f.label :email %>
-      <%= f.email_field :email, class:"form-control" ,autofocus: true %>
+      <%= f.label :email, t("labels.email") %>
+      <%= f.email_field :email, class:"form-control" ,autofocus: true, placeholder: t("placeholders.email") %>
     </div>
 
     <div class="form-group">
-      <%= f.submit t("devise.confirmations.resend_button") %>
+      <%= f.submit t("devise.confirmations.resend_button"), class:"btn btn-primary btn-submit" %>
     </div>
 <% end %>
 

@@ -35,6 +35,9 @@ nl:
       send_paranoid_instructions: "Als je e-mail bestaat in onze database, zul je een e-mail met instructies ontvangen over hoe je jouw wachtwoord moet resetten over een paar minuten."
       updated: "Je wachtwoord is succesvol veranderd, je bent nu ingelogd."
       updated_not_active: "Je wachtwoord is succesvol veranderd."
+      submit_button: "Reset je wachtwoord"
+      new_title: "Wachtwoord vergeten?"
+      edit_title: "Verander wachtwoord"
     registrations:
       destroyed: "Tot ziens! Je account is succesvol verwijderd."
       signed_up: "Welkom, u bent succesvol ingelogd"
@@ -43,13 +46,22 @@ nl:
       signed_up_but_unconfirmed: "Een e-mail met een bevestigings URL is verstuurd. Gebruik de URL om je account te activeren."
       update_needs_confirmation: "Je account is succesvol gewijzigd, echter hebben moet je nog wel je e-mail adres verifiëren."
       updated: "Je account is succesvol gewijzigd"
+      edit_title: "Mijn gegevens"
+      new_title: "Registreer"
     sessions:
       signed_in: "Succesvvol ingelogd"
       signed_out: "Succesvol uitgelogd"
+      new_title: "Log in"
     unlocks:
       send_instructions: "Je zult een e-mail met instructies ontvangen over hoe je jouw account moet unlocken over een paar minuten."
       send_paranoid_instructions: "Als je e-mail bestaat in onze database, zul je een e-mail met instructies ontvangen over hoe je jouw account moet unlocken over een paar minuten."
       unlocked: "Je account is succesvol geunlockt. Log in om verder te gaan."
+    links:
+      sign_in: "Sign in"
+      sign_up: "Sign up"
+      forgot_password: "Forgot your password?"
+      confirmation_instructions: "Didn't receive confirmation instructions?"
+      unlock_instructions: "Didn't receive unlock instructions?"
   errors:
     messages:
       already_confirmed: "is al bevestigd, probeer in te loggen"

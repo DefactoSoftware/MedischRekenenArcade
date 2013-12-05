@@ -2,36 +2,36 @@
 <div class="row">
   <div class="col-lg-4 col-md-4 col-sm-2 col-xs-1"></div>
   <div class="col-lg-4 col-md-4 col-sm-8 col-xs-8 form-wrapper">
-  <h2>Sign up</h2>
+  <h2><%= t("devise.registrations.new_title") %></h2>
     <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
 
       <div class="form-group">
-        <%= f.label :email %>
-        <%= f.email_field :email, :autofocus => true, class: "form-control", placeholder: "Email", required:true %>
+        <%= f.label :email, t("labels.email") %>
+        <%= f.email_field :email, autofocus: true, class: "form-control", placeholder: t("placeholders.email"), required:true %>
       </div>
 
       <div class="form-group">
-        <%= f.label :username %>
-        <%= f.text_field :username, class: "form-control", placeholder: "Username", required:true %>
+        <%= f.label :username, t("labels.username") %>
+        <%= f.text_field :username, class: "form-control", placeholder: t("placeholders.username"), required:true %>
       </div>
 
       <div class="form-group">
-        <%= f.label :name %>
-        <%= f.password_field :name, class: "form-control", placeholder: "First and last name", required:true %>
+        <%= f.label :name, t("labels.name") %>
+        <%= f.password_field :name, class: "form-control", placeholder: t("placeholders.name"), required:true %>
       </div>
 
       <div class="form-group">
-        <%= f.label :password %>
+        <%= f.label :password, t("labels.password") %>
         <%= f.password_field :password, class: "form-control", required:true %>
       </div>
 
       <div class="form-group">
-        <%= f.label :password_confirmation %>
+        <%= f.label :password_confirmation, t("labels.password_confirmation") %>
         <%= f.password_field :password_confirmation, class: "form-control", required: true %>
       </div>
 
       <div class="form-group">
-        <div><%= f.submit "Sign up", class: "btn-submit btn btn-primary btn-block btn-lg" %></div>
+        <div><%= f.submit t("labels.sign_up"), class: "btn-submit btn btn-primary btn-block btn-lg" %></div>
       </div>
 
     <% end %>
