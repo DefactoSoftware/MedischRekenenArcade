@@ -49,7 +49,7 @@ nl:
       edit_title: "Mijn gegevens"
       new_title: "Registreer"
     sessions:
-      signed_in: "Succesvvol ingelogd"
+      signed_in: "Succesvol ingelogd"
       signed_out: "Succesvol uitgelogd"
       new_title: "Log in"
     unlocks:
