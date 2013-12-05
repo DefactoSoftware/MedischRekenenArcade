@@ -56,12 +56,14 @@ nl:
       send_instructions: "Je zult een e-mail met instructies ontvangen over hoe je jouw account moet unlocken over een paar minuten."
       send_paranoid_instructions: "Als je e-mail bestaat in onze database, zul je een e-mail met instructies ontvangen over hoe je jouw account moet unlocken over een paar minuten."
       unlocked: "Je account is succesvol geunlockt. Log in om verder te gaan."
+      new_title: "Stuur unlock instructies opnieuw"
+      send_button: "Verstuur unlock instructies"
     links:
-      sign_in: "Sign in"
-      sign_up: "Sign up"
-      forgot_password: "Forgot your password?"
-      confirmation_instructions: "Didn't receive confirmation instructions?"
-      unlock_instructions: "Didn't receive unlock instructions?"
+      sign_in: "Login"
+      sign_up: "Registreer"
+      forgot_password: "Wachtwoord vergeten?"
+      confirmation_instructions: "Geen bevestigingsmail ontvangen?"
+      unlock_instructions: "Geen unlock email ontvangen?"
   errors:
     messages:
       already_confirmed: "is al bevestigd, probeer in te loggen"
