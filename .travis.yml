@@ -2,11 +2,11 @@ rvm: 2.0.0-p247
 deploy:
   provider: heroku
   api_key:
-    secure: iIIANKuKFttllQDBOWqflCMg25ozb1unmLrLn0bz6XhFdBOkdk8EVdsO/02Fm6oQnkfSCSN2bdEjlggci9HSrN/jKWA20gvKozfnh/vb85qyfknISuy8Fe1LfSHr+b3h+WfUPQJqmgqrec+2hjHvMD0Kwj2PqbIEW2am5CHvR+Q=
+    secure: bOVx/F4sVDwebnBK32K1a395wMhkaqCz/KHx+3b5MuJVhplO1kexZMjzPYnBb0n9KbcV67uM1tP8M9IcRO3cBI+F3w73/YAPJGTvkLr3Rqtl+/ldjat3lDtHWbIuvi71n5Smv9ahX8kXDV2MNCDXZQQrxyEESk/9NYB1ftuR7/M=
   app: medischrekenen
   on:
     repo: DefactoSoftware/MedischRekenenArcade
-  run: rake db:migrate
+    branch: development
 bundler_args: --without debug development
 cache: bundler
 services: redis-server
