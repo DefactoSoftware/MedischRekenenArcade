@@ -43,3 +43,23 @@ en:
   answer:
     correct: "Correct! Your score went up by %{points}"
     wrong: "Unfortunately that was not correct :( Your streak was reset"
+  placeholders:
+    email: "Email"
+    username: "Username"
+    name: "First and last name"
+  labels:
+    email: "Email"
+    name: "Name"
+    username: "Username"
+    current_password: "Current password"
+    password: "Password"
+    password_confirmation: "Password confirmation"
+    update: "Update"
+    unhappy: "Unhappy?"
+    cancel_account: "Cancel your account"
+    sure: "Are you sure?"
+    sign_up: "Sign up"
+    sign_in: "Login"
+    remember: "Remember me?"
+
+

@@ -43,3 +43,21 @@ nl:
   answer:
     correct: "Goedzo! Je score ging omhoog met %{points}"
     wrong: "Helaas was dat niet goed.. :( Je reeks is op 0 gezet"
+  placeholders:
+    email: "Email"
+    username: "Gebruikersnaam"
+    name: "Voor- en achternaam"
+  labels:
+    email: "Email"
+    name: "Naam"
+    username: "Gebruikersnaam"
+    current_password: "Huidig wachtwoord"
+    password: "Wachtwoord"
+    password_confirmation: "Wachtwoord bevestiging"
+    update: "Wijzig"
+    unhappy: "Ontevreden?"
+    cancel_account: "Verwijder je account"
+    sure: "Weet je het zeker?"
+    sign_up: "Registreer"
+    sign_in: "Login"
+    remember: "Onthoud mij?"

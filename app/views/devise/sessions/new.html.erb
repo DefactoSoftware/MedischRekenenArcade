@@ -2,20 +2,20 @@
 <div class="row">
   <div class="col-lg-4 col-md-4 col-sm-2 col-xs-1"></div>
   <div class="col-lg-4 col-md-4 col-sm-8 col-xs-8 form-wrapper">
-    <h2>Sign in</h2>
+    <h2><%= t("devise.sessions.new_title") %></h2>
 
-    <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class="form-group">
-      <%= f.email_field :email, :autofocus => true, class: "form-control flat", placeholder: "Email" %>
+      <%= f.email_field :email, autofocus: true, class: "form-control flat", placeholder: t("placeholders.email") %>
       <span class="input-icon fui-user"></span>
     </div>
 
     <div class="form-group">
-      <%= f.password_field :password, class: "form-control flat", placeholder: "Password" %>
+      <%= f.password_field :password, class: "form-control flat" %>
       <span class="input-icon fui-lock"></span>
     <div class="form-group">
       <% if devise_mapping.rememberable? -%>
-        <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
+        <div><%= f.check_box :remember_me %> <%= f.label :remember_me, t("labels.remember") %></div>
       <% end -%>
     </div>
     <div class="form-group">
