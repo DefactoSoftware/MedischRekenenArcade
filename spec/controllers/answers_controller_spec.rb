@@ -17,7 +17,7 @@ describe AnswersController do
 
     it "returns a 201 created status" do
       post :create, answer: badanswer
-      expect(response.status).to eq(201)
+      expect(response.status).to eq(302)
     end
 
     it "resets streak on bad answer" do
@@ -47,7 +47,7 @@ describe AnswersController do
 
     it "returns a 201 created status" do
       post :create, answer: goodanswer
-      expect(response.status).to eq(201)
+      expect(response.status).to eq(302)
     end
 
     it "increases streak on good answer" do
