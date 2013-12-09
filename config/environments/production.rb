@@ -1,6 +1,5 @@
 MedischRekenenArcade::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
-  config.action_mailer.default_url_options = { :host => 'medischrekenen.herokuapp.com' }
 
   # Code is not reloaded between requests.
   config.cache_classes = true
@@ -79,4 +78,12 @@ MedischRekenenArcade::Application.configure do
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
 
+  ActionMailer::Base.smtp_settings = {
+    address:        "smtp.sendgrid.net",
+    port:           "25",
+    authentication: :plain,
+    user_name:      ENV['SENDGRID_USERNAME'],
+    password:       ENV['SENDGRID_PASSWORD'],
+    domain:         ENV['SENDGRID_DOMAIN']
+  }
 end
