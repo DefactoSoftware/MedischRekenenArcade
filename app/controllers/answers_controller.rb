@@ -4,7 +4,7 @@ class AnswersController < ApplicationController
     @redirection_path = request.referer
     notice = check_answer(answer)
     if answer.save!
-      redirect_to @redirection_path, notice: notice, status: :created
+      redirect_to @redirection_path, notice: notice
     else
       redirect_to @redirection_path, error: t("answer.save.error")
     end
