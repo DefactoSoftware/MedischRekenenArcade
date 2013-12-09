@@ -48,6 +48,14 @@ nl:
     answer_label: "Antwoord"
     skipquestion: "Overslaan"
     helpquestion: "Help!"
+  leaderboards:
+    titles:
+      top: "Top"
+      around_me: "Scores dicht bij mij"
+    table_headers:
+      rank: "Rank"
+      score: "Score"
+      name: "Naam"
   answer:
     correct: "Goedzo! Je score ging omhoog met %{points}"
     wrong: "Helaas was dat niet goed.. :( Je reeks is op 0 gezet. "

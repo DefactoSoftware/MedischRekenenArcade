@@ -48,6 +48,14 @@ en:
     answer_label: "Answer"
     skipquestion: "Skip"
     helpquestion: "Help!"
+  leaderboards:
+    titles:
+      top: "Top"
+      around_me: "Scores around me"
+    table_headers:
+      rank: "Rank"
+      score: "Score"
+      name: "Name"
   answer:
     correct: "Correct! Your score went up by %{points}"
     wrong: "Unfortunately that was not correct :( Your streak was reset. "

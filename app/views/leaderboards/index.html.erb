@@ -1,12 +1,12 @@
 <div class="row">
   <div class="three-column-equal-main">
-    <h2>Top</h2>
+    <h2><%= t("leaderboards.titles.top") %></h2>
     <table class="table">
       <thead>
         <tr>
-          <td>Rank</td>
-          <td>Name</td>
-          <td>Score</td>
+          <td><%= t("leaderboards.table_headers.rank") %></td>
+          <td><%= t("leaderboards.table_headers.name") %></td>
+          <td><%= t("leaderboards.table_headers.score") %></td>
         </tr>
       </thead>
       <% @top_scores.each do |score| %>
@@ -23,9 +23,9 @@
     <table class="table table-striped">
       <thead>
         <tr>
-          <td>Rank</td>
-          <td>Name</td>
-          <td>Score</td>
+          <td><%= t("leaderboards.table_headers.rank") %></td>
+          <td><%= t("leaderboards.table_headers.name") %></td>
+          <td><%= t("leaderboards.table_headers.score") %></td>
         </tr>
       </thead>
       <% @user_group_scores.each do |score| %>
@@ -38,13 +38,13 @@
     </table>
   </div>
   <div class="three-column-equal-main">
-    <h2>Around me</h2>
+    <h2><%= t("leaderboards.titles.around_me") %></h2>
     <table class="table table-striped">
       <thead>
         <tr>
-          <td>Rank</td>
-          <td>Name</td>
-          <td>Score</td>
+          <td><%= t("leaderboards.table_headers.rank") %></td>
+          <td><%= t("leaderboards.table_headers.name") %></td>
+          <td><%= t("leaderboards.table_headers.score") %></td>
         </tr>
       </thead>
       <% @around_me_scores.each do |score| %>
