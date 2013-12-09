@@ -20,4 +20,5 @@ Unit.where(name: "Centigram", sign: "cg", unit_group: grams).first_or_create
 Unit.where(name: "Decigram", sign: "dg", unit_group: grams).first_or_create
 Unit.where(name: "Gram", sign: "g", unit_group: grams).first_or_create
 
-User.where(name: "Marthyn Olthof", username:"Marthyn", password:"Welkom1234", email:"Marthyn@live.nl", confirmed_at: DateTime.now).create
+group = UserGroup.where(name: "NHL").first_or_create
+User.where(name: "Marthyn Olthof", username:"Marthyn", password:"Welkom1234", email:"Marthyn@live.nl", confirmed_at: DateTime.now, user_group: group).create
