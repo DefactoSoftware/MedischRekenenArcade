@@ -7,18 +7,26 @@ module HomeHelper
     end
   end
 
+  def personalized_text(user)
+    if user
+      t("home.standard_text")
+    else
+      t("home.standard_text")
+    end
+  end
+
   def greeting_for_time(time)
     morning_start = Time.gm(DateTime.now.year, DateTime.now.month, DateTime.now.day, 6)
     afternoon_start = Time.gm(DateTime.now.year, DateTime.now.month, DateTime.now.day, 12)
     evening_start = Time.gm(DateTime.now.year, DateTime.now.month, DateTime.now.day, 18)
     if time >= morning_start && time < afternoon_start
-      "Good morning"
+      t("greetings.morning")
     elsif time >= afternoon_start && time < evening_start
-      "Good afternoon"
+      t("greetings.afternoon")
     elsif time >= evening_start
-      "Good evening"
+      t("greetings.evening")
     else
-      "Good night"
+      t("greetings.night")
     end
   end
 end

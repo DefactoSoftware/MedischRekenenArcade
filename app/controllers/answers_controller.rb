@@ -25,7 +25,7 @@ class AnswersController < ApplicationController
       reset_streak
       if session[:damage] && session[:damage] > 6
         session[:damage] = 0
-        @redirection_path = root_url
+        @redirection_path = root_url #will have to be challenge#index later
         t("answer.dead")
       else
         increase_damage
