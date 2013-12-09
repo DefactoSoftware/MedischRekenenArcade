@@ -15,6 +15,10 @@ FactoryGirl.define do
     name { Faker::HipsterIpsum.word }
   end
 
+  factory :problem do
+
+  end
+
 
   factory :user do
     confirmed_at { DateTime.now }
@@ -23,5 +27,10 @@ FactoryGirl.define do
     email { Faker::Internet.email }
     password "welkom1234"
     user_group
+  end
+
+  factory :answer do
+    value { }
+    problem { }
   end
 end

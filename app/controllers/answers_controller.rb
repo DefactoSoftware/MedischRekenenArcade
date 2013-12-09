@@ -1,10 +1,10 @@
 class AnswersController < ApplicationController
   def create
-    answer = Answer.new(answer_parameters)
+    answer = Answer.new(answer_parameters, user: current_user)
     @redirection_path = request.referer
     notice = check_answer(answer)
     if answer.save!
-      redirect_to @redirection_path, notice: notice
+      redirect_to @redirection_path, notice: notice, status: :created
     else
       redirect_to @redirection_path, error: t("answer.save.error")
     end
@@ -43,8 +43,8 @@ class AnswersController < ApplicationController
   end
 
   def decrease_damage
-    if session[:damage] > 0
-      session[:damage] = session[:health].to_i - 1
+    if session[:damage] && session[:damage] > 0
+      session[:damage] = session[:damage].to_i - 1
     end
   end
 
