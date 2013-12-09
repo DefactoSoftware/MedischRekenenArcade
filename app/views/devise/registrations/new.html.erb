@@ -3,7 +3,7 @@
   <div class="three-column-equal-side"></div>
   <div class="three-column-equal-main form-wrapper">
   <h2><%= t("devise.registrations.new_title") %></h2>
-    <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+    <%= form_for(resource, :as => resource_name, :url => user_registration_path) do |f| %>
 
       <div class="form-group">
         <%= f.label :email, t("labels.email") %>
@@ -17,7 +17,7 @@
 
       <div class="form-group">
         <%= f.label :name, t("labels.name") %>
-        <%= f.password_field :name, class: "form-control", placeholder: t("placeholders.name"), required:true %>
+        <%= f.text_field :name, class: "form-control", placeholder: t("placeholders.name"), required:true %>
       </div>
 
       <div class="form-group">
