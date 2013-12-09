@@ -1,9 +1,9 @@
 <% if !devise_error_messages!.empty? %><div id="error" class="dialog"><div class="container"><%= devise_error_messages! %></div></div><% end %>
 <div class="row">
-  <div class="col-lg-4 col-md-4 col-sm-2 col-xs-1"></div>
-  <div class="col-lg-4 col-md-4 col-sm-8 col-xs-8 form-wrapper">
+  <div class="three-column-equal-side"></div>
+  <div class="three-column-equal-main col-xs-8 form-wrapper">
   <h2><%= t("registrations.edit_title") %></h2>
-    <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+    <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put } ) do |f| %>
 
       <div class="form-group">
         <%= f.label :email, t("labels.email") %>
@@ -17,7 +17,7 @@
 
       <div class="form-group">
         <%= f.label :name, t("labels.name") %>
-        <%= f.password_field :name, class: "form-control", placeholder: t("placeholders.name"), required:true, value: resource.name %>
+        <%= f.text_field :name, class: "form-control", placeholder: t("placeholders.name"), required:true, value: resource.name %>
       </div>
 
       <div class="form-group">

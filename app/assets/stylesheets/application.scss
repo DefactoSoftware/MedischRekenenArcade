@@ -1,0 +1,91 @@
+@import "twitter-bootstrap-static/bootstrap";
+@import "flat-ui.scss";
+@import "calculator.scss";
+
+
+// MAIN
+.navbar {
+  margin-bottom:0px;
+  border-radius:0px;
+  box-shadow: 0px 2px 20px rgba(0,0,0,0.3);
+}
+
+.dialog {
+  border-bottom: 2px solid #d6dbdf;
+}
+
+// PRACTICE VIEW
+.highlight {
+  background-color: yellow;
+}
+
+.help {
+  display: none;
+}
+
+.answers {
+  padding:0px 20px 10px 20px;
+}
+
+.dropdown-toggle:hover {
+  cursor: pointer;
+  background-color:#2ecc71;
+  border-color:#2ecc71;
+}
+
+#selectedUnit {
+  background-color:#2ecc71;
+  border-color:#2ecc71;
+  border-bottom-right-radius: 6px;
+  border-top-right-radius: 6px;
+}
+
+.btn-practice  {
+  width: 32%;
+}
+
+.answer_field {
+  font-size: 20px;
+}
+
+#answer_value{
+  font-size:40px;
+  border-color: #2ecc71;
+}
+
+
+//BOOTSTRAP COLUMN OVERRIDES
+.three-column-small {
+  @extend .col-md-2;
+  @extend .col-lg-2;
+  @extend .col-sm-12;
+  @extend .col-xs-12;
+}
+
+.three-column-big {
+  @extend .col-md-8;
+  @extend .col-lg-8;
+  @extend .col-sm-12;
+  @extend .col-xs-12;
+}
+
+.three-column-equal-side {
+  @extend .col-lg-4;
+  @extend .col-md-4;
+  @extend .col-sm-2;
+  @extend .col-xs-2;
+}
+
+.three-column-equal-main {
+  @extend .col-lg-4;
+  @extend .col-md-4;
+  @extend .col-sm-8;
+  @extend .col-xs-8
+}
+
+.two-column-fill {
+  @extend .col-md-6;
+  @extend .col-lg-6;
+  @extend .col-sm-12;
+  @extend .col-xs-12;
+}
