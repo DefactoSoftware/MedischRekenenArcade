@@ -33,4 +33,8 @@
     </div>
     <%= render 'calculator/calculator' %>
   </div>
+  <div class="three-column-small">
+    <h2>Health</h2>
+    <%= session[:damage] ? image_tag("health/#{session[:damage]}.png") : image_tag("health/0.png") %>
+  </div>
 </div>

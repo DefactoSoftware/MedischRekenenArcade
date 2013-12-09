@@ -1,10 +1,12 @@
 class AnswersController < ApplicationController
   def create
     answer = Answer.new(answer_parameters)
+    @redirection_path = request.referer
+    notice = check_answer(answer)
     if answer.save!
-      redirect_to request.referer, notice: check_answer(answer)
+      redirect_to @redirection_path, notice: notice
     else
-      redirect_to request.referer, error: t("answer.save.error")
+      redirect_to @redirection_path, error: t("answer.save.error")
     end
   end
 
@@ -17,10 +19,18 @@ class AnswersController < ApplicationController
     if eval_answer(answer)
       increment_points 2
       increment_streak 1
+      decrease_damage
       t("answer.correct", points: 2)
     else
       reset_streak
-      t("answer.wrong")
+      if session[:damage] && session[:damage] > 6
+        session[:damage] = 0
+        @redirection_path = root_url
+        t("answer.dead")
+      else
+        increase_damage
+        t("answer.wrong")
+      end
     end
   end
 
@@ -30,6 +40,16 @@ class AnswersController < ApplicationController
 
   def reset_streak
     session[:streak] = 0
+  end
+
+  def decrease_damage
+    if session[:damage] > 0
+      session[:damage] = session[:health].to_i - 1
+    end
+  end
+
+  def increase_damage
+    session[:damage] = session[:damage].to_i + 1
   end
 
   def increment_streak(value=1)
