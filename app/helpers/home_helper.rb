@@ -1,4 +1,8 @@
 module HomeHelper
+  MORNING_START = 6
+  AFTERNOON_START = 12
+  EVENING_START = 18
+
   def personalized_welcome(user)
     if user
       "#{greeting_for_time(Time.now)} #{user.name}! "
@@ -16,14 +20,12 @@ module HomeHelper
   end
 
   def greeting_for_time(time)
-    morning_start = Time.gm(DateTime.now.year, DateTime.now.month, DateTime.now.day, 6)
-    afternoon_start = Time.gm(DateTime.now.year, DateTime.now.month, DateTime.now.day, 12)
-    evening_start = Time.gm(DateTime.now.year, DateTime.now.month, DateTime.now.day, 18)
-    if time >= morning_start && time < afternoon_start
+    hour = time.hour
+    if hour.between?(MORNING_START, AFTERNOON_START)
       t("greetings.morning")
-    elsif time >= afternoon_start && time < evening_start
+    elsif hour.between?(AFTERNOON_START, EVENING_START)
       t("greetings.afternoon")
-    elsif time >= evening_start
+    elsif hour >= EVENING_START
       t("greetings.evening")
     else
       t("greetings.night")
