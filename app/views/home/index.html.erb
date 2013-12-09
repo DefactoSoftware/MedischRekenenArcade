@@ -3,8 +3,9 @@
   <div class="three-column-big">
     <div class="info-text">
     <h1><%= personalized_welcome(current_user)%></h1>
-    <h4>Ready to help some patients?</h4>
-    <%= render "calculator/calculator" %>
+    <h4><%= t("home.tag_line") %></h4>
+    <p><%= personalized_text(current_user) %></p>
+
     </div>
   </div>
   <div class="three-column-small"></div>

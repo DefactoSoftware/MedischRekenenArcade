@@ -25,6 +25,14 @@ en:
   streak: "Streak"
   points: "Points"
   session: "Session"
+  greetings:
+    morning: "Good morning"
+    evening: "Good evening"
+    afternoon: "Good afternoon"
+    night: "Good night"
+  home:
+    tag_line: "Ready to help some patients?"
+    standard_text: "Medical arithmetics are a complicated part of the medical profession. To keep up your level you can use this application. Register now and start practising! You can complete challenges and earn badges. You can compete with your friends over who can get the highest score!"
   menu:
     challenges: "Challenges"
     settings: "Settings"
@@ -42,7 +50,8 @@ en:
     helpquestion: "Help!"
   answer:
     correct: "Correct! Your score went up by %{points}"
-    wrong: "Unfortunately that was not correct :( Your streak was reset"
+    wrong: "Unfortunately that was not correct :( Your streak was reset. "
+    dead: "That was incorrenct too, sadly the patient has died. Please try the challenge again"
   placeholders:
     email: "Email"
     username: "Username"

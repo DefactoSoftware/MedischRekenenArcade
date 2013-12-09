@@ -25,6 +25,14 @@ nl:
   streak: "Reeks"
   points: "Punten"
   session: "Sessie"
+  greetings:
+    morning: "Goedemorgen"
+    evening: "Goedenavond"
+    afternoon: "Goedemiddag"
+    night: "Goedenacht"
+  home:
+    tag_line: "Klaar om patienten te helpen?"
+    standard_text: "Medisch rekenen is een lastig onderdeel in de medische wereld. Om je niveau hoog te houden kan je deze applicatie gebruiken. Registreer nu en start met oefenen! Je kan badges en uitdagingen halen. Samen met je vrienden kan je scores bijhouden en strijden om de eer!"
   menu:
     challenges: "Uitdagingen"
     settings: "Instellingen"
@@ -42,7 +50,8 @@ nl:
     helpquestion: "Help!"
   answer:
     correct: "Goedzo! Je score ging omhoog met %{points}"
-    wrong: "Helaas was dat niet goed.. :( Je reeks is op 0 gezet"
+    wrong: "Helaas was dat niet goed.. :( Je reeks is op 0 gezet. "
+    dead: "Dat was helaas ook fout, de patient is overleden. Probeer de uitdaging opnieuw"
   placeholders:
     email: "Email"
     username: "Gebruikersnaam"
