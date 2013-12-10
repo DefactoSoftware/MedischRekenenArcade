@@ -27,7 +27,7 @@ class AnswersController < ApplicationController
     params.require(:answer).permit(:problem_id, :value)
   end
 
-  def handle_practice answer_result
+  def handle_practice(answer_result)
     if answer_result
       @notice = t("answer.correct", points: STANDARD_POINT_AMOUNT)
     else
@@ -36,7 +36,7 @@ class AnswersController < ApplicationController
   end
 
 
-  def distribute_points answer_result
+  def distribute_points(answer_result)
     if answer_result
       increment_points STANDARD_POINT_AMOUNT
       increment_streak STANDARD_STREAK_AMOUNT
@@ -45,7 +45,7 @@ class AnswersController < ApplicationController
     end
   end
 
-  def handle_challenge answer_result
+  def handle_challenge(answer_result)
     challenge = Challenge.find(session[:challenge])
     userchallenge = UserChallenge.where(challenge: challenge, user:current_user).last
     if answer_result
@@ -75,7 +75,7 @@ class AnswersController < ApplicationController
     session.delete(:start)
   end
 
-  def eval_answer answer
+  def eval_answer(answer)
     answer.value.round(2) == Problem.find(answer_parameters[:problem_id]).get_result.round(2)
   end
 
