@@ -91,7 +91,7 @@ var trailing_zero = function(n) {
 
 //Functions to close alerts and notices
 $(document).ready(function() {
-  setTimeout(function () { closeNotices(); closeAlerts(); }, 3000);
+  setTimeout(function () { closeNotices(); closeAlerts(); }, 5000);
 });
 
 var closeNotices = function() {

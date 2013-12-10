@@ -12,6 +12,7 @@ class ChallengesController < ApplicationController
   end
 
   def index
+    reset_challenge
     @challenges = Challenge.all
   end
 
