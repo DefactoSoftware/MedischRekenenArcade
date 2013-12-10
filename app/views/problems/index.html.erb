@@ -1,13 +1,13 @@
 <div class="row">
-  <%= render 'sessions/scores' %>
+  <div class="three-column-small">
+    <%= render 'sessions/scores' %>
+  </div>
   <div class="three-column-big answers">
     <h1><%= t("practice.header") %></h1>
-
     <%= render 'problem', problem: @problem %>
     <%= render 'calculator/calculator' %>
   </div>
   <div class="three-column-small">
-    <h2>Health</h2>
-    <%= session[:damage] && session[:damage] > 0 ? image_tag("health/#{session[:damage]}.png") : image_tag("health/0.png") %>
+
   </div>
 </div>

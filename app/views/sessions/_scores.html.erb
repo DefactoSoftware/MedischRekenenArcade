@@ -1,17 +1,17 @@
-<div class="three-column-small">
-  <h1>Scores</h1>
-  <table class="table table-striped">
-    <tr>
-      <td><%= t("total") %></td>
-      <td id="total_points"><%= current_user.get_points %></td>
-    </tr>
-    <tr>
-      <td><%= t("session") %></td>
-      <td id="session_points"><%= current_user.get_points %></td>
-    </tr>
-    <tr>
-      <td><%= t("streak") %></td>
-      <td id="streak_points"><%= session[:streak] %></td>
-    </tr>
-  </table>
-</div>
+
+<h1>Scores</h1>
+<table class="table table-striped">
+  <tr>
+    <td><%= t("total") %></td>
+    <td id="total_points"><%= current_user.get_points %></td>
+  </tr>
+  <tr>
+    <td><%= t("session") %></td>
+    <td id="session_points"><%= current_user.get_points %></td>
+  </tr>
+  <tr>
+    <td><%= t("streak") %></td>
+    <td id="streak_points"><%= session[:streak] %></td>
+  </tr>
+</table>
+
