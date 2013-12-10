@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131210100052) do
+ActiveRecord::Schema.define(version: 20131210130204) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -106,8 +106,8 @@ ActiveRecord::Schema.define(version: 20131210100052) do
     t.integer  "user_id"
     t.integer  "challenge_id"
     t.boolean  "success"
-    t.integer  "amount_fail"
-    t.integer  "amount_good"
+    t.integer  "amount_fail",  default: 0
+    t.integer  "amount_good",  default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
