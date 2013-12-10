@@ -70,8 +70,9 @@ class AnswersController < ApplicationController
 
   def reset_challenge
     @redirection_path = challenges_path
-    session[:damage] = 0
+    session.delete(:damage)
     session.delete(:challenge)
+    session.delete(:start)
   end
 
   def eval_answer answer

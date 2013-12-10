@@ -30,7 +30,16 @@ FactoryGirl.define do
   end
 
   factory :answer do
-    value { }
-    problem { }
+    value { 1 }
+    problem
   end
+
+  factory :challenge do
+    number_of_problems { 5 }
+    name { Faker::HipsterIpsum.word }
+    timelimit { 9000000 }
+    bonus { 20 }
+    icon { "google.com/images/srpr/logo11w.png" }
+  end
+
 end

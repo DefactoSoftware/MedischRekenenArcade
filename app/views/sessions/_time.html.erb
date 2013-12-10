@@ -1,2 +1,5 @@
-<h2>Time</h2>
-<%= DateTime.now - session[:start] %>
+<div class="time">
+  <h2>Time left</h2>
+  <p><span id='time_left'><%= @minutes%>:<%=@seconds%></span></p>
+</div>
+

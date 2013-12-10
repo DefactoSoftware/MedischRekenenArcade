@@ -61,6 +61,34 @@ $("#answer_value").ready(function() {
   $("#answer_value").focus()
 })
 
+$("#time_left").ready(function reload_time() {
+    var time=$("#time_left").html();
+    var minutes = time.split(":")[0];
+    var seconds = time.split(":")[1];
+    if(seconds > 0) {
+      seconds--;
+    }
+    else if(seconds <= 0 && minutes > 0) {
+      seconds = 60;
+      minutes--;
+    }
+    else {
+      window.alert("Time is up!");
+      location.reload();
+    }
+    $("#time_left").html(trailing_zero(minutes)+":"+trailing_zero(seconds))
+    setTimeout(reload_time, 1000);
+})
+
+var trailing_zero = function(n) {
+  if (n.length < 2) {
+    return "0"+n;
+  }
+  else {
+    return n;
+  }
+}
+
 //Functions to close alerts and notices
 $(document).ready(function() {
   setTimeout(function () { closeNotices(); closeAlerts(); }, 3000);
