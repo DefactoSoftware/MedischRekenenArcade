@@ -15,7 +15,7 @@ describe AnswersController do
       sign_in user.reload
     end
 
-    it "returns a 201 created status" do
+    it "redirects the user" do
       post :create, answer: badanswer
       expect(response.status).to eq(302)
     end
@@ -45,7 +45,7 @@ describe AnswersController do
       sign_in user.reload
     end
 
-    it "returns a 201 created status" do
+    it "redirects the user" do
       post :create, answer: goodanswer
       expect(response.status).to eq(302)
     end
