@@ -40,6 +40,12 @@ class User < ActiveRecord::Base
   has_many :inverse_friendships, :class_name => "Friendship", :foreign_key => "friend_id"
   has_many :inverse_friends, :through => :inverse_friendships, :source => :user
 
+
+  after_create :init_redis
+
+  has_many :user_challenges
+  has_many :challenges, through: :user_challenges
+
   def get_points
     points = Point.where(user: self).to_a
     total = 0
@@ -51,5 +57,9 @@ class User < ActiveRecord::Base
       end
     end
     total
+  end
+
+  def init_redis
+    RedisLeaderboard.get.rank_member(self.id, 0)
   end
 end

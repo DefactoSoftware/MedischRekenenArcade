@@ -12,4 +12,6 @@ MedischRekenenArcade::Application.routes.draw do
   get 'practice', to: 'problems#index'
 
   resources :answers, only: [:create]
+
+  resources :challenges, only: [:index, :show]
 end

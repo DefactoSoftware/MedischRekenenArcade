@@ -45,14 +45,6 @@ class Problem < ActiveRecord::Base
     eval(formula)
   end
 
-  def get_formula
-    if formula.nil?
-      "#{steps.last.value1} #{steps.last.symbol} #{steps.last.value2}"
-    else
-      "(#{formula}) #{steps.last.symbol} #{steps.last.value2}"
-    end
-  end
-
   def self.generate_random(steps)
     problem = self.create
     steps.times do
@@ -61,19 +53,36 @@ class Problem < ActiveRecord::Base
         (problem.steps.last ? problem.steps.last.get_result : Float(rand(1...100)) ),
         Float(rand(1...100))
       )
-      problem.update_attributes(formula: problem.get_formula)
     end
-    problem
+    problem.generate_theory_and_formula!
   end
 
   def self.generate_random_with_skills(difficulty, skills)
     problem = self.create
     difficulty.times do
+      last_step = problem.steps.last
       problem.add_step(
-        skills[rand(0...skills.count-1)],
-        Variable.create(value: problem.steps.last.get_result),
-        Variable.create(value: rand(1...100))
+        skills[rand(0..skills.count-1)],
+        Float(rand(1..100)),
+        Float(rand(1..100))
       )
     end
+    problem.generate_theory_and_formula!
+  end
+
+  def generate_theory_and_formula!
+    theory = "Give the result of the following: "
+    formula = ""
+    steps.each do |step|
+      if formula.empty?
+        formula = "#{step.formula}"
+        theory = theory + "#{step.formula}"
+      else
+        formula = "#{formula}#{step.symbol}#{step.formula}"
+        theory = "#{theory} #{step.symbol} #{step.formula}"
+      end
+    end
+    self.update_attributes(theory: theory, formula:formula, unit: Unit.where(name: "Drops").first)
+    self
   end
 end

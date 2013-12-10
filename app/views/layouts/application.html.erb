@@ -25,7 +25,7 @@
             <li><%= link_to leaderboards_path do %><%= t("menu.leaderboards") %><% end %></li>
           </ul>
         </li>
-        <li><a href="#"><%= t("menu.challenges") %></a></li>
+        <li><%= link_to challenges_path do %><%= t("menu.challenges") %><% end %></li>
         <li><%= link_to practice_path do %><%= t("menu.practice") %><% end %></li>
         <li><%= link_to destroy_user_session_path, id:"menu_logout", :method => :delete do %><%= t("menu.logout")%><% end %></li>
       <% else %>

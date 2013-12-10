@@ -15,6 +15,10 @@ FactoryGirl.define do
     name { Faker::HipsterIpsum.word }
   end
 
+  factory :problem do
+
+  end
+
 
   factory :user do
     confirmed_at { DateTime.now }
@@ -24,4 +28,18 @@ FactoryGirl.define do
     password "welkom1234"
     user_group
   end
+
+  factory :answer do
+    value { 1 }
+    problem
+  end
+
+  factory :challenge do
+    number_of_problems { 5 }
+    name { Faker::HipsterIpsum.word }
+    timelimit { 9000000 }
+    bonus { 20 }
+    icon { "google.com/images/srpr/logo11w.png" }
+  end
+
 end

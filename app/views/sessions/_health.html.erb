@@ -1,0 +1,4 @@
+<div class="health">
+  <h2>Health</h2>
+  <p><%= session[:damage] && session[:damage] > 0 ? image_tag("health/#{session[:damage]}.png") : image_tag("health/0.png") %></p>
+</div>

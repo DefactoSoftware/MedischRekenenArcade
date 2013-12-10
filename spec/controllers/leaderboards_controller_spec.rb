@@ -36,8 +36,8 @@ describe LeaderboardsController do
 
       expect(assigns(:user_group_scores)).to be_an_instance_of(Array)
       expect(assigns(:user_group_scores).length).to eq(2)
-      expect(assigns(:user_group_scores)[0][:score]).to eq(random_score1)
-      expect(assigns(:user_group_scores)[1][:score]).to eq(random_score2)
+      expect(assigns(:user_group_scores)[0][:score]).to eq(random_score2)
+      expect(assigns(:user_group_scores)[1][:score]).to eq(random_score1)
     end
 
     it "returns a 200 code when logged in" do
