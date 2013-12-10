@@ -1,10 +1,22 @@
 class AnswersController < ApplicationController
+  STANDARD_POINT_AMOUNT = 1
+  STANDARD_STREAK_AMOUNT = 1
+
   def create
     answer = Answer.new(answer_parameters, user: current_user)
     @redirection_path = request.referer
-    notice = check_answer(answer)
+    answer_result = eval_answer(answer)
+
+    if session[:challenge]
+      handle_challenge answer_result
+    else
+      handle_practice answer_result
+    end
+
+    distribute_points answer_result
+
     if answer.save!
-      redirect_to @redirection_path, notice: notice
+      redirect_to @redirection_path, notice: @notice
     else
       redirect_to @redirection_path, error: t("answer.save.error")
     end
@@ -15,23 +27,51 @@ class AnswersController < ApplicationController
     params.require(:answer).permit(:problem_id, :value)
   end
 
-  def check_answer answer
-    if eval_answer(answer)
-      increment_points 2
-      increment_streak 1
-      decrease_damage
-      t("answer.correct", points: 2)
+  def handle_practice answer_result
+    if answer_result
+      @notice = t("answer.correct", points: STANDARD_POINT_AMOUNT)
+    else
+      @notice = t("answer.wrong")
+    end
+  end
+
+
+  def distribute_points answer_result
+    if answer_result
+      increment_points STANDARD_POINT_AMOUNT
+      increment_streak STANDARD_STREAK_AMOUNT
     else
       reset_streak
+    end
+  end
+
+  def handle_challenge answer_result
+    challenge = Challenge.find(session[:challenge])
+    userchallenge = UserChallenge.where(challenge: challenge, user:current_user).last
+    if answer_result
+      userchallenge.update_attributes(amount_good: userchallenge.amount_good + 1)
+      @notice = t("answer.correct", points: STANDARD_POINT_AMOUNT)
+      if userchallenge.amount_good == challenge.number_of_problems
+        userchallenge.update_attributes(success: true)
+        reset_challenge
+      end
+    else
+      userchallenge.update_attributes(amount_fail: userchallenge.amount_fail + 1)
       if session[:damage] && session[:damage] > 6
-        session[:damage] = 0
-        @redirection_path = root_url #will have to be challenge#index later
-        t("answer.dead")
+        @notice = t("answer.dead")
+        userchallenge.update_attributes(success: false)
+        reset_challenge
       else
+        @notice = t("answer.wrong")
         increase_damage
-        t("answer.wrong")
       end
     end
+  end
+
+  def reset_challenge
+    @redirection_path = challenges_path
+    session[:damage] = 0
+    session.delete(:challenge)
   end
 
   def eval_answer answer
