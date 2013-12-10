@@ -54,7 +54,7 @@ class Problem < ActiveRecord::Base
         Float(rand(1...100))
       )
     end
-    problem.generate_theory_and_formula
+    problem.generate_theory_and_formula!
   end
 
   def self.generate_random_with_skills(difficulty, skills)
@@ -67,10 +67,10 @@ class Problem < ActiveRecord::Base
         Float(rand(1..100))
       )
     end
-    problem.generate_theory_and_formula
+    problem.generate_theory_and_formula!
   end
 
-  def generate_theory_and_formula
+  def generate_theory_and_formula!
     theory = "Give the result of the following: "
     formula = ""
     steps.each do |step|
