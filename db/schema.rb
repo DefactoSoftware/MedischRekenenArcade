@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131129131920) do
+ActiveRecord::Schema.define(version: 20131210100052) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,25 @@ ActiveRecord::Schema.define(version: 20131129131920) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "challenge_skills", force: true do |t|
+    t.integer  "skill_id"
+    t.integer  "challenge_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "challenges", force: true do |t|
+    t.integer  "number_of_problems"
+    t.string   "name"
+    t.integer  "timelimit"
+    t.integer  "bonus"
+    t.string   "icon"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "challenges", ["name"], name: "index_challenges_on_name", unique: true, using: :btree
 
   create_table "friendships", force: true do |t|
     t.integer  "user_id"
@@ -82,6 +101,16 @@ ActiveRecord::Schema.define(version: 20131129131920) do
   end
 
   add_index "units", ["name"], name: "index_units_on_name", unique: true, using: :btree
+
+  create_table "user_challenges", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "challenge_id"
+    t.boolean  "success"
+    t.integer  "amount_fail"
+    t.integer  "amount_good"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "user_groups", force: true do |t|
     t.string   "name"
