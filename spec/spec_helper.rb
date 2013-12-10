@@ -47,6 +47,7 @@ RSpec.configure do |config|
 
   config.after(:each) do
     DatabaseCleaner.clean
+    RedisLeaderboard.get.delete_leaderboard
   end
 
   config.include Devise::TestHelpers, type: :controller

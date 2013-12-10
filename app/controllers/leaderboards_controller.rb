@@ -4,7 +4,7 @@ class LeaderboardsController < ApplicationController
   def index
     highscore_lb = RedisLeaderboard.get
     @top_scores = highscore_lb.leaders(10)
-    @user_group_scores = highscore_lb.ranked_in_list(user_group_users, sort_option: :score)
+    @user_group_scores = highscore_lb.ranked_in_list(user_group_users, sort_by: :rank)
     @around_me_scores = highscore_lb.around_me(current_user.id)
   end
 
