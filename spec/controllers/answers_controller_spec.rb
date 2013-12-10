@@ -25,11 +25,6 @@ describe AnswersController do
       expect(session[:streak]).to be(0)
     end
 
-    it "increments damage on bad answer" do
-      post :create, answer: badanswer
-      expect(session[:damage]).to eq(1)
-    end
-
     it "score does not go up on bad answer" do
       expect {
          post :create, answer: badanswer
@@ -63,7 +58,7 @@ describe AnswersController do
     it "score goes up on good answer" do
       expect {
          post :create, answer: goodanswer
-      }.to change(user, :get_points).by(2)
+      }.to change(user, :get_points).by(1)
     end
   end
 
