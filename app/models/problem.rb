@@ -53,9 +53,8 @@ class Problem < ActiveRecord::Base
         (problem.steps.last ? problem.steps.last.get_result : Float(rand(1...100)) ),
         Float(rand(1...100))
       )
-      problem.update_attributes(formula: problem.get_formula)
     end
-    problem
+    problem.generate_theory_and_formula
   end
 
   def self.generate_random_with_skills(difficulty, skills)
@@ -68,9 +67,13 @@ class Problem < ActiveRecord::Base
         Float(rand(1..100))
       )
     end
+    problem.generate_theory_and_formula
+  end
+
+  def generate_theory_and_formula
     theory = "Give the result of the following: "
     formula = ""
-    problem.steps.each do |step|
+    steps.each do |step|
       if formula.empty?
         formula = "#{step.formula}"
         theory = theory + "#{step.formula}"
@@ -79,7 +82,7 @@ class Problem < ActiveRecord::Base
         theory = "#{theory} #{step.symbol} #{step.formula}"
       end
     end
-    problem.update_attributes(theory: theory, formula:formula, unit: Unit.where(name: "Drops").first)
-    problem
+    self.update_attributes(theory: theory, formula:formula, unit: Unit.where(name: "Drops").first)
+    self
   end
 end
