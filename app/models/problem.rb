@@ -42,7 +42,7 @@ class Problem < ActiveRecord::Base
   end
 
   def get_result
-    eval(formula)
+    eval(get_formula)
   end
 
   def get_formula
@@ -70,10 +70,12 @@ class Problem < ActiveRecord::Base
     problem = self.create
     difficulty.times do
       problem.add_step(
-        skills[rand(0...skills.count-1)],
-        Variable.create(value: problem.steps.last.get_result),
-        Variable.create(value: rand(1...100))
+        skills[rand(0..skills.count-1)],
+        Float(problem.steps.count >0 ? problem.steps.last.get_result : rand(1..100)),
+        Float(rand(1..100))
       )
     end
+    problem.update_attributes(theory: "Give the result of the following #{problem.get_formula}", unit: Unit.where(name: "Drops").first)
+    problem
   end
 end

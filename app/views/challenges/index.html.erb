@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="three-column-small"></div>
+  <div class="three-column-big"><h1>Challenges</h1></div>
+</div>
+<div class="row">
+  <div class="three-column-small"></div>
+  <div class="three-column-big">
+    <div id="challenges_block">
+      <% @challenges.each do |challenge| %>
+        <div class="col-sm-6 col-md-3 col-lg-2 thumbnail-col">
+          <div class="thumbnail">
+            <%= link_to challenge_path(challenge.name), class:"thumb-link" do %>
+              <div class="image" style="background-image:url(<%= challenge.icon %>)"></div>
+              <div class="caption">
+                <div class="inner">
+                  <h2><%= challenge.name %></h2>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

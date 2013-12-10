@@ -53,6 +53,88 @@
   border-color: #2ecc71;
 }
 
+// CHALLENGE VIEW
+#challenges_block {
+  padding: 8px;
+}
+#challenges_block .thumbnail-col {
+  padding: 8px;
+}
+#challenges_block .thumbnail {
+  position: relative;
+  display: block;
+  border: 1px solid #dddddd;
+  border: 1px solid #d8d8d8;
+  border-radius: 3px;
+  background: #fff;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+}
+#challenges_block a.thumbnail:hover,
+#challenges_block a.thumbnail:focus {
+  border-color: #16a085;
+}
+#challenges_block .thumbnail > a {
+  position: relative;
+  display: block;
+  margin: 0px;
+}
+
+#challenges_block .thumbnail .image {
+  position: relative;
+  /*padding-top: 56.25%; /* 16:9 = 9px/16px = 0.5625 */
+  padding-top: 70%;
+  background-position: center;
+  opacity: .8;
+  -webkit-background-size: cover;
+     -moz-background-size: cover;
+       -o-background-size: cover;
+          background-size: cover;
+  -webkit-transition: opacity .3s;
+     -moz-transition: opacity .3s;
+          transition: opacity .3s;
+}
+#challenges_block .thumbnail > a:hover .image {
+  opacity: 1;
+}
+
+#challenges_block .thumbnail .caption {
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  color: white;
+}
+#challenges_block .thumbnail .caption .inner {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  color: #eee;
+  -webkit-transition: color .3s, bottom .3s;
+     -moz-transition: color .3s, bottom .3s;
+          transition: color .3s, bottom .3s;
+}
+
+#challenges_block .thumbnail > a:hover .caption .inner {
+  color: #fff;
+}
+#challenges_block .thumbnail h2 {
+  margin: 0;
+  padding: 5px;
+  font: 100 20px/23px 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  background: rgba(0,0,0,.5);
+  /*
+  letter-spacing: -1px;
+  background: #000;
+  background: rgba(0, 0, 0, 0.7);
+  -webkit-transition: all 0.2s ease-in-out;
+     -moz-transition: all 0.2s ease-in-out;
+          transition: all 0.2s ease-in-out;
+  */
+}
+
 
 //BOOTSTRAP COLUMN OVERRIDES
 .three-column-small {
