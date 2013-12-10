@@ -15,5 +15,8 @@
 require 'spec_helper'
 
 describe Challenge do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe "Associations" do
+    it { should have_many :skills }
+    it { should have_many :challenge_skills }
+  end
 end
