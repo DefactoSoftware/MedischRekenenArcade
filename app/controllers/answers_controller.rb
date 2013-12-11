@@ -52,6 +52,9 @@ class AnswersController < ApplicationController
       userchallenge.update_attributes(amount_good: userchallenge.amount_good + 1)
       @notice = t("answer.correct", points: STANDARD_POINT_AMOUNT)
       if userchallenge.amount_good == challenge.number_of_problems
+        @notice = t("challenge.finished", bonus: challenge.bonus)
+        give_bonus challenge.bonus
+        @redirection_path = challenges_path
         userchallenge.update_attributes(success: true)
         reset_challenge
       end
@@ -60,6 +63,7 @@ class AnswersController < ApplicationController
       if session[:damage] && session[:damage] > 6
         @notice = t("answer.dead")
         userchallenge.update_attributes(success: false)
+        @redirection_path = challenges_path
         reset_challenge
       else
         @notice = t("answer.wrong")
@@ -68,11 +72,8 @@ class AnswersController < ApplicationController
     end
   end
 
-  def reset_challenge
-    @redirection_path = challenges_path
-    session.delete(:damage)
-    session.delete(:challenge)
-    session.delete(:start)
+  def give_bonus(value)
+    Point.increase(value, current_user)
   end
 
   def eval_answer(answer)
