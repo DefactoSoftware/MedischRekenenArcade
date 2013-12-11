@@ -60,6 +60,11 @@ nl:
     correct: "Goedzo! Je score ging omhoog met %{points}"
     wrong: "Helaas was dat niet goed.. :( Je reeks is op 0 gezet. "
     dead: "Dat was helaas ook fout, de patient is overleden. Probeer de uitdaging opnieuw"
+  challenge:
+    finished: "Geweldig! Je hebt de uitdaging gehaald! Je hebt een bonus gekregen van %{bonus} punten"
+    start: "Je kan nu beginnen met de uitdaging. Let op, je mag maar 6 fouten maken!"
+    time_is_up: "Tijd is voorbij, probeer het nog eens"
+    title: "Uitdagingen"
   placeholders:
     email: "Email"
     username: "Gebruikersnaam"
