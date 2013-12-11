@@ -1,10 +1,15 @@
 class AnswersController < ApplicationController
+  before_action :authenticate_user!
+
   STANDARD_POINT_AMOUNT = 1
   STANDARD_STREAK_AMOUNT = 1
 
   def create
-    answer = Answer.new(answer_parameters, user: current_user)
     @redirection_path = request.referer
+
+    answer = Answer.new(answer_parameters)
+    answer.user = current_user
+
     answer_result = eval_answer(answer)
 
     if session[:challenge]
