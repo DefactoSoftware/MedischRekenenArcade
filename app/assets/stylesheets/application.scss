@@ -3,6 +3,33 @@
 @import "calculator.scss";
 
 
+// ERROR PAGES
+.error_page {
+  background-color: #edeff1;
+  color: #2E2F30;
+  text-align: center;
+  font-family: arial, sans-serif;
+}
+
+
+.error_page h1 {
+  font-size: 60px;
+  color: #bdc3c7;
+  line-height: 1.5em;
+}
+
+.error_page h2 {
+  font-size: 30px;
+  color: #bdc3c7;
+  line-height: 1.5em;
+}
+
+.error_page button {
+  margin-left:5px;
+  background-color: #3498db;
+}
+
+
 // MAIN
 .grey_block {
   background-color: #edeff1;
