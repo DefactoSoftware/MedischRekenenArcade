@@ -25,7 +25,7 @@ class Point < ActiveRecord::Base
     create(amount:value*-1, user: user)
   end
 
-  def update_leaderboard(amount)
+  def update_leaderboard
     highscore_lb = RedisLeaderboard.get
     new_score = highscore_lb.score_for(user_id) + amount
     highscore_lb.rank_member(user_id, new_score)
