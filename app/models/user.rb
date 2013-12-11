@@ -46,17 +46,8 @@ class User < ActiveRecord::Base
   has_many :user_challenges
   has_many :challenges, through: :user_challenges
 
-  def get_points
-    points = Point.where(user: self).to_a
-    total = 0
-    points.each do |p|
-      if p.decrease
-        total = total - p.amount
-      else
-        total = total + p.amount
-      end
-    end
-    total
+  def total_points
+    points.reduce(0) { |sum, p|  sum += p.amount }
   end
 
   def init_redis
