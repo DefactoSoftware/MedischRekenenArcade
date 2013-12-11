@@ -98,6 +98,10 @@ class AnswersController < ApplicationController
   end
 
   def increment_points(value=1)
-    Point.create(user: current_user, amount: value)
+    Point.increase(value, current_user)
+  end
+
+  def decrement_points(value=1)
+    Point.decrease(value, current_user)
   end
 end

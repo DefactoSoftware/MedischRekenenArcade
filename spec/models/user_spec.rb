@@ -43,9 +43,9 @@ describe User do
 
   it "should accumulate points" do
     user = User.create(email: "test@example.com", username: "test", password: "test1234")
-    Point.create(user: user, amount: 6)
-    Point.create(user: user, amount: 3, decrease:true)
-    Point.create(user: user, amount: 9)
-    expect(user.get_points).to eq(12)
+    user.points << Point.new(amount: 6)
+    user.points << Point.new(amount: -3)
+    user.points << Point.new(amount: 9)
+    expect(user.total_points).to eq(12)
   end
 end
