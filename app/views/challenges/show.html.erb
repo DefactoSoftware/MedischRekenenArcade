@@ -8,6 +8,8 @@
   </div>
   <div class="three-column-small">
     <%= render 'sessions/health' %>
-    <%= render 'sessions/time' %>
+    <% if @challenge.timelimit %>
+      <%= render 'sessions/time' %>
+    <% end %>
   </div>
 </div>
