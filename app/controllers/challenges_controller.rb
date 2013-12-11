@@ -1,4 +1,5 @@
 class ChallengesController < ApplicationController
+  before_action :authenticate_user!
   def show
     @challenge = Challenge.where(name: params[:id]).first
     if !session[:challenge]
