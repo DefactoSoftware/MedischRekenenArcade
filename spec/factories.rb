@@ -48,4 +48,8 @@ FactoryGirl.define do
     amount_fail { 0 }
   end
 
+  factory :challenge_skill do
+    challenge
+    skill
+  end
 end
