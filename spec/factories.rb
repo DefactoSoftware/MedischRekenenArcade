@@ -19,7 +19,6 @@ FactoryGirl.define do
 
   end
 
-
   factory :user do
     confirmed_at { DateTime.now }
     name { Faker::HipsterIpsum.name }
@@ -40,6 +39,13 @@ FactoryGirl.define do
     timelimit { 9000000 }
     bonus { 20 }
     icon { "google.com/images/srpr/logo11w.png" }
+  end
+
+  factory :user_challenge do
+    user
+    challenge
+    amount_good { 0 }
+    amount_fail { 0 }
   end
 
 end
