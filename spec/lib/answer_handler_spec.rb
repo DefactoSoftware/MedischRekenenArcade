@@ -7,13 +7,13 @@ describe AnswerHandler do
   let(:user) { User.new(name: "marthyn", email:"marthyn@live.nl") }
   let(:challenge) { Challenge.new(number_of_problems: 5, name:"challenge") }
   let(:user_challenge) { UserChallenge.new(challenge:challenge, user:user) }
-  let(:practicehandler_good) { PracticeSession.new(true, {}, user) }
-  let(:practicehandler_bad) { PracticeSession.new(false, {}, user) }
-  let(:challenge_handler_good) { ChallengeSession.new(true, {challenge: challenge.id}, user, user_challenge)}
-  let(:challenge_handler_dead) { ChallengeSession.new(false, {challenge: challenge.id, damage: ChallengeSession::STANDARD_DEATH_CEILING+1}, user, user_challenge) }
-  let(:challenge_handler_wrong) { ChallengeSession.new(false, {challenge: challenge.id}, user, user_challenge) }
+  let(:practicehandler_good) { PracticeAnswerHandler.new(true, {}, user) }
+  let(:practicehandler_bad) { PracticeAnswerHandler.new(false, {}, user) }
+  let(:challenge_handler_good) { ChallengeAnswerHandler.new(true, { challenge: challenge.id}, user, user_challenge)}
+  let(:challenge_handler_dead) { ChallengeAnswerHandler.new(false, { challenge: challenge.id, damage: ChallengeAnswerHandler::STANDARD_DEATH_CEILING + 1 }, user, user_challenge) }
+  let(:challenge_handler_wrong) { ChallengeAnswerHandler.new(false, { challenge: challenge.id}, user, user_challenge) }
 
-  describe ChallengeSession do
+  describe ChallengeAnswerHandler do
     it "should be dead when damage is higher than STANDARD_DEATH_CEILING" do
       expect(challenge_handler_dead.is_dead).to be(true)
     end
@@ -29,7 +29,7 @@ describe AnswerHandler do
     it "should return challenge finished as notice" do
       #setting amount good to number needed -1 so that adding a good answer will trigger finished
       user_challenge.update_attributes(amount_good: challenge.number_of_problems-1)
-      challenge_handler_good = ChallengeSession.new(true, {challenge: challenge.id}, user, user_challenge)
+      challenge_handler_good = ChallengeAnswerHandler.new(true, {challenge: challenge.id}, user, user_challenge)
       expect(challenge_handler_good.get_notice).to eq(I18n.t("challenge.finished", bonus: challenge.bonus))
     end
 
@@ -54,9 +54,9 @@ describe AnswerHandler do
     end
   end
 
-  describe PracticeSession do
+  describe PracticeAnswerHandler do
     it "should return answer is correct notice on good answer" do
-      expect(practicehandler_good.get_notice).to eq(I18n.t("answer.correct", points: PracticeSession::STANDARD_POINT_AMOUNT))
+      expect(practicehandler_good.get_notice).to eq(I18n.t("answer.correct", points: AnswerHandler::STANDARD_POINT_AMOUNT))
     end
 
     it "should return answer is wrong notice on bad answer" do
