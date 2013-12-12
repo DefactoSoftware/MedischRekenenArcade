@@ -20,23 +20,24 @@
 
 
 //Functions for making answering view interactive
-$(document).ready(function() {
+$(".unit_select").ready(function() {
   $(".unit_select").on("click", function(element){
-    console.log($(element.target)[0]);
     $("#selectedUnit").html($(element.target)[0].dataset.sign);
   });
   //select first unit
-  $(".unit_select")[0].click();
+  if($(".unit_select").length > 0) {
+    $(".unit_select")[0].click();
+  }
 })
 
-$(document).ready(function() {
+$("#skipQuestion").ready(function() {
   $("#skipQuestion").on("click", function(e) {
     event.preventDefault();
     location.reload();
   });
 });
 
-$(document).ready(function() {
+$("#helpQuestion").ready(function() {
   $("#helpQuestion").on("click", function(e) {
     event.preventDefault();
     elements = $(".help");
@@ -45,9 +46,10 @@ $(document).ready(function() {
       $(elements[i]).toggle()
     }
   })
-})
+});
 
-$(document).ready(function() {
+$("#answer_value").ready(function() {
+  $("#answer_value").focus()
   $("#answer_value").on("keypress", function(e){
     var code = e.keyCode || e.which;
     if(code == 13) {
@@ -57,11 +59,8 @@ $(document).ready(function() {
   })
 });
 
-$("#answer_value").ready(function() {
-  $("#answer_value").focus()
-})
-
 $("#time_left").ready(function reload_time() {
+  if($("#time_left").length > 0) {
     var time=$("#time_left").html();
     var minutes = time.split(":")[0];
     var seconds = time.split(":")[1];
@@ -78,7 +77,8 @@ $("#time_left").ready(function reload_time() {
     }
     $("#time_left").html(trailing_zero(minutes)+":"+trailing_zero(seconds))
     setTimeout(reload_time, 1000);
-})
+  }
+});
 
 var trailing_zero = function(n) {
   if (n.length < 2) {
@@ -127,7 +127,9 @@ var color_vars = function(element) {
 };
 
 $(document).ready(function() {
-  color_vars($("#theory"));
+  if($("#theory").lenght > 0) {
+    color_vars($("#theory"));
+  }
 });
 
 function hasNumbers(t) {
