@@ -6,7 +6,7 @@ class AnswersController < ApplicationController
     answer.user = current_user
 
     if session[:challenge]
-      handler = ChallengeSession.new(eval_answer(answer), session, current_user)
+      handler = ChallengeSession.new(eval_answer(answer), session, current_user, UserChallenge.where(challenge: Challenge.find(session[:challenge]), user: current_user).last)
     else
       handler = PracticeSession.new(eval_answer(answer), session, current_user)
     end
