@@ -2,7 +2,7 @@ require 'spec_helper'
 require 'support/devise'
 
 describe AnswerHandler do
-  let(:user) { User.create(name: "marthyn", email:"marthyn@live.nl") }
+  let(:user) { User.new(name: "marthyn", email:"marthyn@live.nl") }
   let(:challenge) { Challenge.new(number_of_problems: 5, name:"challenge") }
   let(:user_challenge) { UserChallenge.new(challenge:challenge, user:user) }
   let(:practicehandler_good) { PracticeSession.new(true, {}, user) }
