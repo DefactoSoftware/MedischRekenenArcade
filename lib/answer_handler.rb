@@ -1,42 +1,46 @@
 class AnswerHandler
+  attr_reader :session, :user, :answer_is_correct
+
   STANDARD_POINT_AMOUNT = 1
   STANDARD_STREAK_AMOUNT = 1
 
   def reset_challenge
-    @session.delete(:damage)
-    @session.delete(:start)
-    @session.delete(:challenge)
+    session.delete(:damage)
+    session.delete(:start)
+    session.delete(:challenge)
   end
 
   def reset_streak
-    @session[:streak] = 0
+    session[:streak] = 0
   end
 
   def decrease_damage
-    if @session[:damage] && @session[:damage] > 0
-      @session[:damage] = @session[:damage].to_i - 1
+    if session[:damage] && session[:damage] > 0
+      session[:damage] = session[:damage].to_i - 1
     end
   end
 
   def increase_damage
-    @session[:damage] = @session[:damage].to_i + 1
+    session[:damage] = session[:damage].to_i + 1
   end
 
   def increase_streak(value)
-    @session[:streak] =  @session[:streak].to_i + value
+    session[:streak] =  session[:streak].to_i + value
   end
 
   def increase_points(value)
-    Point.increase(value, @user)
+    Point.increase(value, user)
   end
 
   def decrease_points(value)
-    Point.decrease(value, @user)
+    Point.decrease(value, user)
   end
 
 end
 
 class ChallengeSession < AnswerHandler
+  attr_reader :finished, :challenge, :user_challenge
+
   STANDARD_DEATH_CEILING = 6
 
   def initialize(answer_is_correct, session, current_user, userchallenge)
@@ -54,11 +58,11 @@ class ChallengeSession < AnswerHandler
   end
 
   def distribute_points_and_damage
-    if @finished
-      increase_points(@challenge.bonus)
+    if finished
+      increase_points(challenge.bonus)
     end
 
-    if @answer_is_correct
+    if answer_is_correct
       increase_points(AnswerHandler::STANDARD_POINT_AMOUNT)
       increase_streak(AnswerHandler::STANDARD_STREAK_AMOUNT)
       decrease_damage
@@ -69,37 +73,37 @@ class ChallengeSession < AnswerHandler
   end
 
   def update_user_challenge
-    if @answer_is_correct
-      @userchallenge.update_attributes(amount_good: @userchallenge.amount_good + 1)
+    if answer_is_correct
+      user_challenge.update_attributes(amount_good: user_challenge.amount_good + 1)
     else
-      @userchallenge.update_attributes(amount_fail: @userchallenge.amount_fail + 1)
+      user_challenge.update_attributes(amount_fail: user_challenge.amount_fail + 1)
     end
 
     if is_dead
-      @userchallenge.update_attributes(success: false)
+      user_challenge.update_attributes(success: false)
     end
 
-    if is_dead || @finished
+    if is_dead || finished
       reset_challenge
     end
   end
 
   def get_path
-    if is_dead || @finished
+    if is_dead || finished
       "/challenges"
     end
   end
 
   def get_notice
-    if @finished
-      return I18n.t("challenge.finished", bonus: @challenge.bonus)
+    if finished
+      return I18n.t("challenge.finished", bonus: challenge.bonus)
     end
 
     if is_dead
       return I18n.t("answer.dead")
     end
 
-    if @answer_is_correct
+    if answer_is_correct
       I18n.t("answer.correct", points: AnswerHandler::STANDARD_POINT_AMOUNT)
     else
       I18n.t("answer.wrong")
@@ -107,8 +111,8 @@ class ChallengeSession < AnswerHandler
   end
 
   def is_dead
-    if !@answer_is_correct
-      @session[:damage] && @session[:damage] > STANDARD_DEATH_CEILING
+    if !answer_is_correct
+      session[:damage] && session[:damage] > STANDARD_DEATH_CEILING
     end
   end
 end
@@ -125,7 +129,7 @@ class PracticeSession < AnswerHandler
   end
 
   def distribute_points
-    if @answer_is_correct
+    if answer_is_correct
       increase_points AnswerHandler::STANDARD_POINT_AMOUNT
       increase_streak AnswerHandler::STANDARD_STREAK_AMOUNT
     else
@@ -138,7 +142,7 @@ class PracticeSession < AnswerHandler
   end
 
   def get_notice
-    if @answer_is_correct
+    if answer_is_correct
       I18n.t("answer.correct", points: AnswerHandler::STANDARD_POINT_AMOUNT)
     else
       I18n.t("answer.wrong")
