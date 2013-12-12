@@ -2,6 +2,12 @@ class AnswerHandler
   STANDARD_POINT_AMOUNT = 1
   STANDARD_STREAK_AMOUNT = 1
 
+  def reset_challenge
+    @session.delete(:damage)
+    @session.delete(:start)
+    @session.delete(:challenge)
+  end
+
   def reset_streak
     @session[:streak] = 0
   end
@@ -80,7 +86,7 @@ class ChallengeSession < AnswerHandler
 
   def get_path
     if is_dead || @finished
-      challenges_path
+      "/challenges"
     end
   end
 
