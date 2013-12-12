@@ -39,7 +39,7 @@ class ChallengeSession < AnswerHandler
     @challenge = Challenge.find(session[:challenge])
     @session = session
     @userchallenge = UserChallenge.where(challenge: @challenge, user: current_user).last
-    @finished = @userchallenge.amount_good == @challenge.number_of_problems
+    @finished = @userchallenge.amount_good + 1  >= @challenge.number_of_problems if @answer_is_correct
   end
 
   def handle
@@ -79,18 +79,18 @@ class ChallengeSession < AnswerHandler
   end
 
   def get_path
-    if @dead || @finished
+    if is_dead || @finished
       challenges_path
     end
   end
 
   def get_notice
     if @finished
-      I18n.t("challenge.finished", bonus: @challenge.bonus)
+      return I18n.t("challenge.finished", bonus: @challenge.bonus)
     end
 
-    if @dead
-      I18n.t("answer.dead")
+    if is_dead
+      return I18n.t("answer.dead")
     end
 
     if @answer_is_correct
