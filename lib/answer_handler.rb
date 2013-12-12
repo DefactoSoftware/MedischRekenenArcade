@@ -46,7 +46,7 @@ class AnswerHandler
   end
 end
 
-class ChallengeSession < AnswerHandler
+class ChallengeAnswerHandler < AnswerHandler
   include Rails.application.routes.url_helpers
 
   attr_reader :finished, :challenge, :user_challenge
@@ -125,7 +125,7 @@ class ChallengeSession < AnswerHandler
   end
 end
 
-class PracticeSession < AnswerHandler
+class PracticeAnswerHandler < AnswerHandler
   def handle
     distribute_points
   end

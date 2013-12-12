@@ -1,14 +1,15 @@
+require 'answer_handler'
+
 class AnswersController < ApplicationController
   before_action :authenticate_user!
-  require 'answer_handler'
   def create
     answer = Answer.new(answer_parameters)
     answer.user = current_user
 
     if session[:challenge]
-      handler = ChallengeSession.new(eval_answer(answer), session, current_user, UserChallenge.where(challenge: Challenge.find(session[:challenge]), user: current_user).last)
+      handler = ChallengeAnswerHandler.new(eval_answer(answer), session, current_user, UserChallenge.where(challenge: Challenge.find(session[:challenge]), user: current_user).last)
     else
-      handler = PracticeSession.new(eval_answer(answer), session, current_user)
+      handler = PracticeAnswerHandler.new(eval_answer(answer), session, current_user)
     end
 
     redirection_path = handler.redirect_path
