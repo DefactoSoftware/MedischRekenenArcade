@@ -42,6 +42,8 @@ class AnswerHandler
     Point.decrease(value, user)
   end
 
+  def get_path
+  end
 end
 
 class ChallengeSession < AnswerHandler
@@ -133,10 +135,6 @@ class PracticeSession < AnswerHandler
     else
       reset_streak
     end
-  end
-
-  def get_path
-
   end
 
   def get_notice
