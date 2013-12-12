@@ -4,6 +4,12 @@ class AnswerHandler
   STANDARD_POINT_AMOUNT = 1
   STANDARD_STREAK_AMOUNT = 1
 
+  def initialize(answer_is_correct, session, current_user)
+    @user = current_user
+    @answer_is_correct = answer_is_correct
+    @session = session
+  end
+
   def reset_challenge
     session.delete(:damage)
     session.delete(:start)
@@ -43,13 +49,11 @@ class ChallengeSession < AnswerHandler
 
   STANDARD_DEATH_CEILING = 6
 
-  def initialize(answer_is_correct, session, current_user, userchallenge)
-    @user=current_user
-    @answer_is_correct = answer_is_correct
-    @challenge = userchallenge.challenge
-    @session = session
-    @userchallenge = userchallenge
-    @finished = @userchallenge.amount_good + 1  >= @challenge.number_of_problems if @answer_is_correct
+  def initialize(answer_is_correct, session, current_user, user_challenge)
+    super(answer_is_correct, session, current_user)
+    @challenge = user_challenge.challenge
+    @user_challenge = user_challenge
+    @finished = user_challenge.amount_good + 1  >= challenge.number_of_problems if answer_is_correct
   end
 
   def handle
@@ -118,12 +122,6 @@ class ChallengeSession < AnswerHandler
 end
 
 class PracticeSession < AnswerHandler
- def initialize(answer_is_correct, session, current_user)
-    @user=current_user
-    @answer_is_correct = answer_is_correct
-    @session = session
-  end
-
   def handle
     distribute_points
   end
