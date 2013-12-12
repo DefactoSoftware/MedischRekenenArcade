@@ -11,7 +11,7 @@ class AnswersController < ApplicationController
       handler = PracticeSession.new(eval_answer(answer), session, current_user)
     end
 
-    redirection_path = handler.get_path
+    redirection_path = handler.redirect_path
     notice = handler.get_notice
     handler.handle
 

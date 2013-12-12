@@ -34,6 +34,22 @@ describe AnswerHandler do
     it "should return answer is correct as notice when answer is wrong" do
       expect(challenge_handler_wrong.get_notice).to eq(I18n.t("answer.wrong"))
     end
+
+    describe "#redirect_path" do
+      describe "when finished" do
+        it "should redirect to /challenges" do
+          expect(challenge_handler_good).to receive(:finished).and_return(true)
+          expect(challenge_handler_good.redirect_path).to eq("/challenges")
+        end
+      end
+
+      describe "when dead" do
+        it "should redirect to /challenges" do
+          expect(challenge_handler_good).to receive(:is_dead).and_return(true)
+          expect(challenge_handler_good.redirect_path).to eq("/challenges")
+        end
+      end
+    end
   end
 
   describe PracticeSession do
@@ -43,6 +59,12 @@ describe AnswerHandler do
 
     it "should return answer is wrong notice on bad answer" do
       expect(practicehandler_bad.get_notice).to eq(I18n.t("answer.wrong"))
+    end
+  end
+
+  describe "#redirect_path" do
+    it "should not redirect anywhere" do
+      expect(practicehandler_good.redirect_path).to eq(nil)
     end
   end
 end
