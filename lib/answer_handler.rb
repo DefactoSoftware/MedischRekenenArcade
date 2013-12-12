@@ -47,6 +47,8 @@ class AnswerHandler
 end
 
 class ChallengeSession < AnswerHandler
+  include Rails.application.routes.url_helpers
+
   attr_reader :finished, :challenge, :user_challenge
 
   STANDARD_DEATH_CEILING = 6
@@ -96,7 +98,7 @@ class ChallengeSession < AnswerHandler
 
   def redirect_path
     if is_dead || finished
-      "/challenges"
+      challenges_path
     end
   end
 

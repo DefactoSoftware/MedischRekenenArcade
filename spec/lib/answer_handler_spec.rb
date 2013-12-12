@@ -2,6 +2,8 @@ require 'spec_helper'
 require 'support/devise'
 
 describe AnswerHandler do
+  include Rails.application.routes.url_helpers
+
   let(:user) { User.new(name: "marthyn", email:"marthyn@live.nl") }
   let(:challenge) { Challenge.new(number_of_problems: 5, name:"challenge") }
   let(:user_challenge) { UserChallenge.new(challenge:challenge, user:user) }
@@ -39,14 +41,14 @@ describe AnswerHandler do
       describe "when finished" do
         it "should redirect to /challenges" do
           expect(challenge_handler_good).to receive(:finished).and_return(true)
-          expect(challenge_handler_good.redirect_path).to eq("/challenges")
+          expect(challenge_handler_good.redirect_path).to eq(challenges_path)
         end
       end
 
       describe "when dead" do
         it "should redirect to /challenges" do
           expect(challenge_handler_good).to receive(:is_dead).and_return(true)
-          expect(challenge_handler_good.redirect_path).to eq("/challenges")
+          expect(challenge_handler_good.redirect_path).to eq(challenges_path)
         end
       end
     end
