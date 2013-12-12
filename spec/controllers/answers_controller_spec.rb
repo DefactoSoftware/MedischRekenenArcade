@@ -1,5 +1,6 @@
 require 'spec_helper'
 
+
 describe AnswersController do
   let(:user) { FactoryGirl.create(:user) }
   let(:problem) { Problem.generate_random(2) }

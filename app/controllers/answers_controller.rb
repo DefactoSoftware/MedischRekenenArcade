@@ -1,6 +1,6 @@
 class AnswersController < ApplicationController
   before_action :authenticate_user!
-  require 'answer_handlers'
+  require 'answer_handler'
   def create
     answer = Answer.new(answer_parameters)
     answer.user = current_user
