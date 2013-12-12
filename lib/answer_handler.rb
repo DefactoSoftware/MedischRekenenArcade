@@ -42,7 +42,7 @@ class AnswerHandler
     Point.decrease(value, user)
   end
 
-  def get_path
+  def redirect_path
   end
 end
 
@@ -94,7 +94,7 @@ class ChallengeSession < AnswerHandler
     end
   end
 
-  def get_path
+  def redirect_path
     if is_dead || finished
       "/challenges"
     end
