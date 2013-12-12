@@ -49,7 +49,7 @@ end
 class ChallengeAnswerHandler < AnswerHandler
   include Rails.application.routes.url_helpers
 
-  attr_reader :finished, :challenge, :user_challenge
+  attr_reader :challenge, :user_challenge
 
   STANDARD_DEATH_CEILING = 6
 
@@ -57,7 +57,10 @@ class ChallengeAnswerHandler < AnswerHandler
     super(answer_is_correct, session, current_user)
     @challenge = user_challenge.challenge
     @user_challenge = user_challenge
-    @finished = user_challenge.amount_good + 1  >= challenge.number_of_problems if answer_is_correct
+  end
+
+  def finished
+    @finished ||= user_challenge.amount_good + 1  >= challenge.number_of_problems && answer_is_correct
   end
 
   def handle
