@@ -3,20 +3,15 @@ require 'support/devise'
 
 describe AnswerHandler do
   let(:user) { FactoryGirl.create(:user) }
-  let(:challenge) { FactoryGirl.create(:challenge) }
-  let(:user_challenge) { FactoryGirl.create(:user_challenge, challenge:challenge, user:user) }
+  let(:challenge) { Challenge.new(number_of_problems: 5, name:"challenge") }
+  let(:user_challenge) { UserChallenge.new(challenge:challenge, user:user.reload) }
   let(:practicehandler_good) { PracticeSession.new(true, {}, user.reload) }
   let(:practicehandler_bad) { PracticeSession.new(false, {}, user.reload) }
-  let(:challenge_handler_good) { ChallengeSession.new(true, {challenge: challenge.id}, user.reload)}
-  let(:challenge_handler_dead) { ChallengeSession.new(false, {challenge: challenge.id, damage: ChallengeSession::STANDARD_DEATH_CEILING+1}, user.reload) }
-  let(:challenge_handler_wrong) { ChallengeSession.new(false, {challenge: challenge.id}, user.reload) }
+  let(:challenge_handler_good) { ChallengeSession.new(true, {challenge: challenge.id}, user.reload, user_challenge)}
+  let(:challenge_handler_dead) { ChallengeSession.new(false, {challenge: challenge.id, damage: ChallengeSession::STANDARD_DEATH_CEILING+1}, user.reload, user_challenge) }
+  let(:challenge_handler_wrong) { ChallengeSession.new(false, {challenge: challenge.id}, user.reload, user_challenge) }
 
   describe ChallengeSession do
-    before :each do
-      challenge.reload
-      user_challenge.reload
-    end
-
     it "should be dead when damage is higher than STANDARD_DEATH_CEILING" do
       expect(challenge_handler_dead.is_dead).to be(true)
     end
@@ -32,7 +27,7 @@ describe AnswerHandler do
     it "should return challenge finished as notice" do
       #setting amount good to number needed -1 so that adding a good answer will trigger finished
       user_challenge.update_attributes(amount_good: challenge.number_of_problems-1)
-      challenge_handler_good = ChallengeSession.new(true, {challenge: challenge.id}, user.reload)
+      challenge_handler_good = ChallengeSession.new(true, {challenge: challenge.id}, user, user_challenge)
       expect(challenge_handler_good.get_notice).to eq(I18n.t("challenge.finished", bonus: challenge.bonus))
     end
 

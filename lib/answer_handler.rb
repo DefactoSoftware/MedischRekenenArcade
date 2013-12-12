@@ -39,12 +39,12 @@ end
 class ChallengeSession < AnswerHandler
   STANDARD_DEATH_CEILING = 6
 
-  def initialize(answer_is_correct, session, current_user)
+  def initialize(answer_is_correct, session, current_user, userchallenge)
     @user=current_user
     @answer_is_correct = answer_is_correct
-    @challenge = Challenge.find(session[:challenge])
+    @challenge = userchallenge.challenge
     @session = session
-    @userchallenge = UserChallenge.where(challenge: @challenge, user: current_user).last
+    @userchallenge = userchallenge
     @finished = @userchallenge.amount_good + 1  >= @challenge.number_of_problems if @answer_is_correct
   end
 
