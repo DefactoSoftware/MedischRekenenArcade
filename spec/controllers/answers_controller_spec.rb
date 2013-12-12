@@ -90,17 +90,17 @@ describe AnswersController do
       user_challenge.reload
     end
 
-    it "increases streak on good answer" do
+    it "does not increase streak" do
       post :create, answer: badanswer
       expect(session[:streak]).to be(0)
     end
 
-    it "no damage on good answer" do
+    it "increase damage" do
       post :create, answer: badanswer
       expect(session[:damage]).to eq(1)
     end
 
-    it "score goes up on good answer" do
+    it "score does not go up" do
       post :create, answer: badanswer
       expect(user.total_points).to be(0)
     end
