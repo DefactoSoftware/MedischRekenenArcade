@@ -68,22 +68,23 @@ describe AnswerHandler do
     end
   end
 
+  let(:mock_user) { double("user", increase: true) }
   describe "#increase_points" do
-    let(:handler) { AnswerHandler.new(double, double, user) }
+    let(:handler) { AnswerHandler.new(double, double, mock_user) }
     it "should increase the points" do
+      expect(mock_user).to receive(:increase_points).with(1)
       handler.increase_points
-      expect(user.total_points).to eq(1)
     end
   end
 
   describe "#decrease_points" do
     describe "#increase_points" do
-    let(:handler) { AnswerHandler.new(double, double, user) }
-    it "should decrease the points" do
-      handler.decrease_points
-      expect(user.total_points).to eq(-1)
+      let(:handler) { AnswerHandler.new(double, double, mock_user) }
+      it "should decrease the points" do
+        expect(mock_user).to receive(:decrease_points).with(1)
+        handler.decrease_points
+      end
     end
-  end
   end
 
   describe ChallengeAnswerHandler do

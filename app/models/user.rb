@@ -50,7 +50,17 @@ class User < ActiveRecord::Base
     points.reduce(0) { |sum, p|  sum += p.amount }
   end
 
+  def increase_points(value)
+    Point.create(amount: value, user: self)
+  end
+
+  def decrease_points(value)
+    Point.create(amount: value*-1, user: self)
+  end
+
+  private
   def init_redis
     RedisLeaderboard.get.rank_member(self.id, 0)
   end
 end
+

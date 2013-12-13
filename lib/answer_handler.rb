@@ -35,11 +35,11 @@ class AnswerHandler
   end
 
   def increase_points(value=1)
-    Point.increase(value, user)
+    user.increase_points(value)
   end
 
   def decrease_points(value=1)
-    Point.decrease(value, user)
+    user.decrease_points(value)
   end
 
   def redirect_path
