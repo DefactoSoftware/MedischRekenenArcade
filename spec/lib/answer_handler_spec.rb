@@ -13,6 +13,29 @@ describe AnswerHandler do
   let(:challenge_handler_dead) { ChallengeAnswerHandler.new(false, { challenge: challenge.id, damage: ChallengeAnswerHandler::STANDARD_DEATH_CEILING + 1 }, user, user_challenge) }
   let(:challenge_handler_wrong) { ChallengeAnswerHandler.new(false, { challenge: challenge.id}, user, user_challenge) }
 
+  describe "#reset_challenge" do
+    describe "deletes the session" do
+      let(:session) { double("session", delete: "foo") }
+      let(:handler) { AnswerHandler.new(double, session, double) }
+
+      before(:each) do
+        handler.reset_challenge
+      end
+
+      it "damage" do
+        expect(session).to have_received(:delete).with(:damage)
+      end
+
+      it "start" do
+        expect(session).to have_received(:delete).with(:start)
+      end
+
+      it "challenge" do
+        expect(session).to have_received(:delete).with(:challenge)
+      end
+    end
+  end
+
   describe ChallengeAnswerHandler do
     it "should be dead when damage is higher than STANDARD_DEATH_CEILING" do
       expect(challenge_handler_dead.is_dead).to be(true)
