@@ -30,15 +30,15 @@ class AnswerHandler
     session[:damage] = session[:damage].to_i + 1
   end
 
-  def increase_streak(value)
+  def increase_streak(value=1)
     session[:streak] =  session[:streak].to_i + value
   end
 
-  def increase_points(value)
+  def increase_points(value=1)
     Point.increase(value, user)
   end
 
-  def decrease_points(value)
+  def decrease_points(value=1)
     Point.decrease(value, user)
   end
 
