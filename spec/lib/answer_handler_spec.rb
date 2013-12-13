@@ -13,11 +13,13 @@ describe AnswerHandler do
   let(:challenge_handler_dead) { ChallengeAnswerHandler.new(false, { challenge: challenge.id, damage: ChallengeAnswerHandler::STANDARD_DEATH_CEILING + 1 }, user, user_challenge) }
   let(:challenge_handler_wrong) { ChallengeAnswerHandler.new(false, { challenge: challenge.id}, user, user_challenge) }
 
-  describe "#reset_challenge" do
-    describe "deletes the session" do
-      let(:session) { double("session", delete: "foo") }
-      let(:handler) { AnswerHandler.new(double, session, double) }
 
+
+  describe "#reset_challenge" do
+    let(:session) { double("session", delete: "foo") }
+    let(:handler) { AnswerHandler.new(double, session, double) }
+
+    describe "deletes the session" do
       before(:each) do
         handler.reset_challenge
       end
@@ -34,6 +36,54 @@ describe AnswerHandler do
         expect(session).to have_received(:delete).with(:challenge)
       end
     end
+  end
+
+  describe "#decrease_damage" do
+    let(:handler) { AnswerHandler.new(double, {streak: 1}, double)}
+    it "should reset the sessions streak" do
+      handler.reset_streak
+      expect(handler.session[:streak]).to eq(0)
+    end
+  end
+
+  describe "#decrease_damage" do
+    let(:handler) { AnswerHandler.new(double, { damage: 2 }, double)}
+    it "should decrease to 1 when damage is 2" do
+      handler.decrease_damage
+      expect(handler.session[:damage]).to eq(1)
+    end
+
+    let(:handler2) { AnswerHandler.new(double, {damage:1}, double)}
+    it "should return 0 when damage is 1" do
+      handler2.decrease_damage
+      expect(handler2.session[:damage]).to eq(0)
+    end
+  end
+
+  describe "#increase_streak" do
+    let(:handler) { AnswerHandler.new(double, {streak:0}, user) }
+    it "should increase the streak" do
+      handler.increase_streak
+      expect(handler.session[:streak]).to be(1)
+    end
+  end
+
+  describe "#increase_points" do
+    let(:handler) { AnswerHandler.new(double, double, user) }
+    it "should increase the points" do
+      handler.increase_points
+      expect(user.total_points).to eq(1)
+    end
+  end
+
+  describe "#decrease_points" do
+    describe "#increase_points" do
+    let(:handler) { AnswerHandler.new(double, double, user) }
+    it "should decrease the points" do
+      handler.decrease_points
+      expect(user.total_points).to eq(-1)
+    end
+  end
   end
 
   describe ChallengeAnswerHandler do
