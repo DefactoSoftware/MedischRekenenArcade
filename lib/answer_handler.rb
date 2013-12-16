@@ -162,3 +162,7 @@ class IncorrectPracticeAnswerHandler < PracticeAnswerHandler
     I18n.t("answer.wrong")
   end
 end
+
+class AnswerHandlerFactory
+
+end
