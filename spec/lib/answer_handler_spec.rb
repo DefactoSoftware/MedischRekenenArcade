@@ -145,3 +145,7 @@ describe AnswerHandler do
   end
 end
 
+describe AnswerHandlerFactory do
+
+end
+
