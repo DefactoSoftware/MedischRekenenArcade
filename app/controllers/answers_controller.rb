@@ -7,9 +7,17 @@ class AnswersController < ApplicationController
     answer.user = current_user
 
     if session[:challenge]
-      handler = ChallengeAnswerHandler.new(eval_answer(answer), session, current_user, UserChallenge.where(challenge: Challenge.find(session[:challenge]), user: current_user).last)
+      if eval_answer(answer)
+        handler = CorrectChallengeAnswerHandler.new(session, current_user, UserChallenge.where(challenge: Challenge.find(session[:challenge]), user: current_user).last)
+      else
+        handler = IncorrectChallengeAnswerHandler.new(session, current_user, UserChallenge.where(challenge: Challenge.find(session[:challenge]), user: current_user).last)
+      end
     else
-      handler = PracticeAnswerHandler.new(eval_answer(answer), session, current_user)
+      if eval_answer(answer)
+        handler = CorrectPracticeAnswerHandler.new(session, current_user)
+      else
+        handler = IncorrectPracticeAnswerHandler.new(session, current_user)
+      end
     end
 
     redirection_path = handler.redirect_path
