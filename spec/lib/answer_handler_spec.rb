@@ -17,7 +17,7 @@ describe AnswerHandler do
 
   describe "#reset_challenge" do
     let(:session) { double("session", delete: "foo") }
-    let(:handler) { IncorrectChallengeAnswerHandler.new(session, double) }
+    let(:handler) { IncorrectChallengeAnswerHandler.new(session, double, double(challenge: double)) }
 
     describe "deletes the session" do
       before(:each) do
@@ -39,7 +39,7 @@ describe AnswerHandler do
   end
 
   describe "#decrease_damage" do
-    let(:handler) { AnswerHandler.new(double, {streak: 1}, double)}
+    let(:handler) { AnswerHandler.new({streak: 1}, double)}
     it "should reset the sessions streak" do
       handler.reset_streak
       expect(handler.session[:streak]).to eq(0)
@@ -47,13 +47,13 @@ describe AnswerHandler do
   end
 
   describe "#decrease_damage" do
-    let(:handler) { AnswerHandler.new(double, { damage: 2 }, double)}
+    let(:handler) { AnswerHandler.new({ damage: 2 }, double)}
     it "should decrease to 1 when damage is 2" do
       handler.decrease_damage
       expect(handler.session[:damage]).to eq(1)
     end
 
-    let(:handler2) { AnswerHandler.new(double, {damage:1}, double)}
+    let(:handler2) { AnswerHandler.new({damage:1}, double)}
     it "should return 0 when damage is 1" do
       handler2.decrease_damage
       expect(handler2.session[:damage]).to eq(0)
@@ -61,7 +61,7 @@ describe AnswerHandler do
   end
 
   describe "#increase_streak" do
-    let(:handler) { AnswerHandler.new(double, {streak:0}, user) }
+    let(:handler) { AnswerHandler.new({streak:0}, user) }
     it "should increase the streak" do
       handler.increase_streak
       expect(handler.session[:streak]).to be(1)
@@ -70,7 +70,7 @@ describe AnswerHandler do
 
   let(:mock_user) { double("user", increase: true) }
   describe "#increase_points" do
-    let(:handler) { AnswerHandler.new(double, double, mock_user) }
+    let(:handler) { AnswerHandler.new(double, mock_user) }
     it "should increase the points" do
       expect(mock_user).to receive(:increase_points).with(1)
       handler.increase_points
@@ -79,7 +79,7 @@ describe AnswerHandler do
 
   describe "#decrease_points" do
     describe "#increase_points" do
-      let(:handler) { AnswerHandler.new(double, double, mock_user) }
+      let(:handler) { AnswerHandler.new(double, mock_user) }
       it "should decrease the points" do
         expect(mock_user).to receive(:decrease_points).with(1)
         handler.decrease_points
