@@ -6,28 +6,17 @@ class AnswersController < ApplicationController
     answer = Answer.new(answer_parameters)
     answer.user = current_user
 
-    if session[:challenge]
-      if eval_answer(answer)
-        handler = CorrectChallengeAnswerHandler.new(session, current_user, UserChallenge.where(challenge: Challenge.find(session[:challenge]), user: current_user).last)
-      else
-        handler = IncorrectChallengeAnswerHandler.new(session, current_user, UserChallenge.where(challenge: Challenge.find(session[:challenge]), user: current_user).last)
-      end
-    else
-      if eval_answer(answer)
-        handler = CorrectPracticeAnswerHandler.new(session, current_user)
-      else
-        handler = IncorrectPracticeAnswerHandler.new(session, current_user)
-      end
-    end
+    handler = AnswerHandlerFactory.new(session, eval_answer(answer), current_user).build
 
+    handler.handle!
     redirection_path = handler.redirect_path
     notice = handler.get_notice
-    handler.handle
+
 
     if answer.save!
-      redirect_to redirection_path ? redirection_path : request.referer, notice: notice
+      redirect_to redirection_path, notice: notice
     else
-      redirect_to redirection_path ? redirection_path : request.referer, error: t("answer.save.error")
+      redirect_to redirection_path, error: t("answer.save.error")
     end
   end
 
