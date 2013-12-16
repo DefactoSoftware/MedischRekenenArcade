@@ -4,9 +4,8 @@ class AnswerHandler
   STANDARD_POINT_AMOUNT = 1
   STANDARD_STREAK_AMOUNT = 1
 
-  def initialize(answer_is_correct, session, current_user)
+  def initialize(session, current_user)
     @user = current_user
-    @answer_is_correct = answer_is_correct
     @session = session
   end
 
@@ -41,9 +40,6 @@ class AnswerHandler
   def decrease_points(value=1)
     user.decrease_points(value)
   end
-
-  def redirect_path
-  end
 end
 
 class ChallengeAnswerHandler < AnswerHandler
@@ -53,47 +49,17 @@ class ChallengeAnswerHandler < AnswerHandler
 
   STANDARD_DEATH_CEILING = 6
 
-  def initialize(answer_is_correct, session, current_user, user_challenge)
-    super(answer_is_correct, session, current_user)
+  def initialize(session, current_user, user_challenge)
+    super(session, current_user)
     @challenge = user_challenge.challenge
     @user_challenge = user_challenge
   end
 
   def finished
-    @finished ||= user_challenge.amount_good + 1  >= challenge.number_of_problems && answer_is_correct
-  end
-
-  def handle
-    distribute_points_and_damage
-    update_user_challenge
-  end
-
-  def distribute_points_and_damage
-    if finished
-      increase_points(challenge.bonus)
-    end
-
-    if answer_is_correct
-      increase_points(AnswerHandler::STANDARD_POINT_AMOUNT)
-      increase_streak(AnswerHandler::STANDARD_STREAK_AMOUNT)
-      decrease_damage
-    else
-      increase_damage
-      reset_streak
-    end
+    @finished ||= user_challenge.amount_good + 1  >= challenge.number_of_problems
   end
 
   def update_user_challenge
-    if answer_is_correct
-      user_challenge.update_attributes(amount_good: user_challenge.amount_good + 1)
-    else
-      user_challenge.update_attributes(amount_fail: user_challenge.amount_fail + 1)
-    end
-
-    if is_dead
-      user_challenge.update_attributes(success: false)
-    end
-
     if is_dead || finished
       reset_challenge
     end
@@ -101,52 +67,98 @@ class ChallengeAnswerHandler < AnswerHandler
 
   def redirect_path
     if is_dead || finished
-      challenges_path
-    end
-  end
-
-  def get_notice
-    if finished
-      return I18n.t("challenge.finished", bonus: challenge.bonus)
-    end
-
-    if is_dead
-      return I18n.t("answer.dead")
-    end
-
-    if answer_is_correct
-      I18n.t("answer.correct", points: AnswerHandler::STANDARD_POINT_AMOUNT)
-    else
-      I18n.t("answer.wrong")
+      Rails.application.routes.url_helpers.challenges_path
     end
   end
 
   def is_dead
-    if !answer_is_correct
-      session[:damage] && session[:damage] > STANDARD_DEATH_CEILING
-    end
+    session[:damage] && session[:damage] > STANDARD_DEATH_CEILING
+  end
+end
+
+class CorrectChallengeAnswerHandler < ChallengeAnswerHandler
+  def initialize(session, current_user, user_challenge)
+    super(session, current_user, user_challenge)
+  end
+
+  def handle
+    increase_points(challenge.bonus) if finished
+    increase_points(AnswerHandler::STANDARD_POINT_AMOUNT)
+    increase_streak(AnswerHandler::STANDARD_STREAK_AMOUNT)
+    decrease_damage
+  end
+
+  def update_user_challenge
+    super
+    user_challenge.update_attributes(amount_good: user_challenge.amount_good + 1)
+  end
+
+  def get_notice
+    return I18n.t("challenge.finished", bonus: challenge.bonus) if finished
+    I18n.t("answer.correct", points: AnswerHandler::STANDARD_POINT_AMOUNT)
+  end
+
+
+end
+
+class IncorrectChallengeAnswerHandler < ChallengeAnswerHandler
+  def initialize(session, current_user, user_challenge)
+    super(session, current_user, user_challenge)
+  end
+
+  def handle
+    increase_damage
+    reset_streak
+    update_user_challenge
+  end
+
+  def update_user_challenge
+    super
+    user_challenge.update_attributes(success: false) if is_dead
+    user_challenge.update_attributes(amount_fail: user_challenge.amount_fail + 1)
+  end
+
+  def get_notice
+    return I18n.t("answer.dead") if is_dead
+    I18n.t("answer.wrong")
   end
 end
 
 class PracticeAnswerHandler < AnswerHandler
-  def handle
-    distribute_points
+  def initialize(session, current_user)
+    super(session, current_user)
   end
 
-  def distribute_points
-    if answer_is_correct
-      increase_points AnswerHandler::STANDARD_POINT_AMOUNT
-      increase_streak AnswerHandler::STANDARD_STREAK_AMOUNT
-    else
-      reset_streak
-    end
+  def redirect_path
+    Rails.application.routes.url_helpers.practice_path
+  end
+end
+
+class CorrectPracticeAnswerHandler < PracticeAnswerHandler
+  def initialize(session, current_user)
+    super(session, current_user)
+  end
+
+  def handle
+    increase_points AnswerHandler::STANDARD_POINT_AMOUNT
+    increase_streak AnswerHandler::STANDARD_STREAK_AMOUNT
   end
 
   def get_notice
-    if answer_is_correct
-      I18n.t("answer.correct", points: AnswerHandler::STANDARD_POINT_AMOUNT)
-    else
-      I18n.t("answer.wrong")
-    end
+    I18n.t("answer.correct", points: AnswerHandler::STANDARD_POINT_AMOUNT)
+  end
+end
+
+class IncorrectPracticeAnswerHandler < PracticeAnswerHandler
+  def initialize(session, current_user)
+    super(session, current_user)
+  end
+
+  def handle
+    reset_streak
+  end
+
+  def get_notice
+    I18n.t("answer.wrong")
   end
 end

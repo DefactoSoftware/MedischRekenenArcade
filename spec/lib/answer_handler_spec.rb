@@ -7,17 +7,17 @@ describe AnswerHandler do
   let(:user) { User.new(name: "marthyn", email:"marthyn@live.nl") }
   let(:challenge) { Challenge.new(number_of_problems: 5, name:"challenge") }
   let(:user_challenge) { UserChallenge.new(challenge:challenge, user:user) }
-  let(:practicehandler_good) { PracticeAnswerHandler.new(true, {}, user) }
-  let(:practicehandler_bad) { PracticeAnswerHandler.new(false, {}, user) }
-  let(:challenge_handler_good) { ChallengeAnswerHandler.new(true, { challenge: challenge.id}, user, user_challenge)}
-  let(:challenge_handler_dead) { ChallengeAnswerHandler.new(false, { challenge: challenge.id, damage: ChallengeAnswerHandler::STANDARD_DEATH_CEILING + 1 }, user, user_challenge) }
-  let(:challenge_handler_wrong) { ChallengeAnswerHandler.new(false, { challenge: challenge.id}, user, user_challenge) }
+  let(:practicehandler_good) { CorrectPracticeAnswerHandler.new({}, user) }
+  let(:practicehandler_bad) { IncorrectPracticeAnswerHandler.new({}, user) }
+  let(:challenge_handler_good) { CorrectChallengeAnswerHandler.new({ challenge: challenge.id}, user, user_challenge)}
+  let(:challenge_handler_dead) { IncorrectChallengeAnswerHandler.new({ challenge: challenge.id, damage: ChallengeAnswerHandler::STANDARD_DEATH_CEILING + 1 }, user, user_challenge) }
+  let(:challenge_handler_wrong) { IncorrectChallengeAnswerHandler.new({ challenge: challenge.id}, user, user_challenge) }
 
 
 
   describe "#reset_challenge" do
     let(:session) { double("session", delete: "foo") }
-    let(:handler) { AnswerHandler.new(double, session, double) }
+    let(:handler) { IncorrectChallengeAnswerHandler.new(session, double) }
 
     describe "deletes the session" do
       before(:each) do
@@ -103,7 +103,7 @@ describe AnswerHandler do
     it "should return challenge finished as notice" do
       #setting amount good to number needed -1 so that adding a good answer will trigger finished
       user_challenge.update_attributes(amount_good: challenge.number_of_problems-1)
-      challenge_handler_good = ChallengeAnswerHandler.new(true, {challenge: challenge.id}, user, user_challenge)
+      challenge_handler_good = CorrectChallengeAnswerHandler.new({challenge: challenge.id}, user, user_challenge)
       expect(challenge_handler_good.get_notice).to eq(I18n.t("challenge.finished", bonus: challenge.bonus))
     end
 
@@ -140,7 +140,8 @@ describe AnswerHandler do
 
   describe "#redirect_path" do
     it "should not redirect anywhere" do
-      expect(practicehandler_good.redirect_path).to eq(nil)
+      expect(practicehandler_good.redirect_path).to eq(practice_path)
     end
   end
 end
+
