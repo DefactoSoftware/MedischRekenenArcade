@@ -1,0 +1,26 @@
+<div class="row">
+  <div class="two-column-fill ">
+    <h1>Challenges</h1>
+  </div>
+  <div class="two-column-fill" >
+    <h1>Badges</h1>
+  </div>
+</div>
+
+<div class="row">
+  <div class="two-column-fill">
+    <div class="grey_block">
+      <ul>
+      <% @challenges.each do |challenge| %>
+        <li><%= challenge.name %><%= "(#{challenge.user_challenges.where(user: current_user).count}x attempted)" %></li>
+
+      <% end %>
+      </ul>
+    </div>
+  </div>
+  <div class="two-column-fill" >
+    <div class="grey_block"><p>Blaa</p></div>
+  </div>
+</div>
+
+

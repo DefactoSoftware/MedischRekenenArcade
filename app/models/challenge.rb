@@ -15,4 +15,5 @@
 class Challenge < ActiveRecord::Base
   has_many :challenge_skills
   has_many :skills, through: :challenge_skills
+  has_many :user_challenges
 end
