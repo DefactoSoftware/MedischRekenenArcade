@@ -37,7 +37,10 @@ class User < ActiveRecord::Base
 
   belongs_to :user_skill
   belongs_to :user_group
+
   has_many :answers
+  has_many :activities
+
 
   has_many :friendships
   has_many :friends, :through => :friendships

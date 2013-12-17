@@ -7,6 +7,8 @@ class ChallengesController < ApplicationController
       session[:start] = Time.now
       UserChallenge.create(challenge: @challenge, user:current_user)
       flash[:notice] = t("challenge.start")
+      user_challenge = UserChallenge.create(challenge: @challenge, user:current_user)
+      track_activity user_challenge
     end
     calculate_time_left if @challenge.timelimit
     @problem = Problem.generate_random_with_skills(1, @challenge.skills)

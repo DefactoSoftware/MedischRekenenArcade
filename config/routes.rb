@@ -1,4 +1,6 @@
 MedischRekenenArcade::Application.routes.draw do
+  resources :activities
+
   devise_for :users
 
   resources :friendships, only: [:create, :destroy]
