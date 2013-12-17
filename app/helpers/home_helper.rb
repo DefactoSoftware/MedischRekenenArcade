@@ -1,7 +1,7 @@
 module HomeHelper
-  MORNING_START = 6
-  AFTERNOON_START = 12
-  EVENING_START = 18
+  MORNING_START = 5
+  AFTERNOON_START = 11
+  EVENING_START = 17
 
   def personalized_welcome(user)
     if user
