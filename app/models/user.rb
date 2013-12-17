@@ -44,7 +44,7 @@ class User < ActiveRecord::Base
   after_create :init_redis
 
   has_many :user_challenges
-  has_many :challenges, through: :user_challenges
+  has_many :challenges, through: :user_challenges, :uniq => true
 
   def total_points
     points.reduce(0) { |sum, p|  sum += p.amount }
