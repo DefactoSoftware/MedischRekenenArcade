@@ -94,7 +94,7 @@ class ChallengeAnswerHandler < AnswerHandler
     if is_dead || finished
       Rails.application.routes.url_helpers.challenges_path
     else
-      Rails.application.routes.url_helpers.challenge_path(challenge)
+      Rails.application.routes.url_helpers.challenge_path(challenge.name)
     end
   end
 
