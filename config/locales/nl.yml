@@ -29,7 +29,9 @@ nl:
     just_registered:
       name: "Geregistreerd"
       description: "Je hebt je succesvol geregisteerd"
-
+    answered_10:
+      name: "10 beantwoord"
+      description: "Je hebt 10 vragen beantwoord"
   greetings:
     morning: "Goedemorgen"
     evening: "Goedenavond"

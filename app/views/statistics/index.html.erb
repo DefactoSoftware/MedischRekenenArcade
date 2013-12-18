@@ -1,15 +1,20 @@
 <div class="row">
   <div class="two-column-fill ">
-    <h1>Challenges</h1>
+
   </div>
   <div class="two-column-fill" >
-    <h1>Badges</h1>
+
   </div>
 </div>
 
 <div class="row">
-  <div class="two-column-fill ">
-    <div id="challenges_block" class="grey_block">
+  <div class="two-column-fill">
+    <div class="row">
+      <div class="one-column-side"></div>
+      <div class="one-column-center"><h1>Challenges</h1></div>
+      <div class="one-column-side"></div>
+    </div>
+    <div id="challenges_block" class="row grey_block">
       <% @challenges.each do |challenge| %>
         <div class="col-sm-6 col-md-3 col-lg-2 thumbnail-col">
           <div class="thumbnail">
@@ -36,7 +41,27 @@
     </div>
   </div>
   <div class="two-column-fill" >
-    <div class="grey_block"><p>Blaa</p></div>
+    <div class="row">
+      <div class="one-column-side"></div>
+      <div class="one-column-center"><h1>Badges</h1></div>
+      <div class="one-column-side"></div>
+    </div>
+    <div id="badges_block" class="row grey_block">
+      <% @badges.each do |badge| %>
+        <div class="col-sm-6 col-md-3 col-lg-2 thumbnail-col">
+          <div class="thumbnail">
+            <a href="#">
+              <div class="image" style="backround-image:url(<%= badge.image %>)"></div>
+              <div class="caption">
+                <div class="inner">
+                  <h4><%= t("badges.#{badge.name}.name") %></h4>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
 <div
