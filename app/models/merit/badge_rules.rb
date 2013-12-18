@@ -23,12 +23,16 @@ module Merit
     def initialize
       # If it creates user, grant badge
       # Should be "current_user" after registration for badge to be granted.
-      # grant_on 'users#create', :badge => 'just-registered', :to => :itself
+      grant_on 'users#create', badge: 'just-registered'
 
       # If it has 10 comments, grant commenter-10 badge
-      # grant_on 'comments#create', :badge => 'commenter', :level => 10 do |comment|
-      #   comment.user.comments.count == 10
-      # end
+      grant_on 'answers#create', badge: 'answered_10' do |answer|
+        answer.user.answers.count == 10
+      end
+
+      grant_on 'answers#create', badge: 'answered_10' do |answer|
+        answer.user.answers.count == 10
+      end
 
       # If it has 5 votes, grant relevant-commenter badge
       # grant_on 'comments#vote', :badge => 'relevant-commenter', :to => :user do |comment|

@@ -23,6 +23,8 @@
 #  created_at             :datetime
 #  updated_at             :datetime
 #  user_group_id          :integer
+#  sash_id                :integer
+#  level                  :integer          default(0)
 #
 
 class User < ActiveRecord::Base
@@ -35,7 +37,7 @@ class User < ActiveRecord::Base
 
   belongs_to :user_skill
   belongs_to :user_group
-  has_many :points
+  has_many :answers
 
   has_many :friendships
   has_many :friends, :through => :friendships
@@ -48,21 +50,25 @@ class User < ActiveRecord::Base
   has_many :user_challenges
   has_many :challenges, through: :user_challenges, :uniq => true
 
-  def total_points
-    points.reduce(0) { |sum, p|  sum += p.amount }
-  end
-
   def increase_points(value)
-    Point.create(amount: value, user: self)
+    add_points(value)
+    update_leaderboard(value)
   end
 
   def decrease_points(value)
-    Point.create(amount: value*-1, user: self)
+    subtract_points(value)
+    update_leaderboard(value*-1)
   end
 
   private
   def init_redis
     RedisLeaderboard.get.rank_member(self.id, 0)
+  end
+
+  def update_leaderboard(value)
+    highscore_lb = RedisLeaderboard.get
+    new_score = highscore_lb.score_for(id) ? highscore_lb.score_for(id) + value : value
+    highscore_lb.rank_member(id, new_score)
   end
 end
 
