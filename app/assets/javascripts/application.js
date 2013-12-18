@@ -24,10 +24,14 @@ $(".unit_select").ready(function() {
   $(".unit_select").on("click", function(element){
     $("#selectedUnit").html($(element.target)[0].dataset.sign);
   });
-  //select first unit
   if($(".unit_select").length > 0) {
     $(".unit_select")[0].click();
   }
+})
+
+$(document).ready(function() {
+  $(".thumb-link").popover({html: true, trigger: "hover", placement: "right"});
+>>>>>>> Add popover init
 })
 
 $("#skipQuestion").ready(function() {
