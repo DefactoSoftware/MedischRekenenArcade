@@ -16,9 +16,9 @@ describe LeaderboardsController do
 
       sign_in user1.reload
 
-      Point.increase(random_score1,user1)
-      Point.increase(random_score2,user2)
-      Point.increase(random_score3,user3)
+      user1.increase_points(random_score1)
+      user2.increase_points(random_score2)
+      user3.increase_points(random_score3)
 
       get :index
 

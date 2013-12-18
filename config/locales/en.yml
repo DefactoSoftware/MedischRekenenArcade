@@ -25,6 +25,13 @@ en:
   streak: "Streak"
   points: "Points"
   session: "Session"
+  badges:
+    just_registered:
+      name: "Geregistreerd"
+      description: "Je hebt je succesvol geregisteerd"
+    answered_10:
+      name: "10 beantwoord"
+      description: "Je hebt 10 vragen beantwoord"
   greetings:
     morning: "Good morning"
     evening: "Good evening"

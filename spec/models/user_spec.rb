@@ -23,6 +23,8 @@
 #  created_at             :datetime
 #  updated_at             :datetime
 #  user_group_id          :integer
+#  sash_id                :integer
+#  level                  :integer          default(0)
 #
 
 require 'spec_helper'
@@ -43,9 +45,9 @@ describe User do
 
   it "should accumulate points" do
     user = User.create(email: "test@example.com", username: "test", password: "test1234")
-    user.points << Point.new(amount: 6)
-    user.points << Point.new(amount: -3)
-    user.points << Point.new(amount: 9)
-    expect(user.total_points).to eq(12)
+    user.increase_points(6)
+    user.decrease_points(3)
+    user.increase_points(9)
+    expect(user.points).to eq(12)
   end
 end

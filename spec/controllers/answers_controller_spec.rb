@@ -37,7 +37,7 @@ describe AnswersController do
     it "score does not go up on bad answer" do
       expect {
          post :create, answer: badanswer
-      }.to change(user, :total_points).by(0)
+      }.to change(user, :points).by(0)
     end
   end
 
@@ -59,7 +59,7 @@ describe AnswersController do
 
     it "score goes up on good answer" do
       post :create, answer: goodanswer
-      expect(user.total_points).to be(1)
+      expect(user.reload.points).to be(1)
     end
   end
 
@@ -81,7 +81,7 @@ describe AnswersController do
 
     it "score goes up on good answer" do
       post :create, answer: goodanswer
-      expect(user.total_points).to be(1)
+      expect(user.reload.points).to be(1)
     end
   end
 
@@ -103,7 +103,7 @@ describe AnswersController do
 
     it "score does not go up" do
       post :create, answer: badanswer
-      expect(user.total_points).to be(0)
+      expect(user.points).to be(0)
     end
   end
 
