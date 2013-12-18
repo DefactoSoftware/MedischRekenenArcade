@@ -105,7 +105,6 @@ end
 
 class CorrectChallengeAnswerHandler < ChallengeAnswerHandler
   def initialize(session, current_user, user_challenge)
-    puts "CREATING CORRECT HANDLER"
     super(session, current_user, user_challenge)
   end
 

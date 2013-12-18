@@ -101,7 +101,7 @@ describe AnswerHandler do
 
     it "should return challenge finished as notice" do
       #setting amount good to number needed -1 so that adding a good answer will trigger finished
-      user_challenge.update_attributes(amount_good: challenge.number_of_problems-1)
+      user_challenge.update_attributes(amount_good: challenge.number_of_problems)
       challenge_handler_good = CorrectChallengeAnswerHandler.new({challenge: challenge.id}, user, user_challenge)
       expect(challenge_handler_good.get_notice).to eq(I18n.t("challenge.finished", bonus: challenge.bonus))
     end
