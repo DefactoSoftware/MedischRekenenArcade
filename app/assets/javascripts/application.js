@@ -31,7 +31,6 @@ $(".unit_select").ready(function() {
 
 $(document).ready(function() {
   $(".thumb-link").popover({html: true, trigger: "hover", placement: "right"});
->>>>>>> Add popover init
 })
 
 $("#skipQuestion").ready(function() {

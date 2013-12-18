@@ -11,10 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131212092307) do
+ActiveRecord::Schema.define(version: 20131218115503) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "activities", force: true do |t|
+    t.integer  "user_id"
+    t.string   "action"
+    t.integer  "trackable_id"
+    t.string   "trackable_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "activities", ["trackable_id"], name: "index_activities_on_trackable_id", using: :btree
+  add_index "activities", ["user_id"], name: "index_activities_on_user_id", using: :btree
 
   create_table "answers", force: true do |t|
     t.float    "value"
@@ -63,7 +75,7 @@ ActiveRecord::Schema.define(version: 20131212092307) do
   create_table "problems", force: true do |t|
     t.string   "formula"
     t.string   "question"
-    t.string   "theory"
+    t.text     "theory"
     t.float    "difficulty"
     t.datetime "created_at"
     t.datetime "updated_at"
