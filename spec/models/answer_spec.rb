@@ -16,5 +16,6 @@ describe Answer do
   describe "Associations" do
     it { should belong_to(:user) }
     it { should belong_to(:problem) }
+    it { should belong_to(:user_challenge) }
   end
 end

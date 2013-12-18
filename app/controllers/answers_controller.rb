@@ -1,24 +1,22 @@
+require 'answer_handler'
+
 class AnswersController < ApplicationController
-  STANDARD_POINT_AMOUNT = 1
-  STANDARD_STREAK_AMOUNT = 1
-
+  before_action :authenticate_user!
   def create
-    answer = Answer.new(answer_parameters, user: current_user)
-    @redirection_path = request.referer
-    answer_result = eval_answer(answer)
+    answer = Answer.new(answer_parameters)
+    answer.user = current_user
 
-    if session[:challenge]
-      handle_challenge answer_result
-    else
-      handle_practice answer_result
-    end
+    handler = AnswerHandlerFactory.new(session, eval_answer(answer), current_user).build
 
-    distribute_points answer_result
+    handler.handle!
+    redirection_path = handler.redirect_path
+    notice = handler.get_notice
+
 
     if answer.save!
-      redirect_to @redirection_path, notice: @notice
+      redirect_to redirection_path, notice: notice
     else
-      redirect_to @redirection_path, error: t("answer.save.error")
+      redirect_to redirection_path, error: t("answer.save.error")
     end
   end
 
@@ -27,81 +25,7 @@ class AnswersController < ApplicationController
     params.require(:answer).permit(:problem_id, :value)
   end
 
-  def handle_practice(answer_result)
-    if answer_result
-      @notice = t("answer.correct", points: STANDARD_POINT_AMOUNT)
-    else
-      @notice = t("answer.wrong")
-    end
-  end
-
-
-  def distribute_points(answer_result)
-    if answer_result
-      increment_points STANDARD_POINT_AMOUNT
-      increment_streak STANDARD_STREAK_AMOUNT
-    else
-      reset_streak
-    end
-  end
-
-  def handle_challenge(answer_result)
-    challenge = Challenge.find(session[:challenge])
-    userchallenge = UserChallenge.where(challenge: challenge, user:current_user).last
-    if answer_result
-      userchallenge.update_attributes(amount_good: userchallenge.amount_good + 1)
-      @notice = t("answer.correct", points: STANDARD_POINT_AMOUNT)
-      if userchallenge.amount_good == challenge.number_of_problems
-        userchallenge.update_attributes(success: true)
-        reset_challenge
-      end
-    else
-      userchallenge.update_attributes(amount_fail: userchallenge.amount_fail + 1)
-      if session[:damage] && session[:damage] > 6
-        @notice = t("answer.dead")
-        userchallenge.update_attributes(success: false)
-        reset_challenge
-      else
-        @notice = t("answer.wrong")
-        increase_damage
-      end
-    end
-  end
-
-  def reset_challenge
-    @redirection_path = challenges_path
-    session.delete(:damage)
-    session.delete(:challenge)
-    session.delete(:start)
-  end
-
   def eval_answer(answer)
     answer.value.round(2) == Problem.find(answer_parameters[:problem_id]).get_result.round(2)
-  end
-
-  def reset_streak
-    session[:streak] = 0
-  end
-
-  def decrease_damage
-    if session[:damage] && session[:damage] > 0
-      session[:damage] = session[:damage].to_i - 1
-    end
-  end
-
-  def increase_damage
-    session[:damage] = session[:damage].to_i + 1
-  end
-
-  def increment_streak(value=1)
-    session[:streak] = session[:streak].to_i + value
-  end
-
-  def increment_points(value=1)
-    Point.increase(value, current_user)
-  end
-
-  def decrement_points(value=1)
-    Point.decrease(value, current_user)
   end
 end

@@ -5,6 +5,9 @@
   </div>
   <div class="two-column-fill ">
     <%= form_for(Answer.new) do |f| %>
+    <% if @challenge %>
+      <%= f.hidden_field :user_challenge_id, value: UserChallenge.where(challenge_id: session[:challenge], user: current_user).last.id %>
+    <% end %>
     <%= f.hidden_field :problem_id, value: problem.id %>
     <div class="form-group">
       <div class="input-group answer-field">
