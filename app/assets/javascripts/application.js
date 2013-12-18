@@ -135,3 +135,4 @@ $(document).ready(function() {
 function hasNumbers(t) {
   return /\d/.test(t);
 }
+
