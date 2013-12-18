@@ -2,6 +2,19 @@
 @import "flat-ui.scss";
 @import "calculator.scss";
 
+// POPOVER
+.popover-title {
+  background-color: #2980b9;
+  border: 0px;
+}
+.popover {
+
+  box-shadow: 0px 5px 10px rgba(0,0,0,0.3);
+}
+.popover-content {
+  border:0px solid black;
+}
+
 
 // ERROR PAGES
 .error_page {
@@ -32,8 +45,8 @@
 
 // MAIN
 .grey_block {
-  background-color: #edeff1;
-  box-shadow: 0px 2px 20px rgba(0,0,0,0.3);
+  background-color: #ecf0f1;
+  box-shadow: 0px 1px 5px rgba(0,0,0,0.3);
   border: 2px solid #d6dbdf;
   padding:20px 20px 20px 20px;
 
