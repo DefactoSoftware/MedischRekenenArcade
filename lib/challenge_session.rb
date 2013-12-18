@@ -1,0 +1,3 @@
+class ChallengeSession
+
+end

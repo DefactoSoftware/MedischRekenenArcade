@@ -9,25 +9,27 @@
 <body>
 <div class="navbar">
   <div class="navbar-header">
-    <a href="#" class="navbar-brand"><%= t("title") %> : <%= current_user ? "NHL" : "-" %></a>
+    <a href="/" class="navbar-brand"><%= t("title") %> : <%= current_user ? "NHL" : "-" %></a>
   </div>
   <div class="navbar-inner">
+    <ul class="nav big-links">
+      <li><%= link_to challenges_path, class:"btn big-link" do %><%= t("menu.challenges") %><% end %></li>
+      <li><%= link_to practice_path, class:"btn big-link" do %><%= t("menu.practice") %><% end %></li>
+    </ul>
     <ul class="nav pull-right">
       <% if current_user %>
         <li>
-          <%= link_to edit_user_registration_path(current_user) do %>
+          <%= link_to edit_user_registration_path(current_user), class:"btn" do %>
             <img src="<%= current_user.profilepicture_url%>" class="img-circle" width="40px" height="40px">
             <%= current_user.username %>
           <% end %>
           <ul>
-            <li><%= link_to edit_user_registration_path(current_user) do %><%= t("menu.settings")%><% end %></li>
-            <li><a href="#" ><%= t("menu.statistics") %></a></li>
-            <li><%= link_to leaderboards_path do %><%= t("menu.leaderboards") %><% end %></li>
+            <li><%= link_to edit_user_registration_path(current_user), class:"btn" do %><%= t("menu.settings")%><% end %></li>
+            <li><%= link_to root_path, class:"btn" do %><%= t("menu.statistics") %><% end %></li>
+            <li><%= link_to leaderboards_path, class:"btn" do %><%= t("menu.leaderboards") %><% end %></li>
           </ul>
         </li>
-        <li><%= link_to challenges_path do %><%= t("menu.challenges") %><% end %></li>
-        <li><%= link_to practice_path do %><%= t("menu.practice") %><% end %></li>
-        <li><%= link_to destroy_user_session_path, id:"menu_logout", :method => :delete do %><%= t("menu.logout")%><% end %></li>
+        <li><%= link_to destroy_user_session_path, class:"btn", id:"menu_logout", :method => :delete do %><%= t("menu.logout")%><% end %></li>
       <% else %>
         <li><%= link_to new_user_session_path, id:"menu_login" do %><%= t("menu.login")%><% end %></li>
       <% end %>
