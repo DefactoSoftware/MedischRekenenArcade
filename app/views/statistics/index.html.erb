@@ -8,14 +8,22 @@
 </div>
 
 <div class="row">
-  <div class="two-column-fill">
-    <div class="grey_block">
-      <ul>
+  <div class="two-column-fill ">
+    <div id="challenges_block" class="grey_block">
       <% @challenges.each do |challenge| %>
-        <li><%= challenge.name %><%= "(#{challenge.user_challenges.where(user: current_user).count}x attempted)" %></li>
-
+        <div class="col-sm-6 col-md-3 col-lg-2 thumbnail-col">
+          <div class="thumbnail">
+            <a class="thumb-link">
+              <div class="image" style="background-image:url(<%= challenge.icon %>)"></div>
+              <div class="caption">
+                <div class="inner">
+                  <h2><%= challenge.name %></h2>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
       <% end %>
-      </ul>
     </div>
   </div>
   <div class="two-column-fill" >
