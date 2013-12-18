@@ -6,6 +6,8 @@ gem 'rails', '4.0.1'
 # Use Postgress as the database for Active Record
 gem 'pg'
 
+gem 'listen', '~> 2.4.0'
+
 #Redis leaderboard
 gem 'leaderboard'
 
