@@ -21,3 +21,6 @@
 
 # OSX
 .DS_Store
+
+#Coverage gem
+/coverage
