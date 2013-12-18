@@ -38,7 +38,7 @@ $(".unit_select").ready(function() {
 })
 
 $(document).ready(function() {
-  $(".thumb-link").popover({html: true, trigger: "click", placement: "right"});
+  $(".thumb-link").popover({html: true, trigger: "hover", placement: "right"});
 })
 
 $("#skipQuestion").ready(function() {
