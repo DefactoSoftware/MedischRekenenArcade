@@ -25,6 +25,11 @@ nl:
   streak: "Reeks"
   points: "Punten"
   session: "Sessie"
+  badges:
+    just_registered:
+      name: "Geregistreerd"
+      description: "Je hebt je succesvol geregisteerd"
+
   greetings:
     morning: "Goedemorgen"
     evening: "Goedenavond"

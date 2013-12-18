@@ -5,7 +5,7 @@
 #  id         :integer          not null, primary key
 #  formula    :string(255)
 #  question   :string(255)
-#  theory     :string(255)
+#  theory     :text
 #  difficulty :float
 #  created_at :datetime
 #  updated_at :datetime

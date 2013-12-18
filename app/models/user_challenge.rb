@@ -6,8 +6,8 @@
 #  user_id      :integer
 #  challenge_id :integer
 #  success      :boolean
-#  amount_fail  :integer
-#  amount_good  :integer
+#  amount_fail  :integer          default(0)
+#  amount_good  :integer          default(0)
 #  created_at   :datetime
 #  updated_at   :datetime
 #

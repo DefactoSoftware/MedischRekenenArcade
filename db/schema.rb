@@ -16,18 +16,6 @@ ActiveRecord::Schema.define(version: 20131218130539) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "activities", force: true do |t|
-    t.integer  "user_id"
-    t.string   "action"
-    t.integer  "trackable_id"
-    t.string   "trackable_type"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "activities", ["trackable_id"], name: "index_activities_on_trackable_id", using: :btree
-  add_index "activities", ["user_id"], name: "index_activities_on_user_id", using: :btree
-
   create_table "answers", force: true do |t|
     t.float    "value"
     t.integer  "user_id"
