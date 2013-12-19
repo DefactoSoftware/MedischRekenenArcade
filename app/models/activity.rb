@@ -14,4 +14,8 @@
 class Activity < ActiveRecord::Base
   belongs_to :user
   belongs_to :trackable, polymorphic: true
+
+  validates :user, presence: true
+  validates :trackable, presence: true
+  validates :action, presence: true
 end
