@@ -81,7 +81,7 @@ class ChallengeAnswerHandler < AnswerHandler
   end
 
   def finished
-    @finished ||= user_challenge.amount_good + 1  >= challenge.number_of_problems
+    @finished ||= user_challenge.amount_good  >= challenge.number_of_problems
   end
 
   def update_user_challenge!
@@ -109,16 +109,21 @@ class CorrectChallengeAnswerHandler < ChallengeAnswerHandler
   end
 
   def handle!
-    increase_points!(challenge.bonus) if finished
     increase_points!(AnswerHandler::STANDARD_POINT_AMOUNT)
     increase_streak!(AnswerHandler::STANDARD_STREAK_AMOUNT)
     decrease_damage!
     update_user_challenge!
+    finish if finished
   end
 
   def update_user_challenge!
     super
     user_challenge.update_attributes(amount_good: user_challenge.amount_good + 1)
+  end
+
+  def finish
+    increase_points!(user_challenge.challenge.bonus)
+    user_challenge.update_attributes(success: true)
   end
 
   def get_notice

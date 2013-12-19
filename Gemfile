@@ -6,6 +6,9 @@ gem 'rails', '4.0.1'
 # Use Postgress as the database for Active Record
 gem 'pg'
 
+#Merit, for badges
+gem 'merit', '~> 1.7.0'
+
 #Redis leaderboard
 gem 'leaderboard'
 

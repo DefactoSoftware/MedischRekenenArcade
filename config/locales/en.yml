@@ -25,6 +25,13 @@ en:
   streak: "Streak"
   points: "Points"
   session: "Session"
+  badges:
+    just_registered:
+      name: "Registered"
+      description: "You registered successfully"
+    answered_10:
+      name: "10 answered"
+      description: "You answered 10 question"
   greetings:
     morning: "Good morning"
     evening: "Good evening"

@@ -21,7 +21,7 @@
           <% end %>
           <ul>
             <li><%= link_to edit_user_registration_path(current_user) do %><%= t("menu.settings")%><% end %></li>
-            <li><a href="#" ><%= t("menu.statistics") %></a></li>
+            <li><%= link_to user_statistics_path(current_user) do %><%= t("menu.statistics") %><% end %></li>
             <li><%= link_to leaderboards_path do %><%= t("menu.leaderboards") %><% end %></li>
           </ul>
         </li>

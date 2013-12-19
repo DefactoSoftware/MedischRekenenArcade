@@ -2,6 +2,19 @@
 @import "flat-ui.scss";
 @import "calculator.scss";
 
+// POPOVER
+.popover-title {
+  background-color: #2980b9;
+  border: 0px;
+}
+.popover {
+
+  box-shadow: 0px 5px 10px rgba(0,0,0,0.3);
+}
+.popover-content {
+  border:0px solid black;
+}
+
 
 // ERROR PAGES
 .error_page {
@@ -32,11 +45,12 @@
 
 // MAIN
 .grey_block {
-  background-color: #edeff1;
-  box-shadow: 0px 2px 20px rgba(0,0,0,0.3);
+  background-color: #ecf0f1;
+  box-shadow: 0px 1px 5px rgba(0,0,0,0.3);
   border: 2px solid #d6dbdf;
   padding:20px 20px 20px 20px;
-}
+  margin: 0px 10px 0px 30px;
+ }
 
 .navbar {
   margin-bottom:0px;
@@ -97,14 +111,11 @@
   border-color: #2ecc71;
 }
 
-// CHALLENGE VIEW
-#challenges_block {
+// THUMBNAILS
+.thumbnail-col {
   padding: 8px;
 }
-#challenges_block .thumbnail-col {
-  padding: 8px;
-}
-#challenges_block .thumbnail {
+.thumbnail {
   position: relative;
   display: block;
   border: 1px solid #dddddd;
@@ -113,17 +124,17 @@
   background: #fff;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
 }
-#challenges_block a.thumbnail:hover,
-#challenges_block a.thumbnail:focus {
+a.thumbnail:hover,
+a.thumbnail:focus {
   border-color: #16a085;
 }
-#challenges_block .thumbnail > a {
+.thumbnail > a {
   position: relative;
   display: block;
   margin: 0px;
 }
 
-#challenges_block .thumbnail .image {
+.thumbnail .image {
   position: relative;
   /*padding-top: 56.25%; /* 16:9 = 9px/16px = 0.5625 */
   padding-top: 70%;
@@ -137,11 +148,11 @@
      -moz-transition: opacity .3s;
           transition: opacity .3s;
 }
-#challenges_block .thumbnail > a:hover .image {
+.thumbnail > a:hover .image {
   opacity: 1;
 }
 
-#challenges_block .thumbnail .caption {
+.thumbnail .caption {
   overflow: hidden;
   position: absolute;
   top: 0;
@@ -150,7 +161,7 @@
   height: 100%;
   color: white;
 }
-#challenges_block .thumbnail .caption .inner {
+.thumbnail .caption .inner {
   position: absolute;
   left: 0;
   right: 0;
@@ -161,10 +172,10 @@
           transition: color .3s, bottom .3s;
 }
 
-#challenges_block .thumbnail > a:hover .caption .inner {
+.thumbnail > a:hover .caption .inner {
   color: #fff;
 }
-#challenges_block .thumbnail h2 {
+.thumbnail h2 {
   margin: 0;
   padding: 5px;
   font: 100 20px/23px 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -177,6 +188,22 @@
      -moz-transition: all 0.2s ease-in-out;
           transition: all 0.2s ease-in-out;
   */
+}
+
+.thumbnail .more,
+.thumbnail .more .description {
+  font: 100 13px/15px 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+.thumbnail .more {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 0;
+  padding: 0 5px 5px;
+  background: rgba(0,0,0,.5);
+}
+.thumbnail .more .description {
+  margin: 0;
 }
 
 
@@ -214,4 +241,17 @@
   @extend .col-lg-6;
   @extend .col-sm-12;
   @extend .col-xs-12;
+}
+
+
+.one-column-center {
+  @extend .col-md-10;
+  @extend .col-lg-10;
+  @extend .col-lg-12;
+  @extend .col-lg-12;
+}
+
+.one-column-side {
+  @extend .col-md-1;
+  @extend .col-lg-1;
 }

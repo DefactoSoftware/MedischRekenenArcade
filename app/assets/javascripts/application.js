@@ -18,16 +18,27 @@
 //= require_tree .
 
 
+$(document).on('mouseenter', '#badges_block a.thumb-link', function(e) {
+  var $inner = $(this).find('.caption .inner');
+  $inner.css( 'bottom', $inner.children('.more').outerHeight(true) );
+
+}).on('mouseleave', '#badges_block a.thumb-link', function(e) {
+  $(this).find('.caption .inner').css('bottom', 0);
+});
+
 
 //Functions for making answering view interactive
 $(".unit_select").ready(function() {
   $(".unit_select").on("click", function(element){
     $("#selectedUnit").html($(element.target)[0].dataset.sign);
   });
-  //select first unit
   if($(".unit_select").length > 0) {
     $(".unit_select")[0].click();
   }
+})
+
+$(document).ready(function() {
+  $(".thumb-link").popover({html: true, trigger: "hover", placement: "right"});
 })
 
 $("#skipQuestion").ready(function() {
@@ -135,3 +146,4 @@ $(document).ready(function() {
 function hasNumbers(t) {
   return /\d/.test(t);
 }
+

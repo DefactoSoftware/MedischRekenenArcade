@@ -5,7 +5,9 @@ MedischRekenenArcade::Application.routes.draw do
 
   root to: "home#index"
 
-  resources :users, only: [:show,:index]
+  resources :users, only: [:show,:index] do
+    resources :statistics, only: [:index]
+  end
 
   resources :leaderboards, only: [:index]
 
