@@ -241,7 +241,6 @@ DEPENDENCIES
   jquery-turbolinks
   json_spec
   leaderboard
-  listen (~> 2.4.0)
   merit (~> 1.7.0)
   pg
   rails (= 4.0.1)
