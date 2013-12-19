@@ -18,8 +18,11 @@ module MathDifficultyHelper
   }
 
   @multiplication_difficulties = {
-      carry: 1,   # carry operation, summation difficulty is seperate
-      offset: 1
+      digit_zero: 0,carry operation, summation difficulty is seperate
+      digit_one: 1,
+      digit_two: 2.
+      digit_large: 3,
+
   }
 
   @division_difficulties = {
@@ -37,344 +40,100 @@ module MathDifficultyHelper
     digit % 2 != 0
   end
 
-  def do_borrow(num, index)
-    if index == num.length-1
-      raise 'cannot perform borrow'
-    end
+def value_for_score(score)
+  score > 3 ? 3 : score
+end
 
-    num_borrows = 1
-    next_digit = num[index+1].to_i
+  def compute_subtraction_difficulty(numbers1, numbers2)
 
-    if next_digit > 0
-      num[index+1] = (next_digit-1).to_s
+
+  end
+  def compute_addition_difficulty(numbers1, numbers2)
+    difftable = @addition_difficulties
+    difficulty = 0
+    if(numbers1.length >= numbers2.length)
+      addition_compare(numbers1, numbers2)
     else
-      num[index+1] = 0.to_s
-      num_borrows += do_borrow(num, index+1)
+      addition_compare(numbers2, numbers1)
     end
-    num_borrows
+
+
+  end
+  def compute_multiplication_difficulty(numbers1, numbers2)
+    difftable = @multiplication_difficulties
+    difficulty = 0
+    if(numbers1.length >= numbers2.length)
+      multiplication_compare(numbers1, numbers2)
+    else
+      multiplication_compare(numbers2, numbers1)
+    end
   end
 
-  def compute_subtraction_difficulty(numbers)
-    if numbers.length == 0
-      return 0, 0
-    elsif numbers.length == 1
-      return numbers[0], 0
-    end
 
-    num1 = numbers[0]
-    num2 = numbers[1]
-
-    if num1 < num2
-      num1, num2 = num2, num1
-    end
-
-    num1 = num1.to_s
-    num2 = num2.to_s
-
-    max_length = [num1.length, num2.length].max
-
-    num1 = num1.rjust(max_length, '0')
-    num2 = num2.rjust(max_length, '0')
-
-    difficulty = 0
-    borrow = 0
-    sd = @subtraction_difficulties
-    difference = []
-
-    num1 = num1.reverse
-    num2 = num2.reverse
-
-    num1.chars.zip(num2.chars).each_with_index do |n,index|
-      d1 = n[0].to_i
-      d2 = n[1].to_i
-
-      d1_is_even = is_even d1
-      d2_is_even = is_even d2
-
-      if d1 > d2
-        if d1 == 0 or d2 == 0
-          difficulty += sd[:digit_zero]
-        elsif d1_is_even and d2_is_even
-          difficulty += sd[:even_even]
-        elsif !d1_is_even and !d2_is_even
-          difficulty += sd[:odd_odd]
-        elsif d1_is_even and !d2_is_even
-          difficulty += sd[:even_odd]
-        end
-        ddiff = d1-d2
-      elsif d1 < d2
-        num_borrows = do_borrow(num1, index)
-        difficulty += sd[:borrow]*num_borrows
-        ddiff = 10 + d1 - d2
-        difficulty += sd[:twodigit_digit]
-      elsif d1 == d2
-        difficulty += sd[:same_digits]
-        ddiff = 0
-      end
-      difference.append(ddiff.to_s)
-    end
-    difference = difference.reverse
-    difference = difference.join("")
-    difference = difference.to_i
-
-    numbers = [difference] + numbers[2...numbers.length]
-
-    difference, sub_difficulty = compute_subtraction_difficulty(numbers)
-
-    difficulty += sub_difficulty
-
-    return difference, difficulty
+  def compute_division_difficulty(numbers1,numbers2)
   end
+  def addition_compare (numbera, numberb)
+    numbera.reverse.each_with_index { |a , index|
 
-  def compute_addition_difficulty(numbers)
-    if numbers.length == 0
-      return 0, 0
-    elsif numbers.length == 1
-      return numbers[0], 0
-    end
-
-    num1 = numbers[0]
-    num2 = numbers[1]
-
-    num1 = num1.to_s
-    num2 = num2.to_s
-
-    max_length = [num1.length, num2.length].max
-
-    num1 = num1.rjust(max_length, '0')
-    num2 = num2.rjust(max_length, '0')
-
-    difficulty = 0
-    carry = 0
-    ad = @addition_difficulties
-    sum = []
-
-    num1.chars.reverse.zip(num2.chars.reverse).map.each_with_index do |n,index|
-      d1 = n[0].to_i
-      d2 = n[1].to_i
-
-      d1_is_even = is_even d1
-      d2_is_even = is_even d2
-
-      if d1 == 0 or d2 == 0
-        difficulty += ad[:digit_zero]
-      elsif d1_is_even and d2_is_even
-        difficulty += ad[:even_even]
-      elsif !d1_is_even and !d2_is_even
-        difficulty += ad[:odd_odd]
-      elsif d1_is_even and !d2_is_even
-        difficulty += ad[:even_odd]
-      elsif !d1_is_even and d2_is_even
-        difficulty += ad[:even_odd]
-      end
-
-      dsum = d1 + d2 + carry
-
-      if dsum > 9
-        carry = 1
-        difficulty += ad[:carry]
+      difftable = @addition_difficulties
+      @b = numberb.reverse[index]
+      @carry = 0
+      case
+      when b == nil
+        difficulty += difftable[digit_zero:]
+      when a == 0 or b == 0
+        difficulty += difftable[digit_zero:]
+      when is_even(a) == is_even(b)
+        difficulty += difftable[even_even:]
+        if ( a + b >= 10) {
+          difficulty += difftable[carry:]}
       else
-        carry = 0
+        difficulty += difftable[even_odd:]
+        if ( a + b >= 10) { difficulty += difftable[carry:]}
       end
 
-      sum.push((dsum % 10).to_s)
-    end
 
-    if carry
-      sum.push(carry.to_s)
-    end
+    }
+  def multiplication_compare (numbera, numberb)
+    numbera.reverse.each_with_index { |a , index|
+      @b = numberb.reverse[index]
 
-    sum = sum.reverse()
-    sum = sum.join("")
-    sum = sum.to_i
-
-    numbers = [sum] + numbers[2...numbers.length]
-
-    sum, sub_difficulty = compute_addition_difficulty(numbers)
-
-    difficulty += sub_difficulty
-
-    return sum, difficulty
+      a >= 3 ? difficulty += difftbable[digit_large:]
+      b >= 3 ? difficulty += difftbable[digit_large:]
+      a = 2 ? difficulty += difftbable[digit_two:]
+      b = 2 ? difficulty += difftbable[digit_two:]
+      a = 1 ? difficulty += difftbable[digit_one:]
+      b = 1 ? difficulty += difftbable[digit_one:]
+      a = 0 ? difficulty += difftbable[digit_zero:]
+      b = 0 ? difficulty += difftbable[digit_zero:]
+    }
   end
 
-  def get_single_digit_multiplication_difficulty(d1, d2)
-    if d1 == 0 or d2 == 0
-      return 0, 1
+  def subtraction_compare(numbera, numberb)
+    numbera.reverse.each_with_index { | a , index|
+
+    difftable = @subtraction_difficulties
+    @b = numberb.reverse[index]
+    @carry = 0
+    case
+    when a == b
+      difficulty += difftable[same_digits:]
+    when a == 0 or b == 0
+      difficulty += difftable[digit_zero:]
+    when is_even(a) == is_even(b)
+      difficulty += difftable[even_even:]
+    when a < b
+      difficulty +=difftable[:borrow]
+
     end
 
-    res = d1 * d2
-    difficulty = ((4/Float(81)) * res).ceil
 
-    # odd numbers are harder to multiply except 1 and 5
-    if ![1,5].include? d1 and ![1,5].include? d2 and (is_odd(d1) or is_odd(d2))
-      difficulty += 1
-    end
 
-    return res, difficulty.to_i
+
+
+
+    }
   end
 
-  def compute_simple_multiplication_difficulty(num, digit)
-    num = num.to_s
-
-    result = []
-    md = @multiplication_difficulties
-    carry = 0
-    difficulty = 0
-
-    num.chars.reverse.each_with_index do |d, index|
-      d = d.to_i
-      res, s_diff = get_single_digit_multiplication_difficulty(d, digit)
-      difficulty += s_diff
-
-      if carry > 0
-        res, carry_sum_difficulty = compute_addition_difficulty([res, carry])
-        difficulty += carry_sum_difficulty + md[:carry]
-      end
-
-      carry = res/10
-      result_digit = (res.to_s[-1...res.to_s.length]).to_i
-      result.push(result_digit.to_s)
-    end
-
-    if carry > 0
-      result.append(carry.to_s)
-    end
-
-    result = result.reverse()
-    result = result.join("")
-    result = result.to_i
-    return result, difficulty
-  end
-
-  def compute_multiplication_difficulty(numbers)
-    if numbers.length == 0
-      return 1, 0
-    elsif numbers.length == 1
-      return numbers[0], 0
-    end
-
-    num1 = numbers[0]
-    num2 = numbers[1]
-
-    if num1 < num2
-      num1, num2 = num2, num1
-    end
-
-    num2 = num2.to_s
-
-    difficulty = 0
-    borrow = 0
-    md = @multiplication_difficulties
-    m_numbers = []
-
-    num2.chars.reverse.each_with_index do |d, index|
-      d = d.to_i
-      m_number, m_diff = compute_simple_multiplication_difficulty(num1, d)
-      difficulty += m_diff
-
-      if index > 0
-        m_number = (m_number * (10 ** index)).to_i
-        difficulty += md[:offset]
-      end
-
-      m_numbers.push(m_number)
-    end
-
-    m_numbers_sum, m_numbers_diff = compute_addition_difficulty(m_numbers)
-    difficulty += m_numbers_diff
-
-    numbers = [m_numbers_sum] + numbers[2...numbers.length]
-    product, m_diff = compute_multiplication_difficulty(numbers)
-
-    difficulty += m_diff
-
-    return product, difficulty
-  end
-
-  def compute_multiples_difficulty(num, n)
-    numbers = [num] * n
-    multiple, difficulty = compute_addition_difficulty(numbers)
-    return multiple, difficulty
-  end
-
-  def compute_multiple_less_than_number_difficulty(num, max_num)
-    multiple = max_num - (max_num % num)
-    n = multiple / num
-
-    multiple, difficulty = compute_multiples_difficulty(num, n)
-    return multiple, difficulty
-  end
-
-  def compute_division_difficulty(dividend, divisor, precision)
-    if divisor == 0
-     raise 'Division by Zero'
-    end
-    if dividend == 0
-     return [0, 0, 1]
-    end
-
-    dividend = dividend.to_s
-    divisor  = dividend.to_s
-
-    difficulty = 0
-    previous_multiples_difficulty = 0
-    precision_reached = 0
-    decimal_point_used = 0
-    dd = @division_difficulties
-    num = []
-    quotient = []
-
-    num = dividend[0]
-    difficulty += dd[:use_digit]
-    index = 0
-
-    while 1
-      q_digit = num.to_i / divisor.to_i
-
-      multiple, multiple_difficulty = compute_multiples_difficulty(divisor.to_i, q_digit)
-      difficulty += (multiple_difficulty.abs - previous_multiples_difficulty.abs).to_i
-      if previous_multiples_difficulty
-        difficulty += dd[:multiple_lookup]
-      end
-      previous_multiples_difficulty = [multiple_difficulty, previous_multiples_difficulty].max
-
-      quotient.append(q_digit.to_s)
-      difficulty += dd[:quotient_update]
-
-      if decimal_point_used > 0
-        precision_reached += 1
-      end
-
-      num, sub_difficulty = compute_subtraction_difficulty([num.to_i, multiple])
-      difficulty += sub_difficulty
-      num = num.to_s
-
-      index += 1
-
-      if index == dividend.length
-        if precision == 0
-          break
-        end
-        quotient.push('.')
-        difficulty += dd[:quotient_update]
-        decimal_point_used = 1
-      end
-      if !decimal_point_used
-        num += dividend[index]
-      else
-        num += '0'
-      end
-
-      difficulty += dd[:use_digit]
-
-      if (num.length == 1 and num.to_i != 0) or precision_reached >= (precision + 1)
-        break
-      end
-    end
-
-    remainder = num.to_i
-    quotient = Float(quotient.join(""))
-
-    return quotient, remainder, difficulty
-  end
+  def division_compare (numbera, numberb)
 end
