@@ -6,9 +6,6 @@ gem 'rails', '4.0.1'
 # Use Postgress as the database for Active Record
 gem 'pg'
 
-#Listen
-gem 'listen', '~> 2.4.0'
-
 #Merit, for badges
 gem 'merit', '~> 1.7.0'
 
