@@ -7,7 +7,7 @@ describe StatisticsController do
 
   before :each do
     sign_in user
-    get :index, user_id: user.reload.id
+    get :index, user_id: user.id
   end
 
   describe "GET" do
@@ -15,11 +15,11 @@ describe StatisticsController do
       expect(response.status).to be(200)
     end
     it "Should assign @challenges" do
-      expect(assigns(:challenges)).to eq(user.reload.challenges)
+      expect(assigns(:challenges)).to eq(user.challenges)
     end
 
     it "Should assign @badges" do
-      expect(assigns(:badges)).to eq(user.reload.badges)
+      expect(assigns(:badges)).to eq(user.badges)
     end
   end
 end
