@@ -84,6 +84,10 @@ class ChallengeAnswerHandler < AnswerHandler
     @finished ||= user_challenge.amount_good  >= challenge.number_of_problems
   end
 
+  def is_dead
+    @dead ||= session.damage && session.damage > STANDARD_DEATH_CEILING
+  end
+
   def update_user_challenge!
     if is_dead || finished
       reset_challenge!
@@ -98,9 +102,7 @@ class ChallengeAnswerHandler < AnswerHandler
     end
   end
 
-  def is_dead
-    session.damage && session.damage > STANDARD_DEATH_CEILING
-  end
+
 end
 
 class CorrectChallengeAnswerHandler < ChallengeAnswerHandler
@@ -142,6 +144,7 @@ class IncorrectChallengeAnswerHandler < ChallengeAnswerHandler
   def handle!
     increase_damage!
     reset_streak!
+    is_dead
     update_user_challenge!
   end
 
