@@ -43,7 +43,7 @@ nl:
   menu:
     challenges: "Uitdagingen"
     settings: "Instellingen"
-    statistiscs: "Statistieken"
+    statistics: "Statistieken"
     practice: "Oefenen"
     logout: "Log uit"
     login: "Log in"

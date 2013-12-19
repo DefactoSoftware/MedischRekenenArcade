@@ -27,11 +27,11 @@ en:
   session: "Session"
   badges:
     just_registered:
-      name: "Geregistreerd"
-      description: "Je hebt je succesvol geregisteerd"
+      name: "Registered"
+      description: "You registered successfully"
     answered_10:
-      name: "10 beantwoord"
-      description: "Je hebt 10 vragen beantwoord"
+      name: "10 answered"
+      description: "You answered 10 question"
   greetings:
     morning: "Good morning"
     evening: "Good evening"
