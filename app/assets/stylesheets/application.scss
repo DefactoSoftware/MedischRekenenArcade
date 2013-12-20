@@ -43,14 +43,101 @@
 }
 
 
+// BUTTONS
+.btn-landing {
+  width: 300px;
+  height:80px;
+  color: #ecf0f1;
+  background-color: #2980b9;
+  font-size:25px;
+  box-shadow: 0px 5px 10px rgba(0,0,0,0.3);
+}
+
+// MENU
+.big-links {
+  margin-left:12%;
+}
+
+// POPOVER
+.popover-title {
+  background-color: #2980b9;
+  border: 0px;
+}
+.row {
+  margin: 0px;
+}
+
+.popover {
+  box-shadow: 0px 5px 10px rgba(0,0,0,0.3);
+}
+
+.popover-content {
+  border:0px solid black;
+}
+
+// ACTIVITIES
+#activities .activity a {
+  color: #3498db;
+}
+
+#activities .activity {
+  border-bottom: 2px solid #2980b9;
+  margin:5px 0px 5px 0px;
+  background: #ecf0f1;
+  padding: 3px;
+  box-shadow: 0px 5px 10px rgba(0,0,0,0.3);
+}
+
+#activities {
+  margin: 5px;
+}
+
+
+// ERROR PAGES
+.error_page {
+  background-color: #edeff1;
+  color: #2E2F30;
+  text-align: center;
+  font-family: arial, sans-serif;
+}
+
+
+.error_page h1 {
+  font-size: 60px;
+  color: #bdc3c7;
+  line-height: 1.5em;
+}
+
+.error_page h2 {
+  font-size: 30px;
+  color: #bdc3c7;
+  line-height: 1.5em;
+}
+
+.error_page button {
+  margin-left:5px;
+  background-color: #3498db;
+}
+
+
 // MAIN
 .grey_block {
   background-color: #ecf0f1;
   box-shadow: 0px 1px 5px rgba(0,0,0,0.3);
   border: 2px solid #d6dbdf;
   padding:20px 20px 20px 20px;
-  margin: 0px 10px 0px 30px;
+  min-height: 600px;
  }
+
+.navbar .nav li .big-link {
+  font-size:22px;
+  color:#2980b9;
+}
+
+.navbar .nav li .big-link:hover {
+  font-size:22px;
+  color:#419edd;
+}
 
 .navbar {
   margin-bottom:0px;
@@ -232,8 +319,8 @@ a.thumbnail:focus {
 .three-column-equal-main {
   @extend .col-lg-4;
   @extend .col-md-4;
-  @extend .col-sm-8;
-  @extend .col-xs-8
+  @extend .col-sm-12;
+  @extend .col-xs-12
 }
 
 .two-column-fill {

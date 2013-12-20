@@ -15,4 +15,17 @@
 class UserChallenge < ActiveRecord::Base
   belongs_to :user
   belongs_to :challenge
+
+  after_update :track_activity
+
+  private
+  def track_activity
+    if self.success_changed?
+      if success?
+        user.activities.create! action: "complete", trackable: self
+      else
+        user.activities.create! action: "fail", trackable: self
+      end
+    end
+  end
 end

@@ -37,7 +37,9 @@ class User < ActiveRecord::Base
 
   belongs_to :user_skill
   belongs_to :user_group
+
   has_many :answers
+  has_many :activities
 
   has_many :friendships
   has_many :friends, :through => :friendships
@@ -52,6 +54,7 @@ class User < ActiveRecord::Base
 
   def increase_points(value)
     add_points(value)
+    activities.create! action: "score", trackable: Merit::Score::Point.where(score_id:(Merit::Score.where(sash_id:sash_id).last.id)).last if value > 10
     update_leaderboard(value)
   end
 
