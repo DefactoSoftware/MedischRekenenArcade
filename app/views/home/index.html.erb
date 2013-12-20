@@ -9,11 +9,11 @@
         <div class="three-column-small"></div>
         <div class="three-column-big">
           <% if !current_user %>
-            <%= link_to new_user_registration_path do %><button class="btn btn-landing">Sign up</button><% end %>
-            <%= link_to new_user_session_path do %><button class="btn btn-landing">Sign in</button><% end %>
+            <%= link_to new_user_registration_path do %><button class="btn btn-landing"><%= t("menu.sign_up") %></button><% end %>
+            <%= link_to new_user_session_path do %><button class="btn btn-landing"><%= t("menu.login") %></button><% end %>
           <% else %>
-            <%= link_to challenges_path do %><button class="btn btn-landing">Challenges</button><% end %>
-            <%= link_to practice_path do %><button class="btn btn-landing">Practice</button><% end %>
+            <%= link_to challenges_path do %><button class="btn btn-landing"><%= t("menu.challenges") %></button><% end %>
+            <%= link_to practice_path do %><button class="btn btn-landing"><%= t("menu.practice") %></button><% end %>
           <% end %>
         </div>
         <div class="three-column-small"></div>
