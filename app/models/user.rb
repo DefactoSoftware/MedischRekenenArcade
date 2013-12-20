@@ -54,7 +54,6 @@ class User < ActiveRecord::Base
 
   def increase_points(value)
     add_points(value)
-    activities.create! action: "score", trackable: Merit::Score::Point.where(score_id:(Merit::Score.where(sash_id:sash_id).last.id)).last if value > 10
     update_leaderboard(value)
   end
 
