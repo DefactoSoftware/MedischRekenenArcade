@@ -13,7 +13,7 @@ describe FriendshipsController do
 
     it "returns 201" do
       post :create, friendship: friendship_attributes
-      expect(response.status).to eq(200)
+      expect(response.status).to eq(302)
     end
 
     it "creates a new friendship" do
