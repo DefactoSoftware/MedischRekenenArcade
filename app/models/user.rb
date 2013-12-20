@@ -41,7 +41,6 @@ class User < ActiveRecord::Base
   has_many :answers
   has_many :activities
 
-
   has_many :friendships
   has_many :friends, :through => :friendships
   has_many :inverse_friendships, :class_name => "Friendship", :foreign_key => "friend_id"
@@ -74,7 +73,5 @@ class User < ActiveRecord::Base
     new_score = highscore_lb.score_for(id) ? highscore_lb.score_for(id) + value : value
     highscore_lb.rank_member(id, new_score)
   end
-
-
 end
 
