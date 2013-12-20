@@ -28,12 +28,6 @@ describe LeaderboardsController do
       expect(assigns(:top_scores)[1][:score]).to eq(random_score2)
       expect(assigns(:top_scores)[2][:score]).to eq(random_score1)
 
-      expect(assigns(:around_me_scores)).to be_an_instance_of(Array)
-      expect(assigns(:around_me_scores).length).to eq(3)
-      expect(assigns(:around_me_scores)[0][:score]).to eq(random_score3)
-      expect(assigns(:around_me_scores)[1][:score]).to eq(random_score2)
-      expect(assigns(:around_me_scores)[2][:score]).to eq(random_score1)
-
       expect(assigns(:user_group_scores)).to be_an_instance_of(Array)
       expect(assigns(:user_group_scores).length).to eq(2)
       expect(assigns(:user_group_scores)[0][:score]).to eq(random_score2)

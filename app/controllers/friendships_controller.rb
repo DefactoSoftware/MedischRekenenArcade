@@ -3,9 +3,9 @@ class FriendshipsController < ApplicationController
   def create
     @friendship = current_user.friendships.build(:friend_id => params[:friend_id])
     if @friendship.save
-      redirect_to root_url, status: :ok
+      redirect_to request.referer, notice: "Friend added"
     else
-      redirect_to root_url, status: :unprocessable_entity
+      redirect_to request.referer, notice: "Friend not added"
     end
   end
 

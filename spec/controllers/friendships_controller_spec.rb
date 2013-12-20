@@ -7,6 +7,7 @@ describe FriendshipsController do
 
   describe "POST create" do
     before :each do
+      @request.env['HTTP_REFERER'] = root_path
       sign_in user1.reload
     end
 
