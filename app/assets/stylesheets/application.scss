@@ -7,12 +7,33 @@
   background-color: #2980b9;
   border: 0px;
 }
-.popover {
+.row {
+  margin: 0px;
+}
 
+.popover {
   box-shadow: 0px 5px 10px rgba(0,0,0,0.3);
 }
+
 .popover-content {
   border:0px solid black;
+}
+
+// ACTIVITIES
+#activities .activity a {
+  color: #3498db;
+}
+
+#activities .activity {
+  border-bottom: 2px solid #2980b9;
+  margin:5px;
+  background: #ecf0f1;
+  padding: 3px;
+  box-shadow: 0px 5px 10px rgba(0,0,0,0.3);
+}
+
+#activities {
+  margin: 5px;
 }
 
 
@@ -49,7 +70,6 @@
   box-shadow: 0px 1px 5px rgba(0,0,0,0.3);
   border: 2px solid #d6dbdf;
   padding:20px 20px 20px 20px;
-  margin: 0px 10px 0px 30px;
  }
 
 .navbar .nav li .big-link {
