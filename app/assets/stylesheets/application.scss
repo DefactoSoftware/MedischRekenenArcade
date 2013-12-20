@@ -2,6 +2,17 @@
 @import "flat-ui.scss";
 @import "calculator.scss";
 
+
+// BUTTONS
+.btn-landing {
+  width: 300px;
+  height:80px;
+  color: #ecf0f1;
+  background-color: #2980b9;
+  font-size:25px;
+  box-shadow: 0px 5px 10px rgba(0,0,0,0.3);
+}
+
 // POPOVER
 .popover-title {
   background-color: #2980b9;
@@ -27,7 +38,6 @@
 #activities .activity {
   border-bottom: 2px solid #2980b9;
   margin:5px 0px 5px 0px;
-  font-size: 20px;
   background: #ecf0f1;
   padding: 3px;
   box-shadow: 0px 5px 10px rgba(0,0,0,0.3);
@@ -71,6 +81,7 @@
   box-shadow: 0px 1px 5px rgba(0,0,0,0.3);
   border: 2px solid #d6dbdf;
   padding:20px 20px 20px 20px;
+  min-height: 600px;
  }
 
 .navbar .nav li .big-link {

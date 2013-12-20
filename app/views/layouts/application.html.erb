@@ -9,7 +9,7 @@
 <body>
 <div class="navbar">
   <div class="navbar-header">
-    <%= link_to root_path, class:"navbar-brand" do%><%= t("title") %> : <%= current_user ? "NHL" : "-" %><% end %>
+    <%= link_to root_path, class:"navbar-brand" do%><%= t("title") %> <%= current_user ? " : #{current_user.user_group.name}" : ""%><% end %>
   </div>
   <div class="navbar-inner">
     <ul class="nav big-links">
