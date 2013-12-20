@@ -20,7 +20,7 @@
       <% if current_user %>
         <li>
           <%= link_to edit_user_registration_path(current_user), class:"btn" do %>
-            <img src="<%= current_user.profilepicture_url%>" class="img-circle" width="40px" height="40px">
+            <img src="<%= current_user.profilepicture_url%>" class="img-circle profile-pic" width="40px" height="40px">
             <%= current_user.username %>
           <% end %>
           <ul>
