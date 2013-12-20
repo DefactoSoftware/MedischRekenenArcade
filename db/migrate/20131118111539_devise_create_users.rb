@@ -28,7 +28,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       #Our own columns
       t.string :username, null: false
       t.string :name
-      t.string :profilepicture_url, default: "http://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/John_Doe.jpg/220px-John_Doe.jpg"
+      t.string :profilepicture_url, default: "/assets/no_profile.jpg"
 
 
       t.timestamps
