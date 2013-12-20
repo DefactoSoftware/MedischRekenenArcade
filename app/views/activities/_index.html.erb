@@ -1,0 +1,6 @@
+<div id="activities">
+<h3>Latest activities</h3>
+<% all_activities.each do |activity| %>
+   <%= ActivityPresenter.new(activity, self).render_activity %>
+<% end %>
+</div>
