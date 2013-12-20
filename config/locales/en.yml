@@ -25,6 +25,8 @@ en:
   streak: "Streak"
   points: "Points"
   session: "Session"
+  activities:
+    title: "Latest activities"
   badges:
     just_registered:
       name: "Registered"

@@ -25,6 +25,8 @@ nl:
   streak: "Reeks"
   points: "Punten"
   session: "Sessie"
+  activities:
+    title: "Latest activities"
   badges:
     just_registered:
       name: "Geregistreerd"
