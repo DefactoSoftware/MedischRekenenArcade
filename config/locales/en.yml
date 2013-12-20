@@ -50,6 +50,7 @@ en:
     logout: "Log out"
     login: "Log in"
     sign_up: "Registreer"
+    users: "Users"
   calculator:
     info: "If you're stuck you can use this simple calculator. This does however reduce your score"
   practice:

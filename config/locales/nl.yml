@@ -49,6 +49,7 @@ nl:
     practice: "Oefenen"
     logout: "Log uit"
     login: "Log in"
+    users: "Gebruikers"
     sign_up: "Registreer"
   calculator:
     info: "Als je vast zit kan je deze simpele rekenmachine gebruiken. Dit verlaagt wel je score"

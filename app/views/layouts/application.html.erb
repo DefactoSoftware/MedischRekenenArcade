@@ -27,6 +27,7 @@
             <li><%= link_to edit_user_registration_path(current_user), class:"btn" do %><%= t("menu.settings")%><% end %></li>
             <li><%= link_to user_statistics_path(current_user), class:"btn" do %><%= t("menu.statistics") %><% end %></li>
             <li><%= link_to leaderboards_path, class:"btn" do %><%= t("menu.leaderboards") %><% end %></li>
+            <li><%= link_to users_path, class:"btn" do %><%= t("menu.users") %><% end %></li>
           </ul>
         </li>
         <li><%= link_to destroy_user_session_path, class:"btn", id:"menu_logout", :method => :delete do %><%= t("menu.logout")%><% end %></li>
