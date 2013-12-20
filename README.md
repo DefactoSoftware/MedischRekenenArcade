@@ -18,6 +18,8 @@ MedischRekenenArcade
 - run `createdb mra_test` to create the test database
 - run `rake db:setup && rake db:migrate` to set up the development db (make sure to have postgres running)
 - run `rake db:test:prepare` to set up the test db
+- run `rake create_units` to create the units
+- run `rake create_basic_challenges` to create the challenges
 
 **Running things:**
 - Launch redis: (`redis-server`)
