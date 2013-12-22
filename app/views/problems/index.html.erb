@@ -1,13 +1,18 @@
 <div class="row">
-  <div class="three-column-small">
-    <%= render 'sessions/scores' %>
-  </div>
-  <div class="three-column-big answers">
-    <h1><%= t("practice.header") %></h1>
-    <%= render 'problem', problem: @problem %>
-    <%= render 'calculator/calculator' %>
-  </div>
-  <div class="three-column-small">
+  <div class="three-column-small"></div>
 
+  <div class="three-column-big answers">
+    <div id="problems block" class="problem_block">
+      <%= render 'problem', problem: @problem %>
+      <%= render 'calculator/calculator' %>
+    </div>
   </div>
+    <div class="three-column-small">
+      <div class="score_block">
+        <%= render 'sessions/scores' %>
+      </div>
+  </div>
+  <div class="three-column-small">
+  </div>
+
 </div>
