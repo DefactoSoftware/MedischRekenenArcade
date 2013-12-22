@@ -26,7 +26,7 @@ en:
   points: "Points"
   session: "Session"
   activities:
-    title: "Latest activities"
+    title: "Activity"
   badges:
     just_registered:
       name: "Registered"
