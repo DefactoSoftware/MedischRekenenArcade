@@ -19,9 +19,13 @@
       </div>
     </div>
   </div>
-  <div class="three-column-small">
-    <% if current_user %>
-      <%= render 'activities/index' %>
-    <% end %>
+</div>
+<div class="row">
+  <div class="three-column-small"></div>
+  <div class="three-column-big">
+    <hr>
+      <% if current_user %>
+        <%= render 'activities/index' %>
+      <% end %>
   </div>
 </div>
