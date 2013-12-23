@@ -166,36 +166,6 @@
   border-top-width: 0px;
   padding:00px 20px 20px 20px;
   margin-top: 0px;
-    animation: 1s ease pulse;
-    -webkit-animation: 1s ease pulse;
-    -moz-animation: 1s ease pulse;
-    -o-animation: 1s ease pulse;
-    -ms-animation: 1s ease pulse;
- }
-
-@keyframes pulse {
-    0% { height: 0px; }
-    100% { height: 30px; }
-}
-
-@-webkit-keyframes pulse {
-    0% { height: 0px; }
-    100% { height: 30px; }
-}
-
-@-moz-keyframes pulse {
-    0% { height: 0px; }
-    100% { height: 30px; }
-}
-
-@-o-keyframes pulse {
-    0% { height: 0px; }
-    100% { height: 30px; }
-}
-
-@-ms-keyframes pulse {
-    0% { height: 0px; }
-    100% {  height: 30px; }
 }
 
 .navbar .nav li .big-link {
@@ -228,7 +198,7 @@
 }
 
 .answers {
-  padding:0px 20px 10px 20px;
+  padding:0px 20px 0px 20px;
 }
 
 .dropdown-toggle:hover {
