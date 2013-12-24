@@ -1,9 +1,14 @@
 <div class="row"  >
-  <div class="two-column-fill">
+  <div class="">
+    <h4>Bereken de juiste hoeveelheid</h4>
+  </div>
+</div>
+<div class="row">
+  <div class="two-column-fill theory">
     <p id="theory"><%= problem.theory %>?</p>
     <p class="help"><%= problem.get_result.round(2) %></p>
   </div>
-  <div class="two-column-fill ">
+  <div class="two-column-fill">
     <%= form_for(Answer.new) do |f| %>
     <% if @challenge %>
       <%= f.hidden_field :user_challenge_id, value: UserChallenge.where(challenge_id: session[:challenge], user: current_user).last.id %>
@@ -24,8 +29,9 @@
     <div class="form-group">
       <%= f.submit t("practice.submit_button"), class:"btn btn-success btn-embossed btn-practice" %>
       <% end %>
-      <button id="skipQuestion" class="btn btn-danger btn-embossed btn-practice"><%= t("practice.skipquestion") %></button>
       <button id="helpQuestion" class="btn btn-warning btn-embossed btn-practice"><%= t("practice.helpquestion") %></button>
+      <br>
+      <a href="#" id="skipQuestion"><%= t("practice.skipquestion") %></a>
     </div>
   </div>
 </div>
