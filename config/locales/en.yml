@@ -55,7 +55,7 @@ en:
     info: "If you're stuck you can use this simple calculator. This does however reduce your score"
   practice:
     submit_button: "Send"
-    header: "Practice your skills"
+    header: "Calculate the right amount"
     answer_label: "Answer"
     skipquestion: "Skip"
     helpquestion: "Help!"

@@ -55,7 +55,7 @@ nl:
     info: "Als je vast zit kan je deze simpele rekenmachine gebruiken. Dit verlaagt wel je score"
   practice:
     submit_button: "Stuur"
-    header: "Oefen je skills"
+    header: "Bereken de juiste hoeveelheid"
     answer_label: "Antwoord"
     skipquestion: "Overslaan"
     helpquestion: "Help!"

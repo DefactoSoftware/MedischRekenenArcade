@@ -1,6 +1,6 @@
 <div class="row"  >
-  <div class="">
-    <h4>Bereken de juiste hoeveelheid</h4>
+  <div class="one-column-center">
+    <h4><%= t("practice.header")%></h4>
   </div>
 </div>
 <div class="row">
@@ -26,10 +26,15 @@
         </ul>
       </div>
     </div>
+  </div>
+</div>
+<div class="row">
+  <div class="one-column-center">
+
     <div class="form-group">
       <%= f.submit t("practice.submit_button"), class:"btn btn-success btn-embossed btn-practice" %>
       <% end %>
-      <button id="helpQuestion" class="btn btn-warning btn-embossed btn-practice"><%= t("practice.helpquestion") %></button>
+      <!--<button id="helpQuestion" class="btn btn-warning btn-embossed btn-practice"><%= t("practice.helpquestion") %></button>-->
       <br>
       <a href="#" id="skipQuestion"><%= t("practice.skipquestion") %></a>
     </div>
