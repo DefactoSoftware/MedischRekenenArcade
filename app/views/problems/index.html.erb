@@ -1,7 +1,7 @@
 <div class="row">
   <div class="three-column-small"></div>
   <div class="three-column-big answers">
-    <div id="problems block" class="problem_block">
+    <div id="problems block" class="">
       <%= render 'problem', problem: @problem %>
       <%= render 'calculator/calculator' %>
     </div>
@@ -14,21 +14,6 @@
   <div class="three-column-small">
   </div>
 </div>
-<% if notice %>
-<div class="row">
-  <div class="three-column-small"></div>
-  <div class="three-column-big answers">
-    <div class="notice_block notice">
-        <%= notice %>
-    </div>
-  </div>
-    <div class="three-column-small">
-  </div>
-  <div class="three-column-small">
-  </div>
-</div>
-
-<% end %>
 
 
 
