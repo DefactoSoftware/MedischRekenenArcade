@@ -57,7 +57,7 @@ nl:
     submit_button: "Stuur"
     header: "Bereken de juiste hoeveelheid"
     answer_label: "Antwoord"
-    skipquestion: "Overslaan"
+    skipquestion: "overslaan"
     helpquestion: "Help!"
   leaderboards:
     titles:

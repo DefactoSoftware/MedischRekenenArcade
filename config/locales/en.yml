@@ -57,7 +57,7 @@ en:
     submit_button: "Send"
     header: "Calculate the right amount"
     answer_label: "Answer"
-    skipquestion: "Skip"
+    skipquestion: "skip"
     helpquestion: "Help!"
   leaderboards:
     titles:
