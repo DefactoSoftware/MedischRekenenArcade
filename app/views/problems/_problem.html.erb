@@ -1,42 +1,50 @@
-<div class="row"  >
-  <div class="one-column-center">
-    <h4><%= t("practice.header")%></h4>
+<div class="problem_block">
+  <div class="row"  >
+    <div class="one-column-center">
+      <h4><%= t("practice.header")%></h4>
+    </div>
   </div>
-</div>
-<div class="row">
-  <div class="two-column-fill theory">
-    <p id="theory"><%= problem.theory %>?</p>
-    <p class="help"><%= problem.get_result.round(2) %></p>
-  </div>
-  <div class="two-column-fill">
-    <%= form_for(Answer.new) do |f| %>
-    <% if @challenge %>
-      <%= f.hidden_field :user_challenge_id, value: UserChallenge.where(challenge_id: session[:challenge], user: current_user).last.id %>
-    <% end %>
-    <%= f.hidden_field :problem_id, value: problem.id %>
-    <div class="form-group">
-      <div class="input-group answer-field">
-        <span class="input-group-addon dropdown-toggle" data-toggle="dropdown"><%= t("unit") %></span>
-        <%= f.text_area :value, class:"form-control", rows:"1", required: true %>
-        <span class="input-group-addon" id="selectedUnit"></span>
-        <ul class="dropdown-menu">
-          <% problem.unit.unit_group.units.each do |unit| %>
-            <li><a class="unit_select" data-sign="<%= unit.sign %>"><%= unit.name %></a></li>
-          <% end %>
-        </ul>
+  <div class="row">
+    <div class="two-column-fill theory">
+      <p id="theory"><%= problem.theory %>?</p>
+    </div>
+    <div class="two-column-fill input">
+      <%= form_for(Answer.new) do |f| %>
+      <% if @challenge %>
+        <%= f.hidden_field :user_challenge_id, value: UserChallenge.where(challenge_id: session[:challenge], user: current_user).last.id %>
+      <% end %>
+      <%= f.hidden_field :problem_id, value: problem.id %>
+      <div class="form-group">
+        <div class="input-group answer-field">
+          <span class="input-group-addon dropdown-toggle" data-toggle="dropdown"><%= t("unit") %></span>
+          <%= f.text_area :value, class:"form-control", rows:"1", required: true %>
+          <span class="input-group-addon" id="selectedUnit"></span>
+          <ul class="dropdown-menu">
+            <% problem.unit.unit_group.units.each do |unit| %>
+              <li><a class="unit_select" data-sign="<%= unit.sign %>"><%= unit.name %></a></li>
+            <% end %>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
 </div>
-<div class="row">
-  <div class="one-column-center">
-
-    <div class="form-group">
-      <%= f.submit t("practice.submit_button"), class:"btn btn-success btn-embossed btn-practice" %>
-      <% end %>
-      <!--<button id="helpQuestion" class="btn btn-warning btn-embossed btn-practice"><%= t("practice.helpquestion") %></button>-->
-      <br>
-      <a href="#" id="skipQuestion"><%= t("practice.skipquestion") %></a>
+  <div class="row submit_block">
+    <div class="two-column-fill ">
+        <a href="#" id="helpQuestion"><%= t("practice.helpquestion") %></a>
+      <p class="help">
+        <%= problem.get_result.round(2) %>
+      </p>
+    </div>
+    <div class="two-column-fill">
+      <div class="form-group submit_form">
+        <div>
+        <%= f.submit t("practice.submit_button"), class:"btn btn-success btn-embossed btn-practice" %>
+        <% end %>
+        <br>
+        <a href="#" id="skipQuestion">(<%= t("practice.skipquestion") %>)</a>
+      </div>
+      </div>
     </div>
   </div>
-</div>
+
