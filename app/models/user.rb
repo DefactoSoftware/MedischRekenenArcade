@@ -50,7 +50,7 @@ class User < ActiveRecord::Base
   after_create :init_redis
 
   has_many :user_challenges
-  has_many :challenges, through: :user_challenges, :uniq => true
+  has_many :challenges, -> { uniq }, through: :user_challenges
 
   def increase_points(value)
     add_points(value)
