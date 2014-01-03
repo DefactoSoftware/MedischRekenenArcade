@@ -26,7 +26,6 @@ class GameSession
   end
 
   def reset_streak!
-    streak = 0
     @session[:streak] = 0
   end
 
