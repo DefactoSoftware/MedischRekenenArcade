@@ -96,14 +96,13 @@ module MathDifficultyHelper
     @b = numberb.reverse[index]
     @carry = 0
     case
-    when a == nil or b == nil
-      difficulty += difftable[digit_zero:]
-
-    when a == 0 or b == 0
-      if (a == 0) { difftable += borrow:}
-      difficulty += difftable[digit_zero:]
+    when a == nil || b == nil
+      difficulty += difftable[:digit_zero]
+    when a == 0 || b == 0
+      if a == 0 then difficulty += difftable[:borrow] end
+      difficulty += difftable[:digit_zero]
     when a == b
-      difficulty += difftable[same_digits:]
+      difficulty += difftable[:same_digits]
     when a < b
       difficulty += difftable[:borrow]
     else
