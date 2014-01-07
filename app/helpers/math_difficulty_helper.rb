@@ -1,10 +1,9 @@
 module MathDifficultyHelper
   @addition_difficulties = {
-    digit_zero: 1,   # any digit added to zero
-    even_even:2,   # sum of even digits
-    odd_odd: 2,   # sum of odd digits
-    even_odd: 3,   # sum of even and odd digits
-    carry: 2    # difficulty of carry (for remembering and then adding)
+    digit_zero: 0,   # any digit added to zero
+    under_ten: 3,   # sum of even digits
+    ten: 2,   # sum of odd digits   # sum of even and odd digits
+    above_ten: 4    # difficulty of carry (for remembering and then adding)
   }
 
   @subtraction_difficulties = {
@@ -18,36 +17,29 @@ module MathDifficultyHelper
   }
 
   @multiplication_difficulties = {
-      digit_zero: 0,carry operation, summation difficulty is seperate
+
+      digit_zero: 0,
       digit_one: 1,
-      digit_two: 2.
-      digit_large: 3,
+      digit_two: 2,
+      digit_other: 3
 
   }
 
   @division_difficulties = {
-      # long division
-      use_digit: 1,  # brinding down digit from dividend
-      multiple_lookup: 1,  # looking up precomputed multiple of divisor
-      quotient_update: 1  # updating quotient with digit or period
+
+      digit_zero: 0,
+      digit_one: 1,
+      digit_two: 2,
+      digit_other: 3
   }
 
-  def is_even(digit)
-    digit % 2 == 0
-  end
-
-  def is_odd(digit)
-    digit % 2 != 0
-  end
-
-def value_for_score(score)
-  score > 3 ? 3 : score
-end
-
   def compute_subtraction_difficulty(numbers1, numbers2)
-
-
+    difftable = @subtraction_difficulties
+    difficulty = 0
+    subtraction_compare(numbers1, numbers2)
+    return difficulty
   end
+
   def compute_addition_difficulty(numbers1, numbers2)
     difftable = @addition_difficulties
     difficulty = 0
@@ -56,10 +48,17 @@ end
     else
       addition_compare(numbers2, numbers1)
     end
-
-
+    return difficulty
   end
-  def compute_multiplication_difficulty(numbers1, numbers2)
+
+  def compute_division_difficulty(numbers1, numbers2)
+    difftable = @division_difficulties
+    difficulty = 0
+    division_compare(numbers1, numbers2)
+    return difficulty
+  end
+
+   def compute_multiplication_difficulty(numbers1, numbers2)
     difftable = @multiplication_difficulties
     difficulty = 0
     if(numbers1.length >= numbers2.length)
@@ -69,71 +68,99 @@ end
     end
   end
 
-
-  def compute_division_difficulty(numbers1,numbers2)
-  end
-  def addition_compare (numbera, numberb)
+  def addition_compare(numbera, numberb)
     numbera.reverse.each_with_index { |a , index|
-
-      difftable = @addition_difficulties
       @b = numberb.reverse[index]
       @carry = 0
       case
-      when b == nil
-        difficulty += difftable[digit_zero:]
-      when a == 0 or b == 0
-        difficulty += difftable[digit_zero:]
-      when is_even(a) == is_even(b)
-        difficulty += difftable[even_even:]
-        if ( a + b >= 10) {
-          difficulty += difftable[carry:]}
+      when a == nil || b == nil
+        difficulty += difftable[:digit_zero]
+      when a == 0 || b == 0
+        difficulty += difftable[:digit_zero]
+      when ( a + b ) == 10
+        difficulty += difftable[:ten]
+      when ( a + b ) > 10
+        difficulty += difftable[:above_ten]
       else
-        difficulty += difftable[even_odd:]
-        if ( a + b >= 10) { difficulty += difftable[carry:]}
+        difficulty += difftable[:under_ten]
       end
-
-
-    }
-  def multiplication_compare (numbera, numberb)
-    numbera.reverse.each_with_index { |a , index|
-      @b = numberb.reverse[index]
-
-      a >= 3 ? difficulty += difftbable[digit_large:]
-      b >= 3 ? difficulty += difftbable[digit_large:]
-      a = 2 ? difficulty += difftbable[digit_two:]
-      b = 2 ? difficulty += difftbable[digit_two:]
-      a = 1 ? difficulty += difftbable[digit_one:]
-      b = 1 ? difficulty += difftbable[digit_one:]
-      a = 0 ? difficulty += difftbable[digit_zero:]
-      b = 0 ? difficulty += difftbable[digit_zero:]
-    }
+      }
   end
 
-  def subtraction_compare(numbera, numberb)
-    numbera.reverse.each_with_index { | a , index|
 
+
+  def subtraction_compare(numbera, numberb)
     difftable = @subtraction_difficulties
+    if numbera.length < numberb.length then difficulty += difftable[:borrow] end
+    numbera.reverse.each_with_index { | a , index |
     @b = numberb.reverse[index]
     @carry = 0
     case
+    when a == nil || b == nil
+      difficulty += difftable[:digit_zero]
+    when a == 0 || b == 0
+      if a == 0 then difficulty += difftable[:borrow] end
+      difficulty += difftable[:digit_zero]
     when a == b
-      difficulty += difftable[same_digits:]
-    when a == 0 or b == 0
-      difficulty += difftable[digit_zero:]
-    when is_even(a) == is_even(b)
-      difficulty += difftable[even_even:]
+      difficulty += difftable[:same_digits]
     when a < b
-      difficulty +=difftable[:borrow]
+      difficulty += difftable[:borrow]
+    else
+      difficulty += difftable[:even_odd]
+    end
+    }
 
+  end
+
+def multiplication_compare(numbera, numberb)
+
+    numbera.reverse.each_with_index { | a , index |
+
+    @b = numberb.reverse[index]
+
+    case a
+    when 0 || nil
+      difficulty += difftable[:digit_zero]
+    when 1
+      difficulty += difftable[:digit_one]
+    when 2
+      difficulty += difftable[:digit_two]
+    else
+      difficulty += difftable[:digit_other]
     end
 
-
-
-
-
+    case b
+    when 0 || nil
+      difficulty += difftable[:digit_zero]
+    when 1
+      difficulty += difftable[:digit_one]
+    when 2
+      difficulty += difftable[:digit_two]
+    else
+      difficulty += difftable[:digit_other]
+    end
 
     }
   end
 
-  def division_compare (numbera, numberb)
+def division_compare(numbera, numberb)
+    numbera.reverse.each_with_index { | a , index |
+    @b = numberb.reverse[index]
+    case b
+    when 0
+      difficulty += difftable[:digit_zero]
+    when 1
+      difficulty += difficulty[:digit_one]
+    when 2
+      difficulty += difficulty[:digit_two]
+    else
+      difficulty += difficulty[:digit_other]
+    end
+
+
+    }
+
+    difficulty = difficulty * numberb.length
+  end
+
 end
