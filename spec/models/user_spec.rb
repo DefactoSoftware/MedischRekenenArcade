@@ -53,27 +53,27 @@ describe User do
     expect(user.points).to eq(12)
   end
 
-  it "should return standard amount of most recent activities" do
-    6.times do
+  describe "#recent_activities" do
+    it "should return a list of activities" do
       Activity.create(
         user: user,
         trackable: Challenge.new,
         action: "create"
       )
+
+      expect(user.recent_activities.first).to be_a(Activity)
     end
 
-    expect(user.recent_activities.count).to eq(6)
-  end
+    it "should return standard amount of most recent activities" do
+      6.times do
+        Activity.create(
+          user: user,
+          trackable: Challenge.new,
+          action: "create"
+        )
+      end
 
-  it "should return a certain amount of most recent activities" do
-    1.times do
-      Activity.create(
-        user: user,
-        trackable: Challenge.new,
-        action: "create"
-      )
+      expect(user.recent_activities.count).to eq(6)
     end
-
-    expect(user.recent_activities(1).count).to eq(1)
   end
 end
