@@ -30,8 +30,10 @@
 require 'spec_helper'
 
 describe User do
+  let(:user) { FactoryGirl.create(:user) }
+
   it "should have a default profile picture when not set" do
-    User.create(email: "test@example.com", username: "test", password: "test1234")
+    User.create(email: "newuser@example.com", username: "test", password: "test1234")
     expect change(User, :count).by(1)
   end
 
@@ -49,5 +51,29 @@ describe User do
     user.decrease_points(3)
     user.increase_points(9)
     expect(user.points).to eq(12)
+  end
+
+  it "should return 20 most recent activities" do
+    20.times do
+      Activity.create(
+        user: user,
+        trackable: Challenge.new,
+        action: "create"
+      )
+    end
+
+    expect(user.recent_activities.count).to eq(20)
+  end
+
+  it "should return 5 most recent activities" do
+    5.times do
+      Activity.create(
+        user: user,
+        trackable: Challenge.new,
+        action: "create"
+      )
+    end
+
+    expect(user.recent_activities(5).count).to eq(5)
   end
 end
