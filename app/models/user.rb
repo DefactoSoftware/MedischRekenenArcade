@@ -52,7 +52,7 @@ class User < ActiveRecord::Base
   has_many :user_challenges
   has_many :challenges, -> { uniq }, through: :user_challenges
 
-  def recent_activities(limit=20)
+  def recent_activities(limit=6)
     activities.order('created_at DESC').limit(limit)
   end
 

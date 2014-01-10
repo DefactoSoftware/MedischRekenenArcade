@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def all_activities
-    Activity.order('created_at DESC').limit(10)
+    current_user.recent_activities
   end
   helper_method :all_activities
 
