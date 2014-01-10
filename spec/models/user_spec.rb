@@ -64,6 +64,18 @@ describe User do
       expect(user.recent_activities.first).to be_a(Activity)
     end
 
+    it "should return a list of activites in descending order" do
+      2.times do
+        Activity.create(
+          user: user,
+          trackable: Challenge.new,
+          action: "create"
+        )
+      end
+      activities = user.recent_activities
+      expect(activities[0].created_at).to be > activities[1].created_at
+    end
+
     it "should return standard amount of most recent activities" do
       6.times do
         Activity.create(
