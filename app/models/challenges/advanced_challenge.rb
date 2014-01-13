@@ -1,0 +1,3 @@
+class AdvancedChallenge < Challenge
+
+end

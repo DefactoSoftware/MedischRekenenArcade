@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131220134527) do
+ActiveRecord::Schema.define(version: 20140113130233) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -65,6 +65,8 @@ ActiveRecord::Schema.define(version: 20131220134527) do
     t.string   "icon"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "steps"
+    t.string   "type"
   end
 
   add_index "challenges", ["name"], name: "index_challenges_on_name", unique: true, using: :btree

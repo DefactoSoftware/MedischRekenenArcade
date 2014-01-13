@@ -57,10 +57,12 @@ class Problem < ActiveRecord::Base
     problem.generate_theory_and_formula!
   end
 
-  def self.generate_random_with_skills(difficulty, skills)
+  def self.generate_random_with_skills(steps, skills)
+    if skills[0].name == "verdunning"
+      self.maxisporin
+    end
     problem = self.create
-    difficulty.times do
-      last_step = problem.steps.last
+    steps.times do
       problem.add_step(
         skills[rand(0..skills.count-1)],
         Float(rand(1..100)),
@@ -78,8 +80,8 @@ class Problem < ActiveRecord::Base
         formula = "#{step.formula}"
         theory = theory + "#{step.formula}"
       else
-        formula = "#{formula}#{step.symbol}#{step.formula}"
-        theory = "#{theory} #{step.symbol} #{step.formula}"
+        formula = "#{formula} + #{step.formula}"
+        theory = "#{theory} + #{step.formula}"
       end
     end
     self.update_attributes(theory: theory, formula:formula, unit: Unit.where(name: "Drops").first)
