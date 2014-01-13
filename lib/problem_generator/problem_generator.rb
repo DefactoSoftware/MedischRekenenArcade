@@ -1,0 +1,3 @@
+class ProblemGenerator
+
+end
