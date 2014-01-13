@@ -112,13 +112,6 @@ ActiveRecord::Schema.define(version: 20140113130233) do
     t.string  "category", default: "default"
   end
 
-  create_table "points", force: true do |t|
-    t.integer  "amount"
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "problems", force: true do |t|
     t.string   "formula"
     t.string   "question"

@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe ChallengesController do
   let(:user) { FactoryGirl.create(:user) }
-  let(:challenge) { FactoryGirl.create(:challenge) }
+  let(:challenge) { FactoryGirl.create(:basic_challenge) }
   let(:skill) { FactoryGirl.create(:skill) }
   let(:challenge_skill) { FactoryGirl.create(:challenge_skill, skill:skill, challenge:challenge)}
 
