@@ -58,9 +58,6 @@ class Problem < ActiveRecord::Base
   end
 
   def self.generate_random_with_skills(steps, skills)
-    if skills[0].name == "verdunning"
-      self.maxisporin
-    end
     problem = self.create
     steps.times do
       problem.add_step(

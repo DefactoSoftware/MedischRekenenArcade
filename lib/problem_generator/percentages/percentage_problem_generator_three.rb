@@ -1,0 +1,3 @@
+class PercentageProblemGeneratorThree < ProblemGenerator
+
+end

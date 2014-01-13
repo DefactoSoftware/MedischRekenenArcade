@@ -1,2 +1,5 @@
 require "problem_generator/problem_generator"
 require "problem_generator/problem_generator_factory"
+require "problem_generator/percentages/percentage_problem_generator_one"
+require "problem_generator/percentages/percentage_problem_generator_two"
+require "problem_generator/percentages/percentage_problem_generator_three"
