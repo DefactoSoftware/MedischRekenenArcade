@@ -12,6 +12,10 @@ describe ProblemGenerator do
     expect(problem_generator.challenge).to eq(challenge)
   end
 
+  it "should have a random unit" do
+    expect(problem_generator.unit).to be_in(ProblemGenerator::AVAILABLE_UNITS)
+  end
+
   describe ProblemGeneratorFactory do
     let(:problem_generator) { ProblemGeneratorFactory.new(challenge).build }
 

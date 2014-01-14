@@ -50,7 +50,7 @@ class Problem < ActiveRecord::Base
     steps.times do
       problem.add_step(
         Skill.get_random,
-        (problem.steps.last ? problem.steps.last.get_result : Float(rand(1...100)) ),
+        (problem.steps.last ? problem.steps.last.get_result : Float(rand(1...100))),
         Float(rand(1...100))
       )
     end
