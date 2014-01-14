@@ -16,24 +16,8 @@ class Step < ActiveRecord::Base
   belongs_to :skill
   belongs_to :problem
 
-  after_create :set_symbol
-
   def self.generate_step(problem, skill, value1, value2)
-    step = Step.create(problem: problem, skill: skill, value1: value1, value2: value2)
-  end
-
-  def set_symbol
-    case skill.name
-      when "adding"
-        symbol = "+"
-      when "subtracting"
-        symbol = "-"
-      when "multiplying"
-        symbol = "*"
-      when "dividing"
-        symbol = "/"
-    end
-    self.update_attributes(symbol: symbol)
+    step = Step.create(problem: problem, skill: skill, value1: value1, value2: value2, type: skill.name)
   end
 
   def formula
