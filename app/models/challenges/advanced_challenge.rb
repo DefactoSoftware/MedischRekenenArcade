@@ -1,7 +1,7 @@
-require 'problem_generator'
+require 'problem_factory'
 
 class AdvancedChallenge < Challenge
   def create_problem
-    ProblemGeneratorFactory.new(self).build.problem
+    ProblemFactory.new(self).problem
   end
 end

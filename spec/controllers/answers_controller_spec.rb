@@ -6,7 +6,7 @@ describe AnswersController do
   let(:problem) { Problem.generate_random(2) }
   let(:badanswer) {FactoryGirl.attributes_for(:answer, problem_id: problem.id, value: problem.get_result + 1)}
   let(:goodanswer) {FactoryGirl.attributes_for(:answer, problem_id: problem.id, value: problem.get_result)}
-  let(:skill) { FactoryGirl.create(:skill, name:"adding") }
+  let(:skill) { FactoryGirl.create(:skill, name:"Addition") }
   let(:challenge) { FactoryGirl.create(:challenge) }
   let(:user_challenge) { FactoryGirl.create(:user_challenge, challenge: challenge, user: user) }
 

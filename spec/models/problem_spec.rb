@@ -20,14 +20,12 @@ describe Problem do
     it { should belong_to(:unit) }
   end
 
-
-
   describe "Methods" do
     before :each do
-      Skill.create(name:"adding")
-      Skill.create(name:"dividing")
-      Skill.create(name:"multiplying")
-      Skill.create(name:"subtracting")
+      Skill.create(name:"Addition")
+      Skill.create(name:"Division")
+      Skill.create(name:"Multiplication")
+      Skill.create(name:"Subtraction")
     end
 
     it "should create a Problem with amount of steps equal to difficulty" do
@@ -35,6 +33,5 @@ describe Problem do
       problem = Problem.generate_random(difficulty)
       expect(problem.steps.count).to eq(difficulty)
     end
-
   end
 end

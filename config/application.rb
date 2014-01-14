@@ -12,6 +12,7 @@ module MedischRekenenArcade
     config.autoload_paths += %W(#{config.root}/lib)
     config.autoload_paths += %W(#{config.root}/app/models/challenges)
     config.autoload_paths += %W(#{config.root}/app/models/steps)
+    config.autoload_paths += %W(#{config.root}/app/models/problems)
 
 
     config.assets.initialize_on_precompile = false

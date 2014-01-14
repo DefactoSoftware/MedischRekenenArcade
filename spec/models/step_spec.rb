@@ -25,25 +25,25 @@ describe Step do
 
   describe "Class methods" do
     it "Should create a step with adding formula" do
-      step = Step.generate_step(Problem.create, Skill.create(name: "adding"), var1, var2)
+      step = Step.generate_step(Problem.create, Skill.create(name: "Addition"), var1, var2)
       expect(Step.last.formula).to eq("(#{var1} + #{var2})")
       expect(Step.last.get_result).to eq(var1 + var2)
     end
 
     it "Should create a step with subtracting formula" do
-      step = Step.generate_step(Problem.create, Skill.create(name: "subtracting"), var1, var2)
+      step = Step.generate_step(Problem.create, Skill.create(name: "Subtraction"), var1, var2)
       expect(Step.last.formula).to eq("(#{var1} - #{var2})")
       expect(Step.last.get_result).to eq(var1 - var2)
     end
 
     it "Should create a step with multiplying formula" do
-      step = Step.generate_step(Problem.create, Skill.create(name: "multiplying"), var1, var2)
+      step = Step.generate_step(Problem.create, Skill.create(name: "Multiplication"), var1, var2)
       expect(Step.last.formula).to eq("(#{var1} * #{var2})")
       expect(Step.last.get_result).to eq(var1 * var2)
     end
 
     it "Should create a step with dividing formula" do
-      step = Step.generate_step(Problem.create, Skill.create(name: "dividing"), var1, var2)
+      step = Step.generate_step(Problem.create, Skill.create(name: "Division"), var1, var2)
       expect(Step.last.formula).to eq("(#{var1} / #{var2})")
       expect(Step.last.get_result).to eq(var1 / var2)
     end
