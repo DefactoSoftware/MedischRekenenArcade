@@ -41,6 +41,13 @@
   background-color: #3498db;
 }
 
+// CHALLENGE VIEW
+.challenge_title {
+  margin-top:6px;
+  border-left: 1px solid black;
+  border-radius: 0px !important; // overriding flat-ui..
+  padding-left: 10px;
+}
 
 // BUTTONS
 .btn-landing {
