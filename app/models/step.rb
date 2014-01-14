@@ -23,7 +23,6 @@ class Step < ActiveRecord::Base
   end
 
   def set_symbol
-    puts skill.name
     case skill.name
       when "adding"
         symbol = "+"

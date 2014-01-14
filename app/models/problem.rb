@@ -42,7 +42,7 @@ class Problem < ActiveRecord::Base
   end
 
   def get_result
-    Float(eval(formula))
+    eval(formula)
   end
 
   def self.generate_random(steps)
