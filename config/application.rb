@@ -11,6 +11,7 @@ module MedischRekenenArcade
   class Application < Rails::Application
     config.autoload_paths += %W(#{config.root}/lib)
     config.autoload_paths += %W(#{config.root}/app/models/challenges)
+    config.autoload_paths += %W(#{config.root}/app/models/steps)
 
 
     config.assets.initialize_on_precompile = false

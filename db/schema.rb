@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140113130233) do
+ActiveRecord::Schema.define(version: 20140114142404) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -120,6 +120,7 @@ ActiveRecord::Schema.define(version: 20140113130233) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "unit_id"
+    t.string   "type"
   end
 
   create_table "sashes", force: true do |t|
@@ -141,6 +142,7 @@ ActiveRecord::Schema.define(version: 20140113130233) do
     t.string   "symbol"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "type"
   end
 
   create_table "unit_groups", force: true do |t|
