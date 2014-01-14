@@ -1,9 +1,9 @@
 task :create_basic_challenges => :environment do
   STANDARD_NO_PROBLEMS = 10
-  adding = Skill.where(name: "adding").first_or_create
-  dividing = Skill.where(name: "dividing").first_or_create
-  multiplying = Skill.where(name: "multiplying").first_or_create
-  subtracting = Skill.where(name: "subtracting").first_or_create
+  adding = Skill.where(name: "Addition").first_or_create
+  dividing = Skill.where(name: "Division").first_or_create
+  multiplying = Skill.where(name: "Multiplication").first_or_create
+  subtracting = Skill.where(name: "Subtracting").first_or_create
   percentage = Skill.where(name: "percentage").first_or_create
   unitconversion = Skill.where(name: "unitconversion").first_or_create
 
@@ -27,9 +27,9 @@ task :create_basic_challenges => :environment do
   two_mixed_challenge = BasicChallenge.where(name: "Mixed 2", number_of_problems: STANDARD_NO_PROBLEMS, steps:2, timelimit: 900000, bonus: 30, icon: "http://heath.weblab.brookline.k12.ma.us/math/calendar/math.jpg").first_or_create
   three_mixed_challenge = BasicChallenge.where(name: "Mixed 3", number_of_problems: STANDARD_NO_PROBLEMS, steps:3, timelimit: 900000, bonus: 40, icon: "http://heath.weblab.brookline.k12.ma.us/math/calendar/math.jpg").first_or_create
 
-  percentage_challenge = AdvancedChallenge.where(name: "Percentages 1", number_of_problems: STANDARD_NO_PROBLEMS, bonus: 20, icon: "http://vapersvoice.net/wp-content/uploads/2013/11/Percentage-Blocks-Blue.jpg").first_or_create
-  two_percentage_challenge = AdvancedChallenge.where(name: "Percentages 2", number_of_problems: STANDARD_NO_PROBLEMS, bonus: 20, icon: "http://vapersvoice.net/wp-content/uploads/2013/11/Percentage-Blocks-Blue.jpg").first_or_create
-  three_percentage_challenge = AdvancedChallenge.where(name: "Percentages 3", number_of_problems: STANDARD_NO_PROBLEMS, bonus: 20, icon: "http://vapersvoice.net/wp-content/uploads/2013/11/Percentage-Blocks-Blue.jpg").first_or_create
+  percentage_challenge = AdvancedChallenge.where(name: "PercentageAmountOfAmount", number_of_problems: STANDARD_NO_PROBLEMS, bonus: 20, icon: "http://vapersvoice.net/wp-content/uploads/2013/11/Percentage-Blocks-Blue.jpg").first_or_create
+  two_percentage_challenge = AdvancedChallenge.where(name: "PercentageOfUnit", number_of_problems: STANDARD_NO_PROBLEMS, bonus: 20, icon: "http://vapersvoice.net/wp-content/uploads/2013/11/Percentage-Blocks-Blue.jpg").first_or_create
+  three_percentage_challenge = AdvancedChallenge.where(name: "PercentageUnitToHundred", number_of_problems: STANDARD_NO_PROBLEMS, bonus: 20, icon: "http://vapersvoice.net/wp-content/uploads/2013/11/Percentage-Blocks-Blue.jpg").first_or_create
 
   ChallengeSkill.where(skill: adding, challenge: addition_challenge).first_or_create
   ChallengeSkill.where(skill: adding, challenge: two_addition_challenge).first_or_create
