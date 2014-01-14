@@ -1,15 +1,20 @@
 <div class="row">
   <div class="three-column-small">
-    <%= render 'sessions/scores' %>
+          <%= render 'sessions/health' %>
+
   </div>
   <div class="three-column-big answers">
-    <h1><%= @challenge.name %></h1>
+    <!--<h1><%= @challenge.name %></h1>-->
     <%= render 'problems/problem', problem: @problem %>
   </div>
   <div class="three-column-small">
-    <%= render 'sessions/health' %>
+    <div class="score_block">
+      <%= render 'sessions/scores' %>
+    </div>
+    <div class="score_block">
     <% if @challenge.timelimit %>
       <%= render 'sessions/time' %>
     <% end %>
+  </div>
   </div>
 </div>
