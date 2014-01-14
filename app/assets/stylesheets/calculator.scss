@@ -3,10 +3,10 @@
 #calculator {
   width: 325px;
   height: auto;
-
+  z-index: 999;
   margin: 100px auto;
   padding: 20px 20px 9px;
-
+  position: absolute;
   background: #9dd2ea;
   background: linear-gradient(#9dd2ea, #8bceec);
   border-radius: 3px;
