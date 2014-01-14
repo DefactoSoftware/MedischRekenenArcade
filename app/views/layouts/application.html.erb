@@ -16,9 +16,11 @@
       <li><%= link_to challenges_path, class:"btn big-link" do %><%= t("menu.challenges") %><% end %></li>
       <li><%= link_to practice_path, class:"btn big-link" do %><%= t("menu.practice") %><% end %></li>
     </ul>
+    <% if @challenge %>
     <ul class="nav">
-      <li class="challenge_title"><h4><%= "#{@challenge.name} challenge" if @challenge %></h4></a></li>
+      <li class="challenge_title"><h4><%= "#{@challenge.name} challenge" %></h4></a></li>
     </ul>
+    <% end %>
     <ul class="nav pull-right">
       <% if current_user %>
         <li>

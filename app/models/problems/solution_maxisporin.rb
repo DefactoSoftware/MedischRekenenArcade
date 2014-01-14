@@ -1,4 +1,4 @@
-class SolutionMaxisporing < Problem
+class SolutionMaxisporin < Problem
   def self.generate
     unit = "ml";
     variable1 = Float(0.25 + rand(1...9) * 0.25).round(2)
