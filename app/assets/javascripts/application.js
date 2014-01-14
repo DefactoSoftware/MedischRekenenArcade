@@ -53,8 +53,17 @@ $("#helpQuestion").ready(function() {
     event.preventDefault();
     elements = $(".help");
     for(var i = 0; i < elements.length; i++) {
-      console.log($(elements[i]))
       $(elements[i]).toggle()
+    }
+  })
+});
+
+$("#close_calculator").ready(function() {
+  $("#close_calculator").on("click", function(e) {
+    event.preventDefault();
+    elements = $(".help");
+    for(var i = 0; i < elements.length; i++) {
+      $(elements[i]).hide()
     }
   })
 });

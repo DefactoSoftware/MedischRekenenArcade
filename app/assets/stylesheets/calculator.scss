@@ -3,10 +3,10 @@
 #calculator {
   width: 325px;
   height: auto;
-
+  z-index: 999;
   margin: 100px auto;
   padding: 20px 20px 9px;
-
+  position: absolute;
   background: #9dd2ea;
   background: linear-gradient(#9dd2ea, #8bceec);
   border-radius: 3px;
@@ -21,9 +21,9 @@
 /* Inset shadow on the screen to create indent */
 .top .screen {
   height: 40px;
-  width: 212px;
+  width: 190px;
 
-  float: right;
+  float: left;
 
   padding: 0 10px;
 
@@ -40,8 +40,10 @@
   letter-spacing: 1px;
 }
 
+.keys {width: 263px;}
+
 /* Clear floats */
-.keys, .top {overflow: hidden;}
+.keys, .top {overflow: hidden; }
 
 /* Applying same to the keys */
 .keys span, .top span.clear {
@@ -51,7 +53,7 @@
 
   cursor: pointer;
 
-  width: 66px;
+  width: 58px;
   height: 36px;
 
   background: white;
@@ -76,6 +78,12 @@
 .keys span.operator {
   background: #FFF0F5;
   margin-right: 0;
+}
+
+.keys span.close {
+  background: #d43f3a;
+  box-shadow: 0px 4px #c0392b;
+  color: black;
 }
 
 .keys span.eval {

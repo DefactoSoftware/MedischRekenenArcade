@@ -26,7 +26,7 @@ nl:
   points: "Punten"
   session: "Sessie"
   activities:
-    title: "Latest activities"
+    title: "Activiteit"
   badges:
     just_registered:
       name: "Geregistreerd"
@@ -55,9 +55,9 @@ nl:
     info: "Als je vast zit kan je deze simpele rekenmachine gebruiken. Dit verlaagt wel je score"
   practice:
     submit_button: "Stuur"
-    header: "Oefen je skills"
+    header: "Bereken de juiste hoeveelheid"
     answer_label: "Antwoord"
-    skipquestion: "Overslaan"
+    skipquestion: "overslaan"
     helpquestion: "Help!"
   leaderboards:
     titles:

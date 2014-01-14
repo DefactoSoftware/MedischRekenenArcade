@@ -16,6 +16,9 @@
       <li><%= link_to challenges_path, class:"btn big-link" do %><%= t("menu.challenges") %><% end %></li>
       <li><%= link_to practice_path, class:"btn big-link" do %><%= t("menu.practice") %><% end %></li>
     </ul>
+    <ul class="nav">
+      <li class="challenge_title"><h4><%= "#{@challenge.name} challenge" if @challenge %></h4></a></li>
+    </ul>
     <ul class="nav pull-right">
       <% if current_user %>
         <li>
@@ -53,8 +56,10 @@
   </div>
 <% end %>
 
+<div>
 
-<%= yield %>
+  <%= yield %>
+</div>
 
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

@@ -1,5 +1,5 @@
 <div id="activities">
-<h3><%= t("activities.title") %></h3>
+<h4><%= t("activities.title") %></h4>
 <% all_activities.each do |activity| %>
    <%= ActivityPresenter.new(activity, self).render_activity %>
 <% end %>
