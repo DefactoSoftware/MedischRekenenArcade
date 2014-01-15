@@ -57,6 +57,7 @@ class Problem < ActiveRecord::Base
     formula = ""
     steps.each do |step|
       if formula.empty?
+        formula = Formula.new(step.formula)
         formula = "#{step.formula}"
         theory = theory + "#{step.formula}"
       else

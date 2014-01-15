@@ -21,7 +21,11 @@ class Step < ActiveRecord::Base
   end
 
   def formula
-    "(#{value1} #{symbol} #{value2})"
+    Formula.new(Operation.new(symbol, Constant.new(value1), Constant.new(value2)))
+  end
+
+  def symbol
+    symbol.parameterize.underscore.to_sym
   end
 
   def get_result
