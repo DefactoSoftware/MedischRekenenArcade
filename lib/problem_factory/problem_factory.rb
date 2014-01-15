@@ -4,6 +4,6 @@ class ProblemFactory
   end
 
   def problem
-    eval(@challenge.name).generate
+    @challenge.name.constantize.generate
   end
 end
