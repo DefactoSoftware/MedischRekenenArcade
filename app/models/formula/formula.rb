@@ -34,6 +34,7 @@ class Constant
 end
 
 class Operation
+  attr_reader :constant1, :constant2
   def initialize(operator, constant1, constant2)
     @operator = operator
     @constant1 = constant1

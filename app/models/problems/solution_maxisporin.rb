@@ -1,3 +1,19 @@
+# == Schema Information
+#
+# Table name: problems
+#
+#  id         :integer          not null, primary key
+#  formula    :string(255)
+#  question   :string(255)
+#  theory     :text
+#  difficulty :float
+#  created_at :datetime
+#  updated_at :datetime
+#  unit_id    :integer
+#  type       :string(255)
+#  result     :float
+#
+
 class SolutionMaxisporin < Problem
   def self.generate
     unit = "ml";

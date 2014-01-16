@@ -1,14 +1,32 @@
+# == Schema Information
+#
+# Table name: problems
+#
+#  id         :integer          not null, primary key
+#  formula    :string(255)
+#  question   :string(255)
+#  theory     :text
+#  difficulty :float
+#  created_at :datetime
+#  updated_at :datetime
+#  unit_id    :integer
+#  type       :string(255)
+#  result     :float
+#
+
 class PercentageAmountOfAmount < Problem
   def self.generate
     unit = AVAILABLE_UNITS[rand(0...AVAILABLE_UNITS.length)]
-    variable1 = Float(rand(1...10)*10).round(2)
-    variable2 = Float(1 + rand(1...4)).round(2)
-    theory = "#{variable1}% van #{variable2}#{unit}"
+    operations = []
+    operations << Operation.new(
+                    AVAILABLE_OPERATORS["Multiplication"],
+                    Constant.new(Float((rand(1...10)*10))/100),
+                    Constant.new(Float(1 + rand(1...4)).round(2))
+                  )
+    formula = Formula.new(operations)
 
-    problem = self.create(theory:theory, unit: Unit.where(sign:unit).first)
+    theory = "#{operations[0].constant1.value*100}% van #{operations[0].constant2.value}#{unit}"
 
-    step1 = problem.add_step(Skill.where(name: AVAILABLE_SKILLS[2]).first_or_create, (variable1/100), variable2)
-    problem.update_attributes(formula: "#{step1.formula}")
-    problem
+    self.create(theory:theory, unit: Unit.where(sign:unit).first, result: formula.result)
   end
 end

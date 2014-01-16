@@ -10,6 +10,8 @@
 #  icon               :string(255)
 #  created_at         :datetime
 #  updated_at         :datetime
+#  steps              :integer
+#  type               :string(255)
 #
 
 require 'spec_helper'
