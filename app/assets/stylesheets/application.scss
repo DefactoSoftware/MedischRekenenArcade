@@ -16,7 +16,14 @@
 
 // MAIN
 #main {
-  margin-top:60px;
+  margin-top:50px;
+}
+
+.image_background {
+  background-image: url('/assets/bg/bg1.jpg');
+  background-repeat: no-repeat;
+  background-size:100%;
+  min-height: 1000px;
 }
 
 // ERROR PAGES
@@ -147,10 +154,7 @@
 
 // MAIN
 .main {
-  background-image: url('/assets/bg/bg1.jpg');
-  background-repeat: no-repeat;
-  background-size:100%;
-  min-height: 1000px;
+
  }
 
 .grey_block {
@@ -197,6 +201,13 @@
   margin-top: 20px;
  }
 
+.feedback_block {
+  background-color: #ecf0f1;
+  border: 2px solid #d6dbdf;
+  padding:00px 20px 20px 20px;
+  margin-top: 20px;
+}
+
 .notice_block {
   background-color: #f1c40f;
   border: 2px solid #d6dbdf;
@@ -222,7 +233,25 @@
 }
 
 .dialog {
-  border-bottom: 2px solid #d6dbdf;
+  border-top: 3px solid #d6dbdf;
+  width:100%;
+  background-color: #edeff1;
+  position: fixed;
+  z-index: 100;
+  bottom: 0;
+  left: 0;
+  height: 60px;
+}
+
+.container {
+  text-align:center;
+  color: #34495E;
+  box-sizing:border-box;
+  font-size:24px;
+  padding-top:10px;
+  height:41px;
+  margin-left:auto;
+  margin-right:auto;
 }
 
 // PRACTICE VIEW
