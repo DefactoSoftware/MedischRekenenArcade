@@ -14,11 +14,8 @@
 #  type               :string(255)
 #
 
-require 'spec_helper'
-
-describe Challenge do
-  describe "Associations" do
-    it { should have_many :skills }
-    it { should have_many :challenge_skills }
+class BasicChallenge < Challenge
+  def create_problem
+    Problem.generate_random_with_skills(self.steps, self.skills)
   end
 end

@@ -19,7 +19,7 @@
 #  unconfirmed_email      :string(255)
 #  username               :string(255)      not null
 #  name                   :string(255)
-#  profilepicture_url     :string(255)      default("http://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/John_Doe.jpg/220px-John_Doe.jpg")
+#  profilepicture_url     :string(255)      default("/assets/no_profile.jpg")
 #  created_at             :datetime
 #  updated_at             :datetime
 #  user_group_id          :integer
@@ -64,6 +64,14 @@ class User < ActiveRecord::Base
   def decrease_points(value)
     subtract_points(value)
     update_leaderboard(value*-1)
+  end
+
+  def challenges_completed_successfully
+    amount = 0
+    user_challenges.each do |user_challenge|
+      amount += 1 if user_challenge.success?
+    end
+    amount
   end
 
   private

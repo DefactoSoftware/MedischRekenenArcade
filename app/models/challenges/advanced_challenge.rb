@@ -14,11 +14,10 @@
 #  type               :string(255)
 #
 
-require 'spec_helper'
+require 'problem_factory'
 
-describe Challenge do
-  describe "Associations" do
-    it { should have_many :skills }
-    it { should have_many :challenge_skills }
+class AdvancedChallenge < Challenge
+  def create_problem
+    ProblemFactory.new(self).problem
   end
 end

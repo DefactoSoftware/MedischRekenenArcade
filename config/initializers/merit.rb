@@ -32,3 +32,19 @@ Merit::Badge.create!(
     description: "You have answered 10 questions or more!"
   }
 )
+Merit::Badge.create!(
+  {
+    id: 3,
+    name: 'completed_first_challenge_successfully',
+    image: asset_path("assets/no_image.png"),
+    description: "You have successfully completed your first challenge!"
+  }
+)
+Merit::Badge.create!(
+  {
+    id: 4,
+    name: 'completed_ten_challenges_successfully',
+    image: asset_path("assets/no_image.png"),
+    description: "You have successfully completed 10 challenges!"
+  }
+)
