@@ -34,6 +34,12 @@ nl:
     answered_10:
       name: "10 beantwoord"
       description: "Je hebt 10 vragen beantwoord"
+    completed_first_challenge_successfully:
+      name: "Eerste uitdaging voltooid"
+      description: "Je hebt je eerste uitdaging succesvol voltooid"
+    completed_ten_challenges_successfully:
+      name: "Challenge apprentice"
+      description: "Je hebt 10 uitdagingen succesvol voltooid"
   greetings:
     morning: "Goedemorgen"
     evening: "Goedenavond"

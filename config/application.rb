@@ -10,10 +10,7 @@ Bundler.require(:default, Rails.env)
 module MedischRekenenArcade
   class Application < Rails::Application
     config.autoload_paths += %W(#{config.root}/lib)
-    config.autoload_paths += %W(#{config.root}/app/models/challenges)
-    config.autoload_paths += %W(#{config.root}/app/models/steps)
-    config.autoload_paths += %W(#{config.root}/app/models/problems)
-    config.autoload_paths += %W(#{config.root}/app/models/formula)
+    config.autoload_paths += Dir[Rails.root.join("app/models/**")]
 
 
     config.assets.initialize_on_precompile = false

@@ -34,6 +34,12 @@ en:
     answered_10:
       name: "10 answered"
       description: "You answered 10 question"
+    completed_first_challenge_successfully:
+      name: "Completed first challenge"
+      description: "You have successfully completed your very first challenge"
+    completed_ten_challenges_successfully:
+      name: "Challenge apprentice"
+      description: "You have successfully completed 10 challenges"
   greetings:
     morning: "Good morning"
     evening: "Good evening"
