@@ -91,4 +91,22 @@ describe Problem do
       end
     end
   end
+  describe SolutionMaxisporin do
+    let(:challenge) { AdvancedChallenge.new(name: "SolutionMaxisporin") }
+    let(:problem_factory) { ProblemFactory.new(challenge) }
+
+    it "creates a problem" do
+      expect(problem_factory.problem).to be_a(SolutionMaxisporin)
+    end
+
+    describe "problem" do
+      it "has a theory" do
+        expect(problem_factory.problem.theory).to be_a(String)
+      end
+
+      it "has a result" do
+        expect(problem_factory.problem.get_result).to be_a(Float)
+      end
+    end
+  end
 end
