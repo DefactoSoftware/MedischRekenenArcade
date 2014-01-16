@@ -18,7 +18,7 @@ describe Formula do
     operation1 = Operation.new(:*, Constant.new(2), Constant.new(3))
     operation2 = Operation.new(:+, Constant.new(operation1), Constant.new(1))
     formula = Formula.new([operation1, operation2])
-    expect(formula.text).to eq("2 * 3 \n 6 + 1 \n ")
+    expect(formula.text).to eq("2 * 3 \n 6 + 1")
   end
 end
 

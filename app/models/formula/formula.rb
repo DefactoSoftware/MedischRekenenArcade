@@ -6,11 +6,7 @@ class Formula
   end
 
   def text
-    string = ""
-    @operations.each do |operation|
-      string = string + "#{operation.text} \n "
-    end
-    string
+    @operations.map(&:text).join(" \n ")
   end
 
   def result
