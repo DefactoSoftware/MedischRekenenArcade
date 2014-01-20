@@ -109,6 +109,17 @@ var trailing_zero = function(n) {
   }
 }
 
+$("#toggle_feedback").ready(function() {
+  $("#toggle_feedback").on("click", function(){
+    $("#feedback_background").toggle();
+    $("#feedback_report").toggle();
+  });
+  $("#feedback_background").on("click", function(){
+    $("#feedback_report").toggle();
+    $("#feedback_background").toggle();
+  })
+})
+
 //Functions to close alerts and notices
 $(document).ready(function() {
   setTimeout(function () { closeNotices(); closeAlerts(); }, 5000);

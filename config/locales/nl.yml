@@ -27,6 +27,15 @@ nl:
   session: "Sessie"
   activities:
     title: "Activiteit"
+  feedback_report:
+    save:
+      success: "Feedback report was added"
+      error:  "Could not add feedback report"
+    form:
+      submit: "Send report"
+    placeholders:
+      subject: "Subject"
+      text: "Report"
   badges:
     just_registered:
       name: "Geregistreerd"
