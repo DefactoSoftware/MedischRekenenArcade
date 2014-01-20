@@ -126,7 +126,7 @@ $(document).ready(function() {
 });
 
 var closeNotices = function() {
-  elements = $(".notice");
+  elements = $(".notice_block");
   for(var i =0; i<elements.length; i++) {
     $(elements[i]).css('display', 'none');
   }
