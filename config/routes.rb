@@ -11,6 +11,8 @@ MedischRekenenArcade::Application.routes.draw do
     resources :statistics, only: [:index]
   end
 
+  resources :feedback_reports, only: [:create]
+
   resources :leaderboards, only: [:index]
 
   get 'practice', to: 'problems#index'

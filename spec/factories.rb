@@ -62,4 +62,11 @@ FactoryGirl.define do
     challenge
     skill
   end
+
+  factory :feedback_report do
+    user
+    text { Faker::HipsterIpsum.paragraph }
+    subject { Faker::HipsterIpsum.word }
+    page { Faker::HipsterIpsum.word }
+  end
 end
