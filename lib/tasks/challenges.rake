@@ -3,7 +3,7 @@ task :create_basic_challenges => :environment do
   adding = Skill.where(name: "Addition").first_or_create
   dividing = Skill.where(name: "Division").first_or_create
   multiplying = Skill.where(name: "Multiplication").first_or_create
-  subtracting = Skill.where(name: "Subtracting").first_or_create
+  subtracting = Skill.where(name: "Subtraction").first_or_create
   percentage = Skill.where(name: "percentage").first_or_create
   unitconversion = Skill.where(name: "unitconversion").first_or_create
 

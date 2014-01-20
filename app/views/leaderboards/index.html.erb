@@ -28,9 +28,9 @@
           <td><%= t("leaderboards.table_headers.score") %></td>
         </tr>
       </thead>
-      <% @user_group_scores.each do |score| %>
+      <% @user_group_scores.each_with_index do |score, i| %>
         <tr>
-          <td>#<%= score[:rank] %></td>
+          <td>#<%= i+1 %></td>
           <td><%= User.find(score[:member]).name %></td>
           <td><%= score[:score] %></td>
         </tr>
