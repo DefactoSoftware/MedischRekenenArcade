@@ -26,6 +26,7 @@ en:
   points: "Points"
   session: "Session"
   feedback_report:
+    title: "Give feedback"
     save:
       success: "Feedback report was added"
       error:  "Could not add feedback report"

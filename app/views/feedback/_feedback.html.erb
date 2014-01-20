@@ -1,6 +1,6 @@
 <div id="feedback_report" class="feedback_report">
   <%= form_for(FeedbackReport.new) do |f| %>
-    <h4>Give feedback!</h4>
+    <h4><%= t("feedback_report.title") %></h4>
     <div class="form-group">
       <%= f.text_field :subject, class: "form-control", placeholder: t("feedback_report.placeholders.subject"), required: true %>
     </div>

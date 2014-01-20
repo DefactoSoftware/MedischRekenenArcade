@@ -28,14 +28,15 @@ nl:
   activities:
     title: "Activiteit"
   feedback_report:
+    title: "Geef feedback"
     save:
-      success: "Feedback report was added"
-      error:  "Could not add feedback report"
+      success: "Het feedback rapport is toegevoegd"
+      error:  "Kon het feedback rapport niet opslaan"
     form:
-      submit: "Send report"
+      submit: "Stuur rapport"
     placeholders:
-      subject: "Subject"
-      text: "Report"
+      subject: "Onderwerp"
+      text: "Rapport"
   badges:
     just_registered:
       name: "Geregistreerd"
@@ -110,3 +111,4 @@ nl:
     sign_in: "Login"
     remember: "Onthoud mij?"
     user_group: "Gebruikersgroep"
+
