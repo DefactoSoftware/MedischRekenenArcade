@@ -32,7 +32,11 @@
 }
 
 .feedback-btn {
-
+  position: fixed;
+  z-index: 100;
+  bottom: 20px;
+  right: 0;
+  height: 60px;
 }
 
 .feedback_report {
@@ -49,6 +53,7 @@
   opacity: 1;
   overflow: auto;
   height: 480px;
+  box-shadow: 10px 10px 20px black;
 }
 
 .black_overlay{
@@ -127,6 +132,13 @@
   background-color: rgb(55, 150, 70);
   font-size:25px;
   box-shadow: 0px 5px 10px rgba(0,0,0,0.3);
+}
+
+.btn-feedback {
+  background-color: #3498db;
+  color: white;
+  height: 50px;
+  width: 200px;
 }
 
 #call_to_action_buttons {
