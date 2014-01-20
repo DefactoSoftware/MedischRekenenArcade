@@ -1,5 +1,4 @@
 @import "twitter-bootstrap-static/bootstrap";
-@import "flat-ui.scss";
 @import "calculator.scss";
 
 // POPOVER
@@ -15,6 +14,17 @@
   border:0px solid black;
 }
 
+// MAIN
+#main {
+  margin-top:50px;
+}
+
+.image_background {
+  background-image: url('/assets/bg/bg1.jpg');
+  background-repeat: no-repeat;
+  background-size:100%;
+  min-height: 1000px;
+}
 
 // ERROR PAGES
 .error_page {
@@ -49,6 +59,18 @@
   padding-left: 10px;
 }
 
+.input-group-addon {
+  padding: 10px 12px;
+  font-size: 15px;
+  color: #ffffff;
+  text-align: center;
+  background-color: #bdc3c7;
+  border: 1px solid #bdc3c7;
+  border-radius: 6px;
+  -webkit-transition: border .25s linear, color .25s linear, background-color .25s linear;
+  transition: border .25s linear, color .25s linear, background-color .25s linear;
+}
+
 // BUTTONS
 .btn-landing {
   width: 300px;
@@ -70,6 +92,53 @@
 
 #call_to_action_buttons {
   text-align:center;
+}
+
+.btn-embossed {
+  -webkit-box-shadow: inset 0 -2px 0 rgba(0, 0, 0, 0.15);
+  box-shadow: inset 0 -2px 0 rgba(0, 0, 0, 0.15);
+}
+.btn-embossed.active,
+.btn-embossed:active {
+  -webkit-box-shadow: inset 0 2px 0 rgba(0, 0, 0, 0.15);
+  box-shadow: inset 0 2px 0 rgba(0, 0, 0, 0.15);
+}
+
+.btn-primary {
+  color: #ffffff;
+  background-color: #1abc9c;
+}
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active,
+.open .dropdown-toggle.btn-primary {
+  color: #ffffff;
+  background-color: #48c9b0;
+}
+.btn-primary:active,
+.btn-primary.active,
+.open .dropdown-toggle.btn-primary {
+  background: #16a085;
+}
+
+.btn-submit {
+  color: #ffffff;
+  background-color: #2ecc71;
+  border: 0px;
+}
+.btn-submit:hover,
+.btn-submit:focus,
+.btn-submit:active,
+.btn-submit.active,
+.open .dropdown-toggle.btn-submit {
+  color: #ffffff;
+  background-color: #58d68d;
+}
+.btn-submit:active,
+.btn-submit.active,
+.open .dropdown-toggle.btn-submit {
+  background: #27ad60;
 }
 
 // MENU
@@ -144,10 +213,7 @@
 
 // MAIN
 .main {
-  background-image: url('/assets/bg/bg1.jpg');
-  background-repeat: no-repeat;
-  background-size:100%;
-  min-height: 1000px;
+
  }
 
 .grey_block {
@@ -167,10 +233,12 @@
  }
 
  .theory {
-  border-right: 1px solid gray;
+
  }
 
- .input {}
+ .input {
+  border-left: 1px solid gray;
+ }
 
  .submit_block {
   background-color: #bdc3c7;
@@ -193,6 +261,13 @@
   padding:00px 20px 20px 20px;
   margin-top: 20px;
  }
+
+.feedback_block {
+  background-color: #ecf0f1;
+  border: 2px solid #d6dbdf;
+  padding:00px 20px 20px 20px;
+  margin-top: 20px;
+}
 
 .notice_block {
   background-color: #f1c40f;
@@ -219,7 +294,25 @@
 }
 
 .dialog {
-  border-bottom: 2px solid #d6dbdf;
+  border-top: 3px solid #d6dbdf;
+  width:100%;
+  background-color: #edeff1;
+  position: fixed;
+  z-index: 100;
+  bottom: 0;
+  left: 0;
+  height: 60px;
+}
+
+.container {
+  text-align:center;
+  color: #34495E;
+  box-sizing:border-box;
+  font-size:24px;
+  padding-top:10px;
+  height:41px;
+  margin-left:auto;
+  margin-right:auto;
 }
 
 // PRACTICE VIEW
@@ -368,6 +461,44 @@ a.thumbnail:focus {
   margin: 0;
 }
 
+//NAVBAR
+#navbar {
+  z-index: 1000;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 50px;
+  background: #f5f5f5;
+  border: none;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.3);
+}
+#navbar .navbar-brand {
+  font-weight: 300;
+}
+#navbar a.navbar-brand {
+  color: inherit;
+}
+#navbar .navbar-nav {
+  margin-left: 15px;
+}
+#navbar .nav > li > a {
+  padding-top: 0;
+  padding-bottom: 0;
+  line-height: 50px;
+  border-left: 1px solid #ddd;
+  color: #555;
+  -webkit-transition: background .3s;
+     -moz-transition: background .3s;
+          transition: background .3s;
+}
+#navbar .nav > li > a:hover {
+  color: #333;
+}
+#navbar .nav .dropdown-menu {
+  border: 1px solid #ddd;
+}
+
 
 //BOOTSTRAP COLUMN OVERRIDES
 .three-column-small {
@@ -405,15 +536,30 @@ a.thumbnail:focus {
   @extend .col-xs-12;
 }
 
+.one-column-fill {
+  @extend .col-md-12;
+  @extend .col-lg-12;
+  @extend .col-sm-12;
+  @extend .col-xs-12;
+}
 
 .one-column-center {
   @extend .col-md-10;
   @extend .col-lg-10;
-  @extend .col-lg-12;
-  @extend .col-lg-12;
+  @extend .col-sm-12;
+  @extend .col-xs-12;
 }
 
 .one-column-side {
   @extend .col-md-1;
   @extend .col-lg-1;
 }
+
+
+
+
+
+
+
+
+

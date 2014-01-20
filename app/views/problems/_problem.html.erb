@@ -31,22 +31,21 @@
     </div>
   </div>
 </div>
-  <div class="row submit_block">
-    <div class="two-column-fill ">
-        <a href="#" id="helpQuestion"><%= t("practice.helpquestion") %></a>
-      <p class="help">
-        <%= problem.get_result.round(2) %>
-      </p>
+<div class="row submit_block">
+  <div class="two-column-fill ">
+      <a href="#" id="helpQuestion"><%= t("practice.helpquestion") %></a>
+    <p class="help">
+      <%= problem.get_result.round(2) %>
+    </p>
+  </div>
+  <div class="two-column-fill">
+    <div class="form-group submit_form">
+      <div>
+      <%= f.submit t("practice.submit_button"), class:"btn btn-submit btn-embossed btn-practice" %>
+      <% end %>
+      <br>
+      <a href="#" id="skipQuestion">(<%= t("practice.skipquestion") %>)</a>
     </div>
-    <div class="two-column-fill">
-      <div class="form-group submit_form">
-        <div>
-        <%= f.submit t("practice.submit_button"), class:"btn btn-success btn-embossed btn-practice" %>
-        <% end %>
-        <br>
-        <a href="#" id="skipQuestion">(<%= t("practice.skipquestion") %>)</a>
-      </div>
-      </div>
     </div>
   </div>
-
+</div>
