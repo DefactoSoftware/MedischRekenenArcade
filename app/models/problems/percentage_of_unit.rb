@@ -26,7 +26,7 @@ class PercentageOfUnit < Problem
                   )
     formula = Formula.new(operations)
 
-    theory = "Hoeveel % is #{operations[0].constant1.value}#{unit} van #{operations[0].constant2.value}#{unit_question}"
+    theory = "Hoeveel % is #{operations[0].constant1.value}#{unit_question} van #{operations[0].constant2.value}#{unit_question}"
 
     self.create(theory:theory, unit: Unit.where(sign:unit).first, result: formula.result)
   end
