@@ -26,11 +26,11 @@ describe Challenge do
 
 
   describe "Valid challenge names" do
-    let(:random_name) { (0...50).map { ('a'..'z').to_a[rand(26)] }.join }
     Challenge::VALID_NAMES.each do |name|
       it { should allow_value(name).for(:name) }
     end
 
-    it { should_not allow_value(random_name).for(:name) }
+    it { should_not allow_value(Faker::HipsterIpsum.word).for(:name) }
+    it { should_not allow_value("clearly a faulty challenge name").for(:name) }
   end
 end
