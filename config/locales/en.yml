@@ -78,7 +78,7 @@ en:
     skipquestion: "skip"
     helpquestion: "Help!"
     problem_picker: "Problem picker"
-    all_problems: "All problems"
+    clear_filter: "Standard problems"
   leaderboards:
     titles:
       top: "Top"
@@ -134,8 +134,12 @@ en:
     PercentageAmountOfAmount: "Percentage: percentage amount from unit"
     PercentageOfUnit: "Percentage: % of unit"
     PercentageUnitToHundred: "Percentage: convert to 100%"
+    SolutionMaxisporin: "Solution: Maxisporin"
   problem_info:
     basic: "This is a basic mathematical operation. Look at the operator and solve the problem. If there is more than one step try to do the easiest step first. If the number is too big try to make little chunks."
-
+    PercentageOfUnit: "Divide the percentage asked by 100 and multiply that with the value."
+    PercentageUnitToHundred: "You should go back to "
+    PercentageAmountOfAmount: "First calculate what 1% is by dividing the value by 100. Then multiply that by the percentage asked"
+    SolutionMaxisporin:
 
 

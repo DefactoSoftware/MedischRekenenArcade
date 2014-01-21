@@ -23,6 +23,8 @@ class Problem < ActiveRecord::Base
   AVAILABLE_OPERATORS = { "Addition" => :+, "Division" => :/, "Multiplication" => :*, "Subtraction" => :- }
   AVAILABLE_UNITS = ["mg", "g", "kg", "ml", "cl", "dl", "l"]
 
+  VALID_PROBLEMS = %w(PercentageAmountOfAmount PercentageOfUnit PercentageUnitToHundred SolutionMaxisporin)
+
   def get_result
     result.round(2)
   end

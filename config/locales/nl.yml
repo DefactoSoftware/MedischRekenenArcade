@@ -78,7 +78,7 @@ nl:
     skipquestion: "overslaan"
     helpquestion: "Help!"
     problem_picker: "Probleem picker"
-    all_problems: "Alle problemen"
+    clear_filter: "Standaar problemen"
   leaderboards:
     titles:
       top: "Top"
@@ -134,5 +134,6 @@ nl:
     PercentageAmountOfAmount: "Percentage: percentage van een hoeveelheid"
     PercentageOfUnit: "Percentage: hoeveelheid in percenten"
     PercentageUnitToHundred: "Percentage: reken naar 100%"
+    SolutionMaxisporin: "Oplossing: Maxisporin"
   problem_info:
     basic: "Dit is een basis wiskundige operatie. Kijk naar het symbool en los het probleem op. Als er meerdere stappen zijn doe dan de kleinste stap eerst. Als de getallen te groot zijn probeer ze dan op te delen. Denk ook aan de volgorde waarin je de stappen uitvoert."

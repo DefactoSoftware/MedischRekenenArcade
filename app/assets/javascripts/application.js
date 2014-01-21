@@ -167,3 +167,8 @@ function hasNumbers(t) {
   return /\d/.test(t);
 }
 
+$("#_problem").ready(function() {
+  $("#_problem").on("change", function() {
+    $("#problem_picker").submit();
+  })
+})
