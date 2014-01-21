@@ -20,6 +20,7 @@ describe Challenge do
   describe "Associations" do
     it { should have_many :skills }
     it { should have_many :challenge_skills }
+    it { should have_many :user_challenges }
   end
 
 
