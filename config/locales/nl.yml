@@ -69,6 +69,7 @@ nl:
     login: "Log in"
     users: "Gebruikers"
     sign_up: "Registreer"
+    help: "Hulp nodig?"
   calculator:
     info: "Als je vast zit kan je deze simpele rekenmachine gebruiken. Dit verlaagt wel je score"
   practice:

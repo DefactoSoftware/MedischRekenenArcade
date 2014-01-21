@@ -69,6 +69,7 @@ en:
     login: "Log in"
     sign_up: "Registreer"
     users: "Users"
+    help: "Need help?"
   calculator:
     info: "If you're stuck you can use this simple calculator. This does however reduce your score"
   practice:
