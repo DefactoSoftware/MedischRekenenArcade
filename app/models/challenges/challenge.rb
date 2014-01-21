@@ -12,6 +12,7 @@
 #  updated_at         :datetime
 #  steps              :integer
 #  type               :string(255)
+#  challenge_set_id   :integer
 #
 
 class Challenge < ActiveRecord::Base

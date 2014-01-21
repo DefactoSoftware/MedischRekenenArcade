@@ -2,11 +2,11 @@
 #
 # Table name: challenge_sets
 #
-#  id            :integer          not null, primary key
-#  challenges_id :integer
-#  name          :string(255)
-#  created_at    :datetime
-#  updated_at    :datetime
+#  id         :integer          not null, primary key
+#  name       :string(255)
+#  locked     :boolean
+#  created_at :datetime
+#  updated_at :datetime
 #
 
 class ChallengeSet < ActiveRecord::Base
