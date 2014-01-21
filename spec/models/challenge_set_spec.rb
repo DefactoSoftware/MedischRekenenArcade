@@ -1,20 +1,18 @@
 # == Schema Information
 #
-# Table name: feedback_reports
+# Table name: challenge_sets
 #
 #  id         :integer          not null, primary key
-#  user_id    :integer
-#  text       :text
-#  subject    :string(255)
-#  page       :string(255)
+#  name       :string(255)
+#  locked     :boolean
 #  created_at :datetime
 #  updated_at :datetime
 #
 
 require 'spec_helper'
 
-describe FeedbackReport do
+describe ChallengeSet do
   describe "Associations" do
-    it { should belong_to(:user) }
+     it { should have_many(:challenges) }
   end
 end

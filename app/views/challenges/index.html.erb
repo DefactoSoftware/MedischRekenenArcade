@@ -5,21 +5,24 @@
 <div class="row">
   <div class="three-column-small"></div>
   <div class="three-column-big">
-    <div id="challenges_block" class="grey_block">
-      <% @challenges.each do |challenge| %>
-        <div class="col-sm-6 col-md-3 col-lg-2 thumbnail-col">
-          <div class="thumbnail">
-            <%= link_to challenge_path(challenge.name), class:"thumb-link" do %>
-              <div class="image" style="background-image:url(<%= challenge.icon %>)"></div>
-              <div class="caption">
-                <div class="inner">
-                  <h2><%= t("challenges.#{challenge.name}") %></h2>
+    <% @challengesets.each do |challenge_set| %>
+      <div id="challenges_block" class="grey_block">
+        <h4><%= challenge_set.name %></h4>
+        <% challenge_set.challenges.each do |challenge| %>
+          <div class="col-sm-6 col-md-3 col-lg-2 thumbnail-col">
+            <div class="thumbnail">
+              <%= link_to challenge_path(challenge.name), class:"thumb-link" do %>
+                <div class="image" style="background-image:url(<%= challenge.icon %>)"></div>
+                <div class="caption">
+                  <div class="inner">
+                    <h2><%= t("challenges.#{challenge.name}") %></h2>
+                  </div>
                 </div>
-              </div>
-            <% end %>
+              <% end %>
+            </div>
           </div>
-        </div>
-      <% end %>
-    </div>
+        <% end %>
+      </div>
+    <% end %>
   </div>
 </div>

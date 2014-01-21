@@ -12,6 +12,7 @@
 #  updated_at         :datetime
 #  steps              :integer
 #  type               :string(255)
+#  challenge_set_id   :integer
 #
 
 require 'spec_helper'
@@ -21,6 +22,7 @@ describe Challenge do
     it { should have_many :skills }
     it { should have_many :challenge_skills }
     it { should have_many :user_challenges }
+    it { should belong_to :challenge_set }
   end
 
 

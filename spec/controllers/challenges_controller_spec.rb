@@ -19,9 +19,9 @@ describe ChallengesController do
       expect(response.status).to eq(200)
     end
 
-    it "should assign @challenges" do
+    it "should assign @challengesets" do
       get :index
-      expect(assigns(:challenges)).to eq(Challenge.all)
+      expect(assigns(:challengesets)).to eq(ChallengeSet.where(locked: false))
     end
   end
 

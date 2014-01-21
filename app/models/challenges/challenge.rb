@@ -12,12 +12,14 @@
 #  updated_at         :datetime
 #  steps              :integer
 #  type               :string(255)
+#  challenge_set_id   :integer
 #
 
 class Challenge < ActiveRecord::Base
   has_many :challenge_skills
   has_many :skills, through: :challenge_skills
   has_many :user_challenges
+  belongs_to :challenge_set
 
   VALID_NAMES =  %w(Addition_1 Addition_2 Addition_3
                     Division_1 Division_2 Division_3

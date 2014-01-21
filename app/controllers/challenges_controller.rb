@@ -16,7 +16,7 @@ class ChallengesController < ApplicationController
 
   def index
     reset_challenge
-    @challenges = Challenge.all
+    @challengesets = ChallengeSet.where(locked: false)
   end
 
   private
