@@ -23,8 +23,14 @@ class Problem < ActiveRecord::Base
   AVAILABLE_OPERATORS = { "Addition" => :+, "Division" => :/, "Multiplication" => :*, "Subtraction" => :- }
   AVAILABLE_UNITS = ["mg", "g", "kg", "ml", "cl", "dl", "l"]
 
+  VALID_PROBLEMS = %w(PercentageAmountOfAmount PercentageOfUnit PercentageUnitToHundred SolutionMaxisporin)
+
   def get_result
     result.round(2)
+  end
+
+  def info
+    I18n.t("problem_info.basic")
   end
 
   def self.generate_random(steps)

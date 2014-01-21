@@ -1,9 +1,9 @@
 class ProblemFactory
-  def initialize(challenge)
-    @challenge = challenge
+  def initialize(name)
+    @name = name
   end
 
   def problem
-    @challenge.name.constantize.generate
+    @name.constantize.generate
   end
 end

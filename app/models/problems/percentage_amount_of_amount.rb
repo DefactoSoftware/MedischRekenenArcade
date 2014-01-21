@@ -29,4 +29,8 @@ class PercentageAmountOfAmount < Problem
 
     self.create(theory:theory, unit: Unit.where(sign:unit).first, result: formula.result)
   end
+
+  def info
+    I18n.t("problem_info.PercentageAmountOfAmount")
+  end
 end

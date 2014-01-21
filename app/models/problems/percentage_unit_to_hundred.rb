@@ -34,4 +34,8 @@ class PercentageUnitToHundred < Problem
     theory = "#{operations[0].constant2.value}#{unit_question} is #{operations[0].constant1.value}#{unit}, hoeveel is #{operations[1].constant2.value}#{unit_question}"
     self.create(theory:theory, unit: Unit.where(sign:unit).first, result: formula.result)
   end
+
+  def info
+    I18n.t("problem_info.PercentageUnitToHundred")
+  end
 end

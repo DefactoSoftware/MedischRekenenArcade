@@ -38,7 +38,7 @@ describe Problem do
 
   describe PercentageAmountOfAmount do
     let(:challenge) { AdvancedChallenge.new(name: "PercentageAmountOfAmount") }
-    let(:problem_factory) { ProblemFactory.new(challenge) }
+    let(:problem_factory) { ProblemFactory.new(challenge.name) }
 
     it "creates a problem" do
       expect(problem_factory.problem).to be_a(PercentageAmountOfAmount)
@@ -57,7 +57,7 @@ describe Problem do
 
   describe PercentageOfUnit do
     let(:challenge) { AdvancedChallenge.new(name: "PercentageOfUnit") }
-    let(:problem_factory) { ProblemFactory.new(challenge) }
+    let(:problem_factory) { ProblemFactory.new(challenge.name) }
 
     it "creates a problem" do
       expect(problem_factory.problem).to be_a(PercentageOfUnit)
@@ -75,7 +75,7 @@ describe Problem do
   end
   describe PercentageUnitToHundred do
     let(:challenge) { AdvancedChallenge.new(name: "PercentageUnitToHundred") }
-    let(:problem_factory) { ProblemFactory.new(challenge) }
+    let(:problem_factory) { ProblemFactory.new(challenge.name) }
 
     it "creates a problem" do
       expect(problem_factory.problem).to be_a(PercentageUnitToHundred)
@@ -93,7 +93,7 @@ describe Problem do
   end
   describe SolutionMaxisporin do
     let(:challenge) { AdvancedChallenge.new(name: "SolutionMaxisporin") }
-    let(:problem_factory) { ProblemFactory.new(challenge) }
+    let(:problem_factory) { ProblemFactory.new(challenge.name) }
 
     it "creates a problem" do
       expect(problem_factory.problem).to be_a(SolutionMaxisporin)
