@@ -14,6 +14,11 @@
   border:0px solid black;
 }
 
+// HACK HACK HACK
+.navbar-nav.navbar-right:last-child {
+  margin-right: 0px !important;
+}
+
 // MAIN
 #main {
   margin-top:50px;
