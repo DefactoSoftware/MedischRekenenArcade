@@ -5,7 +5,7 @@ MedischRekenenArcade
 
 
 **System dependencies:**
-- Ruby 2.0 (install with [rbenv](https://github.com/sstephenson/rbenv))
+- Ruby 2.1.0 (install with [rbenv](https://github.com/sstephenson/rbenv))
 - Rubygems
 - Bundler (`gem install bundler`)
 - PostgreSQL (http://postgresapp.com/)
