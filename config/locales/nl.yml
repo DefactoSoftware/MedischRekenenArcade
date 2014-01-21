@@ -30,7 +30,7 @@ nl:
     title: "Activiteit"
   feedback_report:
     button: "Meld een probleem!"
-    title: "Geef feedback"
+    title: "Schrijf het probleem op dat je gevonden hebt"
     save:
       success: "Het feedback rapport is toegevoegd"
       error:  "Kon het feedback rapport niet opslaan"

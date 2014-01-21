@@ -28,7 +28,7 @@ en:
   total: "Total"
   feedback_report:
     button: "Report a problem!"
-    title: "Give feedback"
+    title: "Write down the problem you encountered"
     save:
       success: "Feedback report was added"
       error:  "Could not add feedback report"
