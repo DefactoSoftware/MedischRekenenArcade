@@ -25,6 +25,17 @@ en:
   streak: "Streak"
   points: "Points"
   session: "Session"
+  total: "Total"
+  feedback_report:
+    title: "Give feedback"
+    save:
+      success: "Feedback report was added"
+      error:  "Could not add feedback report"
+    form:
+      submit: "Send report"
+    placeholders:
+      subject: "Subject"
+      text: "Report"
   activities:
     title: "Activity"
   badges:
@@ -101,5 +112,25 @@ en:
     sign_in: "Login"
     remember: "Remember me?"
     user_group: "Usergroup"
+  challenges:
+    Addition_1: "Addition 1 step"
+    Addition_2: "Addition 2 steps"
+    Addition_3: "Addition 3 steps"
+    Division_1: "Division 1 step"
+    Division_2: "Division 2 steps"
+    Division_3: "Division 3 steps"
+    Multiplication_1: "Multiplication 1 step"
+    Multiplication_2: "Multiplication 2 steps"
+    Multiplication_3: "Multiplication 3 steps"
+    Subtraction_1: "Subtraction 1 step"
+    Subtraction_2: "Subtraction 2 steps"
+    Subtraction_3: "Subtraction 3 steps"
+    Mixed_1: "Mixed basic 1"
+    Mixed_2: "Mixed basic 2"
+    Mixed_3: "Mixed basic 3"
+    PercentageAmountOfAmount: "Percentage: percentage amount from unit"
+    PercentageOfUnit: "Percentage: % of unit"
+    PercentageUnitToHundred: "Percentage: convert to 100%"
+
 
 

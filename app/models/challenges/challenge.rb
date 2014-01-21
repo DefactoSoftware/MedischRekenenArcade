@@ -19,6 +19,15 @@ class Challenge < ActiveRecord::Base
   has_many :skills, through: :challenge_skills
   has_many :user_challenges
 
+  VALID_NAMES =  %w(Addition_1 Addition_2 Addition_3
+                    Division_1 Division_2 Division_3
+                    Multiplication_1 Multiplication_2 Multiplication_3
+                    Subtraction_1 Subtraction_2 Subtraction_3
+                    Mixed_1 Mixed_2 Mixed_3
+                    PercentageAmountOfAmount PercentageOfUnit PercentageUnitToHundred)
+
+  validates :name, inclusion: { in: VALID_NAMES }
+
 
   def total_correct_answers_for_user(user)
     userchallenges = self.user_challenges.where(user: user)

@@ -35,7 +35,7 @@ FactoryGirl.define do
 
   factory :challenge do
     number_of_problems { 5 }
-    name { Faker::HipsterIpsum.word }
+    name { Challenge::VALID_NAMES.sample }
     timelimit { 9000000 }
     bonus { 20 }
     icon { "google.com/images/srpr/logo11w.png" }
@@ -43,7 +43,7 @@ FactoryGirl.define do
 
   factory :basic_challenge do
     number_of_problems { 5 }
-    name { Faker::HipsterIpsum.word }
+    name { Challenge::VALID_NAMES.sample }
     timelimit { 9000000 }
     bonus { 20 }
     icon { "google.com/images/srpr/logo11w.png" }
@@ -61,5 +61,12 @@ FactoryGirl.define do
   factory :challenge_skill do
     challenge
     skill
+  end
+
+  factory :feedback_report do
+    user
+    text { Faker::HipsterIpsum.paragraph }
+    subject { Faker::HipsterIpsum.word }
+    page { Faker::HipsterIpsum.word }
   end
 end

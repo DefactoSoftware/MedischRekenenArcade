@@ -25,8 +25,19 @@ nl:
   streak: "Reeks"
   points: "Punten"
   session: "Sessie"
+  total: "Totaal"
   activities:
     title: "Activiteit"
+  feedback_report:
+    title: "Geef feedback"
+    save:
+      success: "Het feedback rapport is toegevoegd"
+      error:  "Kon het feedback rapport niet opslaan"
+    form:
+      submit: "Stuur rapport"
+    placeholders:
+      subject: "Onderwerp"
+      text: "Rapport"
   badges:
     just_registered:
       name: "Geregistreerd"
@@ -101,3 +112,22 @@ nl:
     sign_in: "Login"
     remember: "Onthoud mij?"
     user_group: "Gebruikersgroep"
+  challenges:
+    Addition_1: "Optellen: 1 stap"
+    Addition_2: "Optellen: 2 stappen"
+    Addition_3: "Optellen: 3 stappen"
+    Division_1: "Delen: 1 stap"
+    Division_2: "Delen: 2 stappen"
+    Division_3: "Delen: 3 stappen"
+    Multiplication_1: "Vermenigvuldigen: 1 stap"
+    Multiplication_2: "Vermenigvuldigen: 2 stappen"
+    Multiplication_3: "Vermenigvuldigen: 3 stappen"
+    Subtraction_1: "Aftrekken: 1 stap"
+    Subtraction_2: "Aftrekken: 2 stappen"
+    Subtraction_3: "Aftrekken: 3 stappen"
+    Mixed_1: "Basisvaardigheden: 1 stap"
+    Mixed_2: "Basisvaardigheden: 2 stappen"
+    Mixed_3: "Basisvaardigheden: 3 stappen"
+    PercentageAmountOfAmount: "Percentage: percentage van een hoeveelheid"
+    PercentageOfUnit: "Percentage: hoeveelheid in percenten"
+    PercentageUnitToHundred: "Percentage: reken naar 100%"

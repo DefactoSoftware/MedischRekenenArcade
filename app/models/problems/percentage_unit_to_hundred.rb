@@ -31,7 +31,7 @@ class PercentageUnitToHundred < Problem
                     Constant.new(100)
                 )
     formula = Formula.new(operations)
-    theory = "#{operations[0].constant1.value}#{unit_question} is #{operations[0].constant2.value}#{unit}, hoeveel is #{operations[1].constant2.value}#{unit_question}"
+    theory = "#{operations[0].constant2.value}#{unit_question} is #{operations[0].constant1.value}#{unit}, hoeveel is #{operations[1].constant2.value}#{unit_question}"
     self.create(theory:theory, unit: Unit.where(sign:unit).first, result: formula.result)
   end
 end

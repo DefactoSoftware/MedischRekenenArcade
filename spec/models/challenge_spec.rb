@@ -20,5 +20,17 @@ describe Challenge do
   describe "Associations" do
     it { should have_many :skills }
     it { should have_many :challenge_skills }
+    it { should have_many :user_challenges }
+  end
+
+
+
+  describe "Valid challenge names" do
+    let(:random_name) { (0...50).map { ('a'..'z').to_a[rand(26)] }.join }
+    Challenge::VALID_NAMES.each do |name|
+      it { should allow_value(name).for(:name) }
+    end
+
+    it { should_not allow_value(random_name).for(:name) }
   end
 end
