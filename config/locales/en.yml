@@ -27,6 +27,7 @@ en:
   session: "Session"
   total: "Total"
   feedback_report:
+    button: "Report a problem!"
     title: "Give feedback"
     save:
       success: "Feedback report was added"
@@ -76,6 +77,8 @@ en:
     answer_label: "Answer"
     skipquestion: "skip"
     helpquestion: "Help!"
+    problem_picker: "Problem picker"
+    all_problems: "All problems"
   leaderboards:
     titles:
       top: "Top"
@@ -131,6 +134,8 @@ en:
     PercentageAmountOfAmount: "Percentage: percentage amount from unit"
     PercentageOfUnit: "Percentage: % of unit"
     PercentageUnitToHundred: "Percentage: convert to 100%"
+  problem_info:
+    basic: "This is a basic mathematical operation. Look at the operator and solve the problem. If there is more than one step try to do the easiest step first. If the number is too big try to make little chunks."
 
 
 

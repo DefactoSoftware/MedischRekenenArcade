@@ -2,7 +2,10 @@
   <div class="three-column-small">
     <%= render 'calculator/calculator' %>
     <div class="feedback_block">
-      <%= render 'answer_feedback/current_problem' %>
+      <%= render 'answer_feedback/current_problem', problem: @problem %>
+    </div>
+    <div class="feedback_block">
+      <%= render 'problem_picker' %>
     </div>
   </div>
   <div class="three-column-big answers">

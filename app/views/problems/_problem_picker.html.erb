@@ -1,0 +1,8 @@
+<h4><%= t("practice.problem_picker") %></h4>
+<form action="/practice">
+<select class="form-control">
+  <option><%= t("practice.all_problems") %></option>
+  <% Challenge::VALID_NAMES.each do |problem| %>
+    <option value="<%= problem %>"><%= t("challenges.#{problem}") %></option>
+  <% end %>
+</select>

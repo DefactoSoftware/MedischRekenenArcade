@@ -27,6 +27,10 @@ class Problem < ActiveRecord::Base
     result.round(2)
   end
 
+  def info
+    I18n.t("problem_info.basic")
+  end
+
   def self.generate_random(steps)
     problem = self.create
     operations = []
