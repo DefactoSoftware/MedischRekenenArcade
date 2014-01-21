@@ -6,6 +6,7 @@
         <tr>
           <td><%= t("leaderboards.table_headers.rank") %></td>
           <td><%= t("leaderboards.table_headers.name") %></td>
+          <td><%= t("leaderboards.table_headers.user_group") %></td>
           <td><%= t("leaderboards.table_headers.score") %></td>
         </tr>
       </thead>
@@ -13,6 +14,7 @@
         <tr>
           <td>#<%= score[:rank] %>
           <td><%= User.find(score[:member]).name %></td>
+          <td><%= User.find(score[:member]).user_group.name %></td>
           <td><%= score[:score] %></td>
         </tr>
       <% end %>
