@@ -31,6 +31,9 @@ task :create_basic_challenges => :environment do
   two_percentage_challenge = AdvancedChallenge.where(name: "PercentageOfUnit", number_of_problems: STANDARD_NO_PROBLEMS, bonus: 20, icon: "http://vapersvoice.net/wp-content/uploads/2013/11/Percentage-Blocks-Blue.jpg").first_or_create
   three_percentage_challenge = AdvancedChallenge.where(name: "PercentageUnitToHundred", number_of_problems: STANDARD_NO_PROBLEMS, bonus: 20, icon: "http://vapersvoice.net/wp-content/uploads/2013/11/Percentage-Blocks-Blue.jpg").first_or_create
 
+  week1_challenge_set = ChallengeSet.where(name: "Week_1").first_or_create
+  week1_challenge_set.challenges << [addition_challenge, division_challenge, mixed_challenge, multiplication_challenge, subtraction_challenge, percentage_challenge,two_percentage_challenge, three_percentage_challenge]
+
   ChallengeSkill.where(skill: adding, challenge: addition_challenge).first_or_create
   ChallengeSkill.where(skill: adding, challenge: two_addition_challenge).first_or_create
   ChallengeSkill.where(skill: adding, challenge: three_addition_challenge).first_or_create

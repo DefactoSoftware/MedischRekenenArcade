@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140120094636) do
+ActiveRecord::Schema.define(version: 20140121121823) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,6 +50,13 @@ ActiveRecord::Schema.define(version: 20140120094636) do
   add_index "badges_sashes", ["badge_id"], name: "index_badges_sashes_on_badge_id", using: :btree
   add_index "badges_sashes", ["sash_id"], name: "index_badges_sashes_on_sash_id", using: :btree
 
+  create_table "challenge_sets", force: true do |t|
+    t.string   "name"
+    t.boolean  "locked"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "challenge_skills", force: true do |t|
     t.integer  "skill_id"
     t.integer  "challenge_id"
@@ -67,6 +74,7 @@ ActiveRecord::Schema.define(version: 20140120094636) do
     t.datetime "updated_at"
     t.integer  "steps"
     t.string   "type"
+    t.integer  "challenge_set_id"
   end
 
   add_index "challenges", ["name"], name: "index_challenges_on_name", unique: true, using: :btree
