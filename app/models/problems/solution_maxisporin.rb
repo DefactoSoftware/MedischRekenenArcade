@@ -39,4 +39,8 @@ class SolutionMaxisporin < Problem
              "ter verkrijging van #{operations[1].constant2.value} injectievloeistof. \n Hoeveel #{unit} injecteer je per keer?"
     self.create(theory:theory, unit: Unit.where(sign:unit).first, result: formula.result)
   end
+
+  def info
+    I18n.t("problem_info.SolutionMaxisporin")
+  end
 end

@@ -137,3 +137,7 @@ nl:
     SolutionMaxisporin: "Oplossing: Maxisporin"
   problem_info:
     basic: "Dit is een basis wiskundige operatie. Kijk naar het symbool en los het probleem op. Als er meerdere stappen zijn doe dan de kleinste stap eerst. Als de getallen te groot zijn probeer ze dan op te delen. Denk ook aan de volgorde waarin je de stappen uitvoert."
+    PercentageOfUnit: "Deel het gevraagde percentage door 100 en vermenigvuldig dat met de gegeven waarde."
+    PercentageUnitToHundred: "Deel de gegeven waarde door het gegeven percentage, je hebt dan 1%. Vermenigvuldig dat met 100."
+    PercentageAmountOfAmount: "Reken eerst 1% uit door de waarde door 100 te delen. Vermenigvuldig dat vervolgens met het percentage dat gevraagd wordt."
+    SolutionMaxisporin: "help voor maxisporin solution (moet nog toegevoegd worden)"
