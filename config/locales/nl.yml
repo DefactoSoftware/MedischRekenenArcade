@@ -25,6 +25,7 @@ nl:
   streak: "Reeks"
   points: "Punten"
   session: "Sessie"
+  total: "Totaal"
   activities:
     title: "Activiteit"
   feedback_report:

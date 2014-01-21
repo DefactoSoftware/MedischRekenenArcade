@@ -25,6 +25,7 @@ en:
   streak: "Streak"
   points: "Points"
   session: "Session"
+  total: "Total"
   feedback_report:
     title: "Give feedback"
     save:
