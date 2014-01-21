@@ -25,25 +25,11 @@ describe Challenge do
 
 
   describe "Valid challenge names" do
-    let(:challenge_names) {
-      %w(Addition_1 Addition_2 Addition_3
-         Division_1 Division_2 Division_3
-         Multiplication_1 Multiplication_2 Multiplication_3
-         Subtraction_1 Subtraction_2 Subtraction_3
-         Mixed_1 Mixed_2 Mixed_3
-         PercentageAmountOfAmount PercentageOfUnit PercentageUnitToHundred)
-    }
-
-    it "creates the challenge" do
-      challenge_names.each do |name|
-        Challenge.create(name: name)
-        expect(Challenge.last.name).to eq(name)
-      end
+    let(:random_name) { (0...50).map { ('a'..'z').to_a[rand(26)] }.join }
+    Challenge::VALID_NAMES.each do |name|
+      it { should allow_value(name).for(:name) }
     end
 
-    it "doesn't create the challenge" do
-      random_name = (0...50).map { ('a'..'z').to_a[rand(26)] }.join
-      expect{Challenge.create(name: random_name)}.to_not change{Challenge.count}.by(1)
-    end
+    it { should_not allow_value(random_name).for(:name) }
   end
 end

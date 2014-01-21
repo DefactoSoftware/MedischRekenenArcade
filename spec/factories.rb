@@ -1,12 +1,4 @@
 FactoryGirl.define do
-  challenge_names =
-      %w(Addition_1 Addition_2 Addition_3
-         Division_1 Division_2 Division_3
-         Multiplication_1 Multiplication_2 Multiplication_3
-         Subtraction_1 Subtraction_2 Subtraction_3
-         Mixed_1 Mixed_2 Mixed_3
-         PercentageAmountOfAmount PercentageOfUnit PercentageUnitToHundred)
-
   factory :step do
 
   end
@@ -43,7 +35,7 @@ FactoryGirl.define do
 
   factory :challenge do
     number_of_problems { 5 }
-    name { challenge_names.sample }
+    name { Challenge::VALID_NAMES.sample }
     timelimit { 9000000 }
     bonus { 20 }
     icon { "google.com/images/srpr/logo11w.png" }
@@ -51,7 +43,7 @@ FactoryGirl.define do
 
   factory :basic_challenge do
     number_of_problems { 5 }
-    name { challenge_names.sample }
+    name { Challenge::VALID_NAMES.sample }
     timelimit { 9000000 }
     bonus { 20 }
     icon { "google.com/images/srpr/logo11w.png" }
