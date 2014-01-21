@@ -1,4 +1,6 @@
 class FeedbackReportsController < ApplicationController
+  before_action :authenticate_user!
+
   def create
     @feedback_report = FeedbackReport.new(feedback_report_parameters)
     @feedback_report.user = current_user
