@@ -1,2 +1,3 @@
-FILEPICKER_API_KEY: 'your_filepicker_api_key'
-HIPCHAT_ROOM: 'your_hipchat_support_room_url'
+FILEPICKER_API_KEY: 'your_file_picker_key'
+HIPCHAT_ROOM: 'hipchat_room_url'
+
