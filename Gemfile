@@ -65,7 +65,7 @@ group :test do
   gem 'guard-rspec'
   gem 'shoulda-matchers', '~> 2.4.0'
   gem 'factory_girl_rails'
-  gem 'simplecov', :require => false
+  #gem 'simplecov', :require => false
   gem 'rb-fsevent', :require => false if RUBY_PLATFORM =~ /darwin/i
   gem 'json_spec'
   gem 'rake'
