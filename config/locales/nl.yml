@@ -116,6 +116,7 @@ nl:
     sign_in: "Login"
     remember: "Onthoud mij?"
     user_group: "Gebruikersgroep"
+    profile_picture: "Profiel foto"
   challenges:
     Addition_1: "Optellen: 1 stap"
     Addition_2: "Optellen: 2 stappen"

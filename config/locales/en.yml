@@ -116,6 +116,7 @@ en:
     sign_in: "Login"
     remember: "Remember me?"
     user_group: "Usergroup"
+    profile_picture: "Profile picture"
   challenges:
     Addition_1: "Addition 1 step"
     Addition_2: "Addition 2 steps"
