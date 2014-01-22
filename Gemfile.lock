@@ -85,8 +85,10 @@ GEM
       railties (>= 3.0.0)
     ffaker (1.22.1)
     ffi (1.9.3)
+    filepicker-rails (1.0.0)
+      rails (>= 3.2)
     formatador (0.2.4)
-    guard (2.2.5)
+    guard (2.3.0)
       formatador (>= 0.2.4)
       listen (~> 2.1)
       lumberjack (~> 1.0)
@@ -127,7 +129,7 @@ GEM
     mini_portile (0.5.2)
     minitest (4.7.5)
     multi_json (1.8.4)
-    newrelic_rpm (3.7.1.182)
+    newrelic_rpm (3.7.1.188)
     nokogiri (1.6.1)
       mini_portile (~> 0.5.0)
     orm_adapter (0.5.0)
@@ -164,7 +166,7 @@ GEM
       ffi (>= 0.5.0)
     rdoc (4.1.1)
       json (~> 1.4)
-    redis (3.0.6)
+    redis (3.0.7)
     rspec (2.14.1)
       rspec-core (~> 2.14.0)
       rspec-expectations (~> 2.14.0)
@@ -237,6 +239,7 @@ DEPENDENCIES
   devise
   factory_girl_rails
   ffaker
+  filepicker-rails (~> 1.0.0)
   guard-rspec
   jbuilder (~> 1.2)
   jquery-rails
