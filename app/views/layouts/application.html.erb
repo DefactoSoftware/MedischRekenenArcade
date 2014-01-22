@@ -48,16 +48,10 @@
   <%= yield %>
 </div>
 
-<% if notice %>
+<% if notice || alert%>
   <div class="dialog notice_block">
     <div class="container">
       <%= notice %>
-    </div>
-  </div>
-<% end %>
-<% if alert %>
-  <div class="dialog alert">
-    <div class="container">
       <%= alert %>
     </div>
   </div>
