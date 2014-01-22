@@ -140,8 +140,8 @@ ActiveAdmin.setup do |config|
   # Active Admin resources and pages from here.
   #
   # config.before_filter :do_something_awesome
-  
-  
+
+
   # == Setting a Favicon
   #
   # config.favicon = '/assets/favicon.ico'
@@ -231,5 +231,4 @@ ActiveAdmin.setup do |config|
   # You can enable or disable them for all resources here.
   #
   # config.filters = true
-
 end
