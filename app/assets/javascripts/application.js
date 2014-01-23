@@ -15,8 +15,7 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require turbolinks
-//= require_tree .
-
+//= require calculator
 
 $(document).on('mouseenter', '#badges_block a.thumb-link', function(e) {
   var $inner = $(this).find('.caption .inner');
@@ -25,7 +24,6 @@ $(document).on('mouseenter', '#badges_block a.thumb-link', function(e) {
 }).on('mouseleave', '#badges_block a.thumb-link', function(e) {
   $(this).find('.caption .inner').css('bottom', 0);
 });
-
 
 //Functions for making answering view interactive
 $(".unit_select").ready(function() {
@@ -37,7 +35,7 @@ $(".unit_select").ready(function() {
   }
 })
 
-$(document).ready(function() {
+$(".thumb-link").ready(function() {
   $(".thumb-link").popover({html: true, trigger: "hover", placement: "right"});
 })
 
