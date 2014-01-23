@@ -11,6 +11,7 @@ guard :rspec do
   watch('config/routes.rb')                           { "spec/routing" }
   watch('app/controllers/application_controller.rb')  { "spec/controllers" }
 
+
   # features
   watch(%r{^spec/features/(.+)\.feature$})
 end

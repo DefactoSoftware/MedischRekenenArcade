@@ -18,6 +18,7 @@ require 'formula'
 
 class Problem < ActiveRecord::Base
   has_many :skills
+  has_many :answers
   belongs_to :unit
 
   AVAILABLE_OPERATORS = { "Addition" => :+, "Division" => :/, "Multiplication" => :*, "Subtraction" => :- }
