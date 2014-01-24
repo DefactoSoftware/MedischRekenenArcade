@@ -115,32 +115,30 @@ def multiplication_compare(numbera, numberb)
     difftable = @multiplication_difficulties
     difficulty = 0
     numbera.reverse.each_with_index { | a , index |
+      b = numberb.reverse[index]
 
-    b = numberb.reverse[index]
+      case a
+      when 0 || nil
+        difficulty += difftable[:digit_zero]
+      when 1
+        difficulty += difftable[:digit_one]
+      when 2
+        difficulty += difftable[:digit_two]
+      else
+        difficulty += difftable[:digit_other]
+      end
 
-    case a
-    when 0 || nil
-      difficulty += difftable[:digit_zero]
-    when 1
-      difficulty += difftable[:digit_one]
-    when 2
-      difficulty += difftable[:digit_two]
-    else
-      difficulty += difftable[:digit_other]
-    end
-
-    case b
-    when 0 || nil
-      difficulty += difftable[:digit_zero]
-    when 1
-      difficulty += difftable[:digit_one]
-    when 2
-      difficulty += difftable[:digit_two]
-    else
-      difficulty += difftable[:digit_other]
-    end
-
-    }
+      case b
+      when 0 || nil
+        difficulty += difftable[:digit_zero]
+      when 1
+        difficulty += difftable[:digit_one]
+      when 2
+        difficulty += difftable[:digit_two]
+      else
+        difficulty += difftable[:digit_other]
+      end
+      }
     difficulty
   end
 
