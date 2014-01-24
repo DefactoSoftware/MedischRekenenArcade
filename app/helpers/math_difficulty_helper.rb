@@ -34,44 +34,37 @@ module MathDifficultyHelper
   }
 
   def compute_subtraction_difficulty(numbers1, numbers2)
-    difftable = @subtraction_difficulties
-    difficulty = 0
-    subtraction_compare(numbers1, numbers2)
-    return difficulty
+    difficulty = subtraction_compare(numbers1, numbers2)
   end
 
   def compute_addition_difficulty(numbers1, numbers2)
-    difftable = @addition_difficulties
-    difficulty = 0
     if(numbers1.length >= numbers2.length)
-      addition_compare(numbers1, numbers2)
+      difficulty = addition_compare(numbers1, numbers2)
     else
-      addition_compare(numbers2, numbers1)
+      difficulty = addition_compare(numbers2, numbers1)
     end
-    return difficulty
+    difficulty
   end
 
   def compute_division_difficulty(numbers1, numbers2)
-    difftable = @division_difficulties
-    difficulty = 0
-    division_compare(numbers1, numbers2)
-    return difficulty
+    difficulty = division_compare(numbers1, numbers2)
   end
 
    def compute_multiplication_difficulty(numbers1, numbers2)
-    difftable = @multiplication_difficulties
-    difficulty = 0
     if(numbers1.length >= numbers2.length)
-      multiplication_compare(numbers1, numbers2)
+      difficulty = multiplication_compare(numbers1, numbers2)
     else
-      multiplication_compare(numbers2, numbers1)
+      difficulty = multiplication_compare(numbers2, numbers1)
     end
+    difficulty
   end
 
   def addition_compare(numbera, numberb)
+    difftable = @addition_difficulties
+    difficulty = 0
     numbera.reverse.each_with_index { |a , index|
-      @b = numberb.reverse[index]
-      @carry = 0
+      b = numberb.reverse[index]
+      carry = 0
       case
       when a == nil || b == nil
         difficulty += difftable[:digit_zero]
@@ -84,39 +77,46 @@ module MathDifficultyHelper
       else
         difficulty += difftable[:under_ten]
       end
-      }
+    }
+    difficulty
   end
 
 
 
   def subtraction_compare(numbera, numberb)
     difftable = @subtraction_difficulties
-    if numbera.length < numberb.length then difficulty += difftable[:borrow] end
-    numbera.reverse.each_with_index { | a , index |
-    @b = numberb.reverse[index]
-    @carry = 0
-    case
-    when a == nil || b == nil
-      difficulty += difftable[:digit_zero]
-    when a == 0 || b == 0
-      if a == 0 then difficulty += difftable[:borrow] end
-      difficulty += difftable[:digit_zero]
-    when a == b
-      difficulty += difftable[:same_digits]
-    when a < b
+    difficulty = 0
+    if numbera.length < numberb.length
       difficulty += difftable[:borrow]
-    else
-      difficulty += difftable[:even_odd]
     end
+    numbera.reverse.each_with_index { | a , index |
+      b = numberb.reverse[index]
+      carry = 0
+      case
+      when a == nil || b == nil
+        difficulty += difftable[:digit_zero]
+      when a == 0 || b == 0
+        if a == 0
+          difficulty += difftable[:borrow]
+        end
+        difficulty += difftable[:digit_zero]
+      when a == b
+        difficulty += difftable[:same_digits]
+      when a < b
+        difficulty += difftable[:borrow]
+      else
+        difficulty += difftable[:even_odd]
+      end
     }
-
+    difficulty
   end
 
 def multiplication_compare(numbera, numberb)
-
+    difftable = @multiplication_difficulties
+    difficulty = 0
     numbera.reverse.each_with_index { | a , index |
 
-    @b = numberb.reverse[index]
+    b = numberb.reverse[index]
 
     case a
     when 0 || nil
@@ -141,26 +141,26 @@ def multiplication_compare(numbera, numberb)
     end
 
     }
+    difficulty
   end
 
 def division_compare(numbera, numberb)
-    numbera.reverse.each_with_index { | a , index |
-    @b = numberb.reverse[index]
+  difftable = @division_difficulties
+  difficulty = 0
+  numbera.reverse.each_with_index { | a , index |
+    b = numberb.reverse[index]
     case b
     when 0
       difficulty += difftable[:digit_zero]
     when 1
-      difficulty += difficulty[:digit_one]
+      difficulty += difftable[:digit_one]
     when 2
-      difficulty += difficulty[:digit_two]
+      difficulty += difftable[:digit_two]
     else
-      difficulty += difficulty[:digit_other]
+      difficulty += difftable[:digit_other]
     end
-
-
-    }
-
-    difficulty = difficulty * numberb.length
-  end
+  }
+  difficulty = difficulty * numberb.length
+end
 
 end
