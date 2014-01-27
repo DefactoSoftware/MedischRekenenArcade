@@ -16,7 +16,11 @@ class Formula
   end
 
   def difficulty
-    DifficultyCalculator.new(self).compute_difficulty
+    if @operations.length > 0
+      DifficultyCalculator.new(self).compute_difficulty
+    else
+      nil
+    end
   end
 end
 

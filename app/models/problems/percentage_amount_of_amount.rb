@@ -15,19 +15,31 @@
 #
 
 class PercentageAmountOfAmount < Problem
-  def self.generate
+  def self.generate(user)
     unit = AVAILABLE_UNITS[rand(0...AVAILABLE_UNITS.length)]
+
+    skill = Skill.where(name: "PercentageAmountOfAmount").first_or_create
+    user_skill = UserSkill.where(skill: skill, user: user).first_or_create
+
+    valid = false
     operations = []
-    operations << Operation.new(
-                    AVAILABLE_OPERATORS["Multiplication"],
-                    Constant.new(Float((rand(1...10)*10))/100),
-                    Constant.new(Float(1 + rand(1...4)).round(2))
-                  )
-    formula = Formula.new(operations)
+    new_formula = Formula.new(operations)
+    while !valid
+      puts "JEMOEDER"
+      operations << Operation.new(
+                      AVAILABLE_OPERATORS["Multiplication"],
+                      Constant.new(Float((rand(1...1000)*10))/100),
+                      Constant.new(Float(1 + rand(1...40)).round(2))
+                    )
+      new_formula = Formula.new(operations)
+      puts new_formula
+      valid = (user_skill.level-10..user_skill.level+10).include?(new_formula.difficulty)
+    end
 
-    theory = "#{operations[0].constant1.value*100}% van #{operations[0].constant2.value}#{unit}"
+    theory = "#{new_formula.operations[0].constant1.value*100}% van #{new_formula.operations[0].constant2.value}#{unit}"
 
-    self.create(theory:theory, unit: Unit.where(sign:unit).first, result: formula.result)
+    problem = self.create(theory:theory, unit: Unit.where(sign:unit).first, result: formula.result, skills: [skill])
+    problem.skills << skill
   end
 
   def info
