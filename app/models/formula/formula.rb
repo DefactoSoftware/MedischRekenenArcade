@@ -1,3 +1,5 @@
+require 'difficulty_calculator'
+
 class Formula
   attr_reader :result, :operations
 
@@ -11,6 +13,10 @@ class Formula
 
   def result
     @operations.last.result
+  end
+
+  def difficulty
+    DifficultyCalculator.new(self).compute_difficulty
   end
 end
 
@@ -30,7 +36,7 @@ class Constant
 end
 
 class Operation
-  attr_reader :constant1, :constant2
+  attr_reader :constant1, :constant2, :operator
   def initialize(operator, constant1, constant2)
     @operator = operator
     @constant1 = constant1
