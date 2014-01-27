@@ -13,14 +13,12 @@ Merit.setup do |config|
   config.current_user_method = "current_user"
 end
 
-include ActionView::Helpers::AssetTagHelper
-
 # Create application badges (uses https://github.com/norman/ambry)
 Merit::Badge.create!(
   {
     id: 1,
     name: 'just_registered',
-    image: asset_path("assets/no_image.png"),
+    image: "assets/no_image.png",
     description: I18n.t('badges.just_registered.description')
   }
 )
@@ -28,7 +26,7 @@ Merit::Badge.create!(
   {
     id: 2,
     name: 'answered_10',
-    image: asset_path("assets/no_image.png"),
+    image: "assets/no_image.png",
     description: "You have answered 10 questions or more!"
   }
 )
@@ -36,7 +34,7 @@ Merit::Badge.create!(
   {
     id: 3,
     name: 'completed_first_challenge_successfully',
-    image: asset_path("assets/no_image.png"),
+    image: "assets/no_image.png",
     description: "You have successfully completed your first challenge!"
   }
 )
@@ -44,7 +42,7 @@ Merit::Badge.create!(
   {
     id: 4,
     name: 'completed_ten_challenges_successfully',
-    image: asset_path("assets/no_image.png"),
+    image: "assets/no_image.png",
     description: "You have successfully completed 10 challenges!"
   }
 )

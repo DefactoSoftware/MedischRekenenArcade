@@ -18,6 +18,11 @@ MedischRekenenArcade
 - run `rake db:test:prepare` to set up the test db
 - run `rake create_units` to create the units
 - run `rake create_basic_challenges` to create the challenges
+- Create an Admin User account from the Rails console:
+
+```ruby
+$ AdminUser.create!(:email => 'admin@example.com', :password => 'password', :password_confirmation => 'password')
+```
 
 **Running things:**
 - Launch redis: (`redis-server`)
