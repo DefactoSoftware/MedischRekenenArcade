@@ -20,7 +20,22 @@ describe Formula do
     formula = Formula.new([operation1, operation2])
     expect(formula.text).to eq("2 * 3 \n 6 + 1")
   end
+
+  describe "difficulty" do
+    operators = [:+, :-, :*, :/]
+    let(:operation1) { Operation.new(operators.sample, rand(50), rand(50)) }
+    let(:operation2) { Operation.new(operators.sample, operation1, rand(50))}
+    let(:operation3) { Operation.new(operators.sample, operation2, rand(50))}
+
+    let(:formula) { [operation1, operation2, operation3 ] }
+
+    it "should calculate a difficulty for the formula" do
+      expect(formula.get_difficulty).to be > 0
+    end
+  end
 end
+
+
 
 describe Operation do
     it "can add two integers" do
