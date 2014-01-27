@@ -1,0 +1,1 @@
+require "difficulty_calculator/difficulty_calculator"
