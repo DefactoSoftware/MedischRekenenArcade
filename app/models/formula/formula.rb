@@ -12,6 +12,10 @@ class Formula
   def result
     @operations.last.result
   end
+
+  def get_difficulty
+    0
+  end
 end
 
 
