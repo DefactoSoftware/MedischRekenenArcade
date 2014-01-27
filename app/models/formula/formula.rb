@@ -1,3 +1,5 @@
+require 'difficulty_calculator'
+
 class Formula
   attr_reader :result, :operations
 
@@ -13,8 +15,8 @@ class Formula
     @operations.last.result
   end
 
-  def get_difficulty
-    0
+  def difficulty
+    DifficultyCalculator.new(self).compute_difficulty
   end
 end
 
