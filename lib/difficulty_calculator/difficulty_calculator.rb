@@ -44,36 +44,6 @@ class DifficultyCalculator
     difficulty
   end
 
-  def compute_step(operator, numbers1, numbers2)
-    difficulty = 0
-    case operator
-    when :+
-      difficulty = compute_addition_difficulty(numbers1, numbers2)
-    when :*
-      difficulty = compute_multiplication_difficulty(numbers1, numbers2)
-    when :/
-      difficulty = compute_division_difficulty(numbers1, numbers2)
-    when :-
-      difficulty = compute_subtraction_difficulty(numbers1, numbers2)
-    end
-    difficulty
-  end
-
-  def get_constants(operation)
-    constants = []
-    constants << to_int_array(operation.constant1.value.to_i)
-    constants << to_int_array(operation.constant2.value.to_i)
-  end
-
-  def to_int_array(integer)
-    result_array = []
-    while integer > 0
-      result_array.unshift integer % 10
-      integer /= 10
-    end
-    result_array
-  end
-
   def compute_subtraction_difficulty(numbers1, numbers2)
     difficulty = subtraction_compare(numbers1, numbers2)
   end
@@ -196,5 +166,36 @@ class DifficultyCalculator
       end
     }
     difficulty = difficulty * numberb.length
+  end
+
+  private
+  def compute_step(operator, numbers1, numbers2)
+    difficulty = 0
+    case operator
+    when :+
+      difficulty = compute_addition_difficulty(numbers1, numbers2)
+    when :*
+      difficulty = compute_multiplication_difficulty(numbers1, numbers2)
+    when :/
+      difficulty = compute_division_difficulty(numbers1, numbers2)
+    when :-
+      difficulty = compute_subtraction_difficulty(numbers1, numbers2)
+    end
+    difficulty
+  end
+
+  def get_constants(operation)
+    constants = []
+    constants << to_int_array(operation.constant1.value.to_i)
+    constants << to_int_array(operation.constant2.value.to_i)
+  end
+
+  def to_int_array(integer)
+    result_array = []
+    while integer > 0
+      result_array.unshift integer % 10
+      integer /= 10
+    end
+    result_array
   end
 end

@@ -23,14 +23,14 @@ describe Formula do
 
   describe "difficulty" do
     operators = [:+, :-, :*, :/]
-    let(:operation1) { Operation.new(operators.sample, rand(50), rand(50)) }
-    let(:operation2) { Operation.new(operators.sample, operation1, rand(50))}
-    let(:operation3) { Operation.new(operators.sample, operation2, rand(50))}
+    let(:operation1) { Operation.new(operators.sample, Constant.new(rand(50)), Constant.new(rand(50))) }
+    let(:operation2) { Operation.new(operators.sample, Constant.new(operation1), Constant.new(rand(50))) }
+    let(:operation3) { Operation.new(operators.sample, Constant.new(operation2), Constant.new(rand(50))) }
 
     let(:formula) { Formula.new([operation1, operation2, operation3 ]) }
 
-    xit "should calculate a difficulty for the formula" do
-      expect(formula.get_difficulty).to be > 0
+    it "should calculate a difficulty for the formula" do
+      expect(formula.difficulty).to be > 0
     end
   end
 end
