@@ -30,22 +30,41 @@ class Problem < ActiveRecord::Base
   VALID_PROBLEMS = %w(PercentageAmountOfAmount PercentageOfUnit PercentageUnitToHundred SolutionMaxisporin)
 
   def generate(user)
-    self.unit = Unit.where(sign:AVAILABLE_UNITS[rand(0...AVAILABLE_UNITS.length)]).first_or_create
-    self.skill = Skill.where(name: self.class.name).first_or_create
+    generate_unit
+    generate_skill
+
+
+    user_skill = UserSkill.where(skill: skill, user: user).first_or_create
+
+    formula = lazy_generate(user_skill.level)
+
+    generate_theory(formula)
+    generate_result(formula)
+
+    self.save
+    self
   end
 
   def compare_skill_difficulty(level, formula)
     (level-skill_offset..level+skill_offset).include?(formula.difficulty) || level > max_difficulty
   end
 
-  def create_result(formula)
+  def generate_skill
+    self.skill = Skill.where(name: self.class.name).first_or_create
+  end
+
+  def generate_unit
+    self.unit = Unit.where(sign:AVAILABLE_UNITS[rand(0...AVAILABLE_UNITS.length)]).first_or_create
+  end
+
+  def generate_result(formula)
     self.result = formula.result
   end
 
   def lazy_generate(level)
     valid = false
     1000.times do
-      formula = create_formula
+      formula = generate_formula
       valid = compare_skill_difficulty(level, formula)
       if valid then return formula end
     end

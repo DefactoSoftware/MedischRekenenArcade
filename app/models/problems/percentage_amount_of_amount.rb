@@ -21,23 +21,13 @@ class PercentageAmountOfAmount < Problem
   def generate(user)
     self.max_difficulty = 35
     super(user)
-
-    user_skill = UserSkill.where(skill: skill, user: user).first_or_create
-
-    formula = lazy_generate(user_skill.level)
-
-    create_theory(formula)
-    create_result(formula)
-
-    self.save
-    self
   end
 
   def info
     I18n.t("problem_info.PercentageAmountOfAmount")
   end
 
-  def create_formula
+  def generate_formula
     operations = Array(Operation.new(
                       AVAILABLE_OPERATORS["Multiplication"],
                       Constant.new(Float((rand(1...10)*10))/100),
@@ -46,7 +36,7 @@ class PercentageAmountOfAmount < Problem
     formula = Formula.new(operations)
   end
 
-  def create_theory(formula)
+  def generate_theory(formula)
     self.theory = "#{formula.operations[0].constant1.value*100}% van #{formula.operations[0].constant2.value}#{unit.sign}"
   end
 end
