@@ -1,6 +1,7 @@
 class ProblemFactory
-  def initialize(name)
+  def initialize(name, user)
     @name = name
+    @user = user
   end
 
   def problem

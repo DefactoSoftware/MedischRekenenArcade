@@ -36,8 +36,7 @@ class DifficultyCalculator
 
   def compute_difficulty
     difficulty = 0
-    while(@formula.operations.length > 0)
-      operation = @formula.operations.pop
+    @formula.operations.each do |operation|
       constant1, constant2 = get_constants(operation)
       difficulty = difficulty + compute_step(operation.operator, constant1, constant2)
     end

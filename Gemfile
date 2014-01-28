@@ -38,6 +38,8 @@ gem 'newrelic_rpm'
 
 gem 'filepicker-rails', '~> 1.0.0'
 
+
+
 gem 'activeadmin', github: 'gregbell/active_admin'
 
 group :doc do
@@ -59,6 +61,7 @@ end
 
 group :development do
   gem 'annotate'
+  gem 'debugger'
 end
 
 group :test do

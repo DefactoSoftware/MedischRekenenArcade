@@ -17,7 +17,7 @@
 require 'formula'
 
 class Problem < ActiveRecord::Base
-  has_many :skills
+  belongs_to :skill
   has_many :answers
   belongs_to :unit
 
@@ -25,6 +25,11 @@ class Problem < ActiveRecord::Base
   AVAILABLE_UNITS = ["mg", "g", "kg", "ml", "cl", "dl", "l"]
 
   VALID_PROBLEMS = %w(PercentageAmountOfAmount PercentageOfUnit PercentageUnitToHundred SolutionMaxisporin)
+
+  def generate(user)
+    self.unit = Unit.where(sign:AVAILABLE_UNITS[rand(0...AVAILABLE_UNITS.length)]).first_or_create
+    self.skill = Skill.where(name: self.class.name).first_or_create
+  end
 
   def get_result
     result.round(2)
