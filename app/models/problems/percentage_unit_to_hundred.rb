@@ -18,10 +18,7 @@
 #
 
 class PercentageUnitToHundred < Problem
-  def self.generate
-    unit = AVAILABLE_UNITS[rand(0...AVAILABLE_UNITS.length)]
-    unit_question = "%";
-
+  def generate_formula
     operations = []
     operations << Operation.new(
                     AVAILABLE_OPERATORS["Division"],
@@ -34,8 +31,11 @@ class PercentageUnitToHundred < Problem
                     Constant.new(100)
                 )
     formula = Formula.new(operations)
-    theory = "#{operations[0].constant2.value}#{unit_question} is #{operations[0].constant1.value}#{unit}, hoeveel is #{operations[1].constant2.value}#{unit_question}"
-    self.create(theory:theory, unit: Unit.where(sign:unit).first, result: formula.result)
+  end
+
+  def generate_theory(formula)
+    unit_question = "%";
+    self.theory = "#{formula.operations[0].constant2.value}#{unit_question} is #{formula.operations[0].constant1.value}#{unit.sign}, hoeveel is #{formula.operations[1].constant2.value}#{unit_question}"
   end
 
   def info
