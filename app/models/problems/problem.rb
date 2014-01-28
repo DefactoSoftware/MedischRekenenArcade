@@ -66,7 +66,7 @@ class Problem < ActiveRecord::Base
     1000.times do
       formula = generate_formula
       valid = compare_skill_difficulty(level, formula)
-      if valid then return formula end
+      return formula if valid
     end
     formula
   end

@@ -43,9 +43,13 @@ class SolutionMaxisporin < Problem
   end
 
   def generate_theory(formula)
-    self.theory = "Geef een patient parentaal #{formula.operations[0].constant1.value} Maxisporin per dag, verdeeld over #{formula.operations[0].constant2.value} injecties." +
-                  "In voorraad is Maxisporin #{formula.operations[1].constant1.value}. Dit poeder dient opgelost te worden in 4ml aqua bidestillata" +
-                  "ter verkrijging van #{formula.operations[1].constant2.value} injectievloeistof. \n Hoeveel #{self.unit.sign} injecteer je per keer?"
+    self.theory = I18n.t("problems.theory.#{self.class.name}",
+                          operation1_constant1: formula.operations[0].constant1.value,
+                          operation1_constant2: formula.operations[0].constant2.value,
+                          operation2_constant1: formula.operations[1].constant1.value,
+                          operation2_constant2: formula.operations[1].constant2.value,
+                          unit: unit.sign
+                        )
   end
 
   def info

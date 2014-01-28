@@ -34,8 +34,12 @@ class PercentageUnitToHundred < Problem
   end
 
   def generate_theory(formula)
-    unit_question = "%";
-    self.theory = "#{formula.operations[0].constant2.value}#{unit_question} is #{formula.operations[0].constant1.value}#{unit.sign}, hoeveel is #{formula.operations[1].constant2.value}#{unit_question}"
+    self.theory = I18n.t("problems.theory.#{self.class.name}",
+                          unit: unit.sign,
+                          operation1_constant1: formula.operations[0].constant2.value,
+                          operation1_constant2: formula.operations[0].constant1.value,
+                          operation2_constant1: formula.operations[1].constant2.value
+                        )
   end
 
   def info

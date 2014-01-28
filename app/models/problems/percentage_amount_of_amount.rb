@@ -32,6 +32,10 @@ class PercentageAmountOfAmount < Problem
   end
 
   def generate_theory(formula)
-    self.theory = "#{formula.operations[0].constant1.value*100}% van #{formula.operations[0].constant2.value}#{unit.sign}"
+    self.theory = I18n.t("problems.theory.#{self.class.name}",
+                          operation1_constant1: formula.operations[0].constant1.value*100,
+                          operation1_constant2: formula.operations[0].constant2.value,
+                          unit: unit.sign
+                        )
   end
 end

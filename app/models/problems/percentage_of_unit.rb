@@ -37,6 +37,11 @@ class PercentageOfUnit < Problem
 
   def generate_theory(formula)
     unit_question = AVAILABLE_UNITS[rand(0...AVAILABLE_UNITS.length)]
-    self.theory = "Hoeveel #{unit.sign} is #{formula.operations[0].constant1.value}#{unit_question} van #{formula.operations[0].constant2.value}#{unit_question}"
+    self.theory = I18n.t("problems.theory.#{self.class.name}",
+                          operation1_constant1: formula.operations[0].constant1.value,
+                          operation1_constant2: formula.operations[0].constant2.value,
+                          unit: unit.sign,
+                          unit_question: unit_question
+                        )
   end
 end
