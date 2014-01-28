@@ -18,8 +18,11 @@
 #
 
 class SolutionMaxisporin < Problem
-  def self.generate
-    unit = "ml";
+  def generate_unit
+    self.unit = Unit.where(sign: "ml").first_or_create
+  end
+
+  def generate_formula
     operations = []
     operations << Operation.new(
                     AVAILABLE_OPERATORS["Division"],
@@ -37,10 +40,12 @@ class SolutionMaxisporin < Problem
                     Constant.new(operations[1])
                   )
     formula = Formula.new(operations)
-    theory = "Geef een patient parentaal #{operations[0].constant1.value} Maxisporin per dag, verdeeld over #{operations[0].constant2.value} injecties." +
-             "In voorraad is Maxisporin #{operations[1].constant1.value}. Dit poeder dient opgelost te worden in 4ml aqua bidestillata" +
-             "ter verkrijging van #{operations[1].constant2.value} injectievloeistof. \n Hoeveel #{unit} injecteer je per keer?"
-    self.create(theory:theory, unit: Unit.where(sign:unit).first, result: formula.result)
+  end
+
+  def generate_theory(formula)
+    self.theory = "Geef een patient parentaal #{formula.operations[0].constant1.value} Maxisporin per dag, verdeeld over #{formula.operations[0].constant2.value} injecties." +
+                  "In voorraad is Maxisporin #{formula.operations[1].constant1.value}. Dit poeder dient opgelost te worden in 4ml aqua bidestillata" +
+                  "ter verkrijging van #{formula.operations[1].constant2.value} injectievloeistof. \n Hoeveel #{self.unit.sign} injecteer je per keer?"
   end
 
   def info
