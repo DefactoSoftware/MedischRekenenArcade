@@ -70,20 +70,29 @@ describe Problem do
   end
 
   describe PercentageOfUnit do
+    let(:unit) { Unit.create(name: "Milliliter") }
     let(:challenge) { AdvancedChallenge.new(name: "PercentageOfUnit") }
     let(:problem_factory) { ProblemFactory.new(challenge.name, user) }
 
-    xit "creates a problem" do
+    it "creates a problem" do
       expect(problem_factory.problem).to be_a(PercentageOfUnit)
     end
 
     describe "problem" do
-      xit "has a theory" do
+      it "has a theory" do
         expect(problem_factory.problem.theory).to be_a(String)
       end
 
-      xit "has a result" do
+      it "has a result" do
         expect(problem_factory.problem.get_result).to be_a(Float)
+      end
+
+      it "has a unit" do
+        expect(problem_factory.problem.unit).to be_a(Unit)
+      end
+
+      it "has a skill" do
+        expect(problem_factory.problem.skill).to be_a(Skill)
       end
     end
   end

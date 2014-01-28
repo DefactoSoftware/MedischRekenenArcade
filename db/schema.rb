@@ -173,7 +173,7 @@ ActiveRecord::Schema.define(version: 20140128135211) do
     t.string   "type"
     t.float    "result"
     t.integer  "skill_id"
-    t.integer  "max_difficulty", default: 100
+    t.integer  "max_difficulty", default: 35
     t.integer  "skill_offset",   default: 10
   end
 

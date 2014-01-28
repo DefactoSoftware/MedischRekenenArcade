@@ -18,11 +18,6 @@
 #
 
 class PercentageAmountOfAmount < Problem
-  def generate(user)
-    self.max_difficulty = 35
-    super(user)
-  end
-
   def info
     I18n.t("problem_info.PercentageAmountOfAmount")
   end
