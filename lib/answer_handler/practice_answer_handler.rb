@@ -1,6 +1,6 @@
 class PracticeAnswerHandler < AnswerHandler
-  def initialize(session, current_user)
-    super(session, current_user)
+  def initialize(session, current_user, skill)
+    super(session, current_user, skill)
   end
 
   def redirect_path(problem)

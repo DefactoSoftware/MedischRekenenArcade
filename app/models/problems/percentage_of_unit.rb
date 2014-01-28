@@ -2,16 +2,19 @@
 #
 # Table name: problems
 #
-#  id         :integer          not null, primary key
-#  formula    :string(255)
-#  question   :string(255)
-#  theory     :text
-#  difficulty :float
-#  created_at :datetime
-#  updated_at :datetime
-#  unit_id    :integer
-#  type       :string(255)
-#  result     :float
+#  id             :integer          not null, primary key
+#  formula        :string(255)
+#  question       :string(255)
+#  theory         :text
+#  difficulty     :float
+#  created_at     :datetime
+#  updated_at     :datetime
+#  unit_id        :integer
+#  type           :string(255)
+#  result         :float
+#  skill_id       :integer
+#  max_difficulty :integer          default(100)
+#  skill_offset   :integer          default(10)
 #
 
 class PercentageOfUnit < Problem

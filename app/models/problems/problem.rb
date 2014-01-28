@@ -2,16 +2,19 @@
 #
 # Table name: problems
 #
-#  id         :integer          not null, primary key
-#  formula    :string(255)
-#  question   :string(255)
-#  theory     :text
-#  difficulty :float
-#  created_at :datetime
-#  updated_at :datetime
-#  unit_id    :integer
-#  type       :string(255)
-#  result     :float
+#  id             :integer          not null, primary key
+#  formula        :string(255)
+#  question       :string(255)
+#  theory         :text
+#  difficulty     :float
+#  created_at     :datetime
+#  updated_at     :datetime
+#  unit_id        :integer
+#  type           :string(255)
+#  result         :float
+#  skill_id       :integer
+#  max_difficulty :integer          default(100)
+#  skill_offset   :integer          default(10)
 #
 
 require 'formula'
@@ -29,6 +32,24 @@ class Problem < ActiveRecord::Base
   def generate(user)
     self.unit = Unit.where(sign:AVAILABLE_UNITS[rand(0...AVAILABLE_UNITS.length)]).first_or_create
     self.skill = Skill.where(name: self.class.name).first_or_create
+  end
+
+  def compare_skill_difficulty(level, formula)
+    (level-skill_offset..level+skill_offset).include?(formula.difficulty) || level > max_difficulty
+  end
+
+  def create_result(formula)
+    self.result = formula.result
+  end
+
+  def lazy_generate(level)
+    valid = false
+    1000.times do
+      formula = create_formula
+      valid = compare_skill_difficulty(level, formula)
+      if valid then return formula end
+    end
+    formula
   end
 
   def get_result

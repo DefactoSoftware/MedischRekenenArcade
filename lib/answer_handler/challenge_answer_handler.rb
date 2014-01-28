@@ -3,8 +3,8 @@ class ChallengeAnswerHandler < AnswerHandler
 
   STANDARD_DEATH_CEILING = 6
 
-  def initialize(session, current_user, user_challenge)
-    super(session, current_user)
+  def initialize(session, current_user, user_challenge, skill)
+    super(session, current_user, skill)
     @challenge = user_challenge.challenge
     @user_challenge = user_challenge
   end

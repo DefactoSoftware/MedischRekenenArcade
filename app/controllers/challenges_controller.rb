@@ -11,7 +11,7 @@ class ChallengesController < ApplicationController
       track_activity(user_challenge, "start")
     end
     calculate_time_left if @challenge.timelimit
-    @problem = @challenge.create_problem
+    @problem = @challenge.create_problem(current_user)
   end
 
   def index

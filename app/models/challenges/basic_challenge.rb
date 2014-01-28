@@ -16,7 +16,7 @@
 #
 
 class BasicChallenge < Challenge
-  def create_problem
+  def create_problem(user)
     Problem.generate_random_with_skills(self.steps, self.skills)
   end
 end

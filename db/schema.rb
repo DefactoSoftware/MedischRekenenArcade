@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140128093502) do
+ActiveRecord::Schema.define(version: 20140128135211) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -173,6 +173,8 @@ ActiveRecord::Schema.define(version: 20140128093502) do
     t.string   "type"
     t.float    "result"
     t.integer  "skill_id"
+    t.integer  "max_difficulty", default: 100
+    t.integer  "skill_offset",   default: 10
   end
 
   add_index "problems", ["skill_id"], name: "index_problems_on_skill_id", using: :btree

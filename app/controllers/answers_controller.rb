@@ -6,7 +6,7 @@ class AnswersController < ApplicationController
     @answer = Answer.new(answer_parameters)
     @answer.user = current_user
 
-    handler = AnswerHandlerFactory.new(session, eval_answer(@answer), current_user).build
+    handler = AnswerHandlerFactory.new(session, eval_answer(@answer), current_user, @answer.problem.skill).build
 
     handler.handle!
     redirection_path = handler.redirect_path(@answer.problem)

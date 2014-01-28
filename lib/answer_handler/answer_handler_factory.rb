@@ -1,22 +1,23 @@
 class AnswerHandlerFactory
-  def initialize(session, answer_is_correct, user)
+  def initialize(session, answer_is_correct, user, skill)
     @session = session
     @answer_is_correct = answer_is_correct
     @user = user
+    @skill = skill
   end
 
   def build
     if @session[:challenge]
       if @answer_is_correct
-        CorrectChallengeAnswerHandler.new(@session, @user, user_challenge)
+        CorrectChallengeAnswerHandler.new(@session, @user, user_challenge, @skill)
       else
-        IncorrectChallengeAnswerHandler.new(@session, @user, user_challenge)
+        IncorrectChallengeAnswerHandler.new(@session, @user, user_challenge, @skill)
       end
     else
       if @answer_is_correct
-        CorrectPracticeAnswerHandler.new(@session, @user)
+        CorrectPracticeAnswerHandler.new(@session, @user, @skill)
       else
-        IncorrectPracticeAnswerHandler.new(@session, @user)
+        IncorrectPracticeAnswerHandler.new(@session, @user, @skill)
       end
     end
   end

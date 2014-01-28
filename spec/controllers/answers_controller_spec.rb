@@ -3,7 +3,7 @@ require 'spec_helper'
 
 describe AnswersController do
   let(:user) { FactoryGirl.create(:user) }
-  let(:problem) { Problem.generate_random(2) }
+  let(:problem) { PercentageAmountOfAmount.new.generate(user) }
   let(:badanswer) {FactoryGirl.attributes_for(:answer, problem_id: problem.id, value: problem.get_result + 1)}
   let(:goodanswer) {FactoryGirl.attributes_for(:answer, problem_id: problem.id, value: problem.get_result)}
   let(:skill) { FactoryGirl.create(:skill, name:"Addition") }
