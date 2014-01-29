@@ -1,0 +1,17 @@
+ <h2><%= current_user.user_group.name %></h2>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <td><%= t("leaderboards.table_headers.rank") %></td>
+      <td><%= t("leaderboards.table_headers.name") %></td>
+      <td><%= t("leaderboards.table_headers.score") %></td>
+    </tr>
+  </thead>
+  <% scores.each_with_index do |score, i| %>
+    <tr>
+      <td>#<%= i+1 %></td>
+      <td><%= User.find(score[:member]).name %></td>
+      <td><%= score[:score] %></td>
+    </tr>
+  <% end %>
+</table>
