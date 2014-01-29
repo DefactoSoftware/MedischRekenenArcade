@@ -1,9 +1,12 @@
 <div class="row">
   <div class="three-column-small">
     <% if current_user %>
-      <div class="feedback_block">
-        <h4>Last badge</h4>
-      </div>
+      <% if @last_badge %>
+        <div class="feedback_block">
+          <h4>Last badge</h4>
+          <%= render 'badges/thumbnail', badge: @last_badge %>
+        </div>
+      <% end %>
       <% if @last_challenge %>
         <div class="feedback_block">
           <h4>Last Challenge</h4>
