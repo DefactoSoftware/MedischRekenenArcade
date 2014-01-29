@@ -4,9 +4,9 @@
 </div>
 <div class="row">
   <div class="three-column-small"></div>
-  <div class="three-column-big">
+  <div class="three-column-big feedback_block">
     <% @challengesets.each do |challenge_set| %>
-      <div id="challenges_block" class="grey_block">
+      <div id="challenges_block">
         <h4><%= challenge_set.name %></h4>
         <% challenge_set.challenges.each do |challenge| %>
           <div class="col-sm-6 col-md-3 col-lg-2 thumbnail-col">
