@@ -33,11 +33,17 @@ $(".unit_select").ready(function() {
   if($(".unit_select").length > 0) {
     $(".unit_select")[0].click();
   }
-})
+});
+
+$("#change_password_block").ready(function() {
+  $("#change_password_link").on("click", function() {
+    $("#change_password_block").toggle();
+  });
+});
 
 $(".thumb-link").ready(function() {
   $(".thumb-link").popover({html: true, trigger: "hover", placement: "right"});
-})
+});
 
 $("#skipQuestion").ready(function() {
   $("#skipQuestion").on("click", function(e) {

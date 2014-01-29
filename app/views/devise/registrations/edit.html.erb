@@ -29,14 +29,18 @@
         <%= f.password_field :current_password, class: "form-control", required:true %>
       </div>
 
-      <div class="form-group">
-        <%= f.label :password, t("labels.password") %>
-        <%= f.password_field :password, class: "form-control"%>
-      </div>
+      <a href="javascript:void();" id="change_password_link"><%= t("labels.change_password_link") %></a>
 
-      <div class="form-group">
-        <%= f.label :password_confirmation, t("labels.password_confirmation") %>
-        <%= f.password_field :password_confirmation, class: "form-control" %>
+      <div id="change_password_block">
+        <div class="form-group">
+          <%= f.label :password, t("labels.password") %>
+          <%= f.password_field :password, class: "form-control"%>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :password_confirmation, t("labels.password_confirmation") %>
+          <%= f.password_field :password_confirmation, class: "form-control" %>
+        </div>
       </div>
 
       <div class="form-group">
