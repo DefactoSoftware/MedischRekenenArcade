@@ -17,7 +17,7 @@ class Formula
 
   def difficulty
     if @operations.length > 0
-      DifficultyCalculator.new(self).compute_difficulty
+      FormulaDifficultyCalculator.new(self).difficulty
     else
       nil
     end
