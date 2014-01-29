@@ -1,6 +1,12 @@
 @import "twitter-bootstrap-static/bootstrap";
 @import "calculator.scss";
 
+body {
+  background-image: url('/assets/bg/bg1.jpg');
+  background-repeat: no-repeat;
+  background-size:100%;
+}
+
 // POPOVER
 .popover-title {
   background-color: #2980b9;
@@ -25,10 +31,7 @@
 }
 
 .image_background {
-  background-image: url('/assets/bg/bg1.jpg');
-  background-repeat: no-repeat;
-  background-size:100%;
-  min-height: 1000px;
+
 }
 
 // FEEDBACK
@@ -47,12 +50,12 @@
 .feedback_report {
   display: none;
   position: absolute;
-  top: 25%;
-  left: 25%;
-  width: 50%;
-  height: 50%;
+  top: 5%;
+  left: 5%;
+  width: 90%;
+  height: 90%;
   padding: 16px;
-  border: 16px solid #2980b9;
+  border: 3px solid #2980b9;
   background-color: white;
   z-index:1002;
   opacity: 1;
@@ -201,6 +204,16 @@
   background: #27ad60;
 }
 
+// TABLES
+.table-striped tbody tr:nth-child(odd) td {
+   background-color: #3498db !important;
+   color: white;
+}
+.table-striped tbody tr:nth-child(even) td {
+   background-color: white !important;
+}
+
+
 // MENU
 .big-links {
   margin-left:12%;
@@ -329,6 +342,12 @@
   margin-top: 20px;
 }
 
+.white_block {
+  background-color: white;
+  padding:5px 20px 20px 20px;
+  margin-top: 20px;
+}
+
 .notice_block {
   background-color: #f1c40f;
   border: 2px solid #d6dbdf;
@@ -359,7 +378,7 @@
   background-color: #edeff1;
   position: fixed;
   z-index: 1005;
-  bottom: 0;
+  bottom: 10px;
   left: 0;
 }
 
