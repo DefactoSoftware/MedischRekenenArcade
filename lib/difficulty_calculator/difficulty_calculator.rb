@@ -14,18 +14,13 @@ class FormulaDifficultyCalculator
 
   private
   def build_operation_difficulty_calculator(operator, numbers1, numbers2)
-    difficulty = 0
-    case operator
-    when :+
-      difficulty = AdditionOperationDifficultyCalculator.new(numbers1, numbers2).compute_difficulty
-    when :*
-      difficulty = MultiplicationOperationDifficultyCalculator.new(numbers1, numbers2).compute_difficulty
-    when :/
-      difficulty = DivisionOperationDifficultyCalculator.new(numbers1, numbers2).compute_difficulty
-    when :-
-      difficulty = SubtractionOperationDifficultyCalculator.new(numbers1, numbers2).compute_difficulty
+    klass = case operator
+            when :+ then AdditionOperationDifficultyCalculator
+            when :* then MultiplicationOperationDifficultyCalculator
+            when :/ then DivisionOperationDifficultyCalculator
+            when :- then SubtractionOperationDifficultyCalculator
     end
-    difficulty
+    klass.new(numbers1, numbers2).compute_difficulty
   end
 
   def get_constants(operation)

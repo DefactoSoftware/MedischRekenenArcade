@@ -63,10 +63,9 @@ class Problem < ActiveRecord::Base
 
   def lazy_generate(level)
     valid = false
-    1000.times do
+    while !valid
       formula = generate_formula
       valid = compare_skill_difficulty(level, formula)
-      return formula if valid
     end
     formula
   end
