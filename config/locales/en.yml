@@ -144,5 +144,23 @@ en:
     PercentageUnitToHundred: "Divide the given value by the given percentage. You now have 1%. Multiply that again by 100."
     PercentageAmountOfAmount: "First calculate what 1% is by dividing the value by 100. Then multiply that by the percentage asked."
     SolutionMaxisporin: "help for maxisporin solution (to be added)."
+  activerecord:
+    attributes:
+      user:
+        username: "Username"
+        name: "Name"
+        email: "Email address"
+        password: "Password"
+        password_confirmation: "Password confirmation"
+    errors:
+      models:
+        user:
+          attributes:
+            username:
+              taken: "is already in use"
+            password:
+              too_short: "is too short"
+            password_confirmation:
+              confirmation: "is not equal to password"
 
 

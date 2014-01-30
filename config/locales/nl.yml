@@ -144,3 +144,22 @@ nl:
     PercentageUnitToHundred: "Deel de gegeven waarde door het gegeven percentage, je hebt dan 1%. Vermenigvuldig dat met 100."
     PercentageAmountOfAmount: "Reken eerst 1% uit door de waarde door 100 te delen. Vermenigvuldig dat vervolgens met het percentage dat gevraagd wordt."
     SolutionMaxisporin: "help voor maxisporin solution (moet nog toegevoegd worden)"
+  activerecord:
+    attributes:
+      user:
+        username: "Gebruikersnaam"
+        name: "Naam"
+        email: "Email adres"
+        password: "Wachtwoord"
+        password_confirmation: "Wachtwoord bevestiging"
+    errors:
+      models:
+        user:
+          attributes:
+            username:
+              taken: "is al in gebruik"
+            password:
+              too_short: "is te kort"
+            password_confirmation:
+              confirmation: "is niet gelijk aan wachtwoord"
+

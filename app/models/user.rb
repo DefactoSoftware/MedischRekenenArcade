@@ -47,6 +47,8 @@ class User < ActiveRecord::Base
   has_many :inverse_friends, :through => :inverse_friendships, :source => :user
 
 
+  validates :username, presence: true, uniqueness: true
+
   after_create :init_redis
 
   has_many :user_challenges

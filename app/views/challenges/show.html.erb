@@ -9,10 +9,10 @@
     <div class="score_block">
       <%= render 'sessions/scores' %>
     </div>
-    <div class="feedback_block">
+    <div class="block">
       <%= render 'feedback/answer_feedback' %>
     </div>
-    <div class="score_block">
+    <div class="block">
       <% if @challenge.timelimit %>
         <%= render 'sessions/time' %>
       <% end %>
