@@ -1,61 +1,17 @@
 <div class="row">
   <div class="three-column-equal-main">
-    <h2><%= t("leaderboards.titles.top") %></h2>
-    <table class="table">
-      <thead>
-        <tr>
-          <td><%= t("leaderboards.table_headers.rank") %></td>
-          <td><%= t("leaderboards.table_headers.name") %></td>
-          <td><%= t("leaderboards.table_headers.user_group") %></td>
-          <td><%= t("leaderboards.table_headers.score") %></td>
-        </tr>
-      </thead>
-      <% @top_scores.each do |score| %>
-        <tr>
-          <td>#<%= score[:rank] %>
-          <td><%= User.find(score[:member]).name %></td>
-          <td><%= User.find(score[:member]).user_group.name %></td>
-          <td><%= score[:score] %></td>
-        </tr>
-      <% end %>
-    </table>
+    <div class="white_block">
+      <%= render 'top', scores: @top_scores %>
+    </div>
   </div>
   <div class="three-column-equal-main">
-    <h2><%= current_user.user_group.name %></h2>
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <td><%= t("leaderboards.table_headers.rank") %></td>
-          <td><%= t("leaderboards.table_headers.name") %></td>
-          <td><%= t("leaderboards.table_headers.score") %></td>
-        </tr>
-      </thead>
-      <% @user_group_scores.each_with_index do |score, i| %>
-        <tr>
-          <td>#<%= i+1 %></td>
-          <td><%= User.find(score[:member]).name %></td>
-          <td><%= score[:score] %></td>
-        </tr>
-      <% end %>
-    </table>
+    <div class="white_block">
+      <%= render 'user_group', scores: @user_group_scores %>
+    </div>
   </div>
   <div class="three-column-equal-main">
-    <h2><%= t("leaderboards.titles.friends") %></h2>
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <td><%= t("leaderboards.table_headers.rank") %></td>
-          <td><%= t("leaderboards.table_headers.name") %></td>
-          <td><%= t("leaderboards.table_headers.score") %></td>
-        </tr>
-      </thead>
-      <% @friend_scores.each do |score| %>
-        <tr>
-          <td>#<%= score[:rank] %></td>
-          <td><%= User.find(score[:member]).name %></td>
-          <td><%= score[:score] %></td>
-        </tr>
-      <% end %>
-    </table>
+    <div class="white_block">
+      <%= render 'friends', scores: @friend_scores %>
+    </div>
   </div>
 </div>

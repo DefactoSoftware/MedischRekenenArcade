@@ -18,25 +18,7 @@
       <div class="grey_block">
         <% @challenges.each do |challenge| %>
           <div class="col-sm-6 col-md-3 col-lg-3 thumbnail-col">
-            <div class="thumbnail">
-              <a
-                href="<%= challenge_path(challenge.name) %>"
-                class="thumb-link"
-                data-toggle="popover"
-                data-container="body"
-                data-placement="top"
-                data-original-title="<%= challenge.name %>"
-                title
-                data-content='<%=challenge_table(challenge,current_user)%>'
-              >
-                <div class="image" style="background-image:url(<%= challenge.icon %>)"></div>
-                <div class="caption">
-                  <div class="inner">
-                    <h2><%= t("challenges.#{challenge.name}") %></h2>
-                  </div>
-                </div>
-              </a>
-            </div>
+            <%= render "challenges/thumbnail", challenge: challenge, user: current_user %>
           </div>
         <% end %>
       </div>
@@ -52,19 +34,7 @@
       <div class="grey_block">
         <% @badges.each do |badge| %>
           <div class="col-sm-6 col-md-3 col-lg-3 thumbnail-col">
-            <div class="thumbnail">
-              <a href="#" class="thumb-link">
-                <div class="image" style="backround-image:url(<%= badge.image %>)"></div>
-                <div class="caption">
-                  <div class="inner">
-                    <h2><%= t("badges.#{badge.name}.name") %></h2>
-                    <div class="more">
-                      <p class="description"><%= t("badges.#{badge.name}.description") %></p>
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </div>
+            <%= render 'badges/thumbnail', badge: badge, user: current_user %>
           </div>
         <% end %>
       </div>

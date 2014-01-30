@@ -1,0 +1,17 @@
+<h2><%= t("leaderboards.titles.friends") %></h2>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <td><%= t("leaderboards.table_headers.rank") %></td>
+      <td><%= t("leaderboards.table_headers.name") %></td>
+      <td><%= t("leaderboards.table_headers.score") %></td>
+    </tr>
+  </thead>
+  <% scores.each do |score| %>
+    <tr>
+      <td>#<%= score[:rank] %></td>
+      <td><%= User.find(score[:member]).name %></td>
+      <td><%= score[:score] %></td>
+    </tr>
+  <% end %>
+</table>

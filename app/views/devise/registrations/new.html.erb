@@ -7,50 +7,52 @@
   <div class="three-column-equal-side"></div>
   <div class="three-column-equal-main form-wrapper">
   <h2><%= t("devise.registrations.new_title") %></h2>
-    <%= form_for(resource, :as => resource_name, :url => user_registration_path) do |f| %>
+    <div class="grey_block">
+      <%= form_for(resource, :as => resource_name, :url => user_registration_path) do |f| %>
+        <div class="form-group">
+          <%= f.label :email, t("labels.email") %>
+          <%= f.email_field :email, autofocus: true, class: "form-control", placeholder: t("placeholders.email"), required:true %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :username, t("labels.username") %>
+          <%= f.text_field :username, class: "form-control", placeholder: t("placeholders.username"), required:true %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :name, t("labels.name") %>
+          <%= f.text_field :name, class: "form-control", placeholder: t("placeholders.name"), required:true %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :user_group, t("labels.user_group") %>
+          <%= f.select(:user_group_id, UserGroup.all.collect {|usergroup| [ usergroup.name, usergroup.id ] }, {}, {class:"form-control"}) %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :password, t("labels.password") %>
+          <%= f.password_field :password, class: "form-control", required:true %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :password_confirmation, t("labels.password_confirmation") %>
+          <%= f.password_field :password_confirmation, class: "form-control", required: true %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :profilepicture_url, t("labels.profile_picture") %>
+          <%= f.filepicker_field :profilepicture_url, class:"btn btn-submit" %>
+        </div>
+
+        <div class="form-group">
+          <div><%= f.submit t("labels.sign_up"), class: "btn-submit btn btn-primary btn-block btn-lg" %></div>
+        </div>
+
+      <% end %>
 
       <div class="form-group">
-        <%= f.label :email, t("labels.email") %>
-        <%= f.email_field :email, autofocus: true, class: "form-control", placeholder: t("placeholders.email"), required:true %>
+        <%= render "devise/shared/links" %>
       </div>
-
-      <div class="form-group">
-        <%= f.label :username, t("labels.username") %>
-        <%= f.text_field :username, class: "form-control", placeholder: t("placeholders.username"), required:true %>
-      </div>
-
-      <div class="form-group">
-        <%= f.label :name, t("labels.name") %>
-        <%= f.text_field :name, class: "form-control", placeholder: t("placeholders.name"), required:true %>
-      </div>
-
-      <div class="form-group">
-        <%= f.label :user_group, t("labels.user_group") %>
-        <%= f.select(:user_group_id, UserGroup.all.collect {|usergroup| [ usergroup.name, usergroup.id ] }, {}, {class:"form-control"}) %>
-      </div>
-
-      <div class="form-group">
-        <%= f.label :password, t("labels.password") %>
-        <%= f.password_field :password, class: "form-control", required:true %>
-      </div>
-
-      <div class="form-group">
-        <%= f.label :password_confirmation, t("labels.password_confirmation") %>
-        <%= f.password_field :password_confirmation, class: "form-control", required: true %>
-      </div>
-
-      <div class="form-group">
-        <%= f.label :profilepicture_url, t("labels.profile_picture") %>
-        <%= f.filepicker_field :profilepicture_url, class:"btn btn-submit" %>
-      </div>
-
-      <div class="form-group">
-        <div><%= f.submit t("labels.sign_up"), class: "btn-submit btn btn-primary btn-block btn-lg" %></div>
-      </div>
-
-    <% end %>
-    <div class="form-group">
-      <%= render "devise/shared/links" %>
     </div>
   </div>
 </div>

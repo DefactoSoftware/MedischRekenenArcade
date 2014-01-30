@@ -8,5 +8,25 @@ describe HomeController do
     end
   end
 
+  describe "Last challenge" do
+    let(:user) { FactoryGirl.create(:user) }
+    let(:challenge) { FactoryGirl.create(:challenge) }
+    let(:user_challenge) { FactoryGirl.create(:user_challenge, challenge: challenge, user: user) }
 
+    describe "when logged in" do
+      it "has a last challenge" do
+        user_challenge.reload
+        sign_in user
+        get :index
+        expect(assigns(:last_challenge)).to be_an_instance_of(Challenge)
+      end
+    end
+
+    describe "when not logged in" do
+      it "doesn't have a last challenge" do
+        get :index
+        expect(assigns(:last_challenge)).to be(nil)
+      end
+    end
+  end
 end
