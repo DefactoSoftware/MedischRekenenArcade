@@ -172,4 +172,16 @@ nl:
               too_short: "is te kort"
             password_confirmation:
               confirmation: "is niet gelijk aan wachtwoord"
+  problems:
+    theory:
+      PercentageAmountOfAmount: "%{operation1_constant1}% van %{operation1_constant2}%{unit}"
+      PercentageOfUnit: "Hoeveel %{unit} is %{operation1_constant1}%{unit_question} van %{operation1_constant2}#{unit_question}"
+      SolutionMaxisporin: |
+                        Geef een patient parentaal %{operation1_constant1} Maxisporin per dag, verdeeld over %{operation1_constant2} injecties.
+                        In voorraad is Maxisporin %{operation2_constant1}. Dit poeder dient opgelost te worden in 4ml aqua bidestillata
+                        ter verkrijging van %{operation2_constant2} injectievloeistof. Hoeveel %{unit} injecteer je per keer
+      PercentageUnitToHundred: "%{operation1_constant1}% is %{operation1_constant2}%{unit}, hoeveel is %{operation2_constant1}%"
+
+
+
 

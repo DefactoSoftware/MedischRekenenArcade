@@ -1,9 +1,10 @@
 class IncorrectChallengeAnswerHandler < ChallengeAnswerHandler
-  def initialize(session, current_user, user_challenge)
-    super(session, current_user, user_challenge)
+  def initialize(session, current_user, user_challenge, skill)
+    super(session, current_user, user_challenge, skill)
   end
 
   def handle!
+    decrease_skill!
     increase_damage!
     reset_streak!
     is_dead

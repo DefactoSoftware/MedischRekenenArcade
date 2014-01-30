@@ -5,7 +5,7 @@
 #  id         :integer          not null, primary key
 #  user_id    :integer
 #  skill_id   :integer
-#  level      :float
+#  level      :float            default(0.0)
 #  created_at :datetime
 #  updated_at :datetime
 #

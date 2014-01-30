@@ -6,17 +6,17 @@ describe AnswerHandler do
   let(:user) { User.new(name: "marthyn", email:"marthyn@live.nl") }
   let(:challenge) { Challenge.new(number_of_problems: 5, name:"challenge") }
   let(:user_challenge) { UserChallenge.new(challenge:challenge, user:user) }
-  let(:practicehandler_good) { CorrectPracticeAnswerHandler.new({}, user) }
-  let(:practicehandler_bad) { IncorrectPracticeAnswerHandler.new({}, user) }
-  let(:challenge_handler_good) { CorrectChallengeAnswerHandler.new({ challenge_id: challenge.id}, user, user_challenge)}
-  let(:challenge_handler_dead) { IncorrectChallengeAnswerHandler.new({ challenge_id: challenge.id, damage: ChallengeAnswerHandler::STANDARD_DEATH_CEILING + 1 }, user, user_challenge) }
-  let(:challenge_handler_wrong) { IncorrectChallengeAnswerHandler.new({ challenge_id: challenge.id}, user, user_challenge) }
+  let(:practicehandler_good) { CorrectPracticeAnswerHandler.new({}, user, double) }
+  let(:practicehandler_bad) { IncorrectPracticeAnswerHandler.new({}, user, double) }
+  let(:challenge_handler_good) { CorrectChallengeAnswerHandler.new({ challenge_id: challenge.id}, user, user_challenge, double)}
+  let(:challenge_handler_dead) { IncorrectChallengeAnswerHandler.new({ challenge_id: challenge.id, damage: ChallengeAnswerHandler::STANDARD_DEATH_CEILING + 1 }, user, user_challenge, double) }
+  let(:challenge_handler_wrong) { IncorrectChallengeAnswerHandler.new({ challenge_id: challenge.id}, user, user_challenge, double) }
 
 
 
   describe "#reset_challenge" do
     let(:session) { double("session", delete: "foo") }
-    let(:handler) { IncorrectChallengeAnswerHandler.new(session, double, double(challenge: double)) }
+    let(:handler) { IncorrectChallengeAnswerHandler.new(session, double, double(challenge: double), double) }
 
     describe "deleting the session" do
       before(:each) do
@@ -38,7 +38,7 @@ describe AnswerHandler do
   end
 
   describe "#reset_streak!" do
-    let(:handler) { AnswerHandler.new({streak: 1}, double)}
+    let(:handler) { AnswerHandler.new({streak: 1}, double, double)}
     it "resets the sessions streak" do
       handler.reset_streak!
       expect(handler.session.streak).to eq(0)
@@ -46,13 +46,13 @@ describe AnswerHandler do
   end
 
   describe "#decrease_damage" do
-    let(:handler) { AnswerHandler.new({ damage: 2 }, double)}
+    let(:handler) { AnswerHandler.new({ damage: 2 }, double, double)}
     it "decreases to 1 when damage is 2" do
       handler.decrease_damage!
       expect(handler.session.damage).to eq(1)
     end
 
-    let(:handler2) { AnswerHandler.new({damage:1}, double)}
+    let(:handler2) { AnswerHandler.new({damage:1}, double, double)}
     it "returns 0 when damage is 1" do
       handler2.decrease_damage!
       expect(handler2.session.damage).to eq(0)
@@ -60,7 +60,7 @@ describe AnswerHandler do
   end
 
   describe "#increase_streak" do
-    let(:handler) { AnswerHandler.new({streak:0}, user) }
+    let(:handler) { AnswerHandler.new({streak:0}, user, double) }
     it "increases the streak" do
       handler.increase_streak!
       expect(handler.session.streak).to eq(1)
@@ -69,7 +69,7 @@ describe AnswerHandler do
 
   let(:mock_user) { double("user", increase: true) }
   describe "#increase_points" do
-    let(:handler) { AnswerHandler.new(double, mock_user) }
+    let(:handler) { AnswerHandler.new(double, mock_user, double) }
     it "increases the points" do
       expect(mock_user).to receive(:increase_points).with(1)
       handler.increase_points!
@@ -77,12 +77,10 @@ describe AnswerHandler do
   end
 
   describe "#decrease_points" do
-    describe "#increase_points" do
-      let(:handler) { AnswerHandler.new(double, mock_user) }
-      it "decreases the points" do
-        expect(mock_user).to receive(:decrease_points).with(1)
-        handler.decrease_points!
-      end
+    let(:handler) { AnswerHandler.new(double, mock_user, double) }
+    it "decreases the points" do
+      expect(mock_user).to receive(:decrease_points).with(1)
+      handler.decrease_points!
     end
   end
 
@@ -106,7 +104,7 @@ describe AnswerHandler do
       # adding a good answer will trigger finished
       user_challenge.update_attributes(amount_good: challenge.number_of_problems)
       challenge_handler_good = CorrectChallengeAnswerHandler.new(
-        { challenge: challenge.id }, user, user_challenge
+        { challenge: challenge.id }, user, user_challenge, double
       )
       expect(challenge_handler_good.get_notice).to eq(
         I18n.t("challenge.finished", bonus: challenge.bonus)
@@ -155,7 +153,8 @@ describe AnswerHandlerFactory do
   let(:session) { double }
   let(:answer_is_correct) { double }
   let(:user) { double }
-  let(:factory) { AnswerHandlerFactory.new(session, answer_is_correct, user) }
+  let(:skill) { double }
+  let(:factory) { AnswerHandlerFactory.new(session, answer_is_correct, user, skill) }
 
   describe "#initialize" do
     it "initializes session" do

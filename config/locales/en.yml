@@ -170,5 +170,14 @@ en:
               too_short: "is too short"
             password_confirmation:
               confirmation: "is not equal to password"
+  problems:
+    theory:
+      PercentageAmountOfAmount: "%{operation1_constant1}% of %{operation1_constant2}%{unit}"
+      PercentageOfUnit: "How much %{unit} is %{operation1_constant1}%{unit_question} of %{operation1_constant2}#{unit_question}"
+      SolutionMaxisporin: |
+                          Give a patient parenterally %{operation1_constant1} Maxisporin a day, spread out over %{operation1_constant2} injections.
+                          In stock is Maxisporin %{operation2_constant1}. This powder should be dissolved in 4ml aqua bidestillata
+                          to get %{operation2_constant2} injectionliquid. How much %{unit} should you inject each time
+      PercentageUnitToHundred: "%{operation1_constant1}% is %{operation1_constant2}%{unit}, how much is %{operation2_constant1}%"
 
 

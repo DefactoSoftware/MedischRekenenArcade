@@ -2,23 +2,23 @@
 #
 # Table name: problems
 #
-#  id         :integer          not null, primary key
-#  formula    :string(255)
-#  question   :string(255)
-#  theory     :text
-#  difficulty :float
-#  created_at :datetime
-#  updated_at :datetime
-#  unit_id    :integer
-#  type       :string(255)
-#  result     :float
+#  id             :integer          not null, primary key
+#  formula        :string(255)
+#  question       :string(255)
+#  theory         :text
+#  difficulty     :float
+#  created_at     :datetime
+#  updated_at     :datetime
+#  unit_id        :integer
+#  type           :string(255)
+#  result         :float
+#  skill_id       :integer
+#  max_difficulty :integer          default(100)
+#  skill_offset   :integer          default(10)
 #
 
 class PercentageUnitToHundred < Problem
-  def self.generate
-    unit = AVAILABLE_UNITS[rand(0...AVAILABLE_UNITS.length)]
-    unit_question = "%";
-
+  def generate_formula
     operations = []
     operations << Operation.new(
                     AVAILABLE_OPERATORS["Division"],
@@ -31,8 +31,15 @@ class PercentageUnitToHundred < Problem
                     Constant.new(100)
                 )
     formula = Formula.new(operations)
-    theory = "#{operations[0].constant2.value}#{unit_question} is #{operations[0].constant1.value}#{unit}, hoeveel is #{operations[1].constant2.value}#{unit_question}"
-    self.create(theory:theory, unit: Unit.where(sign:unit).first, result: formula.result)
+  end
+
+  def generate_theory(formula)
+    self.theory = I18n.t("problems.theory.#{self.class.name}",
+                          unit: unit.sign,
+                          operation1_constant1: formula.operations[0].constant2.value,
+                          operation1_constant2: formula.operations[0].constant1.value,
+                          operation2_constant1: formula.operations[1].constant2.value
+                        )
   end
 
   def info

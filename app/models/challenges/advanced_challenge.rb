@@ -18,7 +18,7 @@
 require 'problem_factory'
 
 class AdvancedChallenge < Challenge
-  def create_problem
-    ProblemFactory.new(self.name).problem
+  def create_problem(user)
+    ProblemFactory.new(self.name, user).problem
   end
 end

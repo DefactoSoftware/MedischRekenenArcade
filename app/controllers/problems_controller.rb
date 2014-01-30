@@ -3,7 +3,7 @@ class ProblemsController < ApplicationController
 
   def index
     if params[:problem] && params[:problem] != ""
-      @problem = ProblemFactory.new(params[:problem]).problem
+      @problem = ProblemFactory.new(params[:problem], current_user).problem
     else
       @problem = Problem.generate_random(1)
     end
