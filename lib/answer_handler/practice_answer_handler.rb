@@ -3,7 +3,7 @@ class PracticeAnswerHandler < AnswerHandler
     super(session, current_user)
   end
 
-  def redirect_path
-    Rails.application.routes.url_helpers.practice_path
+  def redirect_path(problem)
+    Rails.application.routes.url_helpers.practice_path + "?problem=#{problem.class.name}"
   end
 end

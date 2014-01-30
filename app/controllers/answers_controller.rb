@@ -9,7 +9,8 @@ class AnswersController < ApplicationController
     handler = AnswerHandlerFactory.new(session, eval_answer(@answer), current_user).build
 
     handler.handle!
-    redirection_path = handler.redirect_path
+    redirection_path = handler.redirect_path(@answer.problem)
+
     notice = handler.get_notice
 
 

@@ -121,14 +121,14 @@ describe AnswerHandler do
       describe "when finished" do
         it "redirects to /challenges" do
           expect(challenge_handler_good).to receive(:finished).and_return(true)
-          expect(challenge_handler_good.redirect_path).to eq(challenges_path)
+          expect(challenge_handler_good.redirect_path(double)).to eq(challenges_path)
         end
       end
 
       describe "when dead" do
         it "redirects to /challenges" do
           expect(challenge_handler_good).to receive(:is_dead).and_return(true)
-          expect(challenge_handler_good.redirect_path).to eq(challenges_path)
+          expect(challenge_handler_good.redirect_path(double)).to eq(challenges_path)
         end
       end
     end
@@ -146,7 +146,7 @@ describe AnswerHandler do
 
   describe "#redirect_path" do
     it "does not redirect anywhere" do
-      expect(practicehandler_good.redirect_path).to eq(practice_path)
+      expect(practicehandler_good.redirect_path(double)).to eq(practice_path+"?problem=#{double.class.name}")
     end
   end
 end

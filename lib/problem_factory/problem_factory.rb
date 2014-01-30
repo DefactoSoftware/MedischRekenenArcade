@@ -4,6 +4,10 @@ class ProblemFactory
   end
 
   def problem
-    @name.constantize.generate
+    if Problem::VALID_PROBLEMS.include? @name
+      @name.constantize.generate
+    else
+      Problem.generate_random(1)
+    end
   end
 end

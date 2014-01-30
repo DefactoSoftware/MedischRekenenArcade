@@ -23,7 +23,7 @@ class ChallengeAnswerHandler < AnswerHandler
     end
   end
 
-  def redirect_path
+  def redirect_path(problem)
     if is_dead || finished
       Rails.application.routes.url_helpers.challenges_path
     else
