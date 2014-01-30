@@ -118,6 +118,7 @@ nl:
     user_group: "Gebruikersgroep"
     profile_picture: "Profiel foto"
     change_password_link: "Wijzig wachtwoord ▼"
+    pick_file: "Kies bestand"
   challenges:
     Addition_1: "Optellen: 1 stap"
     Addition_2: "Optellen: 2 stappen"

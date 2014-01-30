@@ -118,6 +118,7 @@ en:
     user_group: "Usergroup"
     profile_picture: "Profile picture"
     change_password_link: "Change password ▼"
+    pick_file: "Pick file"
   challenges:
     Addition_1: "Addition 1 step"
     Addition_2: "Addition 2 steps"
