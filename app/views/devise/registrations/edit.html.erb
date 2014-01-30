@@ -29,6 +29,21 @@
           <%= f.label :current_password, t("labels.current_password") %>
           <%= f.password_field :current_password, class: "form-control", required:true %>
         </div>
+         <div class="form-group">
+          <%= f.label :profilepicture_url, t("labels.profile_picture") %>
+          <%= f.filepicker_field(:profilepicture_url,
+            dragdrop: false,
+            store_location: "S3",
+            drag_class: "dragdropfield",
+            button_class: "btn btn-add",
+            button_text: t("labels.pick_file"),
+            extensions: ".png,.jpg,.jpeg,.gif",
+            name: "user[profilepicture_url]",
+            multiple: false
+            )
+            %>
+        </div>
+
 
         <a href="javascript:void();" id="change_password_link"><%= t("labels.change_password_link") %></a>
 
