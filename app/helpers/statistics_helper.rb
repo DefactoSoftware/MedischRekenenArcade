@@ -1,28 +1,20 @@
 module StatisticsHelper
-  def challenge_table(challenge, current_user)
+  def challenge_stat_table(challenge, current_user)
     "<table class='table table-striped'>
       <tr>
-        <th>Stats</th>
-        <td></td>
+        <th>#{t('challenges.labels.stats')}</th>
+        <th>#{t('challenges.labels.amount')}</th>
       </tr>
       <tr>
-        <td>Correct answered</td>
-        <td>#{challenge.total_correct_answers_for_user(current_user)}</td>
-      </tr>
-      <tr>
-        <td>Incorrect answered</td>
-        <td>#{challenge.total_incorrect_answers_for_user(current_user)}</td>
-      </tr>
-      <tr>
-        <td>Attempts</td>
+        <td>#{t('challenges.labels.attempts')}</td>
         <td>#{challenge.user_challenges.where(user:current_user).count}</td>
       </tr>
       <tr>
-        <td>Successful</td>
+        <td>#{t('challenges.labels.successfull')}</td>
         <td>#{challenge.total_success_for_user(current_user)}</td>
       </tr>
       <tr>
-        <td>Failed</td>
+        <td>#{t('challenges.labels.failed')}</td>
         <td>#{challenge.total_failed_for_user(current_user)}</td>
       </tr>
     </table>"

@@ -1,7 +1,7 @@
 class StatisticsController < ApplicationController
   before_action :authenticate_user!
   def index
-    @challenges = User.find(params[:user_id]).challenges
+    @challenge_sets = ChallengeSet.where(locked:false)
     @badges = User.find(params[:user_id]).badges
   end
 end

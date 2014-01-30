@@ -11,30 +11,22 @@ describe StatisticsHelper do
   it "should return the correct table" do
     table = "<table class='table table-striped'>
       <tr>
-        <th>Stats</th>
-        <td></td>
+        <th>#{t('challenges.labels.stats')}</th>
+        <th>#{t('challenges.labels.amount')}</th>
       </tr>
       <tr>
-        <td>Correct answered</td>
-        <td>#{challenge.total_correct_answers_for_user(user)}</td>
+        <td>#{t('challenges.labels.attempts')}</td>
+        <td>0</td>
       </tr>
       <tr>
-        <td>Incorrect answered</td>
-        <td>#{challenge.total_incorrect_answers_for_user(user)}</td>
+        <td>#{t('challenges.labels.successfull')}</td>
+        <td>0</td>
       </tr>
       <tr>
-        <td>Attempts</td>
-        <td>#{challenge.user_challenges.where(user:user).count}</td>
-      </tr>
-      <tr>
-        <td>Successful</td>
-        <td>#{challenge.total_success_for_user(user)}</td>
-      </tr>
-      <tr>
-        <td>Failed</td>
-        <td>#{challenge.total_failed_for_user(user)}</td>
+        <td>#{t('challenges.labels.failed')}</td>
+        <td>0</td>
       </tr>
     </table>"
-    expect(challenge_table(challenge, user)).to eq(table)
+    expect(challenge_stat_table(challenge, user)).to eq(table)
   end
 end

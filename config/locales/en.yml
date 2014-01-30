@@ -108,7 +108,7 @@ en:
     current_password: "Current password"
     password: "Password"
     password_confirmation: "Password confirmation"
-    update: "Update"
+    update: "Update account information"
     unhappy: "Unhappy?"
     cancel_account: "Cancel your account"
     sure: "Are you sure?"
@@ -138,12 +138,19 @@ en:
     PercentageOfUnit: "Percentage: % of unit"
     PercentageUnitToHundred: "Percentage: convert to 100%"
     SolutionMaxisporin: "Solution: Maxisporin"
+    labels:
+      completed_successfully: "Challenge achieved!"
+      attempts: "Attempts"
+      successfull: "Successfull"
+      failed: "Failed"
   problem_info:
     basic: "This is a basic mathematical operation. Look at the operator and solve the problem. If there is more than one step try to do the easiest step first. If the number is too big try to make little chunks."
     PercentageOfUnit: "Divide the percentage asked by 100 and multiply that with the value."
     PercentageUnitToHundred: "Divide the given value by the given percentage. You now have 1%. Multiply that again by 100."
     PercentageAmountOfAmount: "First calculate what 1% is by dividing the value by 100. Then multiply that by the percentage asked."
     SolutionMaxisporin: "help for maxisporin solution (to be added)."
+  challenge_sets:
+    week_1: "Week 1: Basic and Percentages"
   activerecord:
     attributes:
       user:

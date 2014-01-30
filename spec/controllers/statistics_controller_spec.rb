@@ -15,7 +15,7 @@ describe StatisticsController do
       expect(response.status).to be(200)
     end
     it "Should assign @challenges" do
-      expect(assigns(:challenges)).to eq(user.challenges)
+      expect(assigns(:challenge_sets))
     end
 
     it "Should assign @badges" do

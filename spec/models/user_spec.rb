@@ -38,11 +38,13 @@ describe User do
   end
 
   it "should not create a user when username is not specified" do
-    expect { User.create(email: "test2@example.com", password: "test1234") }.to raise_error
+    expect { User.create(email: "test2@example.com", password: "test1234") }
+    expect change(User, :count).by(0)
   end
 
   it "should not create a user when email is not specified" do
-    expect { User.create(email: "test2@example.com", password: "test1234") }.to raise_error
+    expect { User.create(password: "test1234") }
+    expect change(User, :count).by(0)
   end
 
   it "should accumulate points" do

@@ -7,49 +7,51 @@
   <div class="three-column-equal-side"></div>
   <div class="three-column-equal-main col-xs-8 form-wrapper">
   <h2><%= t("devise.registrations.edit_title") %></h2>
-    <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put } ) do |f| %>
+    <div class="grey_block">
+      <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put } ) do |f| %>
 
-      <div class="form-group">
-        <%= f.label :email, t("labels.email") %>
-        <%= f.email_field :email, :autofocus => true, class: "form-control", placeholder: t("placeholders.email"), required:true, value: resource.email %>
-      </div>
-
-      <div class="form-group">
-        <%= f.label :username, t("labels.username") %>
-        <%= f.text_field :username, class: "form-control", placeholder: t("placeholders.username"), required:true, value: resource.username %>
-      </div>
-
-      <div class="form-group">
-        <%= f.label :name, t("labels.name") %>
-        <%= f.text_field :name, class: "form-control", placeholder: t("placeholders.name"), required:true, value: resource.name %>
-      </div>
-
-      <div class="form-group">
-        <%= f.label :current_password, t("labels.current_password") %>
-        <%= f.password_field :current_password, class: "form-control", required:true %>
-      </div>
-
-      <a href="javascript:void();" id="change_password_link"><%= t("labels.change_password_link") %></a>
-
-      <div id="change_password_block">
         <div class="form-group">
-          <%= f.label :password, t("labels.password") %>
-          <%= f.password_field :password, class: "form-control"%>
+          <%= f.label :email, t("labels.email") %>
+          <%= f.email_field :email, :autofocus => true, class: "form-control", placeholder: t("placeholders.email"), required:true, value: resource.email %>
         </div>
 
         <div class="form-group">
-          <%= f.label :password_confirmation, t("labels.password_confirmation") %>
-          <%= f.password_field :password_confirmation, class: "form-control" %>
+          <%= f.label :username, t("labels.username") %>
+          <%= f.text_field :username, class: "form-control", placeholder: t("placeholders.username"), required:true, value: resource.username %>
         </div>
-      </div>
 
+        <div class="form-group">
+          <%= f.label :name, t("labels.name") %>
+          <%= f.text_field :name, class: "form-control", placeholder: t("placeholders.name"), required:true, value: resource.name %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :current_password, t("labels.current_password") %>
+          <%= f.password_field :current_password, class: "form-control", required:true %>
+        </div>
+
+        <a href="javascript:void();" id="change_password_link"><%= t("labels.change_password_link") %></a>
+
+        <div id="change_password_block">
+          <div class="form-group">
+            <%= f.label :password, t("labels.password") %>
+            <%= f.password_field :password, class: "form-control"%>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :password_confirmation, t("labels.password_confirmation") %>
+            <%= f.password_field :password_confirmation, class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div><%= f.submit t("labels.update"), class: "btn-submit btn btn-primary btn-block btn-lg" %></div>
+        </div>
+
+      <% end %>
       <div class="form-group">
-        <div><%= f.submit t("labels.update"), class: "btn-submit btn btn-primary btn-block btn-lg" %></div>
+        <p><%= t("labels.unhappy") %> <%= button_to t("labels.cancel_account"), registration_path(resource_name), data: { :confirm => t("labels.sure") }, method: :delete, class: "btn btn-danger" %></p>
       </div>
-
-    <% end %>
-    <div class="form-group">
-      <p><%= t("labels.unhappy") %> <%= button_to t("labels.cancel_account"), registration_path(resource_name), data: { :confirm => t("labels.sure") }, method: :delete, class: "btn btn-danger" %></p>
     </div>
   </div>
 </div>
