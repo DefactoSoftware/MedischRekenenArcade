@@ -23,9 +23,9 @@ describe Formula do
 
   describe "difficulty" do
     operators = [:+, :-, :*, :/]
-    let(:operation1) { Operation.new(operators.sample, Constant.new(rand(50)), Constant.new(rand(50))) }
-    let(:operation2) { Operation.new(operators.sample, Constant.new(operation1), Constant.new(rand(50))) }
-    let(:operation3) { Operation.new(operators.sample, Constant.new(operation2), Constant.new(rand(50))) }
+    let(:operation1) { Operation.new(operators.sample, Constant.new(rand(1..50)), Constant.new(rand(1..50))) }
+    let(:operation2) { Operation.new(operators.sample, Constant.new(operation1), Constant.new(rand(1..50))) }
+    let(:operation3) { Operation.new(operators.sample, Constant.new(operation2), Constant.new(rand(1..50))) }
 
     let(:formula) { Formula.new([operation1, operation2, operation3 ]) }
 
