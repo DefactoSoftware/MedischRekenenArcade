@@ -1,10 +1,7 @@
 <div class="row">
   <div class="three-column-small"></div>
-  <div class="three-column-big"><h1><%= t("challenge.title") %></h1></div>
-</div>
-<div class="row">
-  <div class="three-column-small"></div>
   <div class="three-column-big block">
+    <h1><%= t("challenge.title") %></h1>
     <% @challengesets.each do |challenge_set| %>
       <div id="challenges_block">
         <h4><%= challenge_set.name %></h4>
