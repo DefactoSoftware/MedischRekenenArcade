@@ -25,6 +25,10 @@ body {
   margin-right: 0px !important;
 }
 
+a:visited{
+     color: inherit;
+}
+
 // MAIN
 #main {
   margin-top:50px;
@@ -217,6 +221,20 @@ body {
    background-color: white !important;
 }
 
+.table-striped tbody tr:nth-child(odd) a {
+   color: white;
+}
+.table-striped tbody tr:nth-child(even) a {
+   color: black;
+}
+
+.table-striped tbody tr:nth-child(odd) a:hover {
+     color: #c7c7c7;
+}
+.table-striped tbody tr:nth-child(even) a:hover {
+   color: #c7c7c7;
+}
+
 
 // MENU
 .big-links {
@@ -234,6 +252,10 @@ body {
 }
 .row {
   margin: 0px;
+}
+
+.inside-row {
+  margin-top:25px;
 }
 
 .popover {

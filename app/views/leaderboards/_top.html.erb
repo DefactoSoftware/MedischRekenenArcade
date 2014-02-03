@@ -1,5 +1,5 @@
 <h2><%= t("leaderboards.titles.top") %></h2>
-<table class="table table_striped">
+<table class="table table-striped">
   <thead>
     <tr>
       <td><%= t("leaderboards.table_headers.rank") %></td>
@@ -9,10 +9,11 @@
     </tr>
   </thead>
   <% scores.each do |score| %>
+    <% user = User.find(score[:member]) %>
     <tr>
       <td>#<%= score[:rank] %>
-      <td><%= User.find(score[:member]).name %></td>
-      <td><%= User.find(score[:member]).user_group.name %></td>
+      <td> <%= link_to user_statistics_path(user) do %><%= user.name %><% end %></td>
+      <td><%= user.user_group.name %></td>
       <td><%= score[:score] %></td>
     </tr>
   <% end %>

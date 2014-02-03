@@ -1,48 +1,32 @@
-<div class="row">
-  <div class="two-column-fill ">
 
-  </div>
-  <div class="two-column-fill" >
-
-  </div>
-</div>
+<% if @user != current_user %>
+<%= render 'users/info', user: @user %>
+<% end %>
 
 <div class="row">
   <div class="two-column-fill">
-    <div class="row">
-      <div class="one-column-side"></div>
-      <div class="one-column-center"><h1>Challenges</h1></div>
-      <div class="one-column-side"></div>
-    </div>
-    <div id="challenges_block" class="row">
-        <div class="grey_block">
-          <% @challenge_sets.each do |challenge_set| %>
-            <div id="challenges_block">
-            <h4><%= t("challenge_sets.#{challenge_set.name}") %></h4>
-            <% challenge_set.challenges.each do |challenge| %>
-              <div class="col-sm-6 col-md-3 col-lg-3 thumbnail-col">
-                <%= render "challenges/thumbnail", challenge: challenge, user: current_user %>
-              </div>
-            <% end %>
+    <div id="challenges_block" class="row block">
+      <h1><%= t("challenge.title") %></h1>
+        <% @challenge_sets.each do |challenge_set| %>
+          <div id="challenges_block">
+          <h4><%= t("challenge_sets.#{challenge_set.name}") %></h4>
+          <% challenge_set.challenges.each do |challenge| %>
+            <div class="col-sm-6 col-md-3 col-lg-3 thumbnail-col">
+              <%= render "challenges/thumbnail", challenge: challenge, user: @user %>
             </div>
           <% end %>
-        </div>
-      </div>
-    </div>
-  <div class="two-column-fill" >
-    <div class="row">
-      <div class="one-column-side"></div>
-      <div class="one-column-center"><h1>Badges</h1></div>
-      <div class="one-column-side"></div>
-    </div>
-    <div id="badges_block" class="row">
-      <div class="grey_block">
-        <% @badges.each do |badge| %>
-          <div class="col-sm-6 col-md-3 col-lg-3 thumbnail-col">
-            <%= render 'badges/thumbnail', badge: badge, user: current_user %>
           </div>
         <% end %>
       </div>
+    </div>
+  <div class="two-column-fill" >
+    <div id="badges_block" class="row block">
+      <h1>Badges</h1>
+        <% @badges.each do |badge| %>
+          <div class="col-sm-6 col-md-3 col-lg-3 thumbnail-col">
+            <%= render 'badges/thumbnail', badge: badge, user: @user %>
+          </div>
+        <% end %>
     </div>
   </div>
 </div>
