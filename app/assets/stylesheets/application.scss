@@ -25,6 +25,10 @@ body {
   margin-right: 0px !important;
 }
 
+a:visited{
+     color: inherit;
+}
+
 // MAIN
 #main {
   margin-top:50px;
@@ -234,6 +238,10 @@ body {
 }
 .row {
   margin: 0px;
+}
+
+.inside-row {
+  margin-top:25px;
 }
 
 .popover {

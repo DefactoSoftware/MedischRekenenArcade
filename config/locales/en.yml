@@ -97,6 +97,14 @@ en:
     start: "Starting new challenge, good luck! If you make more than 6 mistakes the patient dies so be careful!"
     time_is_up: "Time is up, try it again!"
     title: "Challenges"
+  users:
+    info:
+      rank: "Overall rank"
+      score: "Total score"
+      badges: "Number of badges"
+      challenges: "Scored challenges"
+      friends: "You two are friends!"
+      not_friends: "Add friend!"
   placeholders:
     email: "Email"
     username: "Username"

@@ -97,6 +97,14 @@ nl:
     start: "Je kan nu beginnen met de uitdaging. Let op, je mag maar 6 fouten maken!"
     time_is_up: "Tijd is voorbij, probeer het nog eens"
     title: "Uitdagingen"
+  users:
+    info:
+      rank: "Algemene ranking"
+      score: "Totale score"
+      badges: "Aantal badges"
+      challenges: "Behaalde uitdagingen"
+      friends: "Jullie zijn al vrienden"
+      not_friends: "Add friend!"
   placeholders:
     email: "Email"
     username: "Gebruikersnaam"

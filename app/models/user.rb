@@ -76,6 +76,10 @@ class User < ActiveRecord::Base
     amount
   end
 
+  def friends_with?(user)
+    !Friendship.where(user: self, friend: user).empty?
+  end
+
   private
   def init_redis
     RedisLeaderboard.get.rank_member(self.id, 0)

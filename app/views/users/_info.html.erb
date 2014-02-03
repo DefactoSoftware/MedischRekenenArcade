@@ -1,0 +1,40 @@
+<div class="row">
+  <div class="three-column-equal-side">
+  </div>
+  <div class="three-column-equal-main block" >
+    <div class="row inside-row">
+      <div class="three-column-small">
+       <img width="100px" src="<%= user.profilepicture_url %>" class="img-thumbnail" style="float:right">
+      </div>
+      <div class="three-column-big">
+        <h1><%= user.name %></h1>
+      </div>
+    </div>
+    <div class="row inside-row">
+      <table class="table table-striped">
+        <tr>
+          <td><%= t("users.info.rank") %></td>
+          <td><%= RedisLeaderboard.get.rank_for(user.id) %></td>
+        </tr>
+
+        <tr>
+          <td><%= t("users.info.score") %></td>
+          <td><%= RedisLeaderboard.get.score_for(user.id) %></td>
+        </tr>
+        <tr>
+          <td><%= t("users.info.badges") %></td>
+          <td><%= user.badges.count %></td>
+        </tr>
+        <tr>
+          <td><%= t("users.info.challenges") %></td>
+          <td><%= user.challenges_completed_successfully %></td>
+        </tr>
+      </table>
+    </div>
+    <% if current_user.friends_with?(user) %>
+      <%= t("users.info.friends") %>
+    <% else %>
+      <%= link_to t("users.info.not_friends"), friendships_path(:friend_id => user), :method => :post %>
+    <% end %>
+  </div>
+</div>

@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row block">
   <div class="one-column-fill">
     <h2>Users</h2>
     <table class="table table-striped">
@@ -11,9 +11,15 @@
       </thead>
     <% @users.each do |user| %>
       <tr>
-        <td><%= user.name %></td>
-        <td><%= user.username %></td>
-        <td><%= link_to "Add Friend", friendships_path(:friend_id => user), :method => :post %></td>
+        <td><%= link_to user_statistics_path(user) do %><%= user.name %><% end %></td>
+        <td><%= link_to user_statistics_path(user) do %><%= user.username %><% end %></td>
+        <td>
+          <% if current_user.friends_with?(user) %>
+            <%= t("users.info.friends") %>
+          <% else %>
+            <%= link_to t("users.info.not_friends"), friendships_path(:friend_id => user), :method => :post %>
+          <% end %>
+        </td>
       </tr>
     <% end %>
     </table>
