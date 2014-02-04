@@ -1,0 +1,11 @@
+<div class="progress active">
+  <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="<%= progress %>" aria-valuemin="0" aria-valuemax="100" style="width: <%= progress.to_i %>%" >
+  <span style="text-align:center">
+    <%=
+      t("challenges.progress",
+         amount_good:user_challenge.amount_good,
+         no_problems: user_challenge.challenge.number_of_problems)
+    %>
+  </span>
+  </div>
+</div>

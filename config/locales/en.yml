@@ -73,7 +73,7 @@ en:
   calculator:
     info: "If you're stuck you can use this simple calculator. This does however reduce your score"
   practice:
-    submit_button: "Send"
+    submit_button: "Submit"
     header: "Calculate the right amount"
     answer_label: "Answer"
     skipquestion: "skip"
@@ -152,6 +152,7 @@ en:
       attempts: "Attempts"
       successfull: "Successfull"
       failed: "Failed"
+    progress: "%{amount_good} out of %{no_problems} correctly answered"
   problem_info:
     basic: "This is a basic mathematical operation. Look at the operator and solve the problem. If there is more than one step try to do the easiest step first. If the number is too big try to make little chunks."
     PercentageOfUnit: "Divide the percentage asked by 100 and multiply that with the value."
@@ -181,7 +182,7 @@ en:
   problems:
     theory:
       PercentageAmountOfAmount: "%{operation1_constant1}% of %{operation1_constant2}%{unit}"
-      PercentageOfUnit: "How much %{unit} is %{operation1_constant1}%{unit_question} of %{operation1_constant2}#{unit_question}"
+      PercentageOfUnit: "How much %{unit} is %{operation1_constant1}%{unit_question} of %{operation1_constant2}%{unit_question}"
       SolutionMaxisporin: |
                           Give a patient parenterally %{operation1_constant1} Maxisporin a day, spread out over %{operation1_constant2} injections.
                           In stock is Maxisporin %{operation2_constant1}. This powder should be dissolved in 4ml aqua bidestillata

@@ -26,6 +26,10 @@ class AnswersController < ApplicationController
     params.require(:answer).permit(:problem_id, :value)
   end
 
+  def parse_answer(answer)
+    answer.value = answer.value.gsub(',', '.')
+  end
+
   def eval_answer(answer)
     answer.value.round(2) == Problem.find(answer_parameters[:problem_id]).get_result.round(2)
   end
