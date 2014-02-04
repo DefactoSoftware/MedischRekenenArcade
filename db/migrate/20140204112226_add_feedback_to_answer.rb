@@ -1,5 +1,5 @@
 class AddFeedbackToAnswer < ActiveRecord::Migration
-   def change
+  def change
     add_column :answers, :feedback, :string
   end
 end

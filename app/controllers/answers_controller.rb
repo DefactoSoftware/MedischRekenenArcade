@@ -1,8 +1,6 @@
 require 'answer_handler'
 
 class AnswersController < ApplicationController
-  feedback_types = %(conversion rounding)
-
   before_action :authenticate_user!
   def create
     @answer = Answer.new(value: parse_value(answer_parameters[:value]), problem_id: answer_parameters[:problem_id])
