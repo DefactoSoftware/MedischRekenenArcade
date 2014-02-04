@@ -15,7 +15,7 @@ module HomeHelper
 
   def personalized_text(user)
     if user
-      Markdown.get.render(t("home.standard_text")).html_safe
+      Markdown.get.render(t("home.logged_in_text", points: user.points)).html_safe
     else
       Markdown.get.render(t("home.standard_text")).html_safe
     end

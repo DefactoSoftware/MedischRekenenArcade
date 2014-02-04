@@ -58,6 +58,8 @@ nl:
     afternoon: "Goedemiddag"
     night: "Goedenacht"
   home:
+    last_badge: "Laatste Badge"
+    last_challenge: "Laatste Challenge"
     tag_line: "Klaar om patienten te helpen?"
     standard_text:  |
                     #### Welkom en gefeliciteerd!
@@ -79,6 +81,15 @@ nl:
                     #### Klaar voor je eerste uitdaging? We beginnen makkelijk:
 
                     Registreer je account door op de knop hieronder te klikken
+
+    logged_in_text: |
+                    ## Je hebt %{points} punten
+
+                    De volgende uitdagingen heb je recent gedaan:
+                      ### %{challenge1}
+                      ### %{challenge2}
+
+                    Wil je meteen een uitdaging doen of nog even oefenen?
   menu:
     challenges: "Uitdagingen"
     settings: "Instellingen"

@@ -9,7 +9,7 @@
       <% end %>
       <% if @last_challenge %>
         <div class="block">
-          <h4>Last Challenge</h4>
+          <h4></h4>
           <%= render 'challenges/thumbnail', challenge: @last_challenge, user: current_user %>
         </div>
       <% end %>
@@ -19,14 +19,20 @@
     <h1><%= personalized_welcome(current_user)%></h1>
     <h4><%= t("home.tag_line") %></h4>
     <div class="row">
-      <div class="info-text two-column-fill">
-        <p><%= personalized_text(current_user) %></p>
-      </div>
-      <div class="two-column-fill">
-        <div class="thumbnail">
-        <%= image_tag("logo1.png") %>
+      <% if !current_user %>
+        <div class="info-text two-column-fill">
+          <p><%= personalized_text(current_user) %></p>
         </div>
-      </div>
+        <div class="two-column-fill">
+          <div class="thumbnail">
+          <%= image_tag("logo1.png") %>
+          </div>
+        </div>
+      <% else %>
+        <div class="one-column-fill center">
+          <p><%= personalized_text(current_user) %></p>
+        </div>
+      <% end %>
     </div>
       <div class="row center">
         <div id="call_to_action_buttons one-column-fill">

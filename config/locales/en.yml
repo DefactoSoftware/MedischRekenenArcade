@@ -59,6 +59,8 @@ en:
     afternoon: "Good afternoon"
     night: "Good night"
   home:
+    last_badge: "Last Badge"
+    last_challenge: "Last Challenge"
     tag_line: "Ready to help some patients?"
     standard_text:  |
                     #### Welcome and congratulations!
@@ -80,6 +82,10 @@ en:
                     #### Ready to start? We'll start easy:
 
                     Register by clicking on the button
+    logged_in_text: |
+                    ## You have %{points} points!
+
+                    Do you want to start a challenge or just practice a bit more?
   menu:
     challenges: "Challenges"
     settings: "Settings"
