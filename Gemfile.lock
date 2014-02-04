@@ -285,6 +285,7 @@ DEPENDENCIES
   guard-rspec
   jquery-rails
   jquery-turbolinks
+  jquery-ui-rails
   json_spec
   leaderboard
   merit (~> 1.7.0)

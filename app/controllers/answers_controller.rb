@@ -3,7 +3,7 @@ require 'answer_handler'
 class AnswersController < ApplicationController
   before_action :authenticate_user!
   def create
-    @answer = Answer.new(answer_parameters)
+    @answer = Answer.new(value: parse_value(answer_parameters[:value]), problem_id: answer_parameters[:problem_id])
     @answer.user = current_user
 
     handler = AnswerHandlerFactory.new(session, eval_answer(@answer), current_user, @answer.problem.skill).build
@@ -26,11 +26,20 @@ class AnswersController < ApplicationController
     params.require(:answer).permit(:problem_id, :value)
   end
 
-  def parse_answer(answer)
-    answer.value = answer.value.gsub(',', '.')
+  def parse_value(value)
+    value.gsub(',', '.')
   end
 
   def eval_answer(answer)
-    answer.value.round(2) == Problem.find(answer_parameters[:problem_id]).get_result.round(2)
+    problem_result = Problem.find(answer_parameters[:problem_id]).get_result
+    if answer.value.round(2) == problem_result.round(2) || answer.value == problem_result
+      true
+    else
+      eval_answer_deep(answer)
+    end
+  end
+
+  def eval_answer_deep(answer)
+
   end
 end
