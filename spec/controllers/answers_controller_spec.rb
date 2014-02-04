@@ -6,6 +6,8 @@ describe AnswersController do
   let(:problem) { PercentageAmountOfAmount.new.generate(user) }
   let(:badanswer) {FactoryGirl.attributes_for(:answer, problem_id: problem.id, value: problem.get_result + 1)}
   let(:goodanswer) {FactoryGirl.attributes_for(:answer, problem_id: problem.id, value: problem.get_result)}
+  let(:conversion_error_answer) {FactoryGirl.attributes_for(:answer, problem_id: problem.id, value: problem.get_result*1000)}
+  let(:rounding_error_answer) {FactoryGirl.attributes_for(:answer, problem_id: problem.id, value: problem.get_result-0.2)}
   let(:skill) { FactoryGirl.create(:skill, name:"Addition") }
   let(:challenge) { FactoryGirl.create(:challenge) }
   let(:user_challenge) { FactoryGirl.create(:user_challenge, challenge: challenge, user: user) }
@@ -38,6 +40,23 @@ describe AnswersController do
       expect {
          post :create, answer: badanswer
       }.to change(user, :points).by(0)
+    end
+
+    describe "#feedback" do
+      it "has rounding error answer feedback " do
+        post :create, answer: rounding_error_answer
+        expect(Answer.last.feedback).to eq(I18n.t("answer.feedback.rounding"))
+      end
+
+      it "has conversion error answer feedback " do
+        post :create, answer: conversion_error_answer
+        expect(Answer.last.feedback).to eq(I18n.t("answer.feedback.conversion"))
+      end
+
+      it "has perfect feedback" do
+        post :create, answer: goodanswer
+        expect(Answer.last.feedback).to eq(I18n.t("answer.feedback.correct"))
+      end
     end
   end
 

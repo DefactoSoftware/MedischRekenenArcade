@@ -18,7 +18,7 @@
         <%= render 'sessions/scores' %>
       </div>
       <div class="block">
-        <%= render 'answer_feedback/answer_feedback' %>
+        <%= render 'answer_feedback/answer_feedback', feedback: Answer.where(user:current_user).last.feedback %>
       </div>
   </div>
   <div class="three-column-small">
