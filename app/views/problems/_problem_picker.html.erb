@@ -3,7 +3,7 @@
 <%=
 select("",
        "problem",
-       Problem::VALID_PROBLEMS.collect {|problem| [ t("challenges.#{problem}"), problem ] },
+       Problem::VALID_PROBLEMS.collect {|problem| [ t("challenges.#{problem}.title"), problem ] },
        {include_blank: t("practice.clear_filter"), selected: params[:problem]},
        {class: "form-control"})
 %>

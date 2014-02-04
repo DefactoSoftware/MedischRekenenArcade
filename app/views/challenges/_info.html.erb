@@ -1,0 +1,4 @@
+<h4><%= t("challenges.labels.info") %></h4>
+<p><%= t("challenges.#{challenge.name}.info") %></p>
+<p><%= t("challenges.labels.patient") %></p>
+<p><%= t("challenges.labels.timelimit", timelimit: ((challenge.timelimit/1000) / 60).floor ) if challenge.timelimit %></p>

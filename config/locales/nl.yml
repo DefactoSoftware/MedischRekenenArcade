@@ -133,25 +133,63 @@ nl:
     change_password_link: "Wijzig wachtwoord ▼"
     pick_file: "Kies bestand"
   challenges:
-    Addition_1: "Optellen: 1 stap"
-    Addition_2: "Optellen: 2 stappen"
-    Addition_3: "Optellen: 3 stappen"
-    Division_1: "Delen: 1 stap"
-    Division_2: "Delen: 2 stappen"
-    Division_3: "Delen: 3 stappen"
-    Multiplication_1: "Vermenigvuldigen: 1 stap"
-    Multiplication_2: "Vermenigvuldigen: 2 stappen"
-    Multiplication_3: "Vermenigvuldigen: 3 stappen"
-    Subtraction_1: "Aftrekken: 1 stap"
-    Subtraction_2: "Aftrekken: 2 stappen"
-    Subtraction_3: "Aftrekken: 3 stappen"
-    Mixed_1: "Basisvaardigheden: 1 stap"
-    Mixed_2: "Basisvaardigheden: 2 stappen"
-    Mixed_3: "Basisvaardigheden: 3 stappen"
-    PercentageAmountOfAmount: "Percentage: percentage van een hoeveelheid"
-    PercentageOfUnit: "Percentage: hoeveelheid in percenten"
-    PercentageUnitToHundred: "Percentage: reken naar 100%"
-    SolutionMaxisporin: "Oplossing: Maxisporin"
+    Addition_1:
+      title: "Optellen: 1 stap"
+      info: "Deze uitdaging bestaat uit 10 basis problemen, je moet telkens 2 getallen optellen."
+    Addition_2:
+      title: "Optellen: 2 stappen"
+      info: "Deze uitdaging bestaat uit 10 basis problemen, je moet telkens 3 getallen optellen."
+    Addition_3:
+      title: "Optellen: 3 stappen"
+      info: "Deze uitdaging bestaat uit 10 basis problemen, je moet telkens 4 getallen optellen."
+    Division_1:
+      title: "Delen: 1 stap"
+      info: "Deze uitdaging bestaat uit 10 basis problemen, je moet telkens 2 getallen door elkaar delen."
+    Division_2:
+      title: "Delen: 2 stappen"
+      info: "Deze uitdaging bestaat uit 10 basis problemen, je moet telkens 3 getallen door elkaar delen."
+    Division_3:
+      title: "Delen: 3 stappen"
+      info: "Deze uitdaging bestaat uit 10 basis problemen, je moet telkens 4 getallen door elkaar delen."
+    Multiplication_1:
+      title: "Vermenigvuldigen: 1 stap"
+      info: "Deze uitdaging bestaat uit 10 basis problemen, je moet telkens 2 getallen met elkaar vermenigvuldigen."
+    Multiplication_2:
+      title: "Vermenigvuldigen: 2 stappen"
+      info: "Deze uitdaging bestaat uit 10 basis problemen, je moet telkens 3 getallen met elkaar vermenigvuldigen."
+    Multiplication_3:
+      title: "Vermenigvuldigen: 3 stappen"
+      info: "Deze uitdaging bestaat uit 10 basis problemen, je moet telkens 4 getallen met elkaar vermenigvuldigen."
+    Subtraction_1:
+      title: "Aftrekken: 1 stap"
+      info: "Deze uitdaging bestaat uit 10 basis problemen, je moet telkens 2 getallen van elkaar aftrekken."
+    Subtraction_2:
+      title: "Aftrekken: 2 stappen"
+      info: "Deze uitdaging bestaat uit 10 basis problemen, je moet telkens 3 getallen van elkaar aftrekken."
+    Subtraction_3:
+      title: "Aftrekken: 3 stappen"
+      info: "Deze uitdaging bestaat uit 10 basis problemen, je moet telkens 4 getallen van elkaar aftrekken."
+    Mixed_1:
+      title: "Basisvaardigheden: 1 stap"
+      info: "Deze uitdaging bestaat uit 10 gemixte basis problemen, Het gaat om 2 getallen die je wisselend moet aftrekken, optellen, vermenigvuldigen of delen."
+    Mixed_2:
+      title: "Basisvaardigheden: 2 stappen"
+      info: "Deze uitdaging bestaat uit 10 gemixte basis problemen, Het gaat om 3 getallen die je wisselend moet aftrekken, optellen, vermenigvuldigen of delen."
+    Mixed_3:
+      title: "Basisvaardigheden: 3 stappen"
+      info: "Deze uitdaging bestaat uit 10 gemixte basis problemen, Het gaat om 4 getallen die je wisselend moet aftrekken, optellen, vermenigvuldigen of delen."
+    PercentageAmountOfAmount:
+      title: "Percentage: percentage van een hoeveelheid"
+      info: "Deze uitdaging gaat over het berekenen van percentages. Je hebt een hoeveelheid en daar moet je een percentage van uitrekenen. Je hebt 10 goede antwoorden nodig."
+    PercentageOfUnit:
+      title: "Percentage: hoeveelheid in percenten"
+      info: "Deze uitdaging gaat over het berekenen van percentages. Je hebt twee hoeveelheden en jij moet berekenen hoeveel percent hoeveelheid A van hoeveelheid B is. Je hebt 10 goede antwoorden nodig."
+    PercentageUnitToHundred:
+      title: "Percentage: reken naar 100%"
+      info: "Deze uitdaging gaat over het berekenen van percentages. Je hebt een percentage van een hoeveelheid en jij moet uitrekenen hoeveel 100% is. Je hebt 10 goede antwoorden nodig."
+    SolutionMaxisporin:
+      title: "Oplossing: Maxisporin"
+      info: "Deze uitdaging gaat over het toedienen van Maxisporin. Dit medicijn gaat via een infuus via meerdere injecties. Jij moet berekenen hoeveel je per injectie moet oplossen. Het gaat om 10 problemen."
     labels:
       stats: "Statistiek"
       amount: "Aantal"
@@ -159,6 +197,9 @@ nl:
       attempts: "Keer gedaan"
       successfull: "Gehaald"
       failed: "Niet gehaald"
+      patient: "Zorg goed voor je patient, als je 6 fouten maakt is hij dood en moet je overnieuw beginnen."
+      info: "Over deze uitdaging"
+      timelimit: "Je hebt %{timelimit} minutes voor deze uitdaging"
     progress: "%{amount_good} van de %{no_problems} goed beantwoord"
   problem_info:
     title: "Huidig probleem"
