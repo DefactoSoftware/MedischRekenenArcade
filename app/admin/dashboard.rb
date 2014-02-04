@@ -33,7 +33,7 @@ ActiveAdmin.register_page "Dashboard" do
             end
             UserChallenge.last(100).map do |challenge|
               tr do
-                td t("challenges.#{challenge.challenge.name}")
+                td t("challenges.#{challenge.challenge.name}.title")
                 td link_to(challenge.user.username, admin_user_path(challenge.user))
                 td challenge.success? ? "True" : "False"
                 td "click"

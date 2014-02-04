@@ -1,5 +1,8 @@
 <div class="row image_background">
   <div class="three-column-small">
+    <div class="block">
+      <%= render 'info', challenge: @challenge %>
+    </div>
     <%= render 'sessions/health' %>
   </div>
   <div class="three-column-big answers">
@@ -10,7 +13,7 @@
       <%= render 'sessions/scores' %>
     </div>
     <div class="block">
-      <%= render 'feedback/answer_feedback' %>
+      <%= render 'answer_feedback/answer_feedback', feedback: @last_feedback %>
     </div>
     <div class="block">
       <% if @challenge.timelimit %>

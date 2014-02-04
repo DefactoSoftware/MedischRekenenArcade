@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery.turbolinks
 //= require jquery_ujs
+//= require jquery.ui.draggable
 //= require twitter/bootstrap
 //= require turbolinks
 //= require calculator
@@ -24,6 +25,10 @@ $(document).on('mouseenter', '#badges_block a.thumb-link', function(e) {
 }).on('mouseleave', '#badges_block a.thumb-link', function(e) {
   $(this).find('.caption .inner').css('bottom', 0);
 });
+
+$("#calculator").ready(function() {
+  $("#calculator").draggable();
+})
 
 //Functions for making answering view interactive
 $(".unit_select").ready(function() {
