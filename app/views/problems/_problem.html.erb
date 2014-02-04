@@ -33,7 +33,6 @@
 <div class="row submit_block">
   <div class="row">
     <div class="two-column-fill ">
-        <a href="#" id="helpQuestion"><%= t("practice.helpquestion") %></a>
       <p class="help">
         <%= problem.get_result.round(2) %>
       </p>
@@ -43,6 +42,7 @@
         <div>
         <%= f.submit t("practice.submit_button"), class:"btn btn-submit btn-embossed btn-practice" %>
         <% end %>
+        <a href="#" id="helpQuestion"><button class="btn btn-warning btn-embossed"><%= t("practice.helpquestion") %></button></a>
         <br>
         <a href="#" id="skipQuestion">(<%= t("practice.skipquestion") %>)</a>
       </div>
