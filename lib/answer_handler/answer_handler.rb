@@ -15,12 +15,12 @@ class AnswerHandler
   end
 
   def increase_skill!(value=1)
-    user_skill = UserSkill.where(user: user, skill: skill).first_or_create
+    user_skill = UserSkill.where(user: @user, skill: @skill).first_or_create
     user_skill.update_attributes(level: user_skill.level+value)
   end
 
   def decrease_skill!(value=1)
-    user_skill = UserSkill.where(user: user, skill: skill).first_or_create
+    user_skill = UserSkill.where(user: @user, skill: @skill).first_or_create
     user_skill.update_attributes(level: user_skill.level-value) if user_skill.level > 0
   end
 

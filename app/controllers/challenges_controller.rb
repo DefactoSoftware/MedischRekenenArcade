@@ -5,11 +5,13 @@ class ChallengesController < ApplicationController
     if !session[:challenge]
       session[:challenge] = @challenge.id
       session[:start] = Time.now
-      UserChallenge.create(challenge: @challenge, user:current_user)
       flash[:notice] = t("challenge.start")
       user_challenge = UserChallenge.create(challenge: @challenge, user:current_user)
       track_activity(user_challenge, "start")
+      @info = I18n.t("challenges.info.#{@challenge.class.name}")
     end
+    @user_challenge = UserChallenge.where(challenge: Challenge.find(session[:challenge]), user: current_user).last
+    @progress = (Float(@user_challenge.amount_good) / Float(@user_challenge.challenge.number_of_problems))*100
     calculate_time_left if @challenge.timelimit
     @problem = @challenge.create_problem(current_user)
   end

@@ -87,7 +87,7 @@ class Problem < ActiveRecord::Base
       operations << Operation.new(AVAILABLE_OPERATORS.to_a.sample[1], constant1, constant2)
     end
     formula = Formula.new(operations)
-    problem.update_attributes(theory: formula.text, result: formula.result)
+    problem.update_attributes(theory: formula.text, result: formula.result, skill: Skill.where(name: "Basic").first_or_create)
     problem
   end
 
@@ -100,7 +100,7 @@ class Problem < ActiveRecord::Base
       operations << Operation.new(AVAILABLE_OPERATORS[skills.sample.name], constant1, constant2)
     end
     formula = Formula.new(operations)
-    problem.update_attributes(theory: formula.text, result: formula.result)
+    problem.update_attributes(theory: formula.text, result: formula.result, skill: Skill.where(name: "Basic").first_or_create)
     problem
   end
 end
