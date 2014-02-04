@@ -78,7 +78,3 @@ end
 group :test, :darwin do
   gem 'rb-fsevent'
 end
-
-group :debug do
-  gem 'debugger'
-end
