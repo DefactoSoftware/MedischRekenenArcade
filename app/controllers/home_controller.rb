@@ -6,6 +6,8 @@ class HomeController < ApplicationController
       challenges = UserChallenge.where(user: current_user)
       @last_challenge = challenges.last.challenge if !challenges.empty?
       @last_badge = current_user.badges.last
+    else
+      flash[:notice] = "Badge gehaald: First Contact"
     end
   end
 

@@ -40,6 +40,7 @@ en:
   activities:
     title: "Activity"
   badges:
+    message: "Badge "
     just_registered:
       name: "Registered"
       description: "You registered successfully"
@@ -59,7 +60,26 @@ en:
     night: "Good night"
   home:
     tag_line: "Ready to help some patients?"
-    standard_text: "Medical arithmetics are a complicated part of the medical profession. To keep up your level you can use this application. Register now and start practicing! You can complete challenges and earn badges. You can compete with your friends over who can get the highest score!"
+    standard_text:  |
+                    #### Welcome and congratulations!
+
+                    By openening your page you got your first badge!
+                    As soon as you create your account it 'll be added to your account.
+
+                    _But wait a second.. what are Medical Arithmetics?_
+
+                    Medical Arithmetics is a webapp for training arithmetics in the medical field.
+                    In healthcare one mistake can have lethal consequences.
+                    What happens if a patient gets 10 milligram instead of 1? You rather not think about that.
+                    If you work with patients it's very important you keep your skills up to date.
+
+                    Medical Arithmetics will continuously challenge you.
+                    You can get badges and complete challenges. The challenges will adjust to your level of expertise.
+                    Share those badges and challenges with your friends and colleagues to stay stimulated.
+
+                    #### Ready to start? We'll start easy:
+
+                    Register by clicking on the button
   menu:
     challenges: "Challenges"
     settings: "Settings"

@@ -1,4 +1,6 @@
 module HomeHelper
+  include Markdown
+
   MORNING_START = 5
   AFTERNOON_START = 11
   EVENING_START = 17
@@ -13,9 +15,9 @@ module HomeHelper
 
   def personalized_text(user)
     if user
-      t("home.standard_text")
+      Markdown.get.render(t("home.standard_text")).html_safe
     else
-      t("home.standard_text")
+      Markdown.get.render(t("home.standard_text")).html_safe
     end
   end
 

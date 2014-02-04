@@ -59,7 +59,26 @@ nl:
     night: "Goedenacht"
   home:
     tag_line: "Klaar om patienten te helpen?"
-    standard_text: "Medisch rekenen is een lastig onderdeel in de medische wereld. Om je niveau hoog te houden kan je deze applicatie gebruiken. Registreer nu en start met oefenen! Je kan badges en uitdagingen halen. Samen met je vrienden kan je scores bijhouden en strijden om de eer!"
+    standard_text:  |
+                    #### Welkom en gefeliciteerd!
+
+                    Door deze pagina te openen heb je je eerste badge voor Medisch Rekenen behaald.
+                    Zodra je jouw account hebt geregistreerd wordt hij aan je toegeschreven.
+
+                    _Maar wacht even, wat is Medisch Rekenen?_
+
+                    Medisch Rekenen is een webservice ter ondersteuning van het rekenen in de gezondheidszorg.
+                    In de zorg kan een rekenfoutje ernstige gevolgen hebben.
+                    Wat gebeurt er als een patiënt 10 milligram van een medicijn krijgt in plaats van 1? Je wilt er liever niet aan denken.
+                    Als je met patiënten werkt, is het daarom van belang je rekenvaardigheid op peil te houden.
+
+                    Medisch rekenen stimuleert je om jezelf regelmatig op de proef te stellen.
+                    In Medisch Rekenen kan je badges verdienen door uitdagingen te halen. De uitdagingen die je ontvangt passen zich aan aan het niveau dat je laat zien.
+                    Deel de badges met collega's/medestudenten om elkaar te stimuleren je medische rekenvaardigheid op peil te houden.
+
+                    #### Klaar voor je eerste uitdaging? We beginnen makkelijk:
+
+                    Registreer je account door op de knop hieronder te klikken
   menu:
     challenges: "Uitdagingen"
     settings: "Instellingen"

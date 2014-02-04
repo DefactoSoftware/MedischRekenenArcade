@@ -39,7 +39,7 @@ gem 'newrelic_rpm'
 
 gem 'filepicker-rails', '~> 1.0.0'
 
-
+gem 'redcarpet'
 
 gem 'activeadmin', github: 'gregbell/active_admin'
 

@@ -34,6 +34,14 @@ a:visited{
   margin-top:50px;
 }
 
+.info-text {
+  text-align:left;
+}
+
+.center {
+  text-align: center;
+}
+
 #change_password_block {
   display: none;
 }
@@ -404,7 +412,7 @@ a:visited{
   background-color: #edeff1;
   position: fixed;
   z-index: 1005;
-  bottom: 10px;
+  bottom: 0px;
   left: 0;
 }
 
