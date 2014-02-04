@@ -93,6 +93,7 @@ nl:
     wrong: "Helaas was dat niet goed.. :( Je reeks is op 0 gezet. "
     dead: "Dat was helaas ook fout, de patient is overleden. Probeer de uitdaging opnieuw"
     feedback:
+      title: "Antwoord feedback"
       conversion: "Je antwoord was bijna goed, alleen de conversie ging niet goed, waarschijnlijk ben je gewoon de laatste stap vergeten."
       rounding: "Je antwoord zat dichtbij maar je hebt niet goed afgerond, denk eraan dat alle antwoorden afgerond moeten worden op 2 cijfers achter de komma."
       correct: "Je antwoord was helemaal goed, ga zo door!"
@@ -160,6 +161,7 @@ nl:
       failed: "Niet gehaald"
     progress: "%{amount_good} van de %{no_problems} goed beantwoord"
   problem_info:
+    title: "Huidig probleem"
     basic: "Dit is een basis wiskundige operatie. Kijk naar het symbool en los het probleem op. Als er meerdere stappen zijn doe dan de kleinste stap eerst. Als de getallen te groot zijn probeer ze dan op te delen. Denk ook aan de volgorde waarin je de stappen uitvoert."
     PercentageOfUnit: "Deel het gevraagde percentage door 100 en vermenigvuldig dat met de gegeven waarde."
     PercentageUnitToHundred: "Deel de gegeven waarde door het gegeven percentage, je hebt dan 1%. Vermenigvuldig dat met 100."

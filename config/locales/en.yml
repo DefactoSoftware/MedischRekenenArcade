@@ -93,6 +93,7 @@ en:
     wrong: "Unfortunately that was not correct :( Your streak was reset. "
     dead: "That was incorrenct too, sadly the patient has died. Please try the challenge again"
     feedback:
+      title: "Answer feedback"
       conversion: "You were almost right but you probably forgot to divide or multiply it by a certain number"
       rounding: "Your answer was close but you didn't round of properly. Remember you need to round of on 2 decimals"
       correct: "Your answer was completely perfect, keep on going!"
@@ -158,6 +159,7 @@ en:
       failed: "Failed"
     progress: "%{amount_good} out of %{no_problems} correctly answered"
   problem_info:
+    title: "Current problem"
     basic: "This is a basic mathematical operation. Look at the operator and solve the problem. If there is more than one step try to do the easiest step first. If the number is too big try to make little chunks."
     PercentageOfUnit: "Divide the percentage asked by 100 and multiply that with the value."
     PercentageUnitToHundred: "Divide the given value by the given percentage. You now have 1%. Multiply that again by 100."
