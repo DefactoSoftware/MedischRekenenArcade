@@ -33,7 +33,7 @@ $("#calculator").ready(function() {
 //Functions for making answering view interactive
 $(".unit_select").ready(function() {
   $(".unit_select").on("click", function(element){
-    $("#selectedUnit").html($(element.target)[0].dataset.sign);
+    $("#selectedUnit").html($(element.target)[0].dataset.sign + " ▼");
   });
   if($(".unit_select").length > 0) {
     $(".unit_select")[0].click();
