@@ -7,16 +7,7 @@
         <h4><%= challenge_set.name %></h4>
         <% challenge_set.challenges.each do |challenge| %>
           <div class="col-sm-6 col-md-3 col-lg-2 thumbnail-col">
-            <div class="thumbnail">
-              <%= link_to challenge_path(challenge.name), class:"thumb-link" do %>
-                <div class="image" style="background-image:url(<%= challenge.icon %>)"></div>
-                <div class="caption">
-                  <div class="inner">
-                    <h2><%= t("challenges.#{challenge.name}.title") %></h2>
-                  </div>
-                </div>
-              <% end %>
-            </div>
+            <%= render 'thumbnail', challenge: challenge, user: current_user %>
           </div>
         <% end %>
       </div>

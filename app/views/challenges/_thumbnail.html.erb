@@ -1,5 +1,4 @@
-
-<div class="thumbnail">
+<div class="thumbnail thumbnail-challenge">
   <a
     href="<%= challenge_path(challenge.name) %>"
     class="thumb-link"
@@ -9,7 +8,7 @@
     title
     data-content='<%=challenge_stat_table(challenge,user)%>'
   >
-    <div class="image" style="background-image:url(<%= challenge.icon %>)"></div>
+    <img class="image" src="<%=asset_path(challenge.icon) %>">
     <div class="caption">
       <div class="inner">
         <h2><%= t("challenges.#{challenge.name}.title") %></h2>
@@ -22,5 +21,5 @@
     </div>
 </a>
 </div>
-
+<img >
 
