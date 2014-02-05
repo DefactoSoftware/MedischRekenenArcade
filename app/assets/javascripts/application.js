@@ -40,8 +40,8 @@ $(".unit_select").ready(function() {
   }
 });
 
-funtion update_profile_picture(event) {
-
+var update_profile_picture = function(event) {
+  $("#preview_profile_picture").attr("src", event.fpfile.url)
 }
 
 $("#change_password_block").ready(function() {
