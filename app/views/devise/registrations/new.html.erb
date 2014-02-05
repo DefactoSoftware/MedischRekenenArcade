@@ -41,6 +41,7 @@
 
         <div class="form-group">
           <%= f.label :profilepicture_url, t("labels.profile_picture") %>
+          <img src="" id="preview_profile_picture">
           <%= f.filepicker_field(:profilepicture_url,
             dragdrop: false,
             store_location: "S3",
@@ -49,6 +50,7 @@
             button_text: t("labels.pick_file"),
             extensions: ".png,.jpg,.jpeg,.gif",
             name: "user[profilepicture_url]",
+            onchange: "update_profile_picture(event)"
             multiple: false
             )
             %>

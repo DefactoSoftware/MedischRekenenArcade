@@ -40,6 +40,10 @@ $(".unit_select").ready(function() {
   }
 });
 
+funtion update_profile_picture(event) {
+
+}
+
 $("#change_password_block").ready(function() {
   $("#change_password_link").on("click", function() {
     $("#change_password_block").toggle();
