@@ -1,5 +1,5 @@
 <%= activity.action.sub(/e?$/, "ed") %>
-the challenge
+<%= t("challenges.activity") %>
 <%= link_to challenge_path(activity.trackable.challenge.name) do %>
   <%= t("challenges.#{activity.trackable.challenge.name}.title") %>
 <% end %>

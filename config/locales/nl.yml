@@ -57,39 +57,6 @@ nl:
     evening: "Goedenavond"
     afternoon: "Goedemiddag"
     night: "Goedenacht"
-  home:
-    last_badge: "Laatste Badge"
-    last_challenge: "Laatste Challenge"
-    tag_line: "Klaar om patienten te helpen?"
-    standard_text:  |
-                    #### Welkom en gefeliciteerd!
-
-                    Door deze pagina te openen heb je je eerste badge voor Medisch Rekenen behaald.
-                    Zodra je jouw account hebt geregistreerd wordt hij aan je toegeschreven.
-
-                    _Maar wacht even, wat is Medisch Rekenen?_
-
-                    Medisch Rekenen is een webservice ter ondersteuning van het rekenen in de gezondheidszorg.
-                    In de zorg kan een rekenfoutje ernstige gevolgen hebben.
-                    Wat gebeurt er als een patiënt 10 milligram van een medicijn krijgt in plaats van 1? Je wilt er liever niet aan denken.
-                    Als je met patiënten werkt, is het daarom van belang je rekenvaardigheid op peil te houden.
-
-                    Medisch rekenen stimuleert je om jezelf regelmatig op de proef te stellen.
-                    In Medisch Rekenen kan je badges verdienen door uitdagingen te halen. De uitdagingen die je ontvangt passen zich aan aan het niveau dat je laat zien.
-                    Deel de badges met collega's/medestudenten om elkaar te stimuleren je medische rekenvaardigheid op peil te houden.
-
-                    #### Klaar voor je eerste uitdaging? We beginnen makkelijk:
-
-                    Registreer je account door op de knop hieronder te klikken
-
-    logged_in_text: |
-                    ## Je hebt %{points} punten
-
-                    De volgende uitdagingen heb je recent gedaan:
-                      ### %{challenge1}
-                      ### %{challenge2}
-
-                    Wil je meteen een uitdaging doen of nog even oefenen?
   menu:
     challenges: "Uitdagingen"
     settings: "Instellingen"
@@ -231,6 +198,7 @@ nl:
       info: "Over deze uitdaging"
       timelimit: "Je hebt %{timelimit} minutes voor deze uitdaging"
     progress: "%{amount_good} van de %{no_problems} goed beantwoord"
+    activity: "de uitdaging"
   problem_info:
     title: "Huidig probleem"
     basic: "Dit is een basis wiskundige operatie. Kijk naar het symbool en los het probleem op. Als er meerdere stappen zijn doe dan de kleinste stap eerst. Als de getallen te groot zijn probeer ze dan op te delen. Denk ook aan de volgorde waarin je de stappen uitvoert."
@@ -267,7 +235,39 @@ nl:
                         In voorraad is Maxisporin %{operation2_constant1}. Dit poeder dient opgelost te worden in 4ml aqua bidestillata
                         ter verkrijging van %{operation2_constant2} injectievloeistof. Hoeveel %{unit} injecteer je per keer
       PercentageUnitToHundred: "%{operation1_constant1}% is %{operation1_constant2}%{unit}, hoeveel is %{operation2_constant1}%"
+  home:
+    last_badge: "Laatste Badge"
+    last_challenge: "Laatste Challenge"
+    tag_line: "Klaar om patienten te helpen?"
+    standard_text:  |
+                    #### Welkom en gefeliciteerd!
 
+                    Door deze pagina te openen heb je je eerste badge voor Medisch Rekenen behaald.
+                    Zodra je jouw account hebt geregistreerd wordt hij aan je toegeschreven.
+
+                    _Maar wacht even, wat is Medisch Rekenen?_
+
+                    Medisch Rekenen is een webservice ter ondersteuning van het rekenen in de gezondheidszorg.
+                    In de zorg kan een rekenfoutje ernstige gevolgen hebben.
+                    Wat gebeurt er als een patiënt 10 milligram van een medicijn krijgt in plaats van 1? Je wilt er liever niet aan denken.
+                    Als je met patiënten werkt, is het daarom van belang je rekenvaardigheid op peil te houden.
+
+                    Medisch rekenen stimuleert je om jezelf regelmatig op de proef te stellen.
+                    In Medisch Rekenen kan je badges verdienen door uitdagingen te halen. De uitdagingen die je ontvangt passen zich aan aan het niveau dat je laat zien.
+                    Deel de badges met collega's/medestudenten om elkaar te stimuleren je medische rekenvaardigheid op peil te houden.
+
+                    #### Klaar voor je eerste uitdaging? We beginnen makkelijk:
+
+                    Registreer je account door op de knop hieronder te klikken
+
+    logged_in_text: |
+                    ## Je hebt %{points} punten
+
+                    De volgende uitdagingen heb je recent gedaan:
+                      ### %{challenge1}
+                      ### %{challenge2}
+
+                    Wil je meteen een uitdaging doen of nog even oefenen?
 
 
 
