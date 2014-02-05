@@ -9,24 +9,25 @@
     </div>
     <div class="two-column-fill input">
       <%= form_for(Answer.new) do |f| %>
-      <% if @challenge %>
-        <%= f.hidden_field :user_challenge_id, value: UserChallenge.where(challenge_id: session[:challenge], user: current_user).last.id %>
-      <% end %>
-      <%= f.hidden_field :problem_id, value: problem.id %>
-      <div class="form-group">
-        <div class="input-group answer-field">
-          <span class="input-group-addon dropdown-toggle" data-toggle="dropdown"><%= t("unit") %></span>
-          <%= f.text_area :value, class:"form-control", rows:"1", required: true %>
-          <span class="input-group-addon" id="selectedUnit">no unit</span>
-          <% if problem.unit %>
-          <ul class="dropdown-menu">
-            <% problem.unit.unit_group.units.each do |unit| %>
-              <li><a class="unit_select" data-sign="<%= unit.sign %>"><%= unit.name %></a></li>
+        <% if @challenge %>
+          <%= f.hidden_field :user_challenge_id, value: UserChallenge.where(challenge_id: session[:challenge], user: current_user).last.id %>
+        <% end %>
+        <%= f.hidden_field :problem_id, value: problem.id %>
+        <div class="form-group">
+          <div class="input-group answer-field">
+            <span class="input-group-addon dropdown-toggle" data-toggle="dropdown"><%= t("unit") %></span>
+            <%= f.text_area :value, class:"form-control", rows:"1", required: true %>
+            <span class="input-group-addon" id="selectedUnit">no unit</span>
+            <% if problem.unit %>
+            <ul class="dropdown-menu">
+              <% problem.unit.unit_group.units.each do |unit| %>
+                <li><a class="unit_select" data-sign="<%= unit.sign %>"><%= unit.name %></a></li>
+              <% end %>
+            </ul>
             <% end %>
-          </ul>
-          <% end %>
+          </div>
         </div>
-      </div>
+      <% end %>
     </div>
   </div>
 </div>
@@ -40,8 +41,7 @@
     <div class="two-column-fill">
       <div class="form-group submit_form">
         <div>
-        <%= f.submit t("practice.submit_button"), class:"btn btn-submit btn-embossed btn-practice" %>
-        <% end %>
+        <button id="submit_answer" class="btn btn-submit btn-embossed btn-practice"><%= t("practice.submit_button") %></button>
         <a href="#" id="helpQuestion"><button class="btn btn-warning btn-embossed"><%= t("practice.helpquestion") %></button></a>
         <br>
         <a href="#" id="skipQuestion">(<%= t("practice.skipquestion") %>)</a>

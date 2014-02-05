@@ -77,8 +77,12 @@ $("#close_calculator").ready(function() {
   })
 });
 
+//Submitting answer form
 $("#answer_value").ready(function() {
   $("#answer_value").focus()
+  $("#submit_answer").on("click", function() {
+    $("#answer_value").parent().parent().parent().submit();
+  })
   $("#answer_value").on("keypress", function(e){
     var code = e.keyCode || e.which;
     if(code == 13) {
