@@ -1,7 +1,7 @@
 class ChallengesController < ApplicationController
   before_action :authenticate_user!
   def show
-    @last_feedback = Answer.where(user:current_user).last ? Answer.where(user:current_user).last.feedback : ""
+    @last_answer = Answer.where(user:current_user).last
     @challenge = Challenge.where(name: params[:id]).first
     if !session[:challenge]
       session[:challenge] = @challenge.id
@@ -10,7 +10,7 @@ class ChallengesController < ApplicationController
       user_challenge = UserChallenge.create(challenge: @challenge, user:current_user)
       track_activity(user_challenge, "start")
       @info = I18n.t("challenges.info.#{@challenge.class.name}")
-      @last_feedback = I18n.t("challenge.start")
+      @last_answer = Answer.new(feedback: I18n.t("challenge.start"))
     end
     @user_challenge = UserChallenge.where(challenge: Challenge.find(session[:challenge]), user: current_user).last
     @progress = (Float(@user_challenge.amount_good) / Float(@user_challenge.challenge.number_of_problems))*100

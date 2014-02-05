@@ -95,6 +95,8 @@ en:
       conversion: "You were almost right but you probably forgot to divide or multiply it by a certain number"
       rounding: "Your answer was close but you didn't round of properly. Remember you need to round of on 2 decimals"
       correct: "Your answer was completely perfect, keep on going!"
+      wrong: "Your answer was incorrect, don't worry you'll get the next one!"
+      result: "Your answer was %{result}. The right answer was %{right_answer}."
   challenge:
     finished: "Awesome! You completed the challenge! You got a bonus of %{bonus} points"
     start: "Starting new challenge, good luck! If you make more than 6 mistakes the patient dies so be careful!"

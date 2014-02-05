@@ -16,7 +16,32 @@ class Answer < ActiveRecord::Base
   belongs_to :problem
   belongs_to :user_challenge
 
-  def is_correct?
-     value.round(2) == problem.get_result.round(2)
+  def correct?
+    eval_answer
+  end
+
+  def eval_answer
+    if value.round(2) == problem.result.round(2)
+      self.feedback = I18n.t("answer.feedback.correct")
+      true
+    else
+      eval_answer_deep
+    end
+  end
+
+  def eval_answer_deep
+    if (value / 10).round(2) == problem.result.round(2) || (value / 100).round(2) == problem.result.round(2) || (value / 1000).round(2) == problem.result.round(2)
+      self.feedback = I18n.t("answer.feedback.conversion")
+      false
+    elsif (value * 10).round(2) == problem.result.round(2) || (value * 100).round(2) == problem.result.round(2) || (value * 1000).round(2) == problem.result.round(2)
+      self.feedback = I18n.t("answer.feedback.conversion")
+      false
+    elsif value == problem.result || ((value - 1.0)..(value + 1.0)).include?(problem.result)
+      self.feedback = I18n.t("answer.feedback.rounding")
+      false
+    else
+      self.feedback = I18n.t("answer.feedback.wrong")
+      false
+    end
   end
 end

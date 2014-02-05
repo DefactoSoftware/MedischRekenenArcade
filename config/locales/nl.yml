@@ -94,6 +94,7 @@ nl:
       conversion: "Je antwoord was bijna goed, alleen de conversie ging niet goed, waarschijnlijk ben je gewoon de laatste stap vergeten."
       rounding: "Je antwoord zat dichtbij maar je hebt niet goed afgerond, denk eraan dat alle antwoorden afgerond moeten worden op 2 cijfers achter de komma."
       correct: "Je antwoord was helemaal goed, ga zo door!"
+      result: "Je antwoord was %{result}. Het goede antwoord was %{right_answer}"
   challenge:
     finished: "Geweldig! Je hebt de uitdaging gehaald! Je hebt een bonus gekregen van %{bonus} punten"
     start: "Je kan nu beginnen met de uitdaging. Let op, je mag maar 6 fouten maken!"

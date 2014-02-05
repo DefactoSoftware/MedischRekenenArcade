@@ -13,7 +13,7 @@
       <%= render 'sessions/scores' %>
     </div>
     <div class="block">
-      <%= render 'answer_feedback/answer_feedback', feedback: @last_feedback %>
+      <%= render 'answer_feedback/answer_feedback', answer: @last_answer %>
     </div>
     <div class="block">
       <% if @challenge.timelimit %>
