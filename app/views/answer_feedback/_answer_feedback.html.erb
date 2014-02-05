@@ -1,5 +1,5 @@
 <h4><%= t("answer.feedback.title") %></h4>
-<p><%= answer.feedback if answer %></p>
+<p><%= answer.feedback %></p>
 <% if answer.problem != nil && !answer.correct? %>
   <p><%= t("answer.feedback.result", result: answer.value, right_answer: answer.problem.result) %></p>
 <% end %>
