@@ -21,8 +21,10 @@ task :create_challenges => :environment do
   two_percentage_challenge = Challenge.where(name: "PercentageOfUnit", number_of_problems: STANDARD_NO_PROBLEMS, bonus: 20, icon: "challenges/Menu_PercentageB.png").first_or_create
   three_percentage_challenge = Challenge.where(name: "PercentageUnitToHundred", number_of_problems: STANDARD_NO_PROBLEMS, bonus: 20, icon: "challenges/Menu_PercentageC.png").first_or_create
 
+  unit_conversion_challenge = Challenge.where(name: "UnitConversion", number_of_problems: STANDARD_NO_PROBLEMS, bonus: 20, icon: "challenges/Menu_UnitConversion.png").first_or_create
+
   week1_challenge_set = ChallengeSet.where(name: "Week_1", locked: false).first_or_create
-  week1_challenge_set.challenges << [addition_challenge, division_challenge, mixed_challenge, multiplication_challenge, subtraction_challenge, percentage_challenge,two_percentage_challenge, three_percentage_challenge]
+  week1_challenge_set.challenges << [addition_challenge, division_challenge, mixed_challenge, multiplication_challenge, subtraction_challenge, percentage_challenge,two_percentage_challenge, three_percentage_challenge, unit_conversion_challenge]
 
   ChallengeSkill.where(skill: adding, challenge: addition_challenge).first_or_create
 

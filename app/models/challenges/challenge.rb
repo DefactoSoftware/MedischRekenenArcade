@@ -22,13 +22,11 @@ class Challenge < ActiveRecord::Base
   has_many :user_challenges
   belongs_to :challenge_set
 
-  VALID_NAMES =  %w(Addition_1 Addition_2 Addition_3
-                    Division_1 Division_2 Division_3
-                    Multiplication_1 Multiplication_2 Multiplication_3
-                    Subtraction_1 Subtraction_2 Subtraction_3
-                    Mixed_1 Mixed_2 Mixed_3
+  VALID_NAMES =  %w(
                     PercentageAmountOfAmount PercentageOfUnit PercentageUnitToHundred
-                    Division Addition Subtraction Multiplication Mixed)
+                    Division Addition Subtraction Multiplication Mixed
+                    UnitConversion
+                    )
 
   validates :name, inclusion: { in: VALID_NAMES }
 

@@ -160,6 +160,9 @@ en:
     SolutionMaxisporin:
       title: "Solution: Maxisporin"
       info: "This challenge is about giving Maxisporin to a patient. You need to calculate how much powder should be dissolved in every injection."
+    UnitConversion:
+      title: "Conversion: Weights and Volumes"
+      info: "In this challenge you need to convert units into other units, for example from milliliter to liter. After 10 good answers you complete the challenge"
     labels:
       completed_successfully: "Challenge achieved!"
       attempts: "Attempts"
@@ -177,6 +180,7 @@ en:
     PercentageUnitToHundred: "Divide the given value by the given percentage. You now have 1%. Multiply that again by 100."
     PercentageAmountOfAmount: "First calculate what 1% is by dividing the value by 100. Then multiply that by the percentage asked."
     SolutionMaxisporin: ""
+    UnitConversion: "Metric units are very nice to work with, since they are all multiples of ten (or a hundred, or one-tenth, etc) of each other. You can convert between the various different sizes by merely moving the decimal point the correct number of places."
   challenge_sets:
     Week_1: "Week 1: Basic and Percentages"
   activerecord:
@@ -206,6 +210,7 @@ en:
                           In stock is Maxisporin %{operation2_constant1}. This powder should be dissolved in 4ml aqua bidestillata
                           to get %{operation2_constant2} injectionliquid. How much should you inject each time
       PercentageUnitToHundred: "%{operation1_constant1}% is %{operation1_constant2}%{unit}, how much is %{operation2_constant1}%"
+      UnitConversion: "How much is %{constant1} %{unit_question} in %{unit}"
   home:
     last_badge: "Last Badge"
     last_challenge: "Last Challenge"
