@@ -1,8 +1,8 @@
- <h2><%= current_user.user_group.name %></h2>
+<h2><%= current_user.user_group.name %></h2>
 <table class="table table-striped">
   <thead>
     <tr>
-      <td><%= t("leaderboards.table_headers.rank") %></td>
+      <td class="no-mobile"><%= t("leaderboards.table_headers.rank") %></td>
       <td><%= t("leaderboards.table_headers.name") %></td>
       <td><%= t("leaderboards.table_headers.score") %></td>
     </tr>
@@ -10,7 +10,7 @@
   <% scores.each_with_index do |score, i| %>
     <% user = User.find(score[:member]) %>
     <tr>
-      <td>#<%= i+1 %></td>
+      <td class="no-mobile">#<%= i+1 %></td>
       <td><%= link_to user_statistics_path(user) do %><%= user.name %><% end %></td>
       <td><%= score[:score] %></td>
     </tr>

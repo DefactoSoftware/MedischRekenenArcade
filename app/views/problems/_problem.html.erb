@@ -15,7 +15,7 @@
         <%= f.hidden_field :problem_id, value: problem.id %>
         <div class="form-group">
           <div class="input-group answer-field">
-            <%= f.text_area :value, class:"form-control", rows:"1", required: true %>
+            <%= f.text_area :value, class:"form-control", rows:"1", required: true, type: "number" %>
             <% if problem.unit %>
               <span id="selectedUnit" class="input-group-addon dropdown-toggle" data-toggle="dropdown"></span>
               <ul class="dropdown-menu pull-right">
