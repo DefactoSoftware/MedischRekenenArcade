@@ -14,6 +14,7 @@
 #  type               :string(255)
 #  challenge_set_id   :integer
 #
+require 'problem_factory'
 
 class Challenge < ActiveRecord::Base
   has_many :challenge_skills
@@ -26,7 +27,8 @@ class Challenge < ActiveRecord::Base
                     Multiplication_1 Multiplication_2 Multiplication_3
                     Subtraction_1 Subtraction_2 Subtraction_3
                     Mixed_1 Mixed_2 Mixed_3
-                    PercentageAmountOfAmount PercentageOfUnit PercentageUnitToHundred)
+                    PercentageAmountOfAmount PercentageOfUnit PercentageUnitToHundred
+                    Division Addition Subtraction Multiplication Mixed)
 
   validates :name, inclusion: { in: VALID_NAMES }
 
@@ -47,5 +49,9 @@ class Challenge < ActiveRecord::Base
 
   def total_failed_for_user(user)
     self.user_challenges.where(user: user, success: false || nil).count
+  end
+
+  def create_problem(user)
+    ProblemFactory.new(self.name, user).problem
   end
 end

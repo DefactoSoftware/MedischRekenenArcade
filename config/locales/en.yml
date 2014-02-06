@@ -133,51 +133,21 @@ en:
     change_password_link: "Change password ▼"
     pick_file: "Pick file"
   challenges:
-    Addition_1:
-      title: "Addition 1 step"
-      info: "This challenge consists of 10 addition problems, you have to add up 2 numbers"
-    Addition_2:
-      title: "Addition 2 steps"
-      info: "This challenge consists of 10 addition problems, you have to add up 3 numbers"
-    Addition_3:
-      title: "Addition 3 steps"
-      info: "This challenge consists of 10 addition problems, you have to add up 4 numbers"
-    Division_1:
-      title: "Division 1 step"
-      info: "This challenge consists of 10 division problems, you have to divide 2 numbers"
-    Division_2:
-      title: "Division 2 steps"
-      info: "This challenge consists of 10 division problems, you have to divide 3 numbers"
-    Division_3:
-      title: "Division 3 steps"
-      info: "This challenge consists of 10 division problems, you have to divide 4 numbers"
-    Multiplication_1:
-      title: "Multiplication 1 step"
-      info: "This challenge consists of 10 multiplication problems, you have to multiply 2 numbers"
-    Multiplication_2:
-      title: "Multiplication 2 steps"
-      info: "This challenge consists of 10 multiplication problems, you have to multiply 3 numbers"
-    Multiplication_3:
-      title: "Multiplication 3 steps"
-      info: "This challenge consists of 10 multiplication problems, you have to multiply 4 numbers"
-    Subtraction_1:
-      title: "Subtraction 1 step"
-      info: "This challenge consists of 10 subtraction problems, you have to subtract 2 numbers"
-    Subtraction_2:
-      title: "Subtraction 2 steps"
-      info: "This challenge consists of 10 subtraction problems, you have to subtract 3 numbers"
-    Subtraction_3:
-      title: "Subtraction 3 steps"
-      info: "This challenge consists of 10 subtraction problems, you have to subtract 3 numbers"
-    Mixed_1:
-      title: "Mixed basic 1"
-      info: "This challenge consists of 10 mixed basic problems, you have to divide, multiply, add and subtract 2 numbers."
-    Mixed_2:
-      title: "Mixed basic 2"
-      info: "This challenge consists of 10 mixed basic problems, you have to divide, multiply, add and subtract 3 numbers."
-    Mixed_3:
-      title: "Mixed basic 3"
-      info: "This challenge consists of 10 mixed basic problems, you have to divide, multiply, add and subtract 4 numbers."
+    Addition:
+      title: "Addition"
+      info: "This challenge consists of 10 addition problems, you have to add up numbers"
+    Division:
+      title: "Division"
+      info: "This challenge consists of 10 division problems, you have to divide numbers"
+    Multiplication:
+      title: "Multiplication"
+      info: "This challenge consists of 10 multiplication problems, you have to multiply numbers"
+    Subtraction:
+      title: "Subtraction"
+      info: "This challenge consists of 10 subtraction problems, you have to subtract numbers"
+    Mixed:
+      title: "Mixed"
+      info: "This challenge consists of 10 mixed basic problems, you have to divide, multiply, add and subtract numbers."
     PercentageAmountOfAmount:
       title: "Percentage: percentage amount from unit"
       info: "The challenge is about percentages. You need to calculate the percentage of a certain value. There are 10 problems"

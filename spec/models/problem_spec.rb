@@ -26,24 +26,125 @@ describe Problem do
     it { should belong_to(:unit) }
   end
 
-  describe "Methods" do
-    before :each do
-      Skill.create(name:"Addition")
-      Skill.create(name:"Division")
-      Skill.create(name:"Multiplication")
-      Skill.create(name:"Subtraction")
+  describe Division do
+    let(:challenge) { Challenge.new(name: "Division") }
+    let(:problem_factory) { ProblemFactory.new(challenge.name, user) }
+
+    it "creates a problem" do
+      expect(problem_factory.problem).to be_a(Division)
     end
 
-    it "should create a Problem with amount of steps equal to difficulty" do
-      difficulty = rand(1...10)
-      problem = Problem.generate_random(difficulty)
-      expect(problem.get_result).to be_a(Float)
+    describe "problem" do
+      it "has a theory" do
+        expect(problem_factory.problem.theory).to be_a(String)
+      end
+
+      it "has a result" do
+        expect(problem_factory.problem.get_result).to be_a(Float)
+      end
+
+      it "has a skill" do
+        expect(problem_factory.problem.skill).to be_a(Skill)
+      end
     end
   end
 
+  describe Subtraction do
+    let(:challenge) { Challenge.new(name: "Subtraction") }
+    let(:problem_factory) { ProblemFactory.new(challenge.name, user) }
+
+    it "creates a problem" do
+      expect(problem_factory.problem).to be_a(Subtraction)
+    end
+
+    describe "problem" do
+      it "has a theory" do
+        expect(problem_factory.problem.theory).to be_a(String)
+      end
+
+      it "has a result" do
+        expect(problem_factory.problem.get_result).to be_a(Float)
+      end
+
+      it "has a skill" do
+        expect(problem_factory.problem.skill).to be_a(Skill)
+      end
+    end
+  end
+
+  describe Addition do
+    let(:challenge) { Challenge.new(name: "Addition") }
+    let(:problem_factory) { ProblemFactory.new(challenge.name, user) }
+
+    it "creates a problem" do
+      expect(problem_factory.problem).to be_a(Addition)
+    end
+
+    describe "problem" do
+      it "has a theory" do
+        expect(problem_factory.problem.theory).to be_a(String)
+      end
+
+      it "has a result" do
+        expect(problem_factory.problem.get_result).to be_a(Float)
+      end
+
+      it "has a skill" do
+        expect(problem_factory.problem.skill).to be_a(Skill)
+      end
+    end
+  end
+
+  describe Multiplication do
+    let(:challenge) { Challenge.new(name: "Multiplication") }
+    let(:problem_factory) { ProblemFactory.new(challenge.name, user) }
+
+    it "creates a problem" do
+      expect(problem_factory.problem).to be_a(Multiplication)
+    end
+
+    describe "problem" do
+      it "has a theory" do
+        expect(problem_factory.problem.theory).to be_a(String)
+      end
+
+      it "has a result" do
+        expect(problem_factory.problem.get_result).to be_a(Float)
+      end
+
+      it "has a skill" do
+        expect(problem_factory.problem.skill).to be_a(Skill)
+      end
+    end
+  end
+
+  describe Mixed do
+    let(:challenge) { Challenge.new(name: "Mixed") }
+    let(:problem_factory) { ProblemFactory.new(challenge.name, user) }
+
+    it "creates a problem" do
+      expect(problem_factory.problem).to be_a(Mixed)
+    end
+
+    describe "problem" do
+      it "has a theory" do
+        expect(problem_factory.problem.theory).to be_a(String)
+      end
+
+      it "has a result" do
+        expect(problem_factory.problem.get_result).to be_a(Float)
+      end
+
+      it "has a skill" do
+        expect(problem_factory.problem.skill).to be_a(Skill)
+      end
+    end
+  end
+
+
   describe PercentageAmountOfAmount do
     let(:unit) { Unit.create(name: "Milliliter") }
-    let(:challenge) { AdvancedChallenge.new(name: "PercentageAmountOfAmount") }
+    let(:challenge) { Challenge.new(name: "PercentageAmountOfAmount") }
     let(:problem_factory) { ProblemFactory.new(challenge.name, user) }
 
     it "creates a problem" do
@@ -71,7 +172,7 @@ describe Problem do
 
   describe PercentageOfUnit do
     let(:unit) { Unit.create(name: "Milliliter") }
-    let(:challenge) { AdvancedChallenge.new(name: "PercentageOfUnit") }
+    let(:challenge) { Challenge.new(name: "PercentageOfUnit") }
     let(:problem_factory) { ProblemFactory.new(challenge.name, user) }
 
     it "creates a problem" do
@@ -97,7 +198,7 @@ describe Problem do
     end
   end
   describe PercentageUnitToHundred do
-    let(:challenge) { AdvancedChallenge.new(name: "PercentageUnitToHundred") }
+    let(:challenge) { Challenge.new(name: "PercentageUnitToHundred") }
     let(:problem_factory) { ProblemFactory.new(challenge.name, user) }
 
     it "creates a problem" do
@@ -123,7 +224,7 @@ describe Problem do
     end
   end
   describe SolutionMaxisporin do
-    let(:challenge) { AdvancedChallenge.new(name: "SolutionMaxisporin") }
+    let(:challenge) { Challenge.new(name: "SolutionMaxisporin") }
     let(:problem_factory) { ProblemFactory.new(challenge.name, user) }
 
     it "creates a problem" do

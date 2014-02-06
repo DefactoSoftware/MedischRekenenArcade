@@ -131,51 +131,21 @@ nl:
     change_password_link: "Wijzig wachtwoord ▼"
     pick_file: "Kies bestand"
   challenges:
-    Addition_1:
-      title: "Optellen: 1 stap"
-      info: "Deze uitdaging bestaat uit 10 basis problemen, je moet telkens 2 getallen optellen."
-    Addition_2:
-      title: "Optellen: 2 stappen"
-      info: "Deze uitdaging bestaat uit 10 basis problemen, je moet telkens 3 getallen optellen."
-    Addition_3:
-      title: "Optellen: 3 stappen"
-      info: "Deze uitdaging bestaat uit 10 basis problemen, je moet telkens 4 getallen optellen."
-    Division_1:
-      title: "Delen: 1 stap"
-      info: "Deze uitdaging bestaat uit 10 basis problemen, je moet telkens 2 getallen door elkaar delen."
-    Division_2:
-      title: "Delen: 2 stappen"
-      info: "Deze uitdaging bestaat uit 10 basis problemen, je moet telkens 3 getallen door elkaar delen."
-    Division_3:
-      title: "Delen: 3 stappen"
-      info: "Deze uitdaging bestaat uit 10 basis problemen, je moet telkens 4 getallen door elkaar delen."
-    Multiplication_1:
-      title: "Vermenigvuldigen: 1 stap"
-      info: "Deze uitdaging bestaat uit 10 basis problemen, je moet telkens 2 getallen met elkaar vermenigvuldigen."
-    Multiplication_2:
-      title: "Vermenigvuldigen: 2 stappen"
-      info: "Deze uitdaging bestaat uit 10 basis problemen, je moet telkens 3 getallen met elkaar vermenigvuldigen."
-    Multiplication_3:
-      title: "Vermenigvuldigen: 3 stappen"
-      info: "Deze uitdaging bestaat uit 10 basis problemen, je moet telkens 4 getallen met elkaar vermenigvuldigen."
-    Subtraction_1:
-      title: "Aftrekken: 1 stap"
-      info: "Deze uitdaging bestaat uit 10 basis problemen, je moet telkens 2 getallen van elkaar aftrekken."
-    Subtraction_2:
-      title: "Aftrekken: 2 stappen"
-      info: "Deze uitdaging bestaat uit 10 basis problemen, je moet telkens 3 getallen van elkaar aftrekken."
-    Subtraction_3:
-      title: "Aftrekken: 3 stappen"
-      info: "Deze uitdaging bestaat uit 10 basis problemen, je moet telkens 4 getallen van elkaar aftrekken."
-    Mixed_1:
-      title: "Basisvaardigheden: 1 stap"
-      info: "Deze uitdaging bestaat uit 10 gemixte basis problemen, Het gaat om 2 getallen die je wisselend moet aftrekken, optellen, vermenigvuldigen of delen."
-    Mixed_2:
-      title: "Basisvaardigheden: 2 stappen"
-      info: "Deze uitdaging bestaat uit 10 gemixte basis problemen, Het gaat om 3 getallen die je wisselend moet aftrekken, optellen, vermenigvuldigen of delen."
-    Mixed_3:
-      title: "Basisvaardigheden: 3 stappen"
-      info: "Deze uitdaging bestaat uit 10 gemixte basis problemen, Het gaat om 4 getallen die je wisselend moet aftrekken, optellen, vermenigvuldigen of delen."
+    Addition:
+      title: "Optellen"
+      info: "Deze uitdaging bestaat uit 10 basis problemen, je moet telkens getallen optellen."
+    Division:
+      title: "Delen"
+      info: "Deze uitdaging bestaat uit 10 basis problemen, je moet telkens getallen door elkaar delen."
+    Multiplication:
+      title: "Vermenigvuldigen"
+      info: "Deze uitdaging bestaat uit 10 basis problemen, je moet telkens getallen met elkaar vermenigvuldigen."
+    Subtraction:
+      title: "Aftrekken"
+      info: "Deze uitdaging bestaat uit 10 basis problemen, je moet telkens getallen van elkaar aftrekken."
+    Mixed:
+      title: "Basisvaardigheden"
+      info: "Deze uitdaging bestaat uit 10 gemixte basis problemen, Het gaat om een paar getallen die je wisselend moet a aftrekken, optellen, vermenigvuldigen of delen."
     PercentageAmountOfAmount:
       title: "Percentage: percentage van een hoeveelheid"
       info: "Deze uitdaging gaat over het berekenen van percentages. Je hebt een hoeveelheid en daar moet je een percentage van uitrekenen. Je hebt 10 goede antwoorden nodig."
