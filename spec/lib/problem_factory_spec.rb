@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe ProblemFactory do
-  let(:challenge) { AdvancedChallenge.new(name: "PercentageOfUnit") }
+  let(:challenge) { Challenge.new(name: "PercentageOfUnit") }
   let(:user) { FactoryGirl.create(:user) }
   let(:problem_factory) { ProblemFactory.new(challenge, user) }
 

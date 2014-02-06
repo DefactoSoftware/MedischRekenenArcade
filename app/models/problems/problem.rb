@@ -27,12 +27,12 @@ class Problem < ActiveRecord::Base
   AVAILABLE_OPERATORS = { "Addition" => :+, "Division" => :/, "Multiplication" => :*, "Subtraction" => :- }
   AVAILABLE_UNITS = ["mg", "g", "kg", "ml", "cl", "dl", "l"]
 
-  VALID_PROBLEMS = %w(PercentageAmountOfAmount PercentageOfUnit PercentageUnitToHundred SolutionMaxisporin)
+  VALID_PROBLEMS = %w(PercentageAmountOfAmount PercentageOfUnit PercentageUnitToHundred SolutionMaxisporin
+                      Division Multiplication Addition Subtraction Mixed)
 
   def generate(user)
     generate_unit
     generate_skill
-
 
     user_skill = UserSkill.where(skill: skill, user: user).first_or_create
 
@@ -76,31 +76,5 @@ class Problem < ActiveRecord::Base
 
   def info
     I18n.t("problem_info.basic")
-  end
-
-  def self.generate_random(steps)
-    problem = self.create
-    operations = []
-    steps.times do
-      constant1 = operations.length > 0 ? Constant.new(operations.last) : Constant.new(Float(rand(1...100)))
-      constant2 = Constant.new(Float(rand(1...100)))
-      operations << Operation.new(AVAILABLE_OPERATORS.to_a.sample[1], constant1, constant2)
-    end
-    formula = Formula.new(operations)
-    problem.update_attributes(theory: formula.text, result: formula.result, skill: Skill.where(name: "Basic").first_or_create)
-    problem
-  end
-
-  def self.generate_random_with_skills(steps, skills)
-    problem = self.create
-    operations = []
-    steps.times do
-      constant1 = operations.length > 0 ? Constant.new(operations.last) : Constant.new(Float(rand(1...100)))
-      constant2 = Constant.new(Float(rand(1...100)))
-      operations << Operation.new(AVAILABLE_OPERATORS[skills.sample.name], constant1, constant2)
-    end
-    formula = Formula.new(operations)
-    problem.update_attributes(theory: formula.text, result: formula.result, skill: Skill.where(name: "Basic").first_or_create)
-    problem
   end
 end
