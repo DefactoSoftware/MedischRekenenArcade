@@ -178,7 +178,7 @@ nl:
     PercentageAmountOfAmount: "Reken eerst 1% uit door de waarde door 100 te delen. Vermenigvuldig dat vervolgens met het percentage dat gevraagd wordt."
     SolutionMaxisporin: "help voor maxisporin solution (moet nog toegevoegd worden)"
   challenge_sets:
-    week_1: "Week 1: Basis en Percentages"
+    Week_1: "Week 1: Basis en Percentages"
   activerecord:
     attributes:
       user:

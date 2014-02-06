@@ -178,7 +178,7 @@ en:
     PercentageAmountOfAmount: "First calculate what 1% is by dividing the value by 100. Then multiply that by the percentage asked."
     SolutionMaxisporin: ""
   challenge_sets:
-    week_1: "Week 1: Basic and Percentages"
+    Week_1: "Week 1: Basic and Percentages"
   activerecord:
     attributes:
       user:
