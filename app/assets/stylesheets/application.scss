@@ -415,7 +415,7 @@ a:visited{
   background-color: #F5F5F5;
 }
 @media (max-width: 768px) {
-.navbar-toggle {
+  .navbar-toggle {
     -webkit-appearance: none;
     -webkit-writing-mode: horizontal-tb;
     align-items: flex-start;
@@ -467,6 +467,11 @@ a:visited{
     padding-top: 9px;
     position: relative;
     width: 44px;
+  }
+
+  .dropdown-menu {
+    display:block;
+    postition:relative !important;
   }
 }
 .dialog {
