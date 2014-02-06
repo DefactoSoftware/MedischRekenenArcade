@@ -139,7 +139,7 @@ $("#toggle_feedback").ready(function() {
 
 //Functions to close alerts and notices
 $(document).ready(function() {
-  setTimeout(function () { closeNotices(); closeAlerts(); }, 5000);
+  setTimeout(function () { closeNotices(); closeAlerts(); }, 10000);
 });
 
 var closeNotices = function() {
