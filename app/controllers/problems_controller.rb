@@ -3,6 +3,6 @@ class ProblemsController < ApplicationController
 
   def index
     @last_answer = Answer.where(user:current_user).last
-    @problem = ProblemFactory.new(params[:problem] ? params[:problem] : "Mixed", current_user).problem
+    @problem = ProblemFactory.new(params[:problem] || "Mixed", current_user).problem
   end
 end
