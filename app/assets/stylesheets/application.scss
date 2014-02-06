@@ -479,6 +479,12 @@ a:visited{
   left: 0;
 }
 
+@media (max-width: 768px) {
+  .dialog {
+    bottom: 10px
+  }
+}
+
 .container {
   text-align:center;
   color: #34495E;
