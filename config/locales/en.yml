@@ -132,6 +132,8 @@ en:
     profile_picture: "Profile picture"
     change_password_link: "Change password ▼"
     pick_file: "Pick file"
+    last_badge: "Last badge"
+    last_challenge: "Last challenge"
   challenges:
     Addition:
       title: "Addition"

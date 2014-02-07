@@ -130,6 +130,8 @@ nl:
     profile_picture: "Profiel foto"
     change_password_link: "Wijzig wachtwoord ▼"
     pick_file: "Kies bestand"
+    last_badge: "Last badge"
+    last_challenge: "Last challenge"
   challenges:
     Addition:
       title: "Optellen"
