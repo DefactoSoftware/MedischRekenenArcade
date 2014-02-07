@@ -95,6 +95,7 @@ nl:
       rounding: "Je antwoord zat dichtbij maar je hebt niet goed afgerond, denk eraan dat alle antwoorden afgerond moeten worden op 2 cijfers achter de komma."
       correct: "Je antwoord was helemaal goed, ga zo door!"
       result: "Je antwoord was %{result}. Het goede antwoord was %{right_answer}"
+      wrong: "Je antwoord was helaas niet goed, maar geef niet op!"
   challenge:
     finished: "Geweldig! Je hebt de uitdaging gehaald! Je hebt een bonus gekregen van %{bonus} punten"
     start: "Je kan nu beginnen met de uitdaging. Let op, je mag maar 6 fouten maken!"
@@ -240,10 +241,6 @@ nl:
 
     logged_in_text: |
                     ## Je hebt %{points} punten
-
-                    De volgende uitdagingen heb je recent gedaan:
-                      ### %{challenge1}
-                      ### %{challenge2}
 
                     Wil je meteen een uitdaging doen of nog even oefenen?
 
