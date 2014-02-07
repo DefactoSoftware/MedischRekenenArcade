@@ -25,7 +25,7 @@ class Problem < ActiveRecord::Base
   belongs_to :unit
 
   AVAILABLE_OPERATORS = { "Addition" => :+, "Division" => :/, "Multiplication" => :*, "Subtraction" => :- }
-  AVAILABLE_UNITS = ["mg", "g", "kg", "ml", "cl", "dl", "l"]
+  AVAILABLE_UNITS = ["mg", "gr", "kg", "ml", "cl", "dl", "l"]
 
   VALID_PROBLEMS = %w(PercentageAmountOfAmount PercentageOfUnit PercentageUnitToHundred SolutionMaxisporin
                       Division Multiplication Addition Subtraction Mixed UnitConversion)
