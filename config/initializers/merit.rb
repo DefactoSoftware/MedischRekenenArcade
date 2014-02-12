@@ -17,32 +17,232 @@ end
 Merit::Badge.create!(
   {
     id: 1,
-    name: 'just_registered',
-    image: "assets/no_image.png",
-    description: I18n.t('badges.just_registered.description')
+    name: 'night_owl',
+    image: "badges/NightOwl.png",
+    description: 'night_owl.description'
   }
 )
 Merit::Badge.create!(
   {
     id: 2,
-    name: 'answered_10',
-    image: "assets/no_image.png",
-    description: "You have answered 10 questions or more!"
+    name: 'quick_n_dirty_a',
+    image: "badges/Quick_N_Dirty_a.png",
+    description: 'quick_n_dirty_a.description'
   }
 )
 Merit::Badge.create!(
   {
     id: 3,
-    name: 'completed_first_challenge_successfully',
-    image: "assets/no_image.png",
-    description: "You have successfully completed your first challenge!"
+    name: 'quick_n_dirty_b',
+    image: "badges/Quick_N_Dirty_b.png",
+    description: 'quick_n_dirty_b.description'
   }
 )
 Merit::Badge.create!(
   {
     id: 4,
-    name: 'completed_ten_challenges_successfully',
-    image: "assets/no_image.png",
-    description: "You have successfully completed 10 challenges!"
+    name: 'quick_n_dirty_c',
+    image: "badges/Quick_N_Dirty_c.png",
+    description: 'quick_n_dirty_c.description')
+  }
+)
+Merit::Badge.create!(
+  {
+    id: 5,
+    name: 'streak_master_a',
+    image: "badges/Streak_Master_A.png",
+    description: 'streak_master_a.description'
+  }
+)
+Merit::Badge.create!(
+  {
+    id: 6,
+    name: 'streak_master_b',
+    image: "badges/Streak_Master_B.png",
+    description: 'streak_master_b.description'
+  }
+)
+Merit::Badge.create!(
+  {
+    id: 7,
+    name: 'streak_master_c',
+    image: "badges/Streak_Master_c.png",
+    description: 'streak_master_b.description'
+  }
+)
+Merit::Badge.create!(
+  {
+    id: 8,
+    name: 'questions_answered_a',
+    image: "badges/Questions_Answered_A.png",
+    description: 'questions_answered_a.description'
+  }
+)
+Merit::Badge.create!(
+  {
+    id: 9,
+    name: 'questions_answered_b',
+    image: "badges/Questions_Answered_B.png",
+    description: 'questions_answered_b.description'
+  }
+)
+Merit::Badge.create!(
+  {
+    id: 10,
+    name: 'questions_answered_c',
+    image: "badges/Questions_Answered_C.png",
+    description: 'questions_answered_c.description'
+  }
+)
+Merit::Badge.create!(
+  {
+    id: 11,
+    name: 'rise_and_shine',
+    image: "badges/Rise_N_Shine.png",
+    description: 'rise_and_shine.description'
+  }
+)
+Merit::Badge.create!(
+  {
+    id: 12,
+    name: 'night_crawler',
+    image: "badges/Rise_N_Shine.png",
+    description: 'rise_and_shine.description'
+  }
+)
+Merit::Badge.create!(
+  {
+    id: 13,
+    name: 'challenger_rank_up',
+    image: "badges/ChallengerRankUp.png",
+    description: 'challenger_rank_up.description'
+  }
+)
+Merit::Badge.create!(
+  {
+    id: 14,
+    name: 'challenge_champion_a',
+    image: "badges/Challenges_wk1.png",
+    description: 'challenge_champion_a.description'
+  }
+)
+Merit::Badge.create!(
+  {
+    id: 15,
+    name: 'challenge_champion_b',
+    image: "badges/Challenges_wk2.png",
+    description: 'challenge_champion_a.description'
+  }
+)
+Merit::Badge.create!(
+  {
+    id: 16,
+    name: 'challenge_champion_c',
+    image: "badges/Challenges_wk3.png",
+    description: 'challenge_champion_a.description'
+  }
+)
+Merit::Badge.create!(
+  {
+    id: 17,
+    name: 'challenge_champion_d',
+    image: "badges/Challenges_wk4.png",
+    description: 'challenge_champion_a.description'
+  }
+)
+Merit::Badge.create!(
+  {
+    id: 18,
+    name: 'enthusiast_a',
+    image: "badges/Fanatic-Enthusiast_A.png",
+    description: 'challenge_champion_a.description'
+  }
+)
+Merit::Badge.create!(
+  {
+    id: 19,
+    name: 'enthusiast_b',
+    image: "badges/Fanatic-Enthusiast_B.png",
+    description: 'challenge_champion_b.description'
+  }
+)
+Merit::Badge.create!(
+  {
+    id: 20,
+    name: 'enthusiast_c',
+    image: "badges/Fanatic-Enthusiast_C.png",
+    description: 'challenge_champion_c.description'
+  }
+)
+Merit::Badge.create!(
+  {
+    id: 21,
+    name: 'cold_feet_a',
+    image: "badges/Cold_Feet_A.png",
+    description: 'cold_feet_a.description'
+  }
+)
+Merit::Badge.create!(
+  {
+    id: 22,
+    name: 'cold_feet_b',
+    image: "badges/Cold_Feet_B.png",
+    description: 'cold_feet_a.description'
+  }
+)
+Merit::Badge.create!(
+  {
+    id: 23,
+    name: 'cold_feet_c',
+    image: "badges/Cold_Feet_C.png",
+    description: 'cold_feet_c.description'
+  }
+)
+Merit::Badge.create!(
+  {
+    id: 24,
+    name: 'particioner',
+    image: "badges/Particioner.png",
+    description: 'particioner.description'
+  }
+)
+Merit::Badge.create!(
+  {
+    id: 25,
+    name: 'narcissist',
+    image: "badges/Narcissist.png",
+    description: 'narcissist.description'
+  }
+)
+Merit::Badge.create!(
+  {
+    id: 26,
+    name: 'practicer',
+    image: "badges/Practicer.png",
+    description: 'practicer.description'
+  }
+)
+Merit::Badge.create!(
+  {
+    id: 27,
+    name: 'speed_racer',
+    image: "badges/SpeedRacer.png",
+    description: 'speed_racer.description'
+  }
+)
+Merit::Badge.create!(
+  {
+    id: 28,
+    name: 'winner',
+    image: "badges/Winner.png",
+    description: 'winner.description'
+  }
+)
+Merit::Badge.create!(
+  {
+    id: 28,
+    name: 'perfectionist',
+    image: "badges/Perfectionist.png",
+    description: 'perfectionist.description'
   }
 )
