@@ -20,7 +20,7 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 nl:
-  title: "Medisch Rekenen"
+  title: "LerenDoseren"
   unit: "Eenheid"
   streak: "Reeks"
   points: "Punten"
