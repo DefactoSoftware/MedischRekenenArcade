@@ -40,18 +40,93 @@ nl:
       subject: "Onderwerp"
       text: "Rapport"
   badges:
-    just_registered:
-      name: "Geregistreerd"
-      description: "Je hebt je succesvol geregisteerd"
-    answered_10:
-      name: "10 beantwoord"
+    night_owl:
+      name: "Night Owl"
+      description: "Je bent actief geweest tijdens de nacht"
+    quick_n_dirty_a:
+      name: "Quick N Dirty (10)"
+      description: "10 vragen beantwoord binnen 5 minuten met de calculator"
+    quick_n_dirty_b:
+      name: "Quick N Dirty (50)"
+      description: "50 vragen beantwoord binnen 30 minuten met de calculator"
+    quick_n_dirty_c:
+      name: "Quick N Dirty (100)"
+      description: "100 vragen beantwoord binnen 2 uur met de calculator"
+    streak_master_a:
+      name: "Streakmaster (10)"
+      description: "Je hebt 10 vragen achter elkaar zonder fouten beantwoord"
+    streak_master_b:
+      name: "Streakmaster (50)"
+      description: "Je hebt 50 vragen achter elkaar zonder fouten beantwoord"
+    streak_master_c:
+      name: "Streakmaster (100)"
+      description: "Je hebt 100 vragen achter elkaar zonder fouten beantwoord"
+    questions_answered_a:
+      name: "Problemsolver (10)"
       description: "Je hebt 10 vragen beantwoord"
-    completed_first_challenge_successfully:
-      name: "Eerste uitdaging voltooid"
-      description: "Je hebt je eerste uitdaging succesvol voltooid"
-    completed_ten_challenges_successfully:
-      name: "Challenge apprentice"
-      description: "Je hebt 10 uitdagingen succesvol voltooid"
+    questions_answered_b:
+      name: "Problemsolver (100)"
+      description: "Je hebt 100 vragen beantwoord"
+    questions_answered_c:
+      name: "Problemsolver (1000)"
+      description: "Je hebt 1000 problemen opgelost"
+    rise_n_shine:
+      name: "Rise and Shine"
+      description: "Je bent actief geweest in de ochtend"
+    night_crawler:
+      name: "Nightcrawler"
+      description: "Je bent actief geweest in de avond"
+    challenger_rank_up:
+      name: "Challenger"
+      description: "Je bent iemand in de ranglijst overstegen!"
+    challenge_champion_a:
+      name: "Challenge Champion (Week 1)"
+      description: "Je hebt alle challenges van week 1 gehaald"
+    challenge_champion_b:
+      name: "Challenge Champion (Week 2)"
+      description: "Je hebt alle challenges van week 2 gehaald"
+    challenge_champion_c:
+      name: "Challenge Champion (Week 3)"
+      description: "Je hebt alle challenges van week 3 gehaald"
+    challenge_champion_d:
+      name: "Challenge Champion (Week 4)"
+      description: "Je hebt alle challenges van week 4 gehaald"
+    enthusiast_a:
+      name: "Enthusiast (3 dagen)"
+      description: "Je bent 3 dagen achter elkaar actief geweest"
+    enthusiast_b:
+      name: "Enthusiast (1 week)"
+      description: "Je bent 7 dagen achter elkaar actief geweest"
+    enthusiast_c:
+      name: "Enthusiast (1 maand)"
+      description: "Je bent 30 dagen achter elkaar actief geweest"
+    cold_feet_a:
+      name: "Cold Feet (10)"
+      description: "Je hebt 10 vragen beantwoord zonder een challenge te proberen"
+    cold_feet_b:
+      name: "Cold Feet (50)"
+      description: "Je hebt 50 vragen beantwoord zonder een challenge te proberen"
+    cold_feet_c:
+      name: "Cold Feet (100)"
+      description: "Je hebt 100 vragen beantwoord zonder een challenge te proberen"
+    particioner:
+      name: "Welkom bij LerenDoseren!"
+      description: "Je hebt je met succes aangemeld"
+    narcissist:
+      name: "Narcist"
+      description: "Je hebt een profielfoto geupload"
+    practicer:
+      name: "Practicer"
+      description: "Je hebt je eerste oefening gedaan"
+    speed_racer:
+      name: "Speed Racer"
+      description: "Je hebt een uitdaging binnen 25% van de tijd gehaald"
+    winner:
+      name: "Winner"
+      description: "Je hebt je eerste uitdaging gehaald"
+    perfectionist:
+      name: "Perfectionist"
+      description: "Je hebt een uitdaging zonder fouten weten te halen"
   greetings:
     morning: "Goedemorgen"
     evening: "Goedenavond"

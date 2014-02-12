@@ -1,6 +1,6 @@
-<div class="thumbnail">
+<div class="thumbnail thumbnail-challenge">
   <a href="#" class="thumb-link">
-    <div class="image" style="backround-image:url(<%= badge.image %>)"></div>
+    <img class="image" src="<%=asset_path(badge.image) %>">
     <div class="caption">
       <div class="inner">
         <h2><%= t("badges.#{badge.name}.name") %></h2>

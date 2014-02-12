@@ -21,17 +21,25 @@ module Merit
     include Merit::BadgeRulesMethods
 
     def initialize
-      # If it creates user, grant badge
-      # Should be "current_user" after registration for badge to be granted.
-      grant_on 'users#create', badge: 'just-registered'
-
       # If it has 10 comments, grant commenter-10 badge
-      grant_on 'answers#create', badge: 'answered_10' do |answer|
+      grant_on 'answers#create', badge: 'questions_answered_a', to: :user do |answer|
         answer.user.answers.count == 10
       end
 
-      grant_on 'answers#create', badge: 'answered_10' do |answer|
-        answer.user.answers.count == 10
+      grant_on 'answers#create', badge: 'questions_answered_b' do |answer|
+        answer.user.answers.count == 100
+      end
+
+      grant_on 'answers#create', badge: 'questions_answered_c' do |answer|
+        answer.user.answers.count == 1000
+      end
+
+      grant_on 'registrations#create', badge: 'narcissist' do |user|
+        user.profilepicture_url != "" || user.profilepicture_url != "/assets/no_profile.jpg"
+      end
+
+      grant_on 'registrations#update', badge: 'narcissist' do |user|
+        user.profilepicture_url != "" || user.profilepicture_url != "/assets/no_profile.jpg"
       end
 
       # If it has 5 votes, grant relevant-commenter badge

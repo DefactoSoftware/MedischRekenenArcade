@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/gregbell/active_admin.git
-  revision: 74c1b220639862b99173f6d10a0852d23aa289ef
+  revision: c9e7774c0768dadac82681d2d233b89d012b8dc5
   specs:
     activeadmin (1.0.0.pre)
       arbre (~> 1.0)
@@ -18,7 +18,7 @@ GIT
 
 GIT
   remote: git://github.com/seyhunak/twitter-bootstrap-rails.git
-  revision: 4d0bd4271f7f01d79bbb2b72c04f30a5766db0ef
+  revision: f74df016a051b4ed6ae3459e384ae171fb0e97b0
   branch: bootstrap3
   specs:
     twitter-bootstrap-rails (2.2.7)
@@ -60,7 +60,7 @@ GEM
       rake (>= 0.8.7)
     arbre (1.0.1)
       activesupport (>= 3.0.0)
-    arel (4.0.1)
+    arel (4.0.2)
     atomic (1.1.14)
     bcrypt-ruby (3.1.2)
     bourbon (3.1.8)
@@ -75,6 +75,9 @@ GEM
       xpath (~> 2.0)
     celluloid (0.15.2)
       timers (~> 1.1.0)
+    celluloid-io (0.15.0)
+      celluloid (>= 0.15.0)
+      nio4r (>= 0.5.0)
     coderay (1.1.0)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
@@ -82,7 +85,7 @@ GEM
     coffee-script (2.2.0)
       coffee-script-source
       execjs
-    coffee-script-source (1.6.3)
+    coffee-script-source (1.7.0)
     columnize (0.3.6)
     database_cleaner (1.2.0)
     debugger (1.6.5)
@@ -98,13 +101,13 @@ GEM
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
     diff-lcs (1.2.5)
-    docile (1.1.2)
+    docile (1.1.3)
     erubis (2.7.0)
     execjs (2.0.2)
-    factory_girl (4.3.0)
+    factory_girl (4.4.0)
       activesupport (>= 3.0.0)
-    factory_girl_rails (4.3.0)
-      factory_girl (~> 4.3.0)
+    factory_girl_rails (4.4.0)
+      factory_girl (~> 4.4.0)
       railties (>= 3.0.0)
     ffaker (1.23.0)
     ffi (1.9.3)
@@ -113,13 +116,13 @@ GEM
     formatador (0.2.4)
     formtastic (2.3.0.rc2)
       actionpack (>= 3.0)
-    guard (2.3.0)
+    guard (2.4.0)
       formatador (>= 0.2.4)
       listen (~> 2.1)
       lumberjack (~> 1.0)
       pry (>= 0.9.12)
       thor (>= 0.18.1)
-    guard-rspec (4.2.5)
+    guard-rspec (4.2.6)
       guard (~> 2.1)
       rspec (>= 2.14, < 4.0)
     has_scope (0.6.0.rc)
@@ -130,10 +133,10 @@ GEM
     inherited_resources (1.4.1)
       has_scope (~> 0.6.0.rc)
       responders (~> 1.0.0.rc)
-    jquery-rails (3.0.4)
+    jquery-rails (3.1.0)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
-    jquery-turbolinks (2.0.1)
+    jquery-turbolinks (2.0.2)
       railties (>= 3.1.0)
       turbolinks
     jquery-ui-rails (4.1.1)
@@ -147,22 +150,24 @@ GEM
       activesupport (>= 3.0.0)
     leaderboard (3.5.0)
       redis
-    listen (2.4.0)
+    listen (2.5.0)
       celluloid (>= 0.15.2)
+      celluloid-io (>= 0.15.0)
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9)
     lumberjack (1.0.4)
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
-    merit (1.7.0)
+    merit (1.7.1)
       ambry (~> 0.3.0)
     method_source (0.8.2)
     mime-types (1.25.1)
     mini_portile (0.5.2)
     minitest (4.7.5)
     multi_json (1.8.4)
-    newrelic_rpm (3.7.1.188)
+    newrelic_rpm (3.7.2.192)
+    nio4r (1.0.0)
     nokogiri (1.6.1)
       mini_portile (~> 0.5.0)
     orm_adapter (0.5.0)
@@ -170,7 +175,7 @@ GEM
     polyamorous (0.6.4)
       activerecord (>= 3.0)
     polyglot (0.3.3)
-    pry (0.9.12.4)
+    pry (0.9.12.6)
       coderay (~> 1.0)
       method_source (~> 0.8)
       slop (~> 3.4)
@@ -214,9 +219,9 @@ GEM
       rspec-expectations (~> 2.14.0)
       rspec-mocks (~> 2.14.0)
     rspec-core (2.14.7)
-    rspec-expectations (2.14.4)
+    rspec-expectations (2.14.5)
       diff-lcs (>= 1.1.3, < 2.0)
-    rspec-mocks (2.14.4)
+    rspec-mocks (2.14.5)
     rspec-rails (2.14.1)
       actionpack (>= 3.0)
       activemodel (>= 3.0)
@@ -258,7 +263,7 @@ GEM
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
-    turbolinks (2.2.0)
+    turbolinks (2.2.1)
       coffee-rails
     tzinfo (0.3.38)
     uglifier (2.4.0)

@@ -90,5 +90,17 @@ class User < ActiveRecord::Base
     new_score = highscore_lb.score_for(id) ? highscore_lb.score_for(id) + value : value
     highscore_lb.rank_member(id, new_score)
   end
+
+  def grant_sign_up_badge
+    if !self.badges.include?(Merit::Badge.find(24))
+      self.add_badge(24)
+    end
+  end
+
+  def grant_vanity_badge
+    if !self.badges.include?(Merit::Badge.find(25)) && self.profilepicture_url !="/assets/no_profile.jpg"
+      self.add_badge(25)
+    end
+  end
 end
 

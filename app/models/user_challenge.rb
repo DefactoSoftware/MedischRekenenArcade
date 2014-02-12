@@ -32,10 +32,10 @@ class UserChallenge < ActiveRecord::Base
 
   def add_badges
     if user.challenges_completed_successfully == 1
-      user.add_badge(3)
+      user.add_badge(28)
     end
-    if user.challenges_completed_successfully == 10
-      user.add_badge(4)
+    if self.amount_fail == 0 && self.success? && !user.badges.include?(Badge.find(29))
+      user.add_badge(29)
     end
   end
 end

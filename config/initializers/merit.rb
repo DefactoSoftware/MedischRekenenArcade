@@ -26,7 +26,7 @@ Merit::Badge.create!(
   {
     id: 2,
     name: 'quick_n_dirty_a',
-    image: "badges/Quick_N_Dirty_a.png",
+    image: "badges/Quick_N_Dirty_A.png",
     description: 'quick_n_dirty_a.description'
   }
 )
@@ -34,7 +34,7 @@ Merit::Badge.create!(
   {
     id: 3,
     name: 'quick_n_dirty_b',
-    image: "badges/Quick_N_Dirty_b.png",
+    image: "badges/Quick_N_Dirty_B.png",
     description: 'quick_n_dirty_b.description'
   }
 )
@@ -42,8 +42,8 @@ Merit::Badge.create!(
   {
     id: 4,
     name: 'quick_n_dirty_c',
-    image: "badges/Quick_N_Dirty_c.png",
-    description: 'quick_n_dirty_c.description')
+    image: "badges/Quick_N_Dirty_C.png",
+    description: 'quick_n_dirty_c.description'
   }
 )
 Merit::Badge.create!(
@@ -66,7 +66,7 @@ Merit::Badge.create!(
   {
     id: 7,
     name: 'streak_master_c',
-    image: "badges/Streak_Master_c.png",
+    image: "badges/Streak_Master_C.png",
     description: 'streak_master_b.description'
   }
 )
@@ -240,7 +240,7 @@ Merit::Badge.create!(
 )
 Merit::Badge.create!(
   {
-    id: 28,
+    id: 29,
     name: 'perfectionist',
     image: "badges/Perfectionist.png",
     description: 'perfectionist.description'
