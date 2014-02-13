@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def all_activities
-    activities = Activity.where(user_id: User.where(user_group: current_user.user_group).map(&:id)).all(limit: 10, order: "created_at DESC")
+    activities = Activity.where(user_id: User.where(user_group: current_user.user_group).map(&:id)).order("created_at DESC").limit(10)
   end
 
   helper_method :all_activities
