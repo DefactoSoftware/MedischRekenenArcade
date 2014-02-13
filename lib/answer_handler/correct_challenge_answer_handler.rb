@@ -10,6 +10,7 @@ class CorrectChallengeAnswerHandler < ChallengeAnswerHandler
     decrease_damage!
     update_user_challenge!
     finish if finished
+    super
   end
 
   def update_user_challenge!

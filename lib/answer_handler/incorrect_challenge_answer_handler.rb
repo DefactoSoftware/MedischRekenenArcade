@@ -9,6 +9,7 @@ class IncorrectChallengeAnswerHandler < ChallengeAnswerHandler
     reset_streak!
     is_dead
     update_user_challenge!
+    super
   end
 
   def update_user_challenge!

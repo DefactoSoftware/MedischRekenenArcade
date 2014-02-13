@@ -34,13 +34,7 @@ module Merit
         answer.user.answers.count == 1000
       end
 
-      grant_on 'registrations#create', badge: 'narcissist' do |user|
-        user.profilepicture_url != "" || user.profilepicture_url != "/assets/no_profile.jpg"
-      end
 
-      grant_on 'registrations#update', badge: 'narcissist' do |user|
-        user.profilepicture_url != "" || user.profilepicture_url != "/assets/no_profile.jpg"
-      end
 
       # If it has 5 votes, grant relevant-commenter badge
       # grant_on 'comments#vote', :badge => 'relevant-commenter', :to => :user do |comment|

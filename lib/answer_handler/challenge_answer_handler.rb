@@ -9,6 +9,10 @@ class ChallengeAnswerHandler < AnswerHandler
     @user_challenge = user_challenge
   end
 
+  def handle!
+    super
+  end
+
   def finished
     @finished ||= user_challenge.amount_good  >= challenge.number_of_problems
   end

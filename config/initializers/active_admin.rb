@@ -20,11 +20,6 @@ ActiveAdmin.setup do |config|
   # to return the currently logged in user.
   config.current_user_method = :current_admin_user
 
-
-  config.before_filter do
-    I18n.locale = 'nl'
-  end
-
   # == Logging Out
   #
   # Active Admin displays a logout link on each screen. These

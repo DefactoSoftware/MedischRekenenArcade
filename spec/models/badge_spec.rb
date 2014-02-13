@@ -36,14 +36,40 @@ describe AnswersController, type: :controller do
 end
 
 describe User do
+  let(:user) { FactoryGirl.create(:user) }
   it "grants the particioner badge" do
-    user = FactoryGirl.create(:user)
     expect(user.badges).to include(Merit::Badge.find(24))
   end
 
-  it "grants the narcissist badge" do
-    user = FactoryGirl.create(:user)
-    user.update_attributes(profilepicture_url: "test.jpg")
+  it "grants the narcissist badge on signup" do
+    user = FactoryGirl.create(:user, profilepicture_url: "test.jpg")
     expect(user.badges).to include(Merit::Badge.find(25))
+  end
+
+  it "grants the narcissist badge on update" do
+    user.reload.update_attributes(profilepicture_url: "test.jpg")
+    expect(user.badges).to include(Merit::Badge.find(25))
+  end
+end
+
+describe AnswerHandler do
+  let(:user) { FactoryGirl.create(:user) }
+  let(:session) { {} }
+  it "grants the streakmaster a badge on a streak of 10 good answers" do
+    session[:streak] = 10
+    AnswerHandler.new(session, user.reload, double).check_badges
+    expect(user.badges).to include(Merit::Badge.find(5))
+  end
+
+  it "grants the streakmaster b badge on a streak of 100 good answers" do
+    session[:streak] = 100
+    AnswerHandler.new(session, user.reload, double).check_badges
+    expect(user.badges).to include(Merit::Badge.find(6))
+  end
+
+  it "grants the streakmaster a badge on a streak of 1000 good answers" do
+    session[:streak] = 1000
+    AnswerHandler.new(session, user.reload, double).check_badges
+    expect(user.badges).to include(Merit::Badge.find(7))
   end
 end

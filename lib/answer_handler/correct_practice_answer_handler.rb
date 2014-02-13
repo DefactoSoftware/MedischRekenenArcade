@@ -7,6 +7,7 @@ class CorrectPracticeAnswerHandler < PracticeAnswerHandler
     increase_skill!
     increase_points! AnswerHandler::STANDARD_POINT_AMOUNT
     increase_streak! AnswerHandler::STANDARD_STREAK_AMOUNT
+    super
   end
 
   def get_notice

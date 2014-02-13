@@ -10,6 +10,10 @@ class AnswerHandler
     @skill = skill
   end
 
+  def handle!
+    check_badges
+  end
+
   def method_missing(method, *args, &block)
     session.send(method, *args, &block)
   end
@@ -31,5 +35,17 @@ class AnswerHandler
 
   def decrease_points!(value=1)
     user.decrease_points(value)
+  end
+
+  def check_badges
+    if !@user.badges.include?(Merit::Badge.find(5)) && @session.streak == 10
+      @user.add_badge(5)
+    end
+    if !@user.badges.include?(Merit::Badge.find(6)) && @session.streak == 100
+      @user.add_badge(6)
+    end
+    if !@user.badges.include?(Merit::Badge.find(7)) && @session.streak == 1000
+      @user.add_badge(7)
+    end
   end
 end

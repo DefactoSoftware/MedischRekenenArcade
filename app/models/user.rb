@@ -49,7 +49,8 @@ class User < ActiveRecord::Base
 
   validates :username, presence: true, uniqueness: true
 
-  after_create :init_redis
+  after_create :init_redis, :grant_sign_up_badge, :grant_vanity_badge
+  after_update :grant_vanity_badge
 
   has_many :user_challenges
   has_many :challenges, -> { uniq }, through: :user_challenges
@@ -98,7 +99,7 @@ class User < ActiveRecord::Base
   end
 
   def grant_vanity_badge
-    if !self.badges.include?(Merit::Badge.find(25)) && self.profilepicture_url !="/assets/no_profile.jpg"
+    if !self.badges.include?(Merit::Badge.find(25)) && profilepicture_url != "/assets/no_profile.jpg"
       self.add_badge(25)
     end
   end
