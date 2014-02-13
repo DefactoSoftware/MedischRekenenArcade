@@ -1,5 +1,5 @@
 <div class="thumbnail thumbnail-challenge">
-  <a href="#" class="thumb-link">
+  <%= link_to user_statistics_path(current_user), class:"thumb-link" do %>
     <img class="image" src="<%=asset_path(badge.image) %>">
     <div class="caption">
       <div class="inner">
@@ -9,5 +9,5 @@
         </div>
       </div>
     </div>
-  </a>
+  <% end %>
 </div>

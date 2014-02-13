@@ -18,6 +18,11 @@
 
 module Merit
   class BadgeRules
+    MORNING_START = 5
+    AFTERNOON_START = 11
+    EVENING_START = 17
+    NIGHT_START = 23
+
     include Merit::BadgeRulesMethods
 
     def initialize
@@ -34,7 +39,29 @@ module Merit
         answer.user.answers.count == 1000
       end
 
+      grant_on 'answers#create', badge: 'night_owl' do |answer|
+        answer.created_at.hour.between?(NIGHT_START, MORNING_START)
+      end
 
+      grant_on 'answers#create', badge: 'night_crawler' do |answer|
+        answer.created_at.hour.between?(EVENING_START, NIGHT_START)
+      end
+
+      grant_on 'answers#create', badge: 'rise_and_shine' do |answer|
+        answer.created_at.hour.between?(MORNING_START, AFTERNOON_START)
+      end
+
+      grant_on 'answers#create', badge: 'cold_feet_a' do |answer|
+        answer.user.answers.count == 10 && UserChallenge.where(user: answer.user).count == 0
+      end
+
+      grant_on 'answers#create', badge: 'cold_feet_b' do |answer|
+        answer.user.answers.count == 50 && UserChallenge.where(user: answer.user).count == 0
+      end
+
+      grant_on 'answers#create', badge: 'cold_feet_c' do |answer|
+        answer.user.answers.count == 100 && UserChallenge.where(user: answer.user).count == 0
+      end
 
       # If it has 5 votes, grant relevant-commenter badge
       # grant_on 'comments#vote', :badge => 'relevant-commenter', :to => :user do |comment|

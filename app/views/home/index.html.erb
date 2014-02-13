@@ -4,7 +4,9 @@
       <% if @last_badge %>
         <div class="block">
           <h4><%= t("labels.last_badge") %></h4>
-          <%= render 'badges/thumbnail', badge: @last_badge %>
+          <div class="thumbnail-col">
+            <%= render 'badges/thumbnail', badge: @last_badge %>
+          </div>
         </div>
       <% end %>
       <% if @last_challenge %>
