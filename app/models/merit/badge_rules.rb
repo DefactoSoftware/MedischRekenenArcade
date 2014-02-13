@@ -28,7 +28,7 @@ module Merit
     def initialize
       # If it has 10 comments, grant commenter-10 badge
       grant_on 'answers#create', badge: 'questions_answered_a', to: :user do |answer|
-        answer.user.answers.count == 10
+        answer.user.answers.map.count == 10
       end
 
       grant_on 'answers#create', badge: 'questions_answered_b' do |answer|

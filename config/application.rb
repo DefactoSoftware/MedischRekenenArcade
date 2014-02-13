@@ -34,6 +34,8 @@ module MedischRekenenArcade
     I18n.enforce_available_locales = false
     config.serve_static_assets = true
 
+    config.active_record.observers = :badges_sash_observer
+
     I18n.default_locale = :nl
   end
 end

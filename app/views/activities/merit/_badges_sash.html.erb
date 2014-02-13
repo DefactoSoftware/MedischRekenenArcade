@@ -1,0 +1,5 @@
+<%= activity.action.sub(/e?$/, "ed") %>
+<%= t("activity.badge") %>
+<%= link_to user_statistics_path(activity.user) do %>
+  <%= t("badges.#{activity.trackable.badge.name}.name") %>
+<% end %>
