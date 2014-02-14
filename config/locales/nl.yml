@@ -282,7 +282,7 @@ nl:
   problems:
     theory:
       PercentageAmountOfAmount: "%{operation1_constant1}% van %{operation1_constant2}%{unit}"
-      PercentageOfUnit: "Hoeveel %{unit} is %{operation1_constant1}%{unit_question} van %{operation1_constant2}#{unit_question}"
+      PercentageOfUnit: "Hoeveel %{unit} is %{operation1_constant1}%{unit_question} van %{operation1_constant2}%{unit_question}"
       SolutionMaxisporin: |
                         Geef een patient parentaal %{operation1_constant1} Maxisporin per dag, verdeeld over %{operation1_constant2} injecties.
                         In voorraad is Maxisporin %{operation2_constant1}. Dit poeder dient opgelost te worden in 4ml aqua bidestillata
