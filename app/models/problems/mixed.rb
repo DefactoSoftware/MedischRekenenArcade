@@ -21,8 +21,8 @@ class Mixed < Problem
   def generate_formula
     operations = Array(Operation.new(
                       AVAILABLE_OPERATORS.to_a.sample[1],
-                      Constant.new(Float(rand(1..1000))),
-                      Constant.new(Float(rand(1..1000)))
+                      Constant.new(Float(rand(50..100))),
+                      Constant.new(Float(rand(1..50)))
                     ))
     formula = Formula.new(operations)
   end
