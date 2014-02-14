@@ -1,7 +1,7 @@
 class ChallengeAnswerHandler < AnswerHandler
   attr_reader :challenge, :user_challenge
 
-  STANDARD_DEATH_CEILING = 6
+  STANDARD_DEATH_CEILING = 3
 
   def initialize(session, current_user, user_challenge, skill)
     super(session, current_user, skill)

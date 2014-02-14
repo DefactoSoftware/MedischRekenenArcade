@@ -173,7 +173,7 @@ nl:
       wrong: "Je antwoord was helaas niet goed, maar geef niet op!"
   challenge:
     finished: "Geweldig! Je hebt de uitdaging gehaald! Je hebt een bonus gekregen van %{bonus} punten"
-    start: "Je kan nu beginnen met de uitdaging. Let op, je mag maar 6 fouten maken!"
+    start: "Je kan nu beginnen met de uitdaging. Let op, je mag niet meer dan 4 fouten maken!"
     time_is_up: "Tijd is voorbij, probeer het nog eens"
     title: "Uitdagingen"
   users:
@@ -246,7 +246,7 @@ nl:
       attempts: "Keer gedaan"
       successfull: "Gehaald"
       failed: "Niet gehaald"
-      patient: "Zorg goed voor je patient, als je 6 fouten maakt is hij dood en moet je overnieuw beginnen."
+      patient: "Zorg goed voor je patient, als je 4 fouten achter elkaar maakt is de patient niet meer te redden en moet je overnieuw beginnen."
       info: "Over deze uitdaging"
       timelimit: "Je hebt %{timelimit} minutes voor deze uitdaging"
     progress: "%{amount_good} van de %{no_problems} goed beantwoord"

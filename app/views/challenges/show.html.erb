@@ -1,9 +1,12 @@
 <div class="row image_background">
   <div class="three-column-small">
     <div class="block">
+      <%= render 'sessions/health' %>
+    </div>
+    <div class="block">
       <%= render 'info', challenge: @challenge %>
     </div>
-    <%= render 'sessions/health' %>
+
   </div>
   <div class="three-column-big answers">
     <%= render 'problems/problem', problem: @problem %>
