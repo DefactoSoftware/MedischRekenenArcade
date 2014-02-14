@@ -21,7 +21,7 @@ class Multiplication < Problem
   def generate_formula
     operations = Array(Operation.new(
                       AVAILABLE_OPERATORS["Multiplication"],
-                      Constant.new(Float((rand(5...100)*10))),
+                      Constant.new(Float(rand(5...100))),
                       Constant.new(Float(5 * rand(1..10)).round(2))
                     ))
 

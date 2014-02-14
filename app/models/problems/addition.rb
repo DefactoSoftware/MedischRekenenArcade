@@ -21,8 +21,8 @@ class Addition < Problem
   def generate_formula
     operations = Array(Operation.new(
                       AVAILABLE_OPERATORS["Addition"],
-                      Constant.new(Float(rand(1..1000))),
-                      Constant.new(Float(rand(1..1000)))
+                      Constant.new(Float(rand(1..100))),
+                      Constant.new(Float(rand(1..100)))
                     ))
     formula = Formula.new(operations)
   end

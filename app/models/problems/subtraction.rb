@@ -21,8 +21,8 @@ class Subtraction < Problem
   def generate_formula
     operations = Array(Operation.new(
                       AVAILABLE_OPERATORS["Subtraction"],
-                      Constant.new(Float(rand(1..1000))),
-                      Constant.new(Float(rand(1..1000)))
+                      Constant.new(Float(rand(50..300))),
+                      Constant.new(Float(rand(1..50)))
                     ))
     formula = Formula.new(operations)
   end
