@@ -12,7 +12,7 @@ ActiveAdmin.register_page "Dashboard" do
               th "User"
               th "Problem"
             end
-            Answer.last(100).map do |answer|
+            Answer.find(:all, :order => "id desc", :limit => 100).map do |answer|
               tr do
                 td answer.value
                 td link_to(answer.user.username, admin_user_path(answer.user))
@@ -31,7 +31,7 @@ ActiveAdmin.register_page "Dashboard" do
               th "Success"
               th "Challenge"
             end
-            UserChallenge.last(100).map do |challenge|
+            UserChallenge.find(:all, :order => "id desc", :limit => 100).map do |challenge|
               tr do
                 td t("challenges.#{challenge.challenge.name}.title")
                 td link_to(challenge.user.username, admin_user_path(challenge.user))
@@ -53,7 +53,7 @@ ActiveAdmin.register_page "Dashboard" do
               th "Trackable"
               th "TrackableID"
             end
-            Activity.last(100).map do |activity|
+            Activity.find(:all, :order => "id desc", :limit => 100).map do |activity|
               tr do
                 td link_to(activity.user.username, admin_user_path(activity.user))
                 td activity.action
