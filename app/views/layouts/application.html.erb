@@ -34,6 +34,7 @@
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <img src="<%= current_user.profilepicture_url%>" class="img-circle profile-pic" width="40px" height="40px">
               <%= current_user.username %>
+               ▼
             </a>
             <ul class="dropdown-menu">
               <li><%= link_to "#{ENV['HIPCHAT_ROOM']}?name=#{current_user.name}" do %><%= t("menu.help") %> <%= image_tag("hipchat.png", title: "Help!", height: "20px") %><% end %></li>
