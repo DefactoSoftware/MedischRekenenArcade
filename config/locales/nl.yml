@@ -70,7 +70,7 @@ nl:
     questions_answered_c:
       name: "Problemsolver (1000)"
       description: "Je hebt 1000 problemen opgelost"
-    rise_n_shine:
+    rise_and_shine:
       name: "Rise and Shine"
       description: "Je bent actief geweest in de ochtend"
     night_crawler:
