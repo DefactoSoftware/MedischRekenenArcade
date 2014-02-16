@@ -162,7 +162,7 @@ nl:
       name: "Naam"
   answer:
     correct: "Goedzo! Je score ging omhoog met %{points}"
-    wrong: "Helaas was dat niet goed.. :( Je reeks is op 0 gezet. "
+    wrong: "Helaas was dat niet goed... :( Je reeks is op 0 gezet. "
     dead: "Dat was helaas ook fout, de patient is overleden. Probeer de uitdaging opnieuw"
     feedback:
       title: "Antwoord feedback"
