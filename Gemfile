@@ -52,6 +52,7 @@ end
 group :production do
   #for Heroku
   gem 'rails_12factor'
+  gem "rack-timeout"
 end
 
 group :test, :development do
