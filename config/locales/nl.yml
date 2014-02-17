@@ -173,7 +173,7 @@ nl:
       wrong: "Je antwoord was helaas niet goed, maar geef niet op!"
   challenge:
     finished: "Geweldig! Je hebt de uitdaging gehaald! Je hebt een bonus gekregen van %{bonus} punten"
-    start: "Je kan nu beginnen met de uitdaging. Let op, je mag niet meer dan 4 fouten maken!"
+    start: "Je kan nu beginnen met de uitdaging. Let op! Je mag niet meer dan 4 fouten maken!"
     time_is_up: "Tijd is voorbij, probeer het nog eens"
     title: "Uitdagingen"
   users:
