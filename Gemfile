@@ -65,6 +65,7 @@ group :test, :development do
   gem 'rspec-rails'
   gem 'ffaker'
   gem 'database_cleaner'
+  gem 'rspec_api_documentation', :github => 'zipmark/rspec_api_documentation'
   gem 'capybara'
 end
 
