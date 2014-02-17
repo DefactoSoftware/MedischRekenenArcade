@@ -54,3 +54,11 @@ RSpec.configure do |config|
 
   config.include Devise::TestHelpers, type: :controller
 end
+
+RspecApiDocumentation.configure do |config|
+  config.format = :json
+end
+
+Raddocs.configure do |config|
+  config.docs_dir = "doc/api"
+end

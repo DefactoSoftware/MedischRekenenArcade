@@ -1,6 +1,9 @@
 MedischRekenenArcade::Application.routes.draw do
   use_doorkeeper
   devise_for :admin_users, ActiveAdmin::Devise.config
+
+  mount Raddocs::App => "/docs"
+
   ActiveAdmin.routes(self)
   resources :activities
 

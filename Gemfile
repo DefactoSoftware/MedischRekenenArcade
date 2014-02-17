@@ -50,6 +50,10 @@ gem 'redcarpet'
 
 gem 'activeadmin', github: 'gregbell/active_admin'
 
+gem 'raddocs'
+
+gem "active_model_serializers"
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
