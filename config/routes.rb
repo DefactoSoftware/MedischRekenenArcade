@@ -25,4 +25,10 @@ MedischRekenenArcade::Application.routes.draw do
   resources :challenges, only: [:index, :show]
 
   resources :user_groups, only: [:create]
+
+  namespace :api, defaults: { format: 'json' } do
+    namespace :v1 do
+      resources :problems, only: :index
+    end
+  end
 end
