@@ -31,6 +31,7 @@ class Problem < ActiveRecord::Base
                       Division Multiplication Addition Subtraction Mixed UnitConversion)
 
   def generate(user)
+    puts "GENERATING"
     generate_unit
     generate_skill
 
@@ -63,9 +64,12 @@ class Problem < ActiveRecord::Base
 
   def lazy_generate(level)
     valid = false
-    while !valid
+    max_tries = 1000
+    index = 0
+    while !valid && index < max_tries
       formula = generate_formula
       valid = compare_skill_difficulty(level, formula)
+      index += 1
     end
     formula
   end
