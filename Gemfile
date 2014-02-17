@@ -7,6 +7,9 @@ gem 'rails-observers'
 # Use Postgress as the database for Active Record
 gem 'pg'
 
+#Server
+gem 'unicorn'
+
 #Merit, for badges
 gem 'merit', '~> 1.7.0'
 
