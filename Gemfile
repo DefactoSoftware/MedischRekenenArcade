@@ -10,6 +10,9 @@ gem 'pg'
 #Server
 gem 'unicorn'
 
+#Doorkeeper, OAUTH
+gem 'doorkeeper'
+
 #Merit, for badges
 gem 'merit', '~> 1.7.0'
 
