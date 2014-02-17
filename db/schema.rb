@@ -108,7 +108,6 @@ ActiveRecord::Schema.define(version: 20140217121813) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "steps"
-    t.string   "type"
     t.integer  "challenge_set_id"
   end
 
