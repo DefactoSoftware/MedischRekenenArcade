@@ -32,6 +32,7 @@ MedischRekenenArcade::Application.routes.draw do
   namespace :api, defaults: { format: 'json' } do
     namespace :v1 do
       resources :problems, only: :index
+      resources :answers, only: :create
     end
   end
 end
