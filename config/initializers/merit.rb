@@ -106,8 +106,8 @@ Merit::Badge.create!(
   {
     id: 12,
     name: 'night_crawler',
-    image: "badges/Rise_N_Shine.png",
-    description: 'rise_and_shine.description'
+    image: "badges/NightCrawler.png",
+    description: 'night_crawler.description'
   }
 )
 Merit::Badge.create!(
