@@ -270,12 +270,11 @@ describe Problem do
     end
   end
 
-  describe SolutionMaxisporin do
-    let(:challenge) { Challenge.new(name: "SolutionMaxisporin") }
-    let(:problem_factory) { ProblemFactory.new(challenge.name, user) }
+  describe ConcentrationVitaminC do
+    let(:problem_factory) { ProblemFactory.new("ConcentrationVitaminC", user) }
 
     it "creates a problem" do
-      expect(problem_factory.problem).to be_a(SolutionMaxisporin)
+      expect(problem_factory.problem).to be_a(ConcentrationVitaminC)
     end
 
     describe "problem" do

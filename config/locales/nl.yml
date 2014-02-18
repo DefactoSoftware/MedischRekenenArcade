@@ -239,6 +239,9 @@ nl:
     UnitConversion:
       title: "Conversie: Gewichten en Volume"
       info: "Bij deze uitdaging moet je verschillende eenheden omrekenen naar andere eenheden, bijvoorbeeld van milliliter naar liters. Na 10 goede antwoorden behaal je de uitdaging"
+    ConcentrationVitaminC:
+      title: "Concentratie: Vitamine C"
+      info: "Bij deze uitdaging moet je uitrekenen hoeveel procent Vitamine C er in 1 tablet zit. Na 10 goede antwoorden behaal je de uitdaging"
     labels:
       stats: "Statistiek"
       amount: "Aantal"
@@ -289,6 +292,7 @@ nl:
                         ter verkrijging van %{operation2_constant2} injectievloeistof. Hoeveel %{unit} injecteer je per keer
       PercentageUnitToHundred: "%{operation1_constant1}% is %{operation1_constant2}%{unit}, hoeveel is %{operation2_constant1}%"
       UnitConversion: "Hoeveel is %{constant1} %{unit_question} in %{unit}"
+      ConcentrationVitaminC: "Een tablet Vitamine C weegt %{operation1_constant1}%{unit_question} en bevat %{operation1_constant2}%{unit_question}. Hoe hoog is de concentratie Vitamine C in %{unit}"
   home:
     last_badge: "Laatste Badge"
     last_challenge: "Laatste Challenge"
