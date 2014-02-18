@@ -26,6 +26,11 @@
         </div>
 
         <div class="form-group">
+          <%= f.label :user_group, t("labels.user_group") %>
+          <%= f.select(:user_group_id, UserGroup.all.collect {|usergroup| [ usergroup.name, usergroup.id ] }, {}, {class:"form-control", selected: resource.user_group.id }) %>
+        </div>
+
+        <div class="form-group">
           <%= f.label :current_password, t("labels.current_password") %>
           <%= f.password_field :current_password, class: "form-control", required:true %>
         </div>
