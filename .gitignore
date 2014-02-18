@@ -25,3 +25,4 @@
 #Coverage gem
 /coverage
 /config/local_env.yml
+/doc
