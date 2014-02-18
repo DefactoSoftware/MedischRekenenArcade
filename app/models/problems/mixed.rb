@@ -18,6 +18,10 @@
 #
 
 class Mixed < Problem
+  def generate_unit
+    self.unit = nil
+  end
+
   def generate_formula
     operations = Array(Operation.new(
                       AVAILABLE_OPERATORS.to_a.sample[1],

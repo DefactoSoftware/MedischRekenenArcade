@@ -46,6 +46,10 @@ describe Problem do
       it "has a skill" do
         expect(problem_factory.problem.skill).to be_a(Skill)
       end
+
+      it "has no unit" do
+        expect(problem_factory.problem.unit).to be nil
+      end
     end
   end
 
@@ -68,6 +72,10 @@ describe Problem do
 
       it "has a skill" do
         expect(problem_factory.problem.skill).to be_a(Skill)
+      end
+
+      it "has no unit" do
+        expect(problem_factory.problem.unit).to be nil
       end
     end
   end
@@ -92,6 +100,10 @@ describe Problem do
       it "has a skill" do
         expect(problem_factory.problem.skill).to be_a(Skill)
       end
+
+      it "has no unit" do
+        expect(problem_factory.problem.unit).to be nil
+      end
     end
   end
 
@@ -115,6 +127,10 @@ describe Problem do
       it "has a skill" do
         expect(problem_factory.problem.skill).to be_a(Skill)
       end
+
+      it "has no unit" do
+        expect(problem_factory.problem.unit).to be nil
+      end
     end
   end
 
@@ -137,6 +153,10 @@ describe Problem do
 
       it "has a skill" do
         expect(problem_factory.problem.skill).to be_a(Skill)
+      end
+
+      it "has no unit" do
+        expect(problem_factory.problem.unit).to be nil
       end
     end
   end
@@ -223,6 +243,33 @@ describe Problem do
       end
     end
   end
+  describe SolutionMaxisporin do
+    let(:challenge) { Challenge.new(name: "SolutionMaxisporin") }
+    let(:problem_factory) { ProblemFactory.new(challenge.name, user) }
+
+    it "creates a problem" do
+      expect(problem_factory.problem).to be_a(SolutionMaxisporin)
+    end
+
+    describe "problem" do
+      it "has a theory" do
+        expect(problem_factory.problem.theory).to be_a(String)
+      end
+
+      it "has a result" do
+        expect(problem_factory.problem.get_result).to be_a(Float)
+      end
+
+      it "has a unit" do
+        expect(problem_factory.problem.unit).to be_a(Unit)
+      end
+
+      it "has a skill" do
+        expect(problem_factory.problem.skill).to be_a(Skill)
+      end
+    end
+  end
+
   describe SolutionMaxisporin do
     let(:challenge) { Challenge.new(name: "SolutionMaxisporin") }
     let(:problem_factory) { ProblemFactory.new(challenge.name, user) }
