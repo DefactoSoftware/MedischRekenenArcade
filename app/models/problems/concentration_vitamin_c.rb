@@ -48,6 +48,6 @@ class ConcentrationVitaminC < Problem
   end
 
   def info
-    I18n.t("problem_info.SolutionMaxisporin")
+    I18n.t("problem_info.ConcentrationVitaminC")
   end
 end

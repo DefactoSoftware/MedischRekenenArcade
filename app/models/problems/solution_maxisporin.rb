@@ -26,12 +26,12 @@ class SolutionMaxisporin < Problem
     operations = []
     operations << Operation.new(
                     AVAILABLE_OPERATORS["Division"],
-                    Constant.new(Float(0.25 + rand(1...9) * 0.25).round(2)),
+                    Constant.new(Float(0.25 + rand(1...9) * 0.25).round(2)*1000),
                     Constant.new(Float(1 + rand(1...4)).round(2))
                   )
     operations << Operation.new(
                     AVAILABLE_OPERATORS["Division"],
-                    Constant.new(Float(0.1 + rand(1...22) * 0.1).round(2)),
+                    Constant.new(Float(0.1 + rand(1...22) * 0.1).round(2)*1000),
                     Constant.new(Float(0.1 + rand(1...9) * 0.2).round(2))
                   )
     operations << Operation.new(
@@ -48,7 +48,8 @@ class SolutionMaxisporin < Problem
                           operation1_constant2: formula.operations[0].constant2.value,
                           operation2_constant1: formula.operations[1].constant1.value,
                           operation2_constant2: formula.operations[1].constant2.value,
-                          unit: unit.sign
+                          unit: unit.sign,
+                          unit_question: "mg"
                         )
   end
 

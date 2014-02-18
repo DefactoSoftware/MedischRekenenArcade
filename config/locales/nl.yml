@@ -260,8 +260,9 @@ nl:
     PercentageOfUnit: "Deel het gevraagde percentage door 100 en vermenigvuldig dat met de gegeven waarde."
     PercentageUnitToHundred: "Deel de gegeven waarde door het gegeven percentage, je hebt dan 1%. Vermenigvuldig dat met 100."
     PercentageAmountOfAmount: "Reken eerst 1% uit door de waarde door 100 te delen. Vermenigvuldig dat vervolgens met het percentage dat gevraagd wordt."
-    SolutionMaxisporin: "help voor maxisporin solution (moet nog toegevoegd worden)"
+    SolutionMaxisporin: "Bij het uitrekenen van de hoeveelheid Maxisporin die je moet toedienen per keer moet je een aantal stappen nemen. Eerst reken je uit hoeveel milligram per injectie je moet toedienen, dus bijvoorbeeld bij 750mg Maxisporin per dag en 3 injecties deel je 750 door 3, 25. Dan reken je uit hoeveel van de voorraad opgelost dient te worden. Bij 1000mg in voorraad en 0.5ml te verkrijgen vloeistof deel je 1000 door 0.5 = 2000. Vervolgens deel je het laatste resultaat door het eerste. 25/2000 = 0,125ml. Dus je injecteert 0,125 milliliter per keer."
     UnitConversion: "Metrische eenheden zijn heel makkelijk om mee te werken, omdat ze allemaal meervouden van tien zijn (of honderd, een-tiende, etc) van elkaar. Je kan tussen de verschillende eenheden wisselen door het decimale punt te verplaatsen."
+    ConcentrationVitaminC: "Met een concentratie wordt aangegeven welk gedeelte van stof A in stof B zit. Het gaat hier om de hoeveelheid Vitamine C in 1 tablet. Dat betekent dat je de hoeveelheid Vitamine C moet delen door het totale gewicht. Vermenigvuldig nog met 100 om de concentratie in procenten te krijgen"
   challenge_sets:
     Week_1: "Week 1: Basis en Percentages"
   activerecord:
@@ -287,8 +288,8 @@ nl:
       PercentageAmountOfAmount: "%{operation1_constant1}% van %{operation1_constant2}%{unit}"
       PercentageOfUnit: "Hoeveel %{unit} is %{operation1_constant1}%{unit_question} van %{operation1_constant2}%{unit_question}"
       SolutionMaxisporin: |
-                        Geef een patient parentaal %{operation1_constant1} Maxisporin per dag, verdeeld over %{operation1_constant2} injecties.
-                        In voorraad is Maxisporin %{operation2_constant1}. Dit poeder dient opgelost te worden in 4ml aqua bidestillata
+                        Geef een patient parentaal %{operation1_constant1}%{unit_question} Maxisporin per dag, verdeeld over %{operation1_constant2} injecties.
+                        In voorraad is Maxisporin %{operation2_constant1}%{unit_question}. Dit poeder dient opgelost te worden in 4ml aqua bidestillata
                         ter verkrijging van %{operation2_constant2} injectievloeistof. Hoeveel %{unit} injecteer je per keer
       PercentageUnitToHundred: "%{operation1_constant1}% is %{operation1_constant2}%{unit}, hoeveel is %{operation2_constant1}%"
       UnitConversion: "Hoeveel is %{constant1} %{unit_question} in %{unit}"
