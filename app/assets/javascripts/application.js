@@ -50,6 +50,17 @@ $("#change_password_block").ready(function() {
   });
 });
 
+$("#add_user_group_link").ready(function() {
+  $("#add_user_group_link").on("click", function() {
+    $("#add_user_group_block").toggle();
+    $("#add_user_group_background").toggle();
+  });
+  $("#add_user_group_background").on("click", function(){
+    $("#add_user_group_block").toggle();
+    $("#add_user_group_background").toggle();
+  })
+});
+
 $(".thumb-link").ready(function() {
   $(".thumb-link").popover({html: true, trigger: "hover", placement: "right"});
 });
@@ -80,6 +91,19 @@ $("#close_calculator").ready(function() {
     }
   })
 });
+
+$("#new_user_group").ready(function() {
+  $("#submit_user_group").on("click", function() {
+    $("#new_user_group").submit();
+  });
+  $("#user_group_name").on("keypress", function(e){
+    var code = e.keyCode || e.which;
+    if(code == 13) {
+      e.preventDefault();
+      $("#new_user_group").submit();
+    }
+  })
+})
 
 //Submitting answer form
 $("#answer_value").ready(function() {

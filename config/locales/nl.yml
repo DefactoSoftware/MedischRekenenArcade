@@ -39,6 +39,10 @@ nl:
     placeholders:
       subject: "Onderwerp"
       text: "Rapport"
+  user_group:
+    save:
+      success: "Nieuwe gebruikersgroep toegevoegd"
+      error: "Kon de gebruikersgroep niet toevoegen"
   badges:
     night_owl:
       name: "Night Owl"
@@ -188,6 +192,7 @@ nl:
     email: "Email"
     username: "Gebruikersnaam"
     name: "Voor- en achternaam"
+    user_group_name: "Gebruikersgroepnaam"
   labels:
     email: "Email"
     name: "Naam"
@@ -208,6 +213,9 @@ nl:
     pick_file: "Kies bestand"
     last_badge: "Last badge"
     last_challenge: "Last challenge"
+    user_group_name: "Gebruikersgroepnaam"
+    new_user_group: "Nieuwe gebruikersgroep"
+    add_user_group: "Voeg gebruikersgroep toe"
   challenges:
     Addition:
       title: "Optellen"
