@@ -31,7 +31,6 @@ class Problem < ActiveRecord::Base
                       Division Multiplication Addition Subtraction Mixed UnitConversion)
 
   def generate(user)
-    puts "GENERATING"
     generate_unit
     generate_skill
 

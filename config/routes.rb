@@ -22,4 +22,6 @@ MedischRekenenArcade::Application.routes.draw do
   resources :answers, only: [:create]
 
   resources :challenges, only: [:index, :show]
+
+  resources :user_groups, only: [:create]
 end

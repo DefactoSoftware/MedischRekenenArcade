@@ -1,0 +1,12 @@
+<div id="add_user_group_block">
+  <%= form_for(UserGroup.new, id: "new_user_group") do |u_f| %>
+    <div class="form-group">
+      <%= u_f.label :name, t("labels.new_user_group") %>
+      <div class="input-group">
+        <%= u_f.text_field :name, class: "form-control", placeholder: t("placeholders.user_group_name"), required:true %>
+        <span id="submit_user_group" class="btn btn-submit input-group-addon"><%= t("labels.add_user_group") %></span>
+      </div>
+    </div>
+  <% end %>
+</div>
+<div id="add_user_group_background" class="black_overlay"></div>

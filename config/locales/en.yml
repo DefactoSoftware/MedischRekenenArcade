@@ -39,6 +39,10 @@ en:
       text: "Report"
   activities:
     title: "Activity"
+  user_group:
+    save:
+      success: "Added new user group"
+      error: "Could not add new user group"
   badges:
     message: "Badge "
     just_registered:
