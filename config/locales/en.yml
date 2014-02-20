@@ -20,7 +20,7 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  title: "Medical Calculation"
+  title: "Med Math"
   unit: "Unit"
   streak: "Streak"
   points: "Points"

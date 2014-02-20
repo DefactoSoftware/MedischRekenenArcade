@@ -20,7 +20,7 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 nl:
-  title: "LerenDoseren"
+  title: "Leren Doseren"
   unit: "Eenheid"
   streak: "Reeks"
   points: "Punten"
@@ -239,9 +239,15 @@ nl:
     UnitConversion:
       title: "Conversie: Gewichten en Volume"
       info: "Bij deze uitdaging moet je verschillende eenheden omrekenen naar andere eenheden, bijvoorbeeld van milliliter naar liters. Na 10 goede antwoorden behaal je de uitdaging"
-    ConcentrationVitaminC:
-      title: "Concentratie: Vitamine C"
+    ConcentrationTablet:
+      title: "Concentratie: tabletten"
       info: "Bij deze uitdaging moet je uitrekenen hoeveel procent Vitamine C er in 1 tablet zit. Na 10 goede antwoorden behaal je de uitdaging"
+    ConcentrationToHundred:
+      title: "Concentratie: naar 100%"
+      info: "Bij deze uitdaging moet je uitrekenen hoeveel ml je nodig hebt van een bepaalde vloeistof op basis van een oplossing en benodigde hoeveelheid medicijn. Na 10 goede antwoorden behaal je de uitdaging"
+    ConcentrationAmount:
+      title: "Concentratie: hoeveelheid van oplossing"
+      info: "Bij deze uitdaging moet je uitrekenen hoeveel gram van een vloeistof er in een oplossing zit. Na 10 goede antwoorden behaal je de uitdaging"
     labels:
       stats: "Statistiek"
       amount: "Aantal"
@@ -264,6 +270,7 @@ nl:
     UnitConversion: "Metrische eenheden zijn heel makkelijk om mee te werken, omdat ze allemaal meervouden van tien zijn (of honderd, een-tiende, etc) van elkaar. Je kan tussen de verschillende eenheden wisselen door het decimale punt te verplaatsen."
     ConcentrationVitaminC: "Met een concentratie wordt aangegeven welk gedeelte van stof A in stof B zit. Het gaat hier om de hoeveelheid Vitamine C in 1 tablet. Dat betekent dat je de hoeveelheid Vitamine C moet delen door het totale gewicht. Vermenigvuldig nog met 100 om de concentratie in procenten te krijgen"
     ConcentrationGlucose: "Met een concentratie wordt aangegeven welk gedeelte van stof A in stof B zit. Je hebt hier een percentage, dat moet je dus delen door 100. Dat resultaat vermenigvuldig je met de hoeveelheid Glucoseoplossing en je hebt de hoeveelheid Glucose."
+    ConcentrationToHundred: "Deel de gegeven waarde door het gegeven percentage, je hebt dan 1%. Vermenigvuldig dat met 100."
   challenge_sets:
     Week_1: "Basis en Percentages"
     Week_2: "Concentraties en Oplossingen"
@@ -295,8 +302,21 @@ nl:
                         ter verkrijging van %{operation2_constant2} injectievloeistof. Hoeveel %{unit} injecteer je per keer
       PercentageUnitToHundred: "%{operation1_constant1}% is %{operation1_constant2}%{unit}, hoeveel is %{operation2_constant1}%"
       UnitConversion: "Hoeveel is %{constant1} %{unit_question} in %{unit}"
-      ConcentrationVitaminC: "Een tablet Vitamine C weegt %{operation1_constant1}%{unit_question} en bevat %{operation1_constant2}%{unit_question}. Hoe hoog is de concentratie Vitamine C in %{unit}"
-      ConcentrationGlucose: "Hoeveel %{unit.name} Glucose bevat %{operation1_constant1}%{unit_question1} glucoseoplossing %{operation1_constant2}%{unit_question2}"
+      ConcentrationTablet:
+        vitaminc: "Een tablet vitamine C weegt %{operation1_constant1} mg en bevat %{operation1_constant2} mg. Hoe hoog is de concentratie vitamine C in %"
+        augmentin_amoxicilline: "Een tablet Augmentin® van %{operation1_constant1} mg bevat %{operation1_constant2} mg amoxicilline. Hoe hoog is de concentratie amoxicilline in %"
+        augmentin_clavulaneacid: "Een tablet vitamine C weegt %{operation1_constant1} mg en bevat %{operation1_constant2} mg clavulaanzuur. Wat is de concentratie clavulaanzuur in de tablet %"
+        methylfenidaat: "Een pilletje Ritalin® weegt %{operation1_constant1} mg, wat is de concentratie in % als er %{operation1_constant2} werkende stof in zit"
+      ConcentrationAmount:
+        glucose: "Hoeveel gram glucose bevat %{operation1_constant1} ml glucoseoplossing %{operation1_constant2} %"
+        natriumchloride: "Hoeveel gram natriumchloride bevat %{operation1_constant1} ml fysiologisch zout %{operation1_constant2} %"
+      ConcentrationToHundred:
+        natriumchloride: "In voorraad is fysiologisch zout van %{operation1_constant1}%. Je moet de patient %{operation1_constant2} mg natriumchloride geven, hoeveel ml heb je nodig"
+        periciazine: "De patient moet %{operation1_constant2} mg periciazine krijgen. Je beschikt alleen over %{operation1_constant1}% periciazinevloeistof. Hoeveel ml moet je hiervan geven"
+        morfine: "De arts geeft je opdracht om de patient morfine te geven. Je beschikt over morfine %{operation1_constant1}%. Je moet haar %{operation1_constant2} mg geven. Hoeveel ml injecteer je"
+        lidocaine: "De patient moet %{operation1_constant2} mg periciazine krijgen. Je beschikt alleen over %{operation1_constant1}% periciazinevloeistof. Hoeveel ml moet je hiervan geven"
+        pethidine: "Je gaat een ampul klaarmaken met daarin pethidineoplossing %{operation1_constant1}%. Je hebt %{operation1_constant2} mg nodig. Je hebt een ampul van hoeveel ml nodig"
+        glucose: "In voorraad is een glucoseoplossing van %{operation1_constant1}%. Je moet de patient %{operation1_constant2} mg glucose geven, hoeveel ml heb je nodig"
   home:
     last_badge: "Laatste Badge"
     last_challenge: "Laatste Challenge"
