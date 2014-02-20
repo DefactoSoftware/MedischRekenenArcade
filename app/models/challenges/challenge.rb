@@ -25,7 +25,7 @@ class Challenge < ActiveRecord::Base
   VALID_NAMES =  %w(
                     PercentageAmountOfAmount PercentageOfUnit PercentageUnitToHundred
                     Division Addition Subtraction Multiplication Mixed
-                    UnitConversion
+                    UnitConversion JeMoeder
                     )
 
   validates :name, inclusion: { in: VALID_NAMES }

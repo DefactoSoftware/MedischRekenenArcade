@@ -7,6 +7,7 @@
 #  locked     :boolean
 #  created_at :datetime
 #  updated_at :datetime
+#  badge      :integer
 #
 
 require 'spec_helper'

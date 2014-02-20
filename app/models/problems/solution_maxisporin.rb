@@ -13,8 +13,9 @@
 #  type           :string(255)
 #  result         :float
 #  skill_id       :integer
-#  max_difficulty :integer          default(100)
+#  max_difficulty :integer          default(35)
 #  skill_offset   :integer          default(10)
+#  unit_question  :string(255)
 #
 
 class SolutionMaxisporin < Problem

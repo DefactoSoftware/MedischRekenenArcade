@@ -9,6 +9,7 @@
 #  created_at        :datetime
 #  updated_at        :datetime
 #  user_challenge_id :integer
+#  feedback          :string(255)
 #
 
 require 'spec_helper'
