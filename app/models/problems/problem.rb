@@ -28,8 +28,8 @@ class Problem < ActiveRecord::Base
   AVAILABLE_UNITS = ["mg", "gr", "kg", "ml", "cl", "dl", "l"]
 
   VALID_PROBLEMS = %w(PercentageAmountOfAmount PercentageOfUnit PercentageUnitToHundred SolutionMaxisporin
-                      Division Multiplication Addition Subtraction Mixed UnitConversion ConcentrationVitaminC
-                      ConcentrationGlucose)
+                      Division Multiplication Addition Subtraction Mixed UnitConversion ConcentrationTablet
+                      ConcentrationAmount ConcentrationToHundred)
 
   def generate(user)
     generate_unit

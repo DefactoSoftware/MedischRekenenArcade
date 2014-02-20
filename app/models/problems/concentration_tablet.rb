@@ -17,7 +17,7 @@
 #  skill_offset   :integer          default(10)
 #
 
-class ConcentrationVitaminC < Problem
+class ConcentrationTablet < Problem
   def generate_unit
     self.unit = Unit.where(sign: "%").first_or_create
   end
@@ -27,20 +27,19 @@ class ConcentrationVitaminC < Problem
     operations << Operation.new(
                     AVAILABLE_OPERATORS["Division"],
                     Constant.new(Float(rand(1...10)*50)),
-                    Constant.new(Float(rand(5...20)*100))
+                    Constant.new(Float(rand(5...20)*100).round(2))
                   )
     operations << Operation.new(
                     AVAILABLE_OPERATORS["Multiplication"],
                     Constant.new(operations.last),
-                    Constant.new(100)
+                    Constant.new(Float(100))
                   )
     formula = Formula.new(operations)
   end
 
   def generate_theory(formula)
-    self.theory = I18n.t("problems.theory.#{self.class.name}",
-                          unit: unit.sign,
-                          unit_question: "mg",
+    medicine = ["vitaminc", "augmentin_amoxicilline", "augmentin_clavulaneacid", "methylfenidaat"]
+    self.theory = I18n.t("problems.theory.#{self.class.name}.#{medicine.sample}",
                           operation1_constant1: formula.operations[0].constant2.value,
                           operation1_constant2: formula.operations[0].constant1.value,
                           operation2_constant1: formula.operations[1].constant2.value

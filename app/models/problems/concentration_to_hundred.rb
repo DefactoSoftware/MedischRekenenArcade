@@ -17,26 +17,30 @@
 #  skill_offset   :integer          default(10)
 #
 
-class ConcentrationGlucose < Problem
+class ConcentrationToHundred < Problem
   def generate_unit
-    self.unit = Unit.where(sign: "g").first_or_create
+    self.unit = Unit.where(sign: "ml").first_or_create
   end
 
   def generate_formula
     operations = []
     operations << Operation.new(
+                    AVAILABLE_OPERATORS["Division"],
+                    Constant.new(Float((rand(1..10)*10).round(2))),
+                    Constant.new(Float(rand(1..15)).round(2))
+                )
+    operations << Operation.new(
                     AVAILABLE_OPERATORS["Multiplication"],
-                    Constant.new(Float(rand(1..10)*100)),
-                    Constant.new(Float(0.1*rand(1..50)))
-                  )
+                    Constant.new(operations.last),
+                    Constant.new(Float(100))
+                )
     formula = Formula.new(operations)
   end
 
   def generate_theory(formula)
-    self.theory = I18n.t("problems.theory.#{self.class.name}",
-                          unit: unit,
-                          unit_question1: "ml",
-                          unit_question2: "%",
+    medicine = ["natriumchloride", "periciazine", "morfine", "lidocaine", "pethidine", "glucose"]
+    self.theory = I18n.t("problems.theory.#{self.class.name}.#{medicine.sample}",
+                          unit: unit.name,
                           operation1_constant1: formula.operations[0].constant2.value,
                           operation1_constant2: formula.operations[0].constant1.value
                         )
