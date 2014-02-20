@@ -270,11 +270,11 @@ describe Problem do
     end
   end
 
-  describe ConcentrationVitaminC do
-    let(:problem_factory) { ProblemFactory.new("ConcentrationVitaminC", user) }
+  describe ConcentrationAmount do
+    let(:problem_factory) { ProblemFactory.new("ConcentrationAmount", user) }
 
     it "creates a problem" do
-      expect(problem_factory.problem).to be_a(ConcentrationVitaminC)
+      expect(problem_factory.problem).to be_a(ConcentrationAmount)
     end
 
     describe "problem" do
@@ -296,11 +296,37 @@ describe Problem do
     end
   end
 
-  describe ConcentrationGlucose do
-    let(:problem_factory) { ProblemFactory.new("ConcentrationGlucose", user) }
+  describe ConcentrationTablet do
+    let(:problem_factory) { ProblemFactory.new("ConcentrationTablet", user) }
 
     it "creates a problem" do
-      expect(problem_factory.problem).to be_a(ConcentrationGlucose)
+      expect(problem_factory.problem).to be_a(ConcentrationTablet)
+    end
+
+    describe "problem" do
+      it "has a theory" do
+        expect(problem_factory.problem.theory).to be_a(String)
+      end
+
+      it "has a result" do
+        expect(problem_factory.problem.get_result).to be_a(Float)
+      end
+
+      it "has a unit" do
+        expect(problem_factory.problem.unit).to be_a(Unit)
+      end
+
+      it "has a skill" do
+        expect(problem_factory.problem.skill).to be_a(Skill)
+      end
+    end
+  end
+
+  describe ConcentrationToHundred do
+    let(:problem_factory) { ProblemFactory.new("ConcentrationToHundred", user) }
+
+    it "creates a problem" do
+      expect(problem_factory.problem).to be_a(ConcentrationToHundred)
     end
 
     describe "problem" do
