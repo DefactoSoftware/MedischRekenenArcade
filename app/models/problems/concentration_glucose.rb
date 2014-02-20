@@ -17,7 +17,7 @@
 #  skill_offset   :integer          default(10)
 #
 
-class ConcentrationSimple < Problem
+class ConcentrationGlucose < Problem
   def generate_unit
     self.unit = Unit.where(sign: "g").first_or_create
   end
@@ -34,8 +34,9 @@ class ConcentrationSimple < Problem
 
   def generate_theory(formula)
     self.theory = I18n.t("problems.theory.#{self.class.name}",
-                          unit: unit.sign,
-                          unit_question: "%",
+                          unit: unit,
+                          unit_question1: "ml",
+                          unit_question2: "%",
                           operation1_constant1: formula.operations[0].constant2.value,
                           operation1_constant2: formula.operations[0].constant1.value
                         )
