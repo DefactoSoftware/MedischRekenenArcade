@@ -263,8 +263,10 @@ nl:
     SolutionMaxisporin: "Bij het uitrekenen van de hoeveelheid Maxisporin die je moet toedienen per keer moet je een aantal stappen nemen. Eerst reken je uit hoeveel milligram per injectie je moet toedienen, dus bijvoorbeeld bij 750mg Maxisporin per dag en 3 injecties deel je 750 door 3, 25. Dan reken je uit hoeveel van de voorraad opgelost dient te worden. Bij 1000mg in voorraad en 0.5ml te verkrijgen vloeistof deel je 1000 door 0.5 = 2000. Vervolgens deel je het laatste resultaat door het eerste. 25/2000 = 0,125ml. Dus je injecteert 0,125 milliliter per keer."
     UnitConversion: "Metrische eenheden zijn heel makkelijk om mee te werken, omdat ze allemaal meervouden van tien zijn (of honderd, een-tiende, etc) van elkaar. Je kan tussen de verschillende eenheden wisselen door het decimale punt te verplaatsen."
     ConcentrationVitaminC: "Met een concentratie wordt aangegeven welk gedeelte van stof A in stof B zit. Het gaat hier om de hoeveelheid Vitamine C in 1 tablet. Dat betekent dat je de hoeveelheid Vitamine C moet delen door het totale gewicht. Vermenigvuldig nog met 100 om de concentratie in procenten te krijgen"
+    ConcentrationGlucose: "Met een concentratie wordt aangegeven welk gedeelte van stof A in stof B zit. Je hebt hier een percentage, dat moet je dus delen door 100. Dat resultaat vermenigvuldig je met de hoeveelheid Glucoseoplossing en je hebt de hoeveelheid Glucose."
   challenge_sets:
-    Week_1: "Week 1: Basis en Percentages"
+    Week_1: "Basis en Percentages"
+    Week_2: "Concentraties en Oplossingen"
   activerecord:
     attributes:
       user:
@@ -294,6 +296,7 @@ nl:
       PercentageUnitToHundred: "%{operation1_constant1}% is %{operation1_constant2}%{unit}, hoeveel is %{operation2_constant1}%"
       UnitConversion: "Hoeveel is %{constant1} %{unit_question} in %{unit}"
       ConcentrationVitaminC: "Een tablet Vitamine C weegt %{operation1_constant1}%{unit_question} en bevat %{operation1_constant2}%{unit_question}. Hoe hoog is de concentratie Vitamine C in %{unit}"
+      ConcentrationGlucose: "Hoeveel %{unit.name} Glucose bevat %{operation1_constant1}%{unit_question1} glucoseoplossing %{operation1_constant2}%{unit_question2}"
   home:
     last_badge: "Laatste Badge"
     last_challenge: "Laatste Challenge"

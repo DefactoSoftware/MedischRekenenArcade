@@ -40,19 +40,93 @@ en:
   activities:
     title: "Activity"
   badges:
-    message: "Badge "
-    just_registered:
-      name: "Registered"
-      description: "You registered successfully"
-    answered_10:
-      name: "10 answered"
-      description: "You answered 10 question"
-    completed_first_challenge_successfully:
-      name: "Completed first challenge"
-      description: "You have successfully completed your very first challenge"
-    completed_ten_challenges_successfully:
-      name: "Challenge apprentice"
-      description: "You have successfully completed 10 challenges"
+    night_owl:
+      name: "Night Owl"
+      description: "You've been active during the night"
+    quick_n_dirty_a:
+      name: "Quick N Dirty (10)"
+      description: "Answered 10 questions within 5 minutes with the calculator"
+    quick_n_dirty_b:
+      name: "Quick N Dirty (50)"
+      description: "Answered 50 questions within 30 minutes with the calculator"
+    quick_n_dirty_c:
+      name: "Quick N Dirty (100)"
+      description: "Answered 100 questions within 60 minutes with the calculator"
+    streak_master_a:
+      name: "Streakmaster (10)"
+      description: "You answered 10 questions after each other with no mistakes"
+    streak_master_b:
+      name: "Streakmaster (50)"
+      description: "You answered 50 questions after each other with no mistakes"
+    streak_master_c:
+      name: "Streakmaster (100)"
+      description: "You answered 100 questions after each other with no mistakes"
+    questions_answered_a:
+      name: "Problemsolver (10)"
+      description: "You answered 10 questions"
+    questions_answered_b:
+      name: "Problemsolver (100)"
+      description: "You answered 100 questions"
+    questions_answered_c:
+      name: "Problemsolver (1000)"
+      description: "You answered 1000 questions"
+    rise_and_shine:
+      name: "Rise and Shine"
+      description: "You've been active during the morning"
+    night_crawler:
+      name: "Nightcrawler"
+      description: "You've been active during the evening"
+    challenger_rank_up:
+      name: "Challenger"
+      description: "You surpassed someone on the leaderboards"
+    challenge_champion_a:
+      name: "Challenge Champion (Week 1)"
+      description: "You have completed all challenges from week 1"
+    challenge_champion_b:
+      name: "Challenge Champion (Week 2)"
+      description: "You have completed all challenges from week 2"
+    challenge_champion_c:
+      name: "Challenge Champion (Week 3)"
+      description: "You have completed all challenges from week 3"
+    challenge_champion_d:
+      name: "Challenge Champion (Week 4)"
+      description: "You have completed all challenges from week 4"
+    enthusiast_a:
+      name: "Enthusiast (3 dagen)"
+      description: "You were active for 3 days in a row"
+    enthusiast_b:
+      name: "Enthusiast (1 week)"
+      description: "You were active for 7 days in a row"
+    enthusiast_c:
+      name: "Enthusiast (1 maand)"
+      description: "You were active for 30 days in a row"
+    cold_feet_a:
+      name: "Cold Feet (10)"
+      description: "You have answered 10 questions without trying a challenge"
+    cold_feet_b:
+      name: "Cold Feet (50)"
+      description: "You have answered 50 questions without trying a challenge"
+    cold_feet_c:
+      name: "Cold Feet (100)"
+      description: "You have answered 100 questions without trying a challenge"
+    particioner:
+      name: "Welkom to Medical Arithmetics!"
+      description: "You succesfully registered!"
+    narcissist:
+      name: "Narcissist"
+      description: "You have uploaded a profile picture"
+    practicer:
+      name: "Practicer"
+      description: "You did your first practice"
+    speed_racer:
+      name: "Speed Racer"
+      description: "You completed a challenge in 25% of the time"
+    winner:
+      name: "Winner"
+      description: "You successfully completed your first challenge"
+    perfectionist:
+      name: "Perfectionist"
+      description: "You completed a challenge without mistakes"
   greetings:
     morning: "Good morning"
     evening: "Good evening"
@@ -165,6 +239,9 @@ en:
     UnitConversion:
       title: "Conversion: Weights and Volumes"
       info: "In this challenge you need to convert units into other units, for example from milliliter to liter. After 10 good answers you complete the challenge"
+    ConcentrationVitaminC:
+      title: "Concentration: Vitamin C"
+      info: "In this challenge you need to calculate the concentration of Vitamin C in one tablet. You need 10 good answers to complete this challenge"
     labels:
       completed_successfully: "Challenge achieved!"
       attempts: "Attempts"
@@ -184,7 +261,8 @@ en:
     SolutionMaxisporin: ""
     UnitConversion: "Metric units are very nice to work with, since they are all multiples of ten (or a hundred, or one-tenth, etc) of each other. You can convert between the various different sizes by merely moving the decimal point the correct number of places."
   challenge_sets:
-    Week_1: "Week 1: Basic and Percentages"
+    Week_1: "Basic and Percentages"
+    Week_2: "Concentrations and Solutions"
   activerecord:
     attributes:
       user:
@@ -213,6 +291,8 @@ en:
                           to get %{operation2_constant2} injectionliquid. How much should you inject each time
       PercentageUnitToHundred: "%{operation1_constant1}% is %{operation1_constant2}%{unit}, how much is %{operation2_constant1}%"
       UnitConversion: "How much is %{constant1} %{unit_question} in %{unit}"
+      ConcentrationVitaminC: "Een tablet Vitamine C weegt %{operation1_constant1}%{unit_question} en bevat %{operation1_constant2}%{unit_question}. Hoe hoog is de concentratie Vitamine C in %{unit}"
+      ConcentrationGlucose: "How much %{unit.name} Glucose contains %{operation1_constant1}%{unit_question1} glucose solution %{operation1_constant2}%{unit_question2}"
   home:
     last_badge: "Last Badge"
     last_challenge: "Last Challenge"
