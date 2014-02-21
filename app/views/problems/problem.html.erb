@@ -1,3 +1,5 @@
 <div id="problems block" class="">
   <%= render 'problem', problem: @problem if @problem %>
 </div>
+
+<%= render 'badges/notification', notification: @notification if @notification %>

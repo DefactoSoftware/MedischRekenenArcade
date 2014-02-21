@@ -66,6 +66,8 @@
   </div>
 <% end %>
 
+<%= render 'badges/notification', notification: @notification if @notification %>
+
 <%= render "feedback/feedback.html.erb" if current_user %>
 
 <script>

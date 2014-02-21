@@ -1,0 +1,12 @@
+<div id="notification">
+  <div class="row">
+    <div class="col-lg-3">
+      <%= image_tag(notification.trackable.badge.image) %>
+    </div>
+    <div class="col-lg-9">
+    <h3><%= t("activities.new_badge") %></h3>
+    <%= ActivityPresenter.new(notification, self).render_activity %>
+    <%= link_to user_statistics_path(current_user) do%><%= t("badges.go_to_statistics") %><% end %>
+    </div>
+  </div>
+</div>

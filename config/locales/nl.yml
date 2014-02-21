@@ -27,6 +27,7 @@ nl:
   activity:
     badge: "de badge"
     challenge: "de uitdaging"
+    you: "Jij"
   title: "Leren Doseren"
   unit: "Eenheid"
   streak: "Reeks"
@@ -35,6 +36,7 @@ nl:
   total: "Totaal"
   activities:
     title: "Activiteit"
+    new_badge: "Je hebt een badge verdiend!"
   feedback_report:
     button: "Meld een probleem!"
     title: "Schrijf het probleem op dat je gevonden hebt"
@@ -51,6 +53,7 @@ nl:
       success: "Nieuwe gebruikersgroep toegevoegd"
       error: "Kon de gebruikersgroep niet toevoegen"
   badges:
+    go_to_statistics: "Ga naar statistieken om je overzicht te zien!"
     night_owl:
       name: "Night Owl"
       description: "Je bent actief geweest tijdens de nacht"
@@ -321,7 +324,7 @@ nl:
         vitaminc: "Een tablet vitamine C weegt %{operation1_constant1} mg en bevat %{operation1_constant2} mg. Hoe hoog is de concentratie vitamine C in %"
         augmentin_amoxicilline: "Een tablet Augmentin® van %{operation1_constant1} mg bevat %{operation1_constant2} mg amoxicilline. Hoe hoog is de concentratie amoxicilline in %"
         augmentin_clavulaneacid: "Een tablet vitamine C weegt %{operation1_constant1} mg en bevat %{operation1_constant2} mg clavulaanzuur. Wat is de concentratie clavulaanzuur in de tablet %"
-        methylfenidaat: "Een pilletje Ritalin® weegt %{operation1_constant1} mg, wat is de concentratie in % als er %{operation1_constant2} werkende stof in zit"
+        methylfenidaat: "Een pilletje Ritalin® weegt %{operation1_constant1} mg, wat is de concentratie in % als er %{operation1_constant2} mg werkende stof in zit"
       ConcentrationAmount:
         glucose: "Hoeveel gram glucose bevat %{operation1_constant1} ml glucoseoplossing %{operation1_constant2} %"
         natriumchloride: "Hoeveel gram natriumchloride bevat %{operation1_constant1} ml fysiologisch zout %{operation1_constant2} %"

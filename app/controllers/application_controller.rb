@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   before_filter :update_sanitized_params, if: :devise_controller?
   before_filter :check_challenge
+  before_filter :push_notify
   protect_from_forgery with: :exception
 
   def all_activities
@@ -32,5 +33,12 @@ class ApplicationController < ActionController::Base
 
   def track_activity(trackable, action = params[:action])
     current_user.activities.create! action: action, trackable: trackable
+  end
+
+  def push_notify
+    if current_user
+      @notification = current_user.activities.where(trackable_type: Merit::BadgesSash, notified:false).last
+      @notification.update_attributes(notified:true) if @notification
+    end
   end
 end

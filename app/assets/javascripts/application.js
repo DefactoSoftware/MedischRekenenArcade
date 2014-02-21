@@ -166,6 +166,10 @@ $(document).ready(function() {
   setTimeout(function () { closeNotices(); closeAlerts(); }, 10000);
 });
 
+$(document).ready(function() {
+  setTimeout(function () { $("#notification").fadeOut() }, 5000 );
+});
+
 var closeNotices = function() {
   elements = $(".notice_block");
   for(var i =0; i<elements.length; i++) {
