@@ -20,6 +20,13 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 nl:
+  actions:
+    start: "startte"
+    complete: "haalde"
+    collect: "verzamelde"
+  activity:
+    badge: "de badge"
+    challenge: "de uitdaging"
   title: "Leren Doseren"
   unit: "Eenheid"
   streak: "Reeks"

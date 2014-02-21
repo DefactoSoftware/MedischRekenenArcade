@@ -20,6 +20,13 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  actions:
+    start: "started"
+    complete: "completed"
+    collect: "collected"
+  activity:
+    badge: "the badge"
+    challenge: "the challenge"
   title: "Med Math"
   unit: "Unit"
   streak: "Streak"
