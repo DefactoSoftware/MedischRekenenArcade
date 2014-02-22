@@ -39,35 +39,35 @@ end
 
 describe Operation do
     it "can add two integers" do
-      expect(Operation.new(:+, Constant.new(2),Constant.new(1)).result).to eq(3.0)
+      expect(Operation.new(:+, Constant.new(2),Constant.new(1)).result.round(2)).to eq(3.0)
     end
 
     it "can divide two integers" do
-      expect(Operation.new(:/, Constant.new(4),Constant.new(2)).result).to eq(2.0)
+      expect(Operation.new(:/, Constant.new(4),Constant.new(2)).result.round(2)).to eq(2.0)
     end
 
     it "can multiply two integers" do
-      expect(Operation.new(:*, Constant.new(2),Constant.new(3)).result).to eq(6.0)
+      expect(Operation.new(:*, Constant.new(2),Constant.new(3)).result.round(2)).to eq(6.0)
     end
 
     it "can subtract two integers" do
-      expect(Operation.new(:-, Constant.new(2),Constant.new(1)).result).to eq(1.0)
+      expect(Operation.new(:-, Constant.new(2),Constant.new(1)).result.round(2)).to eq(1.0)
     end
 
     it "can add two floats" do
-      expect(Operation.new(:+, Constant.new(2.5),Constant.new(3.3)).result).to eq(5.8)
+      expect(Operation.new(:+, Constant.new(2.5),Constant.new(3.3)).result.round(2)).to eq(5.8)
     end
 
     it "can divide two floats" do
-      expect(Operation.new(:/, Constant.new(2.5),Constant.new(1.5)).result).to eq(1.67)
+      expect(Operation.new(:/, Constant.new(2.5),Constant.new(1.5)).result.round(2)).to eq(1.67)
     end
 
     it "can multiply two floats" do
-      expect(Operation.new(:*, Constant.new(1.5),Constant.new(5.0)).result).to eq(7.5)
+      expect(Operation.new(:*, Constant.new(1.5),Constant.new(5.0)).result.round(2)).to eq(7.5)
     end
 
     it "can subtract two floats" do
-      expect(Operation.new(:-, Constant.new(2.8),Constant.new(1.5)).result).to eq(1.3)
+      expect(Operation.new(:-, Constant.new(2.8),Constant.new(1.5)).result.round(2)).to eq(1.3)
     end
 
     describe "to_s" do
