@@ -53,6 +53,5 @@ class Operation
 
   def result
     result = @constant1.value.send(@operator, @constant2.value)
-    result.is_a?(Float) ? result.round(2) : result
   end
 end

@@ -2,6 +2,6 @@
 <p><%= answer.feedback %></p>
 <% if answer.problem != nil && !answer.correct? %>
   <p>Vraag: <%= answer.problem.theory %> </p>
-  <p><%= t("answer.feedback.result", result: answer.value, right_answer: answer.problem.result) %></p>
+  <p><%= t("answer.feedback.result", result: answer.value, right_answer: answer.problem.result.round(2)) %></p>
 <% end %>
 

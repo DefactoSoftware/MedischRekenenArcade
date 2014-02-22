@@ -40,6 +40,9 @@ class Answer < ActiveRecord::Base
     elsif value == problem.result || ((value - 1.0)..(value + 1.0)).include?(problem.result)
       self.feedback = I18n.t("answer.feedback.rounding")
       false
+    elsif ((value - 0.1)..(value + 0.1)).include?(problem.result)
+      self.feedback = I18n.t("answer.feedback.rounding2")
+      true
     else
       self.feedback = I18n.t("answer.feedback.wrong")
       false

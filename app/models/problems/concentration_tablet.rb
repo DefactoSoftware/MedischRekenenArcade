@@ -27,7 +27,7 @@ class ConcentrationTablet < Problem
     operations << Operation.new(
                     AVAILABLE_OPERATORS["Division"],
                     Constant.new(Float(rand(1...10)*50)),
-                    Constant.new(Float(rand(5...20)*100).round(2))
+                    Constant.new(Float(rand(5...20)*100))
                   )
     operations << Operation.new(
                     AVAILABLE_OPERATORS["Multiplication"],
@@ -35,6 +35,7 @@ class ConcentrationTablet < Problem
                     Constant.new(Float(100))
                   )
     formula = Formula.new(operations)
+
   end
 
   def generate_theory(formula)
