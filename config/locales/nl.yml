@@ -365,6 +365,9 @@ nl:
     logged_in_text: |
                     ## Je hebt %{points} punten
 
+                    Je kan 1 punt per goed antwoord verdienen, tijdens oefenen en uitdagingen.
+                    Als je een uitdaging haalt krijg je nog een bonus van 20 punten!
+
                     Wil je meteen een uitdaging doen of nog even oefenen?
 
 

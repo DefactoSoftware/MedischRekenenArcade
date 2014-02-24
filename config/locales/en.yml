@@ -333,4 +333,7 @@ en:
     logged_in_text: |
                     ## You have %{points} points!
 
+                    You can earn 1 point per right answer, during practice and challenges.
+                    If you successfully complete a challenge you get a bonus of 20 points!
+
                     Do you want to start a challenge or just practice a bit more?
