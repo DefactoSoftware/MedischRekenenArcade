@@ -11,6 +11,12 @@ FactoryGirl.define do
     name { Faker::HipsterIpsum.word }
   end
 
+  factory :user_skill do
+    skill
+    user
+    level { rand(0..10) }
+  end
+
   factory :user_group do
     name { Faker::HipsterIpsum.word }
   end
