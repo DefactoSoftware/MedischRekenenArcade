@@ -165,7 +165,8 @@ nl:
     skipquestion: "overslaan"
     helpquestion: "Help!"
     problem_picker: "Probleem picker"
-    clear_filter: "Standaar problemen"
+    clear_filter: "Standaard problemen"
+    skill_suggest: "Op basis van je vorige resultaten kan je het beste het probleem '%{skill}' oefenen. Maar je kan hieronder ook een andere kiezen natuurlijk!"
   leaderboards:
     titles:
       top: "Top"

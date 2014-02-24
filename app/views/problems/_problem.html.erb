@@ -39,7 +39,7 @@
       <div class="form-group submit_form">
         <div>
         <button id="submit_answer" class="btn btn-submit btn-embossed btn-practice"><%= t("practice.submit_button") %></button>
-        <a href="#" id="helpQuestion"><button class="btn btn-warning btn-embossed"><%= t("practice.helpquestion") %></button></a>
+        <%= help_button(params[:controller]) %>
         <br>
         <a href="#" id="skipQuestion">(<%= t("practice.skipquestion") %>)</a>
       </div>
