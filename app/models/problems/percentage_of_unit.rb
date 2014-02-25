@@ -28,11 +28,17 @@ class PercentageOfUnit < Problem
   end
 
   def generate_formula
-    operations = Array(Operation.new(
+    operations = []
+    operations << Operation.new(
                     AVAILABLE_OPERATORS["Division"],
                     Constant.new(Float(rand(1...50)).round(2)),
                     Constant.new(Float(rand(6...10)*10).round(2))
-                  ))
+                  )
+    operations << Operation.new(
+                    AVAILABLE_OPERATORS["Multiplication"],
+                    Constant.new(operations.last),
+                    Constant.new(100)
+                )
     formula = Formula.new(operations)
   end
 

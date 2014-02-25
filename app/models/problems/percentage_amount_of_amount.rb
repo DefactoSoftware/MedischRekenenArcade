@@ -30,11 +30,6 @@ class PercentageAmountOfAmount < Problem
                       Constant.new(Float((rand(1...10)*10))/100),
                       Constant.new(Float(1 + rand(1..1000)).round(2))
                     )
-    operations << Operation.new(
-                    AVAILABLE_OPERATORS["Multiplication"],
-                    Constant.new(operations.last),
-                    Constant.new(100)
-                )
     formula = Formula.new(operations)
   end
 
