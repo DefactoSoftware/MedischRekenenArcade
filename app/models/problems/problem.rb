@@ -25,6 +25,7 @@ class Problem < ActiveRecord::Base
   has_many :answers, dependent: :destroy
   belongs_to :unit
 
+
   AVAILABLE_OPERATORS = { "Addition" => :+, "Division" => :/, "Multiplication" => :*, "Subtraction" => :- }
   AVAILABLE_UNITS = ["mg", "gr", "kg", "ml", "cl", "dl", "l"]
 
