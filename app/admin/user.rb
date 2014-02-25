@@ -1,4 +1,13 @@
 ActiveAdmin.register User do
+  index do
+    column :id
+    column :email
+    column :level
+    column :last_sign_in_at
+    column :name
+    column :confirmed_at
+  end
+
   show do |ad|
     attributes_table do
       row :id
@@ -9,6 +18,7 @@ ActiveAdmin.register User do
       row :last_sign_in_ip
       row :username
       row :name
+      row :level
       row :user_group
     end
 
