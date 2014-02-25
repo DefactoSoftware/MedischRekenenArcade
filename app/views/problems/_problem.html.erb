@@ -13,6 +13,7 @@
           <%= f.hidden_field :user_challenge_id, value: UserChallenge.where(challenge_id: session[:challenge], user: current_user).last.id %>
         <% end %>
         <%= f.hidden_field :problem_id, value: problem.id %>
+        <%= f.hidden_field :user_challenge_id, value: @user_challenge.id if @user_challenge %>
         <div class="form-group">
           <div class="input-group answer-field">
             <%= f.text_area :value, class:"form-control", rows:"1", required: true, type: "number" %>

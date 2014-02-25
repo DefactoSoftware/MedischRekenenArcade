@@ -22,8 +22,9 @@ require 'formula'
 
 class Problem < ActiveRecord::Base
   belongs_to :skill
-  has_many :answers
+  has_many :answers, dependent: :destroy
   belongs_to :unit
+
 
   AVAILABLE_OPERATORS = { "Addition" => :+, "Division" => :/, "Multiplication" => :*, "Subtraction" => :- }
   AVAILABLE_UNITS = ["mg", "gr", "kg", "ml", "cl", "dl", "l"]
@@ -72,6 +73,7 @@ class Problem < ActiveRecord::Base
       valid = compare_skill_difficulty(level, formula)
       index += 1
     end
+    self.difficulty = formula.difficulty
     formula
   end
 

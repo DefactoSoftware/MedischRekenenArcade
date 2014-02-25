@@ -9,14 +9,20 @@ ActiveAdmin.register_page "Dashboard" do
           table do
             thead do
               th "Answer"
+              th "Result"
               th "User"
+              th "Correct"
               th "Problem"
+              th "Theory"
             end
             Answer.find(:all, :order => "id desc", :limit => 100).map do |answer|
               tr do
                 td answer.value
+                td answer.problem.result
                 td link_to(answer.user.username, admin_user_path(answer.user))
+                td answer.correct? ? status_tag( "yes", :ok ) : status_tag( "no" )
                 td link_to("click", admin_problem_path(answer.problem))
+                td answer.problem.theory
               end
             end
           end
@@ -36,7 +42,7 @@ ActiveAdmin.register_page "Dashboard" do
                 td t("challenges.#{challenge.challenge.name}.title")
                 td link_to(challenge.user.username, admin_user_path(challenge.user))
                 td challenge.success? ? "True" : "False"
-                td "click"
+                td link_to "click", admin_user_challenge_path(challenge)
               end
             end
           end
