@@ -23,6 +23,7 @@ en:
   actions:
     start: "started"
     complete: "completed"
+    fail: "didn't complete"
     collect: "collected"
   activity:
     badge: "the badge"

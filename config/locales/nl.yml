@@ -23,6 +23,7 @@ nl:
   actions:
     start: "startte"
     complete: "haalde"
+    fail: "haalde niet"
     collect: "verzamelde"
   activity:
     badge: "de badge"
