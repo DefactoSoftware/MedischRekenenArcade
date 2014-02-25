@@ -22,7 +22,7 @@ require 'formula'
 
 class Problem < ActiveRecord::Base
   belongs_to :skill
-  has_many :answers
+  has_many :answers, dependent: :destroy
   belongs_to :unit
 
   AVAILABLE_OPERATORS = { "Addition" => :+, "Division" => :/, "Multiplication" => :*, "Subtraction" => :- }
