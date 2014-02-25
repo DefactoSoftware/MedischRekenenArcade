@@ -9,7 +9,7 @@ ActiveAdmin.register User do
     default_actions
   end
 
-  show do |ad|
+  show do |user|
     attributes_table do
       row :id
       row :email
@@ -23,18 +23,37 @@ ActiveAdmin.register User do
       row :user_group
     end
 
-    puts ad.user_skills
-
     attributes_table do
       table do
         tr do
           th "Skill"
           th "Level"
         end
-        ad.user_skills.order("LEVEL DESC").each do |user_skill|
+        user.user_skills.order("LEVEL DESC").each do |user_skill|
           tr do
             td link_to user_skill.skill.name, admin_challenge_path(challenge: Challenge.where(name:user_skill.skill.name).first)
             td user_skill.level
+          end
+        end
+      end
+    end
+
+    attributes_table do
+      table do
+        tr do
+          th "value"
+          th "correct answer"
+          th "theory"
+          th "difficulty"
+          th "correct"
+        end
+        user.answers.limit(50).each do |answer|
+          tr do
+            td answer.value
+            td answer.problem.result
+            td answer.problem.theory
+            td answer.problem.difficulty
+            td answer.correct? ? status_tag( "yes", :ok ) : status_tag( "no" )
           end
         end
       end

@@ -73,6 +73,7 @@ class Problem < ActiveRecord::Base
       valid = compare_skill_difficulty(level, formula)
       index += 1
     end
+    self.difficulty = formula.difficulty
     formula
   end
 

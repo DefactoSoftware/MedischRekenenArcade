@@ -1,5 +1,5 @@
 ActiveAdmin.register Problem do
-  show do |ad|
+  show do |problem|
     attributes_table do
       row :id
       row :theory
@@ -19,7 +19,7 @@ ActiveAdmin.register Problem do
             tr do
               td answer.value
               td link_to(answer.user.username, admin_user_path(answer.user))
-              td problem.result == answer.value ? "True" : "False"
+              td answer.correct? ? status_tag( "yes", :ok ) : status_tag( "no" )
             end
           end
         end

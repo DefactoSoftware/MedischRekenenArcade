@@ -29,11 +29,12 @@ ActiveAdmin.register Answer do
     default_actions
   end
 
-  show do |ad|
+  show do |answer|
     attributes_table do
       row :id
+      row :value
       row :correct do
-        ad.correct?
+        answer.correct? ? status_tag( "yes", :ok ) : status_tag( "no" )
       end
       row :problem do
         table do
@@ -44,14 +45,12 @@ ActiveAdmin.register Answer do
             th "unit"
             th "link"
           end
-          ad.problem do |problem|
-            tr do
-              td problem.theory
-              td problem.result
-              td problem.difficulty
-              td problem.unit.sign
-              td link_to("click", admin_problem_path(id: problem.id))
-            end
+          tr do
+            td answer.problem.theory
+            td answer.problem.result
+            td answer.problem.difficulty
+            td answer.problem.unit ? answer.problem.unit.sign : "-"
+            td link_to("click", admin_problem_path(id: answer.problem.id))
           end
         end
       end
