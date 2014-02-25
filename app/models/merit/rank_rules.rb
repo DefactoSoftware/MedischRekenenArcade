@@ -15,7 +15,46 @@ module Merit
     include Merit::RankRulesMethods
 
     def initialize
-      # set_rank :level => 1, :to => Commiter.active do |commiter|
+      set_rank level: 1, to: User do |user|
+        user.points >= 25
+      end
+
+      set_rank level: 2, to: User do |user|
+        user.points >= 50
+      end
+
+      set_rank level: 3, to: User do |user|
+        user.points >= 75
+      end
+
+      set_rank level: 4, to: User do |user|
+        user.points >= 100
+      end
+
+      set_rank level: 5, to: User do |user|
+        user.points >= 150
+      end
+
+      set_rank level: 6, to: User do |user|
+        user.points >= 200
+      end
+
+      set_rank level: 7, to: User do |user|
+        user.points >= 350
+      end
+
+      set_rank level: 8, to: User do |user|
+        user.points >= 500
+      end
+
+      set_rank level: 9, to: User do |user|
+        user.points >= 700
+      end
+
+      set_rank level: 10, to: User do |user|
+        user.points >= 1000
+      end
+
       #   commiter.repositories.count > 1 && commiter.followers >= 10
       # end
       #
