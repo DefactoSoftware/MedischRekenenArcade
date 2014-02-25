@@ -15,43 +15,43 @@ module Merit
     include Merit::RankRulesMethods
 
     def initialize
-      set_rank level: 1, to: User do |user|
+      set_rank level: 1, level_name: "First Aid Volunteer", to: User do |user|
         user.points >= 25
       end
 
-      set_rank level: 2, to: User do |user|
+      set_rank level: 2, level_name: "Paramedic", to: User do |user|
         user.points >= 50
       end
 
-      set_rank level: 3, to: User do |user|
+      set_rank level: 3, level_name: "Nursery Assistent", to: User do |user|
         user.points >= 75
       end
 
-      set_rank level: 4, to: User do |user|
+      set_rank level: 4, level_name: "Anaesthetist", to: User do |user|
         user.points >= 100
       end
 
-      set_rank level: 5, to: User do |user|
+      set_rank level: 5, level_name: "Nurse Practicioner", to: User do |user|
         user.points >= 150
       end
 
-      set_rank level: 6, to: User do |user|
+      set_rank level: 6, level_name: "Clinical Nurse Specialist" to: User do |user|
         user.points >= 200
       end
 
-      set_rank level: 7, to: User do |user|
+      set_rank level: 7, level_name: "Head of Nursery" to: User do |user|
         user.points >= 350
       end
 
-      set_rank level: 8, to: User do |user|
+      set_rank level: 8, level_name: "Brain Surgeon" to: User do |user|
         user.points >= 500
       end
 
-      set_rank level: 9, to: User do |user|
+      set_rank level: 9, level_name: "Head of Surgery" to: User do |user|
         user.points >= 700
       end
 
-      set_rank level: 10, to: User do |user|
+      set_rank level: 10, level_name: "Surgeon General" to: User do |user|
         user.points >= 1000
       end
 
