@@ -35,7 +35,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
-  belongs_to :user_skill
+  has_many :user_skills
   belongs_to :user_group
 
   has_many :answers
