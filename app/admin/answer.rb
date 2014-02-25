@@ -40,12 +40,16 @@ ActiveAdmin.register Answer do
           tr do
             th "theory"
             th "result"
+            th "difficulty"
+            th "unit"
             th "link"
           end
           ad.problem do |problem|
             tr do
               td problem.theory
               td problem.result
+              td problem.difficulty
+              td problem.unit.sign
               td link_to("click", admin_problem_path(id: problem.id))
             end
           end
