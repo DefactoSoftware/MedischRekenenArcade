@@ -1,0 +1,9 @@
+<%if @notification %>
+<div id="notification">
+  <div class="row">
+    <%= NotificationPresenter.new(@notification, self).render_notification%>
+  </div>
+</div>
+<% end %>
+
+

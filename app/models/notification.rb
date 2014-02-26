@@ -1,22 +1,21 @@
 # == Schema Information
 #
-# Table name: activities
+# Table name: notifications
 #
 #  id             :integer          not null, primary key
 #  user_id        :integer
-#  action         :string(255)
+#  image          :string(255)
+#  text           :string(255)
 #  trackable_id   :integer
 #  trackable_type :string(255)
+#  notified       :boolean          default(FALSE)
 #  created_at     :datetime
 #  updated_at     :datetime
-#  notified       :boolean          default(FALSE)
 #
 
-class Activity < ActiveRecord::Base
+class Notification < ActiveRecord::Base
   belongs_to :user
   belongs_to :trackable, polymorphic: true
 
   validates :user, presence: true
-  validates :trackable, presence: true
-  validates :action, presence: true
 end

@@ -1,0 +1,9 @@
+<div class="col-lg-3">
+  <%= image_tag(notification.image) %>
+</div>
+<div class="col-lg-9">
+  <h3><%= t("notifications.badge.title") %></h3>
+  <h4><%= t("badges.#{notification.trackable.badge.name}.name") %></h4>
+  <p><%= t("badges.#{notification.trackable.badge.name}.description") %></p>
+  <%= link_to user_statistics_path(notification.user) do%><%= t("badges.go_to_statistics") %><% end %>
+</div>

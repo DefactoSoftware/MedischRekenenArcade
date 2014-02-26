@@ -37,7 +37,9 @@ nl:
   total: "Totaal"
   activities:
     title: "Activiteit"
-    new_badge: "Je hebt een badge verdiend!"
+  notifications:
+    badge:
+      title: "Je hebt een badge verdiend!"
   feedback_report:
     button: "Meld een probleem!"
     title: "Schrijf het probleem op dat je gevonden hebt"

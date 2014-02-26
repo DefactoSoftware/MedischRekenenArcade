@@ -47,7 +47,9 @@ en:
       text: "Report"
   activities:
     title: "Activity"
-    new_badge: "You earned a new badge!"
+  notifications:
+    badge:
+      title: "You earned a new badge!"
   user_group:
     save:
       success: "Added new user group"

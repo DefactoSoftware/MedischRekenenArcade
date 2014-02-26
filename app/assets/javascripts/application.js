@@ -18,6 +18,14 @@
 //= require turbolinks
 //= require calculator
 
+$(document).ready(function() {
+  $.ajax({
+    url: "/notifications",
+  }).done(function(data) {
+    $("body").append(data);
+  });
+})
+
 $(document).on('mouseenter', '#badges_block a.thumb-link', function(e) {
   var $inner = $(this).find('.caption .inner');
   $inner.css( 'bottom', $inner.children('.more').outerHeight(true) );
