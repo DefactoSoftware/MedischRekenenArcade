@@ -8,28 +8,7 @@
       <p id="theory"><%= problem.theory %>?</p>
     </div>
     <div class="two-column-fill input">
-      <%= form_for(Answer.new) do |f| %>
-        <% if @challenge %>
-          <%= f.hidden_field :user_challenge_id, value: UserChallenge.where(challenge_id: session[:challenge], user: current_user).last.id %>
-        <% end %>
-        <%= f.hidden_field :problem_id, value: problem.id %>
-        <%= f.hidden_field :user_challenge_id, value: @user_challenge.id if @user_challenge %>
-        <div class="form-group">
-          <div class="input-group answer-field">
-            <%= f.text_area :value, class:"form-control", rows:"1", required: true, type: "number" %>
-            <% if problem.unit %>
-              <span id="selectedUnit" class="input-group-addon dropdown-toggle" data-toggle="dropdown"></span>
-              <ul class="dropdown-menu pull-right">
-                <% problem.unit.unit_group.units.each do |unit| %>
-                  <li><a class="unit_select" data-sign="<%= unit.sign %>"><%= unit.name %></a></li>
-                <% end %>
-              </ul>
-            <% else %>
-              <span class="input-group-addon"></span>
-            <% end %>
-          </div>
-        </div>
-      <% end %>
+      <%= render 'problems/form', problem: @problem %>
     </div>
   </div>
 </div>
@@ -37,14 +16,7 @@
   <div class="row">
     <div class="two-column-fill "></div>
     <div class="two-column-fill">
-      <div class="form-group submit_form">
-        <div>
-        <button id="submit_answer" class="btn btn-submit btn-embossed btn-practice"><%= t("practice.submit_button") %></button>
-        <%= help_button(params[:controller]) %>
-        <br>
-        <a href="#" id="skipQuestion">(<%= t("practice.skipquestion") %>)</a>
-      </div>
-      </div>
+      <%= render 'problems/submit' %>
     </div>
   </div>
   <div class="inside-row">
