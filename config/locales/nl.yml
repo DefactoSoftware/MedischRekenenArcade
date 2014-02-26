@@ -292,6 +292,9 @@ nl:
     ConcentrationAmount:
       title: "Concentratie: hoeveelheid van oplossing"
       info: "Bij deze uitdaging moet je uitrekenen hoeveel gram van een vloeistof er in een oplossing zit. Na 10 goede antwoorden behaal je de uitdaging"
+    SyringePumpAmount:
+      title: "Spuitenpomp: Hoeveelheden"
+      info: "-"
     labels:
       stats: "Statistiek"
       amount: "Aantal"
@@ -315,6 +318,7 @@ nl:
     ConcentrationVitaminC: "Met een concentratie wordt aangegeven welk gedeelte van stof A in stof B zit. Het gaat hier om de hoeveelheid Vitamine C in 1 tablet. Dat betekent dat je de hoeveelheid Vitamine C moet delen door het totale gewicht. Vermenigvuldig nog met 100 om de concentratie in procenten te krijgen"
     ConcentrationGlucose: "Met een concentratie wordt aangegeven welk gedeelte van stof A in stof B zit. Je hebt hier een percentage, dat moet je dus delen door 100. Dat resultaat vermenigvuldig je met de hoeveelheid Glucoseoplossing en je hebt de hoeveelheid Glucose."
     ConcentrationToHundred: "Deel de gegeven waarde door het gegeven percentage, je hebt dan 1%. Vermenigvuldig dat met 100."
+    SyringePumpAmount: "-"
   challenge_sets:
     Week_1: "Basis en Percentages"
     Week_2: "Concentraties en Oplossingen"
@@ -361,6 +365,12 @@ nl:
         lidocaine: "De patient moet %{operation1_constant2} mg periciazine krijgen. Je beschikt alleen over %{operation1_constant1}% periciazinevloeistof. Hoeveel ml moet je hiervan geven"
         pethidine: "Je gaat een ampul klaarmaken met daarin pethidineoplossing %{operation1_constant1}%. Je hebt %{operation1_constant2} mg nodig. Je hebt een ampul van hoeveel ml nodig"
         glucose: "In voorraad is een glucoseoplossing van %{operation1_constant1}%. Je moet de patient %{operation1_constant2} mg glucose geven, hoeveel ml heb je nodig"
+      SyringePumpAmount:
+        insuline: "De patient moet %{operation1_constant1}mg insuline per 24 uur krijgen. Je hebt ampullen van %{operation1_constant2}mg/%{operation2_constant1}ml. Hoeveel %{unit} insuline doe je in een spuit voor 24 uur"
+        kci: "De patient heeft %{operation1_constant1}mg KCI nodig. Dit moet toegediend worden in 24 uur. In voorraad zijn ampullen van %{operation1_constant2}mg/%{operation2_constant1}ml. Hoeveel %{unit} KCI heb je nodig voor een spuit voor 24 uur"
+        midazolam: "De patient krijgt %{operation1_constant1}mg midazolam per 24 uur. Er zijn ampullen van %{operation1_constant2}mg/%{operation2_constant1}ml in voorraad. Hoeveel %{unit} Midazolam zit er in een spuit voor 24 uur"
+        morfine: "De patient heeft pijn en mag daarom %{operation1_constant1}mg morfine per 24 uur krijgen. In voorraad zijn ampullen van %{operation1_constant2}mg/%{operation2_constant1}ml. Hoeveel %{unit} morfine doe je in een spuit voor 24 uur"
+        ranitidine: "De patient moet %{operation1_constant1}mg ranitidine per 24 uur krijgen. Je hebt ampullen van %{operation1_constant2}mg/%{operation2_constant1}ml. Hoeveel %{unit} ranitidine heb je nodig voor een spuit voor 24 uur"
   home:
     last_badge: "Laatste Badge"
     last_challenge: "Laatste Challenge"
