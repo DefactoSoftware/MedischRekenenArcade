@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140221132019) do
+ActiveRecord::Schema.define(version: 20140226115550) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 20140221132019) do
     t.string   "trackable_type"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "notified",       default: false
+    t.boolean  "notified"
   end
 
   add_index "activities", ["trackable_id"], name: "index_activities_on_trackable_id", using: :btree
@@ -109,7 +109,6 @@ ActiveRecord::Schema.define(version: 20140221132019) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "steps"
-    t.string   "type"
     t.integer  "challenge_set_id"
   end
 
@@ -164,6 +163,20 @@ ActiveRecord::Schema.define(version: 20140221132019) do
     t.integer "sash_id"
     t.string  "category", default: "default"
   end
+
+  create_table "notifications", force: true do |t|
+    t.integer  "user_id"
+    t.string   "image"
+    t.string   "text"
+    t.integer  "trackable_id"
+    t.string   "trackable_type"
+    t.boolean  "notified",       default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "notifications", ["trackable_id"], name: "index_notifications_on_trackable_id", using: :btree
+  add_index "notifications", ["user_id"], name: "index_notifications_on_user_id", using: :btree
 
   create_table "oauth_access_grants", force: true do |t|
     t.integer  "resource_owner_id", null: false
