@@ -41,6 +41,25 @@ ActiveAdmin.register User do
     attributes_table do
       table do
         tr do
+          th "Success"
+          th "Amount fail"
+          th "Amount good"
+          th "Challenge"
+        end
+        user.user_challenges.limit(50).each do |user_challenge|
+          tr do
+            td user_challenge.success ? status_tag( "yes", :ok ) : status_tag( "no" )
+            td user_challenge.amount_fail
+            td user_challenge.amount_good
+            td link_to "click", admin_challenge_path(user_challenge.challenge)
+          end
+        end
+      end
+    end
+
+    attributes_table do
+      table do
+        tr do
           th "value"
           th "correct answer"
           th "theory"
@@ -58,6 +77,7 @@ ActiveAdmin.register User do
         end
       end
     end
+
     active_admin_comments
   end
 end
