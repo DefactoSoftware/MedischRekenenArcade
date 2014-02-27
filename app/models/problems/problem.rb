@@ -34,6 +34,7 @@ class Problem < ActiveRecord::Base
                       ConcentrationAmount ConcentrationToHundred SyringePumpAmount)
 
   def generate(user)
+    self.skill_offset=7
     generate_unit
     generate_skill
 
