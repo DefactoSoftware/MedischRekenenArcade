@@ -28,12 +28,15 @@ en:
   activity:
     badge: "the badge"
     challenge: "the challenge"
+    you: "You"
   title: "Med Math"
   unit: "Unit"
   streak: "Streak"
   points: "Points"
   session: "Session"
   total: "Total"
+  gamercard:
+    text: "has %{points} points, completed %{challenges} challenges and collected %{badges} badges!"
   feedback_report:
     button: "Report a problem!"
     title: "Write down the problem you encountered"
@@ -334,8 +337,7 @@ en:
 
                     Register by clicking on the button
     logged_in_text: |
-                    ## You have %{points} points!
-
+                    ### Ready to help some patients?
                     You can earn 1 point per right answer, during practice and challenges.
                     If you successfully complete a challenge you get a bonus of 20 points!
 

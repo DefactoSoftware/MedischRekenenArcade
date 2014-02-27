@@ -1,9 +1,18 @@
 #gamercard {
   width: 400px;
-  height: 160px;
+  height: 150px;
   padding:10px;
-  border:1px solid black;
-  box-shadow: 10px 10px 5px #888888;
+  margin-left:auto;
+  margin-right:auto;
+  border-bottom: 1px solid #1abc9c;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-bottom-width: 2px;
+  box-shadow: 10px 10px 25px black;
+
+  cursor: pointer;
+
+  font-family: 'Varela Round', sans-serif;
 
   background: #ffffff; /* Old browsers */
   background: -moz-linear-gradient(-45deg,  #ffffff 0%, #f1f1f1 50%, #e1e1e1 51%, #f6f6f6 100%); /* FF3.6+ */
@@ -18,6 +27,11 @@
 .badges_row {
   width:100px;
   border: 1px solid black;
+  background-color: black;
+}
+
+.badges_row img {
+  width:30.5%;
 }
 
 .left_card {
@@ -37,18 +51,37 @@
 .right_card {
   width:70%;
   float:right;
+  margin-top:-14px;
 }
 
 .right_card .name {
   font-size:27px;
-  margin-left:15px;
+  width:200px;
+  margin-top:45px;
+  margin-left:10px;
+  float:left;
 }
 .right_card .level {
-  font-size:50px;
-  margin-left:27px;
+  font-size:40px;
+  width:40px;
+  height:40px;
+  float:right;
+
+  padding-bottom:55px;
+  padding-top:0px;
+  padding-right:40px;
+  padding-left:15px;
+  margin-top:30px;
+  margin-bottom:5px;
+
+  border: 5px solid #1abc9c;
+  border-radius: 50px;
 }
 
 .right_card .top {
-  text-align:left; width:276px; margin-left:-7px; border-bottom:2px solid black;
-  margin-top:-20px;
+  text-align:left;
+  width:276px;
+  margin-left:-15px;
+  border-bottom:2px solid black;
+  margin-top:-10px;
 }

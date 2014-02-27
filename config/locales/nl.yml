@@ -35,6 +35,8 @@ nl:
   points: "Punten"
   session: "Sessie"
   total: "Totaal"
+  gamercard:
+    text: "heeft %{points} punten, %{challenges} uitdagingen gehaald en %{badges} badges verzameld!"
   activities:
     title: "Activiteit"
   notifications:
@@ -366,8 +368,6 @@ nl:
                     Registreer je account door op de knop hieronder te klikken
 
     logged_in_text: |
-                    ## Je hebt %{points} punten
-
                     Je kan 1 punt per goed antwoord verdienen, tijdens oefenen en uitdagingen.
                     Als je een uitdaging haalt krijg je nog een bonus van 20 punten!
 

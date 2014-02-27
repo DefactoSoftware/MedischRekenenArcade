@@ -2,6 +2,8 @@
 
 .popover {
   box-shadow: 0px 5px 10px rgba(0,0,0,0.3);
+  border-bottom: 1px solid #1abc9c;
+  box-shadow: 10px 10px 25px black;
 }
 
 .popover-content {
@@ -9,6 +11,8 @@
 }
 
 .popover-title {
+  color: white;
+  font-size: 16px;
   background-color: #2980b9;
   border: 0px;
 }

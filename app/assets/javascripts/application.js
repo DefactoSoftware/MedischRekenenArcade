@@ -38,6 +38,10 @@ $("#calculator").ready(function() {
   $("#calculator").draggable();
 })
 
+$("#gamercard").ready(function() {
+  $("#gamercard").draggable();
+})
+
 //Functions for making answering view interactive
 $(".unit_select").ready(function() {
   $(".unit_select").on("click", function(element){

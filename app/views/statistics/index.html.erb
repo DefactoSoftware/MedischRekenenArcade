@@ -1,7 +1,6 @@
-
-<% if @user != current_user %>
-<%= render 'users/info', user: @user %>
-<% end %>
+<div class="inside-row" >
+<%= render 'users/gamercard', user: @user %>
+</div>
 
 <div class="row">
   <div class="two-column-fill">

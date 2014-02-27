@@ -7,7 +7,7 @@ module HomeHelper
 
   def personalized_welcome(user)
     if user
-      "#{greeting_for_time(Time.now)} #{user.name}! "
+      "#{greeting_for_time(Time.now)}! "
     else
       "#{greeting_for_time(Time.now)}!"
     end

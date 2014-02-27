@@ -19,4 +19,9 @@ module StatisticsHelper
       </tr>
     </table>"
   end
+
+  def badge_popover(badge)
+    badge_description = t("badges.#{badge.name}.description")
+    "<p>#{badge_description}</p>"
+  end
 end
