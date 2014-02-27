@@ -21,7 +21,11 @@
   </div>
   <div class="right_card">
     <div class="top">
-      <div class="name"><span><%= user.name %></span></div>
+      <div class="name">
+        <span class="level_name"><%= t("levels.level_#{user.level}") %></span><br>
+        <span><%= user.name %></span>
+
+      </div>
       <div class="level" title="Level"><span ><%= user.level %></span></div>
     </div>
     <div>

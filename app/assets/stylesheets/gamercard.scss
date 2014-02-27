@@ -55,22 +55,27 @@
 }
 
 .right_card .name {
-  font-size:27px;
+  font-size:22px;
   width:200px;
-  margin-top:45px;
+  margin-top:25px;
   margin-left:10px;
   float:left;
 }
+
+.right_card .name .level_name {
+  font-size:17px;
+  font-style: italic;
+}
 .right_card .level {
   font-size:40px;
-  width:40px;
+  width:60px;
   height:40px;
   float:right;
 
   padding-bottom:55px;
   padding-top:0px;
-  padding-right:40px;
-  padding-left:15px;
+  text-align:center;
+
   margin-top:30px;
   margin-bottom:5px;
 
