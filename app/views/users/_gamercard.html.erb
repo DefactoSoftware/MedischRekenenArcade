@@ -1,7 +1,7 @@
 <div id="gamercard">
   <div class="left_card">
     <div id="gamercard_profile_image" class="img">
-      <img src="<%= current_user.profilepicture_url %>" width="98px" height="99px">
+      <img src="<%= user.profilepicture_url %>" width="98px" height="99px">
     </div>
     <div class="badges_row">
       <% user.badges.last(3).each do |badge| %>
