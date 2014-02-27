@@ -51,6 +51,7 @@ class User < ActiveRecord::Base
   validates :username, presence: true, uniqueness: true
 
   after_create :init_redis
+  after_create :init_user_skills
   after_update :grant_vanity_badge, :grant_sign_up_badge
 
   has_many :user_challenges
@@ -85,6 +86,12 @@ class User < ActiveRecord::Base
   private
   def init_redis
     RedisLeaderboard.get.rank_member(self.id, 0)
+  end
+
+  def init_user_skills
+    Skill.all.each do |skill|
+      UserSkill.create(skill: skill, user: self)
+    end
   end
 
   def update_leaderboard(value)
