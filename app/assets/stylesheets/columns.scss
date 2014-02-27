@@ -1,0 +1,53 @@
+.three-column-small {
+  @extend .col-md-2;
+  @extend .col-lg-2;
+  @extend .col-sm-12;
+  @extend .col-xs-12;
+}
+
+.three-column-big {
+  @extend .col-md-8;
+  @extend .col-lg-8;
+  @extend .col-sm-12;
+  @extend .col-xs-12;
+}
+
+.three-column-equal-side {
+  @extend .col-lg-4;
+  @extend .col-md-4;
+  @extend .col-sm-2;
+  @extend .col-xs-2;
+}
+
+.three-column-equal-main {
+  @extend .col-lg-4;
+  @extend .col-md-4;
+  @extend .col-sm-12;
+  @extend .col-xs-12
+}
+
+.two-column-fill {
+  @extend .col-md-6;
+  @extend .col-lg-6;
+  @extend .col-sm-12;
+  @extend .col-xs-12;
+}
+
+.one-column-fill {
+  @extend .col-md-12;
+  @extend .col-lg-12;
+  @extend .col-sm-12;
+  @extend .col-xs-12;
+}
+
+.one-column-center {
+  @extend .col-md-12;
+  @extend .col-lg-12;
+  @extend .col-sm-12;
+  @extend .col-xs-12;
+}
+
+.one-column-side {
+  @extend .col-md-1;
+  @extend .col-lg-1;
+}

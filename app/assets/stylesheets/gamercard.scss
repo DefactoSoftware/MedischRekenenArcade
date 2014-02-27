@@ -1,0 +1,54 @@
+#gamercard {
+  width: 400px;
+  height: 160px;
+  padding:10px;
+  border:1px solid black;
+  box-shadow: 10px 10px 5px #888888;
+
+  background: #ffffff; /* Old browsers */
+  background: -moz-linear-gradient(-45deg,  #ffffff 0%, #f1f1f1 50%, #e1e1e1 51%, #f6f6f6 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,#ffffff), color-stop(50%,#f1f1f1), color-stop(51%,#e1e1e1), color-stop(100%,#f6f6f6)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(-45deg,  #ffffff 0%,#f1f1f1 50%,#e1e1e1 51%,#f6f6f6 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(-45deg,  #ffffff 0%,#f1f1f1 50%,#e1e1e1 51%,#f6f6f6 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(-45deg,  #ffffff 0%,#f1f1f1 50%,#e1e1e1 51%,#f6f6f6 100%); /* IE10+ */
+  background: linear-gradient(135deg,  #ffffff 0%,#f1f1f1 50%,#e1e1e1 51%,#f6f6f6 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f6f6f6',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+
+.badges_row {
+  width:100px;
+  border: 1px solid black;
+}
+
+.left_card {
+  width:30%;
+  float:left;
+}
+
+.left_card .img {
+  height:100px;
+  width:100px;
+  border-top:1px solid black;
+  border-left:1px solid black;
+  border-right:1px solid black;
+  box-shadow: 5px;
+}
+
+.right_card {
+  width:70%;
+  float:right;
+}
+
+.right_card .name {
+  font-size:27px;
+  margin-left:15px;
+}
+.right_card .level {
+  font-size:50px;
+  margin-left:27px;
+}
+
+.right_card .top {
+  text-align:left; width:276px; margin-left:-7px; border-bottom:2px solid black;
+  margin-top:-20px;
+}

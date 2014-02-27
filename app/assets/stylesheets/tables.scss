@@ -1,0 +1,21 @@
+.table-striped tbody tr:nth-child(odd) td {
+   background-color: #3498db !important;
+   color: white;
+}
+.table-striped tbody tr:nth-child(even) td {
+   background-color: white !important;
+}
+
+.table-striped tbody tr:nth-child(odd) a {
+   color: white;
+}
+.table-striped tbody tr:nth-child(even) a {
+   color: black;
+}
+
+.table-striped tbody tr:nth-child(odd) a:hover {
+     color: #c7c7c7;
+}
+.table-striped tbody tr:nth-child(even) a:hover {
+   color: #c7c7c7;
+}
