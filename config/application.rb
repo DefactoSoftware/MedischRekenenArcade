@@ -36,6 +36,6 @@ module MedischRekenenArcade
 
     config.active_record.observers = :badges_sash_observer
 
-    I18n.default_locale = :en
+    I18n.default_locale = :nl
   end
 end
