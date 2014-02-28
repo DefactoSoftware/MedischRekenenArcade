@@ -1,5 +1,15 @@
 <%= t("actions.#{activity.action}") %>
 <%= t("activity.badge") %>
-<%= link_to user_statistics_path(activity.user) do %>
+<a
+  href="<%= user_statistics_path(activity.user) %>"
+  class="thumb-link"
+  data-toggle="popover"
+  data-container="body"
+  data-placement="left"
+  data-original-title="<%= t("badges.#{activity.trackable.badge.name}.name") %>"
+  title
+  data-content='<%=badge_popover(activity.trackable.badge)%>'
+>
   <%= t("badges.#{activity.trackable.badge.name}.name") %>
-<% end %>
+</a>
+

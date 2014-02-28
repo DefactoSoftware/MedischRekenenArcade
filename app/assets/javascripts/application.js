@@ -74,7 +74,7 @@ $("#add_user_group_link").ready(function() {
 });
 
 $(".thumb-link").ready(function() {
-  $(".thumb-link").popover({html: true, trigger: "hover", placement: "right"});
+  $(".thumb-link").popover({html: true, trigger: "hover"});
 });
 
 $("#skipQuestion").ready(function() {
