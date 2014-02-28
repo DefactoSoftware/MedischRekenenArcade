@@ -47,7 +47,15 @@ nl:
     level_9: "Super Nova"
     level_10: "Grand Master"
   gamercard:
-    text: "heeft %{points} punten, %{challenges} uitdagingen gehaald en %{badges} badges verzameld!"
+    points:
+      one: "heeft 1 punt"
+      other: "heeft %{count} punten,"
+    challenges:
+      one: " 1 uitdaging gehaald"
+      other: " %{count} uitdagingen gehaald"
+    badges:
+      one: " en 1 badge verzameld!"
+      other: " en %{count} badges verzameld!"
   activities:
     title: "Activiteit"
   notifications:

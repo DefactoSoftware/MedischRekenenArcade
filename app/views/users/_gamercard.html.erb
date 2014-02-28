@@ -29,10 +29,11 @@
       <div class="level" title="Level"><span ><%= user.level %></span></div>
     </div>
     <div>
-      <p><%= t("gamercard.text",
-                points: RedisLeaderboard.get.score_for(user.id).to_i,
-                challenges: user.challenges_completed_successfully,
-                badges: user.badges.count) %>
+      <p>
+        <%= t("gamercard.points", count: RedisLeaderboard.get.score_for(user.id).to_i) %>
+        <%= t("gamercard.challenges", count: user.challenges_completed_successfully) %>
+        <%= t("gamercard.badges", count: user.badges.count) %>
+      </p>
     </div>
   </div>
 </div>
