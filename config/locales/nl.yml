@@ -295,6 +295,9 @@ nl:
     SyringePumpAmount:
       title: "Spuitenpomp: Hoeveelheden"
       info: "-"
+    SyringePumpHourly:
+      title: "Spuitenpomp: Per uur"
+      info: "-"
     labels:
       stats: "Statistiek"
       amount: "Aantal"
@@ -371,6 +374,12 @@ nl:
         midazolam: "De patient krijgt %{operation1_constant1}mg midazolam per 24 uur. Er zijn ampullen van %{operation1_constant2}mg/%{operation2_constant1}ml in voorraad. Hoeveel %{unit} Midazolam zit er in een spuit voor 24 uur"
         morfine: "De patient heeft pijn en mag daarom %{operation1_constant1}mg morfine per 24 uur krijgen. In voorraad zijn ampullen van %{operation1_constant2}mg/%{operation2_constant1}ml. Hoeveel %{unit} morfine doe je in een spuit voor 24 uur"
         ranitidine: "De patient moet %{operation1_constant1}mg ranitidine per 24 uur krijgen. Je hebt ampullen van %{operation1_constant2}mg/%{operation2_constant1}ml. Hoeveel %{unit} ranitidine heb je nodig voor een spuit voor 24 uur"
+      SyringePumpHourly:
+        insuline: "De patient krijgt continu insuline toegediend. De patient heeft %{operation1_constant1}mg insule per 24 uur nodig. Je hebt ampullen van %{operation2_constant1}mg/%{operation2_constant2}ml. Op hoeveel %{unit} per uur zet je de spuitenpomp"
+        kci: "De patient krijgt continu KCI toegediend. De patient heeft %{operation1_constant1}mg KCI per 24 uur nodig. Je hebt ampullen van %{operation2_constant1}mg/%{operation2_constant2}ml. Op hoeveel %{unit} per uur zet je de spuitenpomp"
+        midazolam: "De patient krijgt continu Midazolam toegediend. De patient heeft %{operation1_constant1}mg Midazolam per 24 uur nodig. Je hebt ampullen van %{operation2_constant1}mg/%{operation2_constant2}ml. Op hoeveel %{unit} per uur zet je de spuitenpomp"
+        morfine: "De patient krijgt continu morfine toegediend. De patient heeft %{operation1_constant1}mg morfine per 24 uur nodig. Je hebt ampullen van %{operation2_constant1}mg/%{operation2_constant2}ml. Op hoeveel %{unit} per uur zet je de spuitenpomp"
+        ranitidine: "De patient krijgt continu ranitidine toegediend. De patient heeft %{operation1_constant1}mg ranitidine per 24 uur nodig. Je hebt ampullen van %{operation2_constant1}mg/%{operation2_constant2}ml. Op hoeveel %{unit} per uur zet je de spuitenpomp"
   home:
     last_badge: "Laatste Badge"
     last_challenge: "Laatste Challenge"
