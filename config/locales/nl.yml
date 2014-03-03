@@ -368,7 +368,7 @@ nl:
         midazolam: "De patient krijgt continu Midazolam toegediend. De patient heeft %{operation1_constant1}mg Midazolam per 24 uur nodig. Je hebt ampullen van %{operation2_constant1}mg/%{operation2_constant2}ml. Op hoeveel %{unit} per uur zet je de spuitenpomp"
         morfine: "De patient krijgt continu morfine toegediend. De patient heeft %{operation1_constant1}mg morfine per 24 uur nodig. Je hebt ampullen van %{operation2_constant1}mg/%{operation2_constant2}ml. Op hoeveel %{unit} per uur zet je de spuitenpomp"
         ranitidine: "De patient krijgt continu ranitidine toegediend. De patient heeft %{operation1_constant1}mg ranitidine per 24 uur nodig. Je hebt ampullen van %{operation2_constant1}mg/%{operation2_constant2}ml. Op hoeveel %{unit} per uur zet je de spuitenpomp"
-      DropIvHourly: "Een patient is gedehydrateerd. Hij krijgt %{operation1_constant1} liter infuus per 24 uur. Op hoeveel %{unit} per uur zet je de pomp"
+      DropIvHourly: "Een patient is gedehydrateerd. Hij krijgt %{operation1_constant1} liter infuus per %{operation1_constant2} uur. Op hoeveel %{unit} per uur zet je de pomp"
       DropIvAmount: "Een patient is gedehydrateerd. Hij krijgt %{operation1_constant1} liter infuus per 24 uur. Hoeveel druppels zijn dat per minuut"
   home:
     last_badge: "Laatste Badge"

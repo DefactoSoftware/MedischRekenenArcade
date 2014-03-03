@@ -33,7 +33,7 @@ class DropIvHourly < Problem
     operations << Operation.new(
                     AVAILABLE_OPERATORS["Division"],
                     Constant.new(operations.last),
-                    Constant.new(24)
+                    Constant.new(Float(4*(rand(1..6))))
                 )
     formula = Formula.new(operations)
   end
@@ -41,7 +41,8 @@ class DropIvHourly < Problem
   def generate_theory(formula)
     self.theory = I18n.t("problems.theory.#{self.class.name}",
                           unit: unit.sign,
-                          operation1_constant1: formula.operations[0].constant1.value
+                          operation1_constant1: formula.operations[0].constant1.value,
+                          operation1_constant2: formula.operations[1].constant2.value
                         )
   end
 
