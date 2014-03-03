@@ -273,15 +273,16 @@ nl:
       info: "Bij deze uitdaging moet je uitrekenen hoeveel gram van een vloeistof er in een oplossing zit. Na 10 goede antwoorden behaal je de uitdaging"
     SyringePumpAmount:
       title: "Spuitenpomp: Hoeveelheden"
-      info: "-"
+      info: "Bij deze uitdaging moet je uitrekenen hoeveel ml van het medicijn je moet voorbereiden.  Na 10 goede antwoorden behaal je de uitdaging"
     SyringePumpHourly:
       title: "Spuitenpomp: Per uur"
-      info: "-"
+      info: "Bij deze uitdaging moet je uitrekenen op welke stand je de spuitenpomp zet en dus hoeveel ml per uur er toegediend wordt. Na 10 goede antwoorden behaal je de uitdaging"
     DropIvHourly:
       title: "Druppelgestuurd Infuus: Per uur"
-      info: "-"
+      info: "Bij deze uitdaging moet je uitrekenen op welke stand je het druppel infuus moet zetten en dus hoeveel ml per uur er toegediend wordt."
     DropIvAmount:
       title: "Druppelgestuurd Infuus: Aantal Druppels"
+      info: "Bij deze uitdaging moet je het aantal druppels per minuut dat door het druppel infuus gegeven wordt uitrekenen. Na 10 goede antwoorden behaal je de uitdaging"
     labels:
       stats: "Statistiek"
       amount: "Aantal"
@@ -306,6 +307,7 @@ nl:
     ConcentrationGlucose: "Met een concentratie wordt aangegeven welk gedeelte van stof A in stof B zit. Je hebt hier een percentage, dat moet je dus delen door 100. Dat resultaat vermenigvuldig je met de hoeveelheid Glucoseoplossing en je hebt de hoeveelheid Glucose."
     ConcentrationToHundred: "Deel de gegeven waarde door het gegeven percentage, je hebt dan 1%. Vermenigvuldig dat met 100."
     SyringePumpAmount: "-"
+    SyringePumpHourly: "-"
     DropIvHourly: "-"
     DropIvAmount: "-"
   challenge_sets:
