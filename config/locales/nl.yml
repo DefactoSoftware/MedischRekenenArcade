@@ -306,13 +306,14 @@ nl:
     ConcentrationVitaminC: "Met een concentratie wordt aangegeven welk gedeelte van stof A in stof B zit. Het gaat hier om de hoeveelheid Vitamine C in 1 tablet. Dat betekent dat je de hoeveelheid Vitamine C moet delen door het totale gewicht. Vermenigvuldig nog met 100 om de concentratie in procenten te krijgen"
     ConcentrationGlucose: "Met een concentratie wordt aangegeven welk gedeelte van stof A in stof B zit. Je hebt hier een percentage, dat moet je dus delen door 100. Dat resultaat vermenigvuldig je met de hoeveelheid Glucoseoplossing en je hebt de hoeveelheid Glucose."
     ConcentrationToHundred: "Deel de gegeven waarde door het gegeven percentage, je hebt dan 1%. Vermenigvuldig dat met 100."
-    SyringePumpAmount: "-"
-    SyringePumpHourly: "-"
-    DropIvHourly: "-"
-    DropIvAmount: "-"
+    SyringePumpAmount: "Deel eerst het totale aantal mg door het aantal mg per ml. Vermenigvuldig dat weer met het aantal ml en je weet hoeveel milliliter je nodig hebt voor 24 uur."
+    SyringePumpHourly: "Deel eerst het totale aantal mg door het aantal uren. Deel dan de verhouding van medicijn en oplossing door elkaar. Deel nu het aantal mg per uur door dat laatste en je hebt het aantal milliliters per uur."
+    DropIvHourly: "Je moet eerst het aantal liters omrekenen naar milliliters. Daarna deel je dat door het aantal uur. Je hebt dan het aantal milliliters per uur."
+    DropIvAmount: "De medische standaard is 1ml is 20 druppels. Eerst moet je dus het aantal liters vermenigvuldigen met 1000 zodat je het aantal milliliters hebt. Vervolgens deel je dat door het aantal minuten (24 uur * 60 minuten). Je hebt nu het aantal milliliters per minuut, nu moet je alleen nog vermenigvuldigen met 20 om het aantal druppels te krijgen."
   challenge_sets:
     Week_1: "Basis en Percentages"
     Week_2: "Concentraties en Oplossingen"
+    Week_3: "Druppel Infuus en Spuitenpomp"
   activerecord:
     attributes:
       user:
