@@ -35,27 +35,6 @@ nl:
   points: "Punten"
   session: "Sessie"
   total: "Totaal"
-  levels:
-    level_1: "Starter"
-    level_2: "Novice"
-    level_3: "Regular"
-    level_4: "Advanced"
-    level_5: "Legend"
-    level_6: "Mythic"
-    level_7: "Noble"
-    level_8: "Eclipse"
-    level_9: "Super Nova"
-    level_10: "Grand Master"
-  gamercard:
-    points:
-      one: "heeft 1 punt"
-      other: "heeft %{count} punten,"
-    challenges:
-      one: " 1 uitdaging gehaald"
-      other: " %{count} uitdagingen gehaald"
-    badges:
-      one: " en 1 badge verzameld!"
-      other: " en %{count} badges verzameld!"
   activities:
     title: "Activiteit"
   notifications:
@@ -298,6 +277,9 @@ nl:
     SyringePumpHourly:
       title: "Spuitenpomp: Per uur"
       info: "-"
+    DropIvHourly:
+      title: "Druppelgestuurd Infuus: Per uur"
+      info: "-"
     labels:
       stats: "Statistiek"
       amount: "Aantal"
@@ -380,6 +362,7 @@ nl:
         midazolam: "De patient krijgt continu Midazolam toegediend. De patient heeft %{operation1_constant1}mg Midazolam per 24 uur nodig. Je hebt ampullen van %{operation2_constant1}mg/%{operation2_constant2}ml. Op hoeveel %{unit} per uur zet je de spuitenpomp"
         morfine: "De patient krijgt continu morfine toegediend. De patient heeft %{operation1_constant1}mg morfine per 24 uur nodig. Je hebt ampullen van %{operation2_constant1}mg/%{operation2_constant2}ml. Op hoeveel %{unit} per uur zet je de spuitenpomp"
         ranitidine: "De patient krijgt continu ranitidine toegediend. De patient heeft %{operation1_constant1}mg ranitidine per 24 uur nodig. Je hebt ampullen van %{operation2_constant1}mg/%{operation2_constant2}ml. Op hoeveel %{unit} per uur zet je de spuitenpomp"
+      DropIvHourly: "Een patient is gedehydrateerd. Hij krijgt %{operation1_constant1} liter infuus per 24 uur. Op hoeveel %{unit} per uur zet je de pomp"
   home:
     last_badge: "Laatste Badge"
     last_challenge: "Laatste Challenge"
@@ -406,7 +389,8 @@ nl:
                     Registreer je account door op de knop hieronder te klikken
 
     logged_in_text: |
-                    ### Klaar om patienten te helpen?
+                    ## Je hebt %{points} punten
+
                     Je kan 1 punt per goed antwoord verdienen, tijdens oefenen en uitdagingen.
                     Als je een uitdaging haalt krijg je nog een bonus van 20 punten!
 
