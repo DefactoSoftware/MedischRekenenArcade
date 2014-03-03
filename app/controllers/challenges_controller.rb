@@ -20,7 +20,7 @@ class ChallengesController < ApplicationController
 
   def index
     reset_challenge
-    @challengesets = ChallengeSet.where(locked: false)
+    @challengesets = ChallengeSet.where(locked: false).order("NAME ASC")
   end
 
   private

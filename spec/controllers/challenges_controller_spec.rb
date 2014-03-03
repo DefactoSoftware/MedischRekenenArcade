@@ -2,8 +2,10 @@ require 'spec_helper'
 
 describe ChallengesController do
   let(:user) { FactoryGirl.create(:user) }
+  let(:challenge_set) { FactoryGirl.create(:challenge_set) }
   let(:challenge) { FactoryGirl.create(:challenge, name: "Addition") }
   let(:skill) { Skill.create(name: "Addition") }
+
   let(:challenge_skill) { FactoryGirl.create(:challenge_skill, skill:skill, challenge:challenge)}
 
   before :each do
@@ -21,7 +23,7 @@ describe ChallengesController do
 
     it "should assign @challengesets" do
       get :index
-      expect(assigns(:challengesets)).to eq(ChallengeSet.where(locked: false))
+      expect(assigns(:challengesets)).to eq(ChallengeSet.where(locked: false).order("NAME ASC"))
     end
   end
 
