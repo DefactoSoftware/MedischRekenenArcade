@@ -45,7 +45,7 @@ describe AnswersController do
     describe "#feedback" do
       it "has rounding error answer feedback " do
         post :create, answer: rounding_error_answer
-        expect(Answer.last.feedback).to eq(I18n.t("answer.feedback.rounding"))
+        expect(Answer.last.feedback).to eq(I18n.t("answer.feedback.rounding2"))
       end
 
       it "has conversion error answer feedback " do
