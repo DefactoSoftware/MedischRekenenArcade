@@ -26,7 +26,7 @@ class Challenge < ActiveRecord::Base
                     PercentageAmountOfAmount PercentageOfUnit PercentageUnitToHundred
                     Division Addition Subtraction Multiplication Mixed
                     UnitConversion ConcentrationTablet ConcentrationToHundred ConcentrationAmount
-                    SolutionMaxisporin
+                    SolutionMaxisporin SyringePumpAmount SyringePumpHourly
                     )
 
   validates :name, inclusion: { in: VALID_NAMES }

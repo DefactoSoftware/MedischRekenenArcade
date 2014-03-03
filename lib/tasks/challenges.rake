@@ -21,4 +21,12 @@ task :create_challenges => :environment do
   concentration_tablet = Challenge.where(name: "ConcentrationTablet", number_of_problems: STANDARD_NO_PROBLEMS, steps: 1, timelimit: 900000, bonus: 20, icon: "challenges/ConcentrationA.png", challenge_set: week2_challenge_set).first_or_create
   concentration_to_hundred = Challenge.where(name: "ConcentrationToHundred", number_of_problems: STANDARD_NO_PROBLEMS, steps: 1, timelimit: 900000, bonus: 20, icon: "challenges/ConcentrationB.png", challenge_set: week2_challenge_set).first_or_create
   concentration_to_amount = Challenge.where(name: "ConcentrationAmount", number_of_problems: STANDARD_NO_PROBLEMS, steps: 1, timelimit: 900000, bonus: 20, icon: "challenges/ConcentrationC.png", challenge_set: week2_challenge_set).first_or_create
+
+  #WEEK 3
+
+  week3_challenge_set = ChallengeSet.where(name: "Week_3", locked:false).first_or_create
+
+  syringe_pump_amount = Challenge.where(name: "SyringePumpAmount", number_of_problems: STANDARD_NO_PROBLEMS, steps: 1, timelimit: 1500000, bonus: 20, icon: "challenges/spuitpomp1.png", challenge_set: week3_challenge_set).first_or_create
+  syringe_pump_hourly = Challenge.where(name: "SyringePumpHourly", number_of_problems: STANDARD_NO_PROBLEMS, steps: 1, timelimit: 1500000, bonus: 20, icon: "challenges/spuitpomp2.png", challenge_set: week3_challenge_set).first_or_create
+
 end
