@@ -28,5 +28,7 @@ task :create_challenges => :environment do
 
   syringe_pump_amount = Challenge.where(name: "SyringePumpAmount", number_of_problems: STANDARD_NO_PROBLEMS, steps: 1, timelimit: 1500000, bonus: 20, icon: "challenges/spuitpomp1.png", challenge_set: week3_challenge_set).first_or_create
   syringe_pump_hourly = Challenge.where(name: "SyringePumpHourly", number_of_problems: STANDARD_NO_PROBLEMS, steps: 1, timelimit: 1500000, bonus: 20, icon: "challenges/spuitpomp2.png", challenge_set: week3_challenge_set).first_or_create
+  drop_iv_hourly = Challenge.where(name: "DropIvHourly", number_of_problems: STANDARD_NO_PROBLEMS, steps: 1, timelimit: 1500000, bonus: 20, icon: "challenges/SolutionB.png", challenge_set: week3_challenge_set).first_or_create
+  drop_iv_amount = Challenge.where(name: "DropIvAmount", number_of_problems: STANDARD_NO_PROBLEMS, steps: 1, timelimit: 1500000, bonus: 20, icon: "challenges/SolutionC.png", challenge_set: week3_challenge_set).first_or_create
 
 end
