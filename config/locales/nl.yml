@@ -186,7 +186,7 @@ nl:
       title: "Antwoord feedback"
       conversion: "Je antwoord was bijna goed, alleen de conversie ging niet goed, waarschijnlijk ben je gewoon de laatste stap vergeten."
       rounding: "Je antwoord zat dichtbij maar je hebt niet goed afgerond, denk eraan dat alle antwoorden afgerond moeten worden op 2 cijfers achter de komma."
-      rounding: "Je antwoord zat binnen 0.1 van het juiste antwoord dus het is wel goed gekeurd, maar denk de volgende keer aan een goede afronding met 2 cijfers achter de komma naar boven."
+      rounding2: "Je antwoord zat binnen 0.2 van het juiste antwoord dus het is wel goed gekeurd, maar denk de volgende keer aan een goede afronding met 2 cijfers achter de komma naar boven."
       correct: "Je antwoord was helemaal goed, ga zo door!"
       result: "Je antwoord was %{result}. Het goede antwoord was %{right_answer}"
       wrong: "Je antwoord was helaas niet goed, maar geef niet op!"
@@ -280,6 +280,8 @@ nl:
     DropIvHourly:
       title: "Druppelgestuurd Infuus: Per uur"
       info: "-"
+    DropIvAmount:
+      title: "Druppelgestuurd Infuus: Aantal Druppels"
     labels:
       stats: "Statistiek"
       amount: "Aantal"
@@ -304,6 +306,8 @@ nl:
     ConcentrationGlucose: "Met een concentratie wordt aangegeven welk gedeelte van stof A in stof B zit. Je hebt hier een percentage, dat moet je dus delen door 100. Dat resultaat vermenigvuldig je met de hoeveelheid Glucoseoplossing en je hebt de hoeveelheid Glucose."
     ConcentrationToHundred: "Deel de gegeven waarde door het gegeven percentage, je hebt dan 1%. Vermenigvuldig dat met 100."
     SyringePumpAmount: "-"
+    DropIvHourly: "-"
+    DropIvAmount: "-"
   challenge_sets:
     Week_1: "Basis en Percentages"
     Week_2: "Concentraties en Oplossingen"
@@ -363,6 +367,7 @@ nl:
         morfine: "De patient krijgt continu morfine toegediend. De patient heeft %{operation1_constant1}mg morfine per 24 uur nodig. Je hebt ampullen van %{operation2_constant1}mg/%{operation2_constant2}ml. Op hoeveel %{unit} per uur zet je de spuitenpomp"
         ranitidine: "De patient krijgt continu ranitidine toegediend. De patient heeft %{operation1_constant1}mg ranitidine per 24 uur nodig. Je hebt ampullen van %{operation2_constant1}mg/%{operation2_constant2}ml. Op hoeveel %{unit} per uur zet je de spuitenpomp"
       DropIvHourly: "Een patient is gedehydrateerd. Hij krijgt %{operation1_constant1} liter infuus per 24 uur. Op hoeveel %{unit} per uur zet je de pomp"
+      DropIvAmount: "Een patient is gedehydrateerd. Hij krijgt %{operation1_constant1} liter infuus per 24 uur. Hoeveel druppels zijn dat per minuut"
   home:
     last_badge: "Laatste Badge"
     last_challenge: "Laatste Challenge"

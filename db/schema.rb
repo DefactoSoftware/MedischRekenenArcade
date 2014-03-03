@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 20140228135018) do
     t.string   "trackable_type"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "notified",       default: false
+    t.boolean  "notified"
   end
 
   add_index "activities", ["trackable_id"], name: "index_activities_on_trackable_id", using: :btree
@@ -109,7 +109,6 @@ ActiveRecord::Schema.define(version: 20140228135018) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "steps"
-    t.string   "type"
     t.integer  "challenge_set_id"
   end
 

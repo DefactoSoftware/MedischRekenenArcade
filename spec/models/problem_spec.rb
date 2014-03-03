@@ -427,6 +427,32 @@ describe Problem do
     end
   end
 
+  describe DropIvAmount do
+    let(:problem_factory) { ProblemFactory.new("DropIvAmount", user) }
+
+    it "creates a problem" do
+      expect(problem_factory.problem).to be_a(DropIvAmount)
+    end
+
+    describe "problem" do
+      it "has a theory" do
+        expect(problem_factory.problem.theory).to be_a(String)
+      end
+
+      it "has a result" do
+        expect(problem_factory.problem.get_result).to be_a(Float)
+      end
+
+      it "has a unit" do
+        expect(problem_factory.problem.unit).to be_a(Unit)
+      end
+
+      it "has a skill" do
+        expect(problem_factory.problem.skill).to be_a(Skill)
+      end
+    end
+  end
+
   describe UnitConversion do
     let(:grams) { UnitGroup.create(name: "grams") }
     let(:liters) { UnitGroup.create(name: "liters") }

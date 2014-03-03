@@ -37,12 +37,12 @@ class Answer < ActiveRecord::Base
     elsif (value * 10).round(2) == problem.result.round(2) || (value * 100).round(2) == problem.result.round(2) || (value * 1000).round(2) == problem.result.round(2)
       self.feedback = I18n.t("answer.feedback.conversion")
       false
+    elsif ((value - 0.2)..(value + 0.2)).include?(problem.result)
+      self.feedback = I18n.t("answer.feedback.rounding2")
+      true
     elsif value == problem.result || ((value - 1.0)..(value + 1.0)).include?(problem.result)
       self.feedback = I18n.t("answer.feedback.rounding")
       false
-    elsif ((value - 0.1)..(value + 0.1)).include?(problem.result)
-      self.feedback = I18n.t("answer.feedback.rounding2")
-      true
     else
       self.feedback = I18n.t("answer.feedback.wrong")
       false
