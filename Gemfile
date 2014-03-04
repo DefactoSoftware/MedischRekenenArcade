@@ -19,6 +19,9 @@ gem 'merit', '~> 1.7.0'
 #Redis leaderboard
 gem 'leaderboard'
 
+#Hashtel colors
+gem 'hashtel'
+
 gem 'twitter-bootstrap-rails', github: 'seyhunak/twitter-bootstrap-rails', branch: 'bootstrap3'
 
 # Use SCSS for stylesheets
@@ -68,6 +71,7 @@ end
 group :test, :development do
   gem 'rspec-rails'
   gem 'ffaker'
+  gem 'factory_girl_rails'
   gem 'database_cleaner'
   gem 'rspec_api_documentation', :github => 'zipmark/rspec_api_documentation'
   gem 'capybara'
@@ -81,7 +85,6 @@ end
 group :test do
   gem 'guard-rspec'
   gem 'shoulda-matchers', '~> 2.4.0'
-  gem 'factory_girl_rails'
   gem 'simplecov', :require => false
   gem 'json_spec'
   gem 'rake'

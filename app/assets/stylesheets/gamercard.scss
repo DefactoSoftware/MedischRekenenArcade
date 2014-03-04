@@ -1,16 +1,15 @@
-#gamercard {
+.gamercard {
   width: 400px;
   height: 150px;
   padding:10px;
   margin-left:auto;
   margin-right:auto;
-  border-bottom: 1px solid #1abc9c;
   border-bottom-right-radius: 5px;
   border-bottom-left-radius: 5px;
   border-bottom-width: 2px;
   box-shadow: 10px 10px 25px black;
+  color: black;
 
-  cursor: pointer;
 
   z-index: 9001;
 
@@ -24,6 +23,14 @@
   background: -ms-linear-gradient(-45deg,  #ffffff 0%,#f1f1f1 50%,#e1e1e1 51%,#f6f6f6 100%); /* IE10+ */
   background: linear-gradient(135deg,  #ffffff 0%,#f1f1f1 50%,#e1e1e1 51%,#f6f6f6 100%); /* W3C */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f6f6f6',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+
+.gamercard a {
+  color: black;
+}
+
+.gamercard a:visited {
+  color: black;
 }
 
 .badges_row {
@@ -81,7 +88,7 @@
   margin-top:30px;
   margin-bottom:5px;
 
-  border: 5px solid #1abc9c;
+
   border-radius: 50px;
 }
 

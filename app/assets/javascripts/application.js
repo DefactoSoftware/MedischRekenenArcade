@@ -17,6 +17,7 @@
 //= require twitter/bootstrap
 //= require turbolinks
 //= require calculator
+//= require rowgrid
 
 $(document).ready(function() {
   $.ajax({
@@ -36,10 +37,6 @@ $(document).on('mouseenter', '#badges_block a.thumb-link', function(e) {
 
 $("#calculator").ready(function() {
   $("#calculator").draggable();
-})
-
-$("#gamercard").ready(function() {
-  $("#gamercard").draggable();
 })
 
 //Functions for making answering view interactive

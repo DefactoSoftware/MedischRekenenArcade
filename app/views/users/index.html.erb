@@ -1,27 +1,13 @@
-<div class="row block">
+<div class="row">
   <div class="one-column-fill">
-    <h2>Users</h2>
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <td>Name</td>
-          <td>Username</td>
-          <td>Actions</td>
-        </tr>
-      </thead>
-    <% @users.each do |user| %>
-      <tr>
-        <td><%= link_to user_statistics_path(user) do %><%= user.name %><% end %></td>
-        <td><%= link_to user_statistics_path(user) do %><%= user.username %><% end %></td>
-        <td>
-          <% if current_user.friends_with?(user) %>
-            <%= t("users.info.friends") %>
-          <% else %>
-            <%= link_to t("users.info.not_friends"), friendships_path(:friend_id => user), :method => :post %>
-          <% end %>
-        </td>
-      </tr>
-    <% end %>
-    </table>
+    <div class="gamercards">
+        <% @users.each do |user| %>
+            <div class="col-lg-4 col-md-6 col-sm-12" style="margin-top:20px;">
+              <%= render 'gamercard', user: user %>
+            </div>
+       <% end %>
+    </div>
   </div>
 </div>
+
+
