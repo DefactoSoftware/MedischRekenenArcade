@@ -11,7 +11,7 @@
     <% user = User.find(score[:member]) %>
     <tr>
       <td>#<%= score[:rank] %></td>
-      <td><%= link_to user_statistics_path(user) do %><%= user.name %><% end %></td>
+      <td><%= link_to user_statistics_path(user) do %><%= user.username %><% end %></td>
       <td><%= score[:score] %></td>
     </tr>
   <% end %>
