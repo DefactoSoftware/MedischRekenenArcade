@@ -35,6 +35,10 @@ MedischRekenenArcade::Application.routes.draw do
     namespace :v1 do
       resources :problems, only: :index
       resources :answers, only: :create
+
+      namespace :tincan do
+        resources :user_challenges, only: :index
+      end
     end
   end
 end
