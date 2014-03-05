@@ -1,24 +1,3 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
 en:
   actions:
     start: "started"
@@ -56,6 +35,11 @@ en:
     badges:
       one: " and collected 1 badge!"
       other: " and collected %{count} badges!"
+  activities:
+    title: "Activity"
+  notifications:
+    badge:
+      title: "You earned a new badge!"
   feedback_report:
     button: "Report a problem!"
     title: "Write down the problem you encountered"
@@ -67,16 +51,12 @@ en:
     placeholders:
       subject: "Subject"
       text: "Report"
-  activities:
-    title: "Activity"
-  notifications:
-    badge:
-      title: "You earned a new badge!"
   user_group:
     save:
       success: "Added new user group"
       error: "Could not add new user group"
   badges:
+    go_to_statistics: "Go to statistiscs to view your overview!"
     night_owl:
       name: "Night Owl"
       description: "You've been active during the night"
@@ -201,14 +181,15 @@ en:
   answer:
     correct: "Correct! Your score went up by %{points}"
     wrong: "Unfortunately that was not correct :( Your streak was reset. "
-    dead: "That was incorrenct too, sadly the patient has died. Please try the challenge again"
+    dead: "That was incorrenct too. Please try the challenge again"
     feedback:
       title: "Answer feedback"
       conversion: "You were almost right but you probably forgot to divide or multiply it by a certain number"
       rounding: "Your answer was close but you didn't round of properly. Remember you need to round of on 2 decimals"
+      rounding2: "Your answer was within 0.2 of the right answer so it was counted as right, but remember next time to round of on 2 decimals."
       correct: "Your answer was completely perfect, keep on going!"
-      wrong: "Your answer was incorrect, don't worry you'll get the next one!"
       result: "Your answer was %{result}. The right answer was %{right_answer}."
+      wrong: "Your answer was incorrect, don't worry you'll get the next one!"
   challenge:
     finished: "Awesome! You completed the challenge! You got a bonus of %{bonus} points"
     start: "Starting new challenge, good luck! If you make more than 4 consecutive mistakes the patient dies so be careful!"
@@ -246,6 +227,9 @@ en:
     pick_file: "Pick file"
     last_badge: "Last badge"
     last_challenge: "Last challenge"
+    user_group_name: "Usergroup name"
+    new_user_group: "New usergroup"
+    add_user_group: "Add a usergroup"
   challenges:
     Addition:
       title: "Addition"
@@ -258,7 +242,7 @@ en:
       info: "This challenge consists of 10 multiplication problems, you have to multiply numbers"
     Subtraction:
       title: "Subtraction"
-      info: "This challenge consists of 10 subtraction problems, you have to subtract numbers"
+      info: "This challenge consists of 10 subtraction problems, you have to subtract numbers."
     Mixed:
       title: "Mixed"
       info: "This challenge consists of 10 mixed basic problems, you have to divide, multiply, add and subtract numbers."
@@ -267,20 +251,40 @@ en:
       info: "The challenge is about percentages. You need to calculate the percentage of a certain value. There are 10 problems"
     PercentageOfUnit:
       title: "Percentage: % of unit"
-      info: "The challenge is about percentages. You need to calculate what percentage the first value is of the second value. There are 10 problems"
+      info: "The challenge is about percentages. You need to calculate what percentage the first value is of the second value. There are 10 problems."
     PercentageUnitToHundred:
       title: "Percentage: convert to 100%"
-      info: "The challenge is about percentages. You need to calculate back to a 100%. There are 10 problems"
+      info: "The challenge is about percentages. You need to calculate back to a 100%. There are 10 problems."
     SolutionMaxisporin:
       title: "Solution: Maxisporin"
       info: "This challenge is about giving Maxisporin to a patient. You need to calculate how much powder should be dissolved in every injection."
     UnitConversion:
       title: "Conversion: Weights and Volumes"
-      info: "In this challenge you need to convert units into other units, for example from milliliter to liter. After 10 good answers you complete the challenge"
-    ConcentrationVitaminC:
-      title: "Concentration: Vitamin C"
-      info: "In this challenge you need to calculate the concentration of Vitamin C in one tablet. You need 10 good answers to complete this challenge"
+      info: "In this challenge you need to convert units into other units, for example from milliliter to liter. After 10 good answers you complete the challenge."
+    ConcentrationTablet:
+      title: "Concentration: tablets"
+      info: "In this challenge you have to calculate the amount of Vitamin C in one tablet. You complete the challenge after 10 good answers."
+    ConcentrationToHundred:
+      title: "Concentration: to 100%"
+      info: "In this challenge you have to calculate how much ml you need of a certain fluid, based on the solution and amount of medicine. You need 10 good answers to complete it."
+    ConcentrationAmount:
+      title: "Concentration: amount of solution"
+      info: "In this challenge you need to calculate the amount of fluid is in a solution. After 10 good answers you complete the challenge."
+    SyringePumpAmount:
+      title: "Syringepump: Amounts"
+      info: "In this challenge you have to calculate how much ml of the medicine you need to prepare. After 10 good answers you complete the challenge."
+    SyringePumpHourly:
+      title: "Syringepum: Per hour"
+      info: "In this challenge you need to calculate the amount of ml per hour. 10 good answers will complete the challenge."
+    DropIvHourly:
+      title: "Drop IV: Per hour"
+      info: "You have to calculate the setting of the drop iv machine and therefor the amount of ml per hour. After 10 good answers you complete the challenge."
+    DropIvAmount:
+      title: "Drop IV Infuus: Number of drops"
+      info: "In this challenge you need to calculate the number of drops per minute the patient needs. 10 good answers is the requirement for a completed challenge."
     labels:
+      stats: "Statistic"
+      amount: "Amount"
       completed_successfully: "Challenge achieved!"
       attempts: "Attempts"
       successfull: "Successfull"
@@ -296,11 +300,19 @@ en:
     PercentageOfUnit: "Divide the percentage asked by 100 and multiply that with the value."
     PercentageUnitToHundred: "Divide the given value by the given percentage. You now have 1%. Multiply that again by 100."
     PercentageAmountOfAmount: "First calculate what 1% is by dividing the value by 100. Then multiply that by the percentage asked."
-    SolutionMaxisporin: ""
+    SolutionMaxisporin: "You need to take a few steps for this. First you calculate how much mg you need to inject per time, so with 750mg Maxisporin per day and 3 injections you divide 750 by 3, 25. Then you calculate how much of the stock needs to be dissolved. With 1000mg in stock and 0.5ml needed fluid you divide 1000 by 0.5 = 2000. Then you divide the first result by the last. 25/2000 = 0.125ml per time."
     UnitConversion: "Metric units are very nice to work with, since they are all multiples of ten (or a hundred, or one-tenth, etc) of each other. You can convert between the various different sizes by merely moving the decimal point the correct number of places."
+    ConcentrationTablet: "Concentration means how much of substance A is in substance B. This is about how much active compound. That means you have to divide the active compound by the total weight of the pill. Multiply that with 100 to get the concentration"
+    ConcentrationAmount: "Concentration means how much of substance A is in substance B. You have a percentage here, divide that by hundred. That result you should multiply with the medicine and you have the amount."
+    ConcentrationToHundred: "First divide the given value by the percentage, now you have 1%. Multiply that by 100 to get the result."
+    SyringePumpAmount: "First divide the total amount of mg by the amount of mg per ml. Multiply that by the amount of ml and you know how much ml you need for 24 hours."
+    SyringePumpHourly: "First divide the total amount of mg by the amount of hours. Then divide the ratio of medicine and solution by each other. Now divide the amount of ml per hour by the last result and you have the amount of ml per time."
+    DropIvHourly: "You first have to convert the amount of liters to milliliters. Then divide that by the amount of hours. You now have the amount of ml per hour."
+    DropIvAmount: "The medical standard is 20 drops per ml. First you have to multiply the amount of liters with 1000 so you have the amount in milliliters. Then you divide that by the amount of minutes (24 hours * 60 minutes). Now you have the amount of milliliters per minute, now you only need to multiply by 20 to get the number of drops."
   challenge_sets:
     Week_1: "Basic and Percentages"
     Week_2: "Concentrations and Solutions"
+    Week_3: "Drop IV and Syringe Pump"
   activerecord:
     attributes:
       user:
@@ -329,8 +341,35 @@ en:
                           to get %{operation2_constant2} injectionliquid. How much should you inject each time
       PercentageUnitToHundred: "%{operation1_constant1}% is %{operation1_constant2}%{unit}, how much is %{operation2_constant1}%"
       UnitConversion: "How much is %{constant1} %{unit_question} in %{unit}"
-      ConcentrationVitaminC: "Een tablet Vitamine C weegt %{operation1_constant1}%{unit_question} en bevat %{operation1_constant2}%{unit_question}. Hoe hoog is de concentratie Vitamine C in %{unit}"
-      ConcentrationGlucose: "How much %{unit.name} Glucose contains %{operation1_constant1}%{unit_question1} glucose solution %{operation1_constant2}%{unit_question2}"
+      ConcentrationTablet:
+        vitaminc: "A tablet Vitamin C weighs %{operation1_constant1} mg and contains %{operation1_constant2} mg. How high is the concentration of Vitamin C in %"
+        augmentin_amoxicilline: "A tablet Augmentin® of %{operation1_constant1} mg contains %{operation1_constant2} mg amoxicilline. How high is the concentration of amoxicilline in %"
+        augmentin_clavulaneacid: "A tablet vitamine C weighs %{operation1_constant1} mg and contains %{operation1_constant2} mg clavulane acid. What is the concentration of clavulane acid in the tablet in %"
+        methylfenidaat: "A pill Ritalin® weighs %{operation1_constant1} mg, what is the concentration in % when there is %{operation1_constant2} mg acting compound in it"
+      ConcentrationAmount:
+        glucose: "How much gram glucose contains %{operation1_constant1} ml glucose solution %{operation1_constant2} %"
+        natriumchloride: "How much gram sodium chloride contains %{operation1_constant1} ml saline %{operation1_constant2} %"
+      ConcentrationToHundred:
+        natriumchloride: "In stock is saline of %{operation1_constant1}%. You need to give the patient %{operation1_constant2} mg sodium chloride, how much ml do you need"
+        periciazine: "The patient has to get %{operation1_constant2} mg periciazine. You have %{operation1_constant1}% periciazine fluid. How much ml do you need to give"
+        morfine: "The doctor assigns you to give morfine. You have morfine %{operation1_constant1}%. You need to give the patient %{operation1_constant2} mg. How much ml do you inject"
+        lidocaine: "The patient needs to get %{operation1_constant2} mg periciazine. In stock is %{operation1_constant1}% periciazine fluid. How much ml do you need to give"
+        pethidine: "You are going to prepare an ampoule with pethidine solution %{operation1_constant1}%. You need %{operation1_constant2} mg. How much ml needs to be in the ampoule"
+        glucose: "In stock is a glucose solution of %{operation1_constant1}%. You need to give the patient %{operation1_constant2} mg glucose, how much ml do you need"
+      SyringePumpAmount:
+        insuline: "The patient has to get %{operation1_constant1}mg insuline per 24 hours. You have ampoules of %{operation1_constant2}mg/%{operation2_constant1}ml. How much %{unit} insuline do you put in a syringe for 24 hours"
+        kci: "The patient needs %{operation1_constant1}mg KCI. This needs to be injected in 24 hours. In stock are ampoules of %{operation1_constant2}mg/%{operation2_constant1}ml. How much %{unit} KCI do you need for a syringe for 24 hours"
+        midazolam: "The patient gets %{operation1_constant1}mg Midazolam per 24 hours. There are ampoules of %{operation1_constant2}mg/%{operation2_constant1}ml in stock. How much %{unit} Midazolam is there in a syringe for 24 hours"
+        morfine: "The patient has pain and is therefor allowed %{operation1_constant1}mg morfine per 24 hours. In stock are ampoules of %{operation1_constant2}mg/%{operation2_constant1}ml. How much %{unit} morfine do you put in a syringe for 24 hours"
+        ranitidine: "The patient needs %{operation1_constant1}mg Ranitidine per 24 hours. You have ampoules of %{operation1_constant2}mg/%{operation2_constant1}ml. How much %{unit} Ranitidine do you need for a syringe for 24 hours"
+      SyringePumpHourly: #This could be put in one text field with a variable called medicine, but i would like the texts to differentiate like the ConcentrationToHundred texts. Don't know how yet.
+        insuline: "The patient continuously gets insuline. The patient needs %{operation1_constant1}mg insule per 24 hours. You have ampoules of %{operation2_constant1}mg/%{operation2_constant2}ml. At how much %{unit} per hour do you set the syringe pump"
+        kci: "The patient continuously gets KCI. The patient needs %{operation1_constant1}mg KCI per 24 hours. You have ampoules of %{operation2_constant1}mg/%{operation2_constant2}ml. At how much %{unit} per hour do you set the syringe pump"
+        midazolam: "The patient continuously gets Midazolam. The patient needs %{operation1_constant1}mg Midazolam per 24 hours. You have ampoules of %{operation2_constant1}mg/%{operation2_constant2}ml. At how much %{unit} per hour do you set the syringe pump"
+        morfine: "The patient continuously gets morfine. The patient needs %{operation1_constant1}mg morfine per 24 hours. You have ampoules of %{operation2_constant1}mg/%{operation2_constant2}ml. At how much %{unit} per hour do you set the syringe pump"
+        ranitidine: "The patient continuously gets Ranitidine. The patient needs %{operation1_constant1}mg Ranitidine per 24 hours. You have ampoules of %{operation2_constant1}mg/%{operation2_constant2}ml. At how much %{unit} per hour do you set the syringe pump"
+      DropIvHourly: "A patient is dehydrated. He gets %{operation1_constant1} liter IV per %{operation1_constant2} hours. At how much %{unit} per hour do you set the pump"
+      DropIvAmount: "A patient is dehydrated. He gets %{operation1_constant1} liter IV per 24 hours. How many drops a minute is that"
   home:
     last_badge: "Last Badge"
     last_challenge: "Last Challenge"
