@@ -1,31 +1,57 @@
 require 'spec_helper'
 
 describe Guest do
-  it "has a name method" do
+  let(:guest) { Guest.new }
 
+  it "has a name method" do
+    expect(Guest).to have_method :name
   end
 
   it "has a username method" do
-
+    expect(Guest).to have_method :username
   end
 
-  it "has an answers method" do
+  describe "Answers" do
+    it "has the method" do
+      expect(Guest).to have_method :answers
+    end
 
+    it "returns an empty relation" do
+      expect(guest.answers).to be_a(ActiveRecord::Relation)
+    end
   end
 
-  it "has a user group method" do
+  describe "UserGroup" do
+    it "has the method" do
+      expect(Guest).to have_method :user_group
+    end
 
+    it "returns an empty relation" do
+      expect(guest.user_group).to be_a(ActiveRecord::Relation)
+    end
   end
 
-  it "has an activities method" do
+  describe "Activities" do
+    it "has the method" do
+      expect(Guest).to have_method :activities
+    end
 
+    it "returns an empty relation" do
+      expect(guest.activities).to be_a(ActiveRecord::Relation)
+    end
   end
 
-  it "has a recent activities method" do
+  describe "Recent Activities" do
+    it "has the method" do
+      expect(Guest).to have_method :recent_activities
+    end
 
+    it "returns an empty relation" do
+      expect(guest.recent_activities).to be_a(ActiveRecord::Relation)
+    end
   end
 
   it "has a friends with method" do
-
+    expect(Guest).to have_method :friends_with?
   end
 end
