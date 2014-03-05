@@ -3,20 +3,20 @@ module Api
     module Tincan
       class UserChallengesController < BaseController
         def index
-          if user_challenge_parameters[:user_id]
-            @user_challenges = User.find(user_challenge_parameters[:user_id]).user_challenges
-          else
-            @user_challenges = current_user.user_challenges
-          end
-
-          if @user_challenges
-            render json: @user_challenges, each_serializer: TinCanUserChallengeSerializer, status: :ok
-          end
+          render json: requested_user.user_challenges, each_serializer: TinCanUserChallengeSerializer, status: :ok
         end
 
         private
         def user_challenge_parameters
           params.permit(:user_id)
+        end
+
+        def requested_user
+          user_from_parameters || current_user
+        end
+
+        def user_from_parameters
+          User.find(user_challenge_parameters[:user_id]) if user_challenge_parameters[:user_id]
         end
       end
     end
