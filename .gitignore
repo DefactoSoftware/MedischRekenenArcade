@@ -24,5 +24,7 @@
 
 #Coverage gem
 /coverage
-/config/local_env.yml
 /doc
+
+#env vars
+/config/local_env.yml
