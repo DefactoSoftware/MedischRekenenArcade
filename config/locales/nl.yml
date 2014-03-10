@@ -188,6 +188,7 @@ nl:
       rounding: "Je antwoord zat dichtbij maar je hebt niet goed afgerond, denk eraan dat alle antwoorden afgerond moeten worden op 2 cijfers achter de komma."
       rounding2: "Je antwoord zat binnen 0.2 van het juiste antwoord dus het is wel goed gekeurd, maar denk de volgende keer aan een goede afronding met 2 cijfers achter de komma naar boven."
       correct: "Je antwoord was helemaal goed, ga zo door!"
+      question: "Vraag"
       result: "Je antwoord was %{result}. Het goede antwoord was %{right_answer}"
       wrong: "Je antwoord was helaas niet goed, maar geef niet op!"
   challenge:

@@ -185,9 +185,10 @@ en:
     feedback:
       title: "Answer feedback"
       conversion: "You were almost right but you probably forgot to divide or multiply it by a certain number"
-      rounding: "Your answer was close but you didn't round of properly. Remember you need to round of on 2 decimals"
-      rounding2: "Your answer was within 0.2 of the right answer so it was counted as right, but remember next time to round of on 2 decimals."
+      rounding: "Your answer was close but you didn't round off properly. Remember you need to round of on 2 decimals"
+      rounding2: "Your answer was within 0.2 of the right answer so it was counted as right, but remember next time to round off on 2 decimals."
       correct: "Your answer was completely perfect, keep on going!"
+      question: "Question"
       result: "Your answer was %{result}. The right answer was %{right_answer}."
       wrong: "Your answer was incorrect, don't worry you'll get the next one!"
   challenge:
