@@ -1,24 +1,3 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
 nl:
   actions:
     start: "startte"
@@ -213,7 +192,7 @@ nl:
       wrong: "Je antwoord was helaas niet goed, maar geef niet op!"
   challenge:
     finished: "Geweldig! Je hebt de uitdaging gehaald! Je hebt een bonus gekregen van %{bonus} punten"
-    start: "Je kan nu beginnen met de uitdaging. Let op! Je mag niet meer dan 4 fouten maken!"
+    start: "Je kan nu beginnen met de uitdaging. Let op! Je mag niet meer dan 4 fouten achter elkaar maken!"
     time_is_up: "Tijd is voorbij, probeer het nog eens"
     title: "Uitdagingen"
   users:
@@ -322,10 +301,10 @@ nl:
     PercentageOfUnit: "Deel het gevraagde percentage door 100 en vermenigvuldig dat met de gegeven waarde."
     PercentageUnitToHundred: "Deel de gegeven waarde door het gegeven percentage, je hebt dan 1%. Vermenigvuldig dat met 100."
     PercentageAmountOfAmount: "Reken eerst 1% uit door de waarde door 100 te delen. Vermenigvuldig dat vervolgens met het percentage dat gevraagd wordt."
-    SolutionMaxisporin: "Bij het uitrekenen van de hoeveelheid Maxisporin die je moet toedienen per keer moet je een aantal stappen nemen. Eerst reken je uit hoeveel milligram per injectie je moet toedienen, dus bijvoorbeeld bij 750mg Maxisporin per dag en 3 injecties deel je 750 door 3, 25. Dan reken je uit hoeveel van de voorraad opgelost dient te worden. Bij 1000mg in voorraad en 0.5ml te verkrijgen vloeistof deel je 1000 door 0.5 = 2000. Vervolgens deel je het laatste resultaat door het eerste. 25/2000 = 0,125ml. Dus je injecteert 0,125 milliliter per keer."
+    SolutionMaxisporin: "Bij het uitrekenen van de hoeveelheid Maxisporin die je moet toedienen per keer moet je een aantal stappen nemen. Eerst reken je uit hoeveel milligram per injectie je moet toedienen, dus bijvoorbeeld bij 750mg Maxisporin per dag en 3 injecties deel je 750 door 3, 25. Dan reken je uit hoeveel van de voorraad opgelost dient te worden. Bij 1000mg in voorraad en 0.5ml te verkrijgen vloeistof deel je 1000 door 0.5 = 2000. Vervolgens deel je het eerste resultaat door het laatste. 25/2000 = 0,125ml. Dus je injecteert 0,125 milliliter per keer."
     UnitConversion: "Metrische eenheden zijn heel makkelijk om mee te werken, omdat ze allemaal meervouden van tien zijn (of honderd, een-tiende, etc) van elkaar. Je kan tussen de verschillende eenheden wisselen door het decimale punt te verplaatsen."
-    ConcentrationVitaminC: "Met een concentratie wordt aangegeven welk gedeelte van stof A in stof B zit. Het gaat hier om de hoeveelheid Vitamine C in 1 tablet. Dat betekent dat je de hoeveelheid Vitamine C moet delen door het totale gewicht. Vermenigvuldig nog met 100 om de concentratie in procenten te krijgen"
-    ConcentrationGlucose: "Met een concentratie wordt aangegeven welk gedeelte van stof A in stof B zit. Je hebt hier een percentage, dat moet je dus delen door 100. Dat resultaat vermenigvuldig je met de hoeveelheid Glucoseoplossing en je hebt de hoeveelheid Glucose."
+    ConcentrationTablet: "Met een concentratie wordt aangegeven welk gedeelte van stof A in stof B zit. Het gaat hier om de hoeveelheid Vitamine C in 1 tablet. Dat betekent dat je de hoeveelheid Vitamine C moet delen door het totale gewicht. Vermenigvuldig nog met 100 om de concentratie in procenten te krijgen"
+    ConcentrationAmount: "Met een concentratie wordt aangegeven welk gedeelte van stof A in stof B zit. Je hebt hier een percentage, dat moet je dus delen door 100. Dat resultaat vermenigvuldig je met de hoeveelheid Glucoseoplossing en je hebt de hoeveelheid Glucose."
     ConcentrationToHundred: "Deel de gegeven waarde door het gegeven percentage, je hebt dan 1%. Vermenigvuldig dat met 100."
     SyringePumpAmount: "Deel eerst het totale aantal mg door het aantal mg per ml. Vermenigvuldig dat weer met het aantal ml en je weet hoeveel milliliter je nodig hebt voor 24 uur."
     SyringePumpHourly: "Deel eerst het totale aantal mg door het aantal uren. Deel dan de verhouding van medicijn en oplossing door elkaar. Deel nu het aantal mg per uur door dat laatste en je hebt het aantal milliliters per uur."
@@ -384,7 +363,7 @@ nl:
         midazolam: "De patient krijgt %{operation1_constant1}mg midazolam per 24 uur. Er zijn ampullen van %{operation1_constant2}mg/%{operation2_constant1}ml in voorraad. Hoeveel %{unit} Midazolam zit er in een spuit voor 24 uur"
         morfine: "De patient heeft pijn en mag daarom %{operation1_constant1}mg morfine per 24 uur krijgen. In voorraad zijn ampullen van %{operation1_constant2}mg/%{operation2_constant1}ml. Hoeveel %{unit} morfine doe je in een spuit voor 24 uur"
         ranitidine: "De patient moet %{operation1_constant1}mg ranitidine per 24 uur krijgen. Je hebt ampullen van %{operation1_constant2}mg/%{operation2_constant1}ml. Hoeveel %{unit} ranitidine heb je nodig voor een spuit voor 24 uur"
-      SyringePumpHourly:
+      SyringePumpHourly: #This could be put in one text field with a variable called medicine, but i would like the texts to differentiate like the ConcentrationToHundred texts. Don't know how yet.
         insuline: "De patient krijgt continu insuline toegediend. De patient heeft %{operation1_constant1}mg insule per 24 uur nodig. Je hebt ampullen van %{operation2_constant1}mg/%{operation2_constant2}ml. Op hoeveel %{unit} per uur zet je de spuitenpomp"
         kci: "De patient krijgt continu KCI toegediend. De patient heeft %{operation1_constant1}mg KCI per 24 uur nodig. Je hebt ampullen van %{operation2_constant1}mg/%{operation2_constant2}ml. Op hoeveel %{unit} per uur zet je de spuitenpomp"
         midazolam: "De patient krijgt continu Midazolam toegediend. De patient heeft %{operation1_constant1}mg Midazolam per 24 uur nodig. Je hebt ampullen van %{operation2_constant1}mg/%{operation2_constant2}ml. Op hoeveel %{unit} per uur zet je de spuitenpomp"

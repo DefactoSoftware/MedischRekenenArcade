@@ -49,6 +49,6 @@ class ConcentrationTablet < Problem
   end
 
   def info
-    I18n.t("problem_info.ConcentrationVitaminC")
+    I18n.t("problem_info.ConcentrationTablet")
   end
 end

@@ -4,6 +4,9 @@ class ApplicationController < ActionController::Base
   before_filter :update_sanitized_params, if: :devise_controller?
   before_filter :check_challenge
   protect_from_forgery with: :exception
+  before_action :set_locale
+
+
 
   def all_activities
     activities = Activity.where(user_id: User.where(user_group: current_user.user_group).map(&:id)).order("created_at DESC").limit(10)
@@ -12,6 +15,10 @@ class ApplicationController < ActionController::Base
   helper_method :all_activities
 
   protected
+  def set_locale
+    I18n.locale = extract_locale_from_tld || I18n.default_locale
+  end
+
   def update_sanitized_params
     devise_parameter_sanitizer.for(:sign_up) {|u| u.permit(:email, :username, :name, :password, :password_confirmation, :profilepicture_url, :user_group_id)}
     devise_parameter_sanitizer.for(:sign_in) { |u| u.permit(:email, :password, :remember_me) }
@@ -28,6 +35,11 @@ class ApplicationController < ActionController::Base
     session.delete(:damage)
     session.delete(:start)
     session.delete(:challenge)
+  end
+
+  def extract_locale_from_tld
+    parsed_locale = request.host.split('.').last
+    I18n.available_locales.include?(parsed_locale.to_sym) ? parsed_locale  : nil
   end
 
   def track_activity(trackable, action = params[:action])
