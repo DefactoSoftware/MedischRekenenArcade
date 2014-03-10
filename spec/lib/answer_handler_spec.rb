@@ -8,6 +8,8 @@ describe AnswerHandler do
   let(:user_challenge) { UserChallenge.new(challenge:challenge, user:user) }
   let(:practicehandler_good) { CorrectPracticeAnswerHandler.new({}, user, double) }
   let(:practicehandler_bad) { IncorrectPracticeAnswerHandler.new({}, user, double) }
+  let(:guesthandler_good) { CorrectGuestAnswerHandler.new({}, user, double) }
+  let(:guesthandler_bad) { IncorrectGuestAnswerHandler.new({}, user, double) }
   let(:challenge_handler_good) { CorrectChallengeAnswerHandler.new({ challenge_id: challenge.id}, user, user_challenge, double)}
   let(:challenge_handler_dead) { IncorrectChallengeAnswerHandler.new({ challenge_id: challenge.id, damage: ChallengeAnswerHandler::STANDARD_DEATH_CEILING + 1 }, user, user_challenge, double) }
   let(:challenge_handler_wrong) { IncorrectChallengeAnswerHandler.new({ challenge_id: challenge.id}, user, user_challenge, double) }
@@ -142,6 +144,16 @@ describe AnswerHandler do
     end
   end
 
+   describe GuestAnswerHandler do
+    it "returns answer is correct notice on good answer" do
+      expect(guesthandler_good.get_notice).to eq(I18n.t("answer.correct", points: AnswerHandler::STANDARD_POINT_AMOUNT))
+    end
+
+    it "returns answer is wrong notice on bad answer" do
+      expect(guesthandler_bad.get_notice).to eq(I18n.t("answer.wrong"))
+    end
+  end
+
   describe "#redirect_path" do
     it "does not redirect anywhere" do
       expect(practicehandler_good.redirect_path(double)).to eq(practice_path+"?problem=#{double.class.name}")
@@ -152,7 +164,7 @@ end
 describe AnswerHandlerFactory do
   let(:session) { double }
   let(:answer_is_correct) { double }
-  let(:user) { double }
+  let(:user) { double(guest?: false) }
   let(:skill) { double }
   let(:factory) { AnswerHandlerFactory.new(session, answer_is_correct, user, skill) }
 
@@ -230,6 +242,26 @@ describe AnswerHandlerFactory do
 
         it "returns a CorrectPracticeAnswerHandler" do
           expect(factory.build).to be_instance_of(CorrectPracticeAnswerHandler)
+        end
+      end
+    end
+
+    describe "when guest" do
+      describe "when answer is incorrect" do
+        let(:answer_is_correct) { false }
+        let(:user) { double(guest?: true) }
+
+        it "returns an IncorrectPracticeAnswerHandler" do
+          expect(factory.build).to be_instance_of(IncorrectGuestAnswerHandler)
+        end
+      end
+
+      describe "when answer is correct" do
+        let(:answer_is_correct) { true }
+        let(:user) { double(guest?: true) }
+
+        it "returns a CorrectPracticeAnswerHandler" do
+          expect(factory.build).to be_instance_of(CorrectGuestAnswerHandler)
         end
       end
     end
