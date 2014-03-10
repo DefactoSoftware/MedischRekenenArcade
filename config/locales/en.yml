@@ -179,9 +179,10 @@ en:
       score: "Score"
       name: "Name"
   answer:
-    correct: "Correct! Your score went up by %{points}"
+    correct: "Correct! Your score went up by %{points}! "
     wrong: "Unfortunately that was not correct :( Your streak was reset. "
     dead: "That was incorrenct too. Please try the challenge again"
+    call_to_register: "You've answered a few questions, if you register you can track your progress, earn badges and the questions will adapt to your skill level!"
     feedback:
       title: "Answer feedback"
       conversion: "You were almost right but you probably forgot to divide or multiply it by a certain number"

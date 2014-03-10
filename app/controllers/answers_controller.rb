@@ -2,7 +2,12 @@ require 'answer_handler'
 
 class AnswersController < ApplicationController
   def create
-    @answer = Answer.new(user_challenge_id: answer_parameters[:user_challenge_id], value: parse_value(answer_parameters[:value]), problem_id: answer_parameters[:problem_id])
+    session[:ip] = request.env['REMOTE_HOST']
+    @answer = Answer.new(
+                user_challenge_id: answer_parameters[:user_challenge_id],
+                value: parse_value(answer_parameters[:value]),
+                problem_id: answer_parameters[:problem_id],
+                ip: session[:ip])
 
     @answer.user = current_user unless current_user.guest?
 
