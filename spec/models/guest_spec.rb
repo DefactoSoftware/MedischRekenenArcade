@@ -11,6 +11,10 @@ describe Guest do
     expect(Guest).to have_method :username
   end
 
+  it "has a profilepicture_url method" do
+    expect(Guest).to have_method :profilepicture_url
+  end
+
   describe "Answers" do
     it "has the method" do
       expect(Guest).to have_method :answers

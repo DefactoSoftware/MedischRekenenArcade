@@ -1,0 +1,14 @@
+<% if @last_badge %>
+  <div class="block">
+    <h4><%= t("labels.last_badge") %></h4>
+    <div class="thumbnail-col">
+      <%= render 'badges/thumbnail', badge: @last_badge %>
+    </div>
+  </div>
+<% end %>
+<% if @last_challenge %>
+  <div class="block">
+    <h4><%= t("labels.last_challenge") %></h4>
+    <%= render 'challenges/thumbnail', challenge: @last_challenge, user: current_user %>
+  </div>
+<% end %>

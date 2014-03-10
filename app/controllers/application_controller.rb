@@ -42,7 +42,17 @@ class ApplicationController < ActionController::Base
     I18n.available_locales.include?(parsed_locale.to_sym) ? parsed_locale  : nil
   end
 
+  def devise_current_user
+    @devise_current_user ||= warden.authenticate(:scope => :user)
+  end
+
+  def current_user
+     devise_current_user || Guest.new
+  end
+
   def track_activity(trackable, action = params[:action])
     current_user.activities.create! action: action, trackable: trackable
   end
+
+  helper_method :current_user
 end
