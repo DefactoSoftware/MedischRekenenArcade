@@ -7,7 +7,13 @@ class AnswerHandlerFactory
   end
 
   def build
-    if @session[:challenge]
+    if @user.guest?
+      if @answer_is_correct
+        CorrectGuestAnswerHandler.new(@session, @user, @skill)
+      else
+        IncorrectGuestAnswerHandler.new(@session, @user, @skill)
+      end
+    elsif @session[:challenge]
       if @answer_is_correct
         CorrectChallengeAnswerHandler.new(@session, @user, user_challenge, @skill)
       else
