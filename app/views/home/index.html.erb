@@ -1,17 +1,13 @@
 <div class="row">
   <div class="three-column-small">
-    <% if !current_user.instance_of? Guest %>
+    <% if !current_user.guest? %>
       <%= render 'user_left_sidebar' %>
     <% end %>
   </div>
   <div class="three-column-big block center">
     <h1><%= personalized_welcome(current_user)%></h1>
     <div class="row">
-      <% if current_user.instance_of? Guest %>
-        <%= render 'guest_center' %>
-      <% else %>
-        <%= render 'user_center' %>
-      <% end %>
+      <%= render "#{current_user.class.name.downcase}_center" %>
     </div>
     <div class="row center">
       <div id="call_to_action_buttons one-column-fill">
@@ -20,7 +16,7 @@
     </div>
   </div>
   <div class="three-column-small">
-    <% if !current_user.instance_of? Guest %>
+    <% if !current_user.guest? %>
       <%= render 'user_right_sidebar' %>
     <% end %>
   </div>

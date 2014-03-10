@@ -79,6 +79,10 @@ class User < ActiveRecord::Base
     amount
   end
 
+  def guest?
+    false
+  end
+
   def friends_with?(user)
     !Friendship.where(user: self, friend: user).empty?
   end

@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   def index
-    if !current_user.instance_of? Guest
+    if !current_user.guest?
       highscore_lb = RedisLeaderboard.get
       @scores = highscore_lb.ranked_in_list(user_group_users, sort_by: :rank).first(10)
       challenges = current_user.user_challenges

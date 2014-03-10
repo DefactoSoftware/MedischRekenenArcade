@@ -19,7 +19,7 @@
       </button>
       <%= link_to root_path, class:"navbar-brand" do%>
         <%= t("title") %>
-        <%= current_user.instance_of?(Guest) ? "" : ": #{current_user.user_group.name}"%>
+        <%= current_user.guest? ? "" : ": #{current_user.user_group.name}"%>
       <% end %>
     </div>
     <div class="collapse navbar-collapse" id="navbar-collapse">
@@ -32,12 +32,7 @@
         <li><a href="#"><%= t("challenges.#{@challenge.name.underscore}.title") %></a></li>
       </ul>
       <% end %>
-        <% if current_user.instance_of? Guest %>
-          <%= render 'menus/guest_menu' %>
-        <% else %>
-          <%= render 'menus/user_menu' %>
-        <% end %>
-      </ul>
+      <%= render "menus/#{current_user.class.name.downcase}_menu" %>
     </div>
   </div>
 </div>
@@ -55,7 +50,7 @@
   </div>
 <% end %>
 
-<%= render "feedback/feedback.html.erb" if !current_user.instance_of? Guest %>
+<%= render "feedback/feedback.html.erb" if !current_user.guest? %>
 
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
