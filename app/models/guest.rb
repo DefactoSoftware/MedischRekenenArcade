@@ -1,4 +1,8 @@
 class Guest
+  def id
+    0
+  end
+
   def guest?
     true
   end
@@ -8,6 +12,10 @@ class Guest
   end
 
   def name
+    "guest"
+  end
+
+  def username
     "guest"
   end
 
