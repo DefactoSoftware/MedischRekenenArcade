@@ -1,12 +1,14 @@
 
 <h4><%= t("practice.problem_picker") %></h4>
+<% if @suggested_skill %>
 <p><%= t("practice.skill_suggest", skill: I18n.t("challenges.#{@suggested_skill.name.underscore}.title")) %></p>
+<% end %>
 <form action="/practice" id="problem_picker" method="get">
 <%=
 select("",
        "problem",
        Problem::VALID_PROBLEMS.collect {|problem| [ t("challenges.#{problem.underscore}.title"), problem ] },
-       {selected: params[:problem] ? params[:problem] : @suggested_skill.name},
+       {selected: params[:problem] ? params[:problem] : "Addition"},
        {class: "form-control"} )
 %>
 </form>

@@ -39,9 +39,12 @@ class Problem < ActiveRecord::Base
     generate_unit
     generate_skill
 
-    user_skill = UserSkill.where(skill: skill, user: user).first_or_create
-
-    formula = lazy_generate(user_skill.level)
+    if user.guest?
+      formula = generate_for_guest
+    else
+      user_skill = UserSkill.where(skill: skill, user: user).first_or_create
+      formula = lazy_generate(user_skill.level)
+    end
 
     generate_theory(formula)
     generate_result(formula)
@@ -64,6 +67,10 @@ class Problem < ActiveRecord::Base
 
   def generate_result(formula)
     self.result = formula.result
+  end
+
+  def generate_for_guest
+    lazy_generate(20)
   end
 
   def lazy_generate(level)
