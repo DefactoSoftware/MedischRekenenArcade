@@ -50,25 +50,25 @@ module HomeHelper
   private
   def sign_up_button
     link_to new_user_registration_path do
-      "<button class='btn btn-landing'>#{t("menu.sign_up")}</button>".html_safe
+      content_tag(:button, t("menu.sign_up"), class: "btn btn-landing")
     end
   end
 
   def sign_in_button
     link_to new_user_session_path do
-      "<button class='btn btn-secondary'>#{t("menu.login")}</button>".html_safe
+      content_tag(:button, t("menu.login"), class: "btn btn-landing")
     end
   end
 
   def challenges_button
     link_to challenges_path do
-      "<button class='btn btn-landing'>#{t("menu.challenges")}</button>".html_safe
+      content_tag(:button, t("menu.challenges"), class: "btn btn-landing")
     end
   end
 
   def practice_button
     link_to practice_path do
-      "<button class='btn btn-third'>#{t("menu.practice")}</button>".html_safe
+      content_tag(:button, t("menu.practice"), class: "btn btn-landing")
     end
   end
 end
