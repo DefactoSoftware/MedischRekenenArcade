@@ -183,6 +183,7 @@ nl:
     wrong: "Helaas was dat niet goed... :( Je reeks is op 0 gezet. "
     dead: "Dat was helaas ook fout, de patient is overleden. Probeer de uitdaging opnieuw"
     no_feedback: "Beantwoord een vraag om feedback te krijgen"
+    call_to_register: "Je hebt nu een paar vragen beantwoord, als je je registreert kan je de voortgang bijhouden, punten en badges verzamelen en je kennis testen. Ook worden vragen op jouw niveau aangepast!"
     feedback:
       title: "Antwoord feedback"
       conversion: "Je antwoord was bijna goed, alleen de conversie ging niet goed, waarschijnlijk ben je gewoon de laatste stap vergeten."

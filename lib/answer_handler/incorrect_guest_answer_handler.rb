@@ -8,6 +8,7 @@ class IncorrectGuestAnswerHandler < GuestAnswerHandler
   end
 
   def get_notice
-    I18n.t("answer.wrong")
+    notice = I18n.t("answer.wrong")
+    super(notice)
   end
 end

@@ -3,6 +3,10 @@ class GameSession
     @session = session
   end
 
+  def ip
+    @session[:ip]
+  end
+
   def streak
     @session[:streak]
   end
