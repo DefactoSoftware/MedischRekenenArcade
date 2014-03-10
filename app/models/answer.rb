@@ -17,6 +17,11 @@ class Answer < ActiveRecord::Base
   belongs_to :problem
   belongs_to :user_challenge
 
+  alias_method :actual_user, :user
+  def user
+    self.actual_user || Guest.new
+  end
+
   def correct?
     eval_answer
   end
