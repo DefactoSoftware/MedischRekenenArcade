@@ -182,7 +182,7 @@ en:
     correct: "Correct! Your score went up by %{points}! "
     wrong: "Unfortunately that was not correct :( Your streak was reset. "
     dead: "That was incorrenct too. Please try the challenge again"
-    call_to_register: "You've answered a few questions, if you register you can track your progress, earn badges and the questions will adapt to your skill level!"
+    call_to_register: "If you register you can track your progress, earn badges and the questions will adapt to your skill level!"
     feedback:
       title: "Answer feedback"
       conversion: "You were almost right but you probably forgot to divide or multiply it by a certain number"
@@ -392,6 +392,11 @@ en:
                     Medical Arithmetics will continuously challenge you.
                     You can get badges and complete challenges. The challenges will adjust to your level of expertise.
                     Share those badges and challenges with your friends and colleagues to stay stimulated.
+
+                    #### Tryout?
+
+                    If you just want to try you can click on practice, but only when you register you can collect points and badges and
+                     questions will be adaptive to your skill level.
 
                     #### Ready to start? We'll start easy:
 

@@ -182,7 +182,7 @@ nl:
     correct: "Goedzo! Je score ging omhoog met %{points}"
     wrong: "Helaas was dat niet goed... :( Je reeks is op 0 gezet. "
     dead: "Dat was helaas ook fout, de patient is overleden. Probeer de uitdaging opnieuw"
-    call_to_register: "Je hebt nu een paar vragen beantwoord, als je je registreert kan je de voortgang bijhouden, punten en badges verzamelen en je kennis testen. Ook worden vragen op jouw niveau aangepast!"
+    call_to_register: "Als je je registreert kan je de voortgang bijhouden, punten en badges verzamelen en je kennis testen. Ook worden vragen op jouw niveau aangepast!"
     feedback:
       title: "Antwoord feedback"
       conversion: "Je antwoord was bijna goed, alleen de conversie ging niet goed, waarschijnlijk ben je gewoon de laatste stap vergeten."
@@ -393,6 +393,11 @@ nl:
                     Medisch rekenen stimuleert je om jezelf regelmatig op de proef te stellen.
                     In Medisch Rekenen kan je badges verdienen door uitdagingen te halen. De uitdagingen die je ontvangt passen zich aan aan het niveau dat je laat zien.
                     Deel de badges met collega's/medestudenten om elkaar te stimuleren je medische rekenvaardigheid op peil te houden.
+
+                    #### Proberen?
+
+                    Als je op oefenen klikt kan je alvast even uitproberen, maar pas als je registreert kan je punten en badges verzamelen
+                     en worden de vragen op je niveau aangepast.
 
                     #### Klaar voor je eerste uitdaging? We beginnen makkelijk:
 

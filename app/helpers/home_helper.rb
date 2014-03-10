@@ -26,6 +26,7 @@ module HomeHelper
     if user.guest?
       content.concat sign_up_button
       content.concat sign_in_button
+      content.concat practice_button
     else
       content.concat challenges_button
       content.concat practice_button
@@ -67,7 +68,7 @@ module HomeHelper
 
   def practice_button
     link_to practice_path do
-      "<button class='btn btn-secondary'>#{t("menu.practice")}</button>".html_safe
+      "<button class='btn btn-third'>#{t("menu.practice")}</button>".html_safe
     end
   end
 end
