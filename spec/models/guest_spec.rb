@@ -10,4 +10,16 @@ describe Guest do
   it "has a guest? method" do
     expect(Guest).to have_method :guest?
   end
+
+  it "has a user_challenges method" do
+    expect(Guest).to have_method :user_challenges
+  end
+
+  it "has a badges method" do
+    expect(Guest).to have_method :badges
+  end
+
+  it "has an answers method" do
+    expect(Guest).to have_method :answers
+  end
 end
