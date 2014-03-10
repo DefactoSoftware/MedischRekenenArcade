@@ -19,7 +19,7 @@
       </button>
       <%= link_to root_path, class:"navbar-brand" do%>
         <%= t("title") %>
-        <%= current_user.guest? ? "" : ": #{current_user.user_group.name}"%>
+        <%= ": #{current_user.user_group.name}" unless current_user.guest? %>
       <% end %>
     </div>
     <div class="collapse navbar-collapse" id="navbar-collapse">
