@@ -15,11 +15,11 @@ ActiveAdmin.register_page "Dashboard" do
               th "Problem"
               th "Theory"
             end
-            Answer.find(:all, :order => "id desc", :limit => 100).map do |answer|
+            Answer.includes(:problem, :user).order(created_at: :desc).last(100).each do |answer|
               tr do
                 td answer.value
                 td answer.problem.result
-                td link_to(answer.user.username, admin_user_path(answer.user))
+                td answer.user.guest? ? answer.user.username : link_to(answer.user.username, admin_user_path(answer.user))
                 td answer.correct? ? status_tag( "yes", :ok ) : status_tag( "no" )
                 td link_to("click", admin_problem_path(answer.problem))
                 td answer.problem.theory
@@ -37,7 +37,7 @@ ActiveAdmin.register_page "Dashboard" do
               th "Success"
               th "Challenge"
             end
-            UserChallenge.find(:all, :order => "id desc", :limit => 100).map do |challenge|
+            UserChallenge.includes(:user).order(created_at: :desc).last(100).each do |challenge|
               tr do
                 td t("challenges.#{challenge.challenge.name.underscore}.title")
                 td link_to(challenge.user.username, admin_user_path(challenge.user))
@@ -59,7 +59,7 @@ ActiveAdmin.register_page "Dashboard" do
               th "Trackable"
               th "TrackableID"
             end
-            Activity.find(:all, :order => "id desc", :limit => 100).map do |activity|
+            Activity.includes(:trackable).order(created_at: :desc).last(100).each do |activity|
               tr do
                 td link_to(activity.user.username, admin_user_path(activity.user))
                 td activity.action
