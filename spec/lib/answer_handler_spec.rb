@@ -14,8 +14,6 @@ describe AnswerHandler do
   let(:challenge_handler_dead) { IncorrectChallengeAnswerHandler.new({ challenge_id: challenge.id, damage: ChallengeAnswerHandler::STANDARD_DEATH_CEILING + 1 }, user, user_challenge, double) }
   let(:challenge_handler_wrong) { IncorrectChallengeAnswerHandler.new({ challenge_id: challenge.id}, user, user_challenge, double) }
 
-
-
   describe "#reset_challenge" do
     let(:session) { double("session", delete: "foo") }
     let(:handler) { IncorrectChallengeAnswerHandler.new(session, double, double(challenge: double), double) }
@@ -146,11 +144,11 @@ describe AnswerHandler do
 
    describe GuestAnswerHandler do
     it "returns answer is correct notice on good answer" do
-      expect(guesthandler_good.get_notice).to eq(I18n.t("answer.correct", points: AnswerHandler::STANDARD_POINT_AMOUNT))
+      expect(guesthandler_good.get_notice).to eq(I18n.t("answer.correct", points: AnswerHandler::STANDARD_POINT_AMOUNT) + I18n.t("answer.call_to_register"))
     end
 
     it "returns answer is wrong notice on bad answer" do
-      expect(guesthandler_bad.get_notice).to eq(I18n.t("answer.wrong"))
+      expect(guesthandler_bad.get_notice).to eq(I18n.t("answer.wrong") + I18n.t("answer.call_to_register"))
     end
   end
 
