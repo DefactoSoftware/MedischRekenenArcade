@@ -18,7 +18,7 @@ ActiveAdmin.register Problem do
           problem.answers.each do |answer|
             tr do
               td answer.value
-              td link_to(answer.user.username, admin_user_path(answer.user))
+              td answer.user.guest? ? answer.user.username : link_to(answer.user.username, admin_user_path(answer.user))
               td answer.correct? ? status_tag( "yes", :ok ) : status_tag( "no" )
             end
           end

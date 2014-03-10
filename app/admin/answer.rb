@@ -15,7 +15,7 @@ ActiveAdmin.register Answer do
       answer.problem.theory
     end
     column "User" do |answer|
-      link_to(answer.user.username, admin_user_path(answer.user))
+      answer.user.guest? ? answer.user.username : link_to(answer.user.username, admin_user_path(answer.user))
     end
     column "Last updated" do |answer|
       answer.updated_at
