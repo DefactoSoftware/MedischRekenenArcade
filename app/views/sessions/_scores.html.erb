@@ -3,7 +3,7 @@
 <table class="table table-striped">
   <tr>
     <td><%= t("total") %></td>
-    <td id="total_points"><%= RedisLeaderboard.get.score_for(current_user.id).to_i %></td>
+    <td id="total_points"><%= current_user.guest? ? session[:streak] : RedisLeaderboard.get.score_for(current_user.id).to_i %></td>
   </tr>
   <tr>
     <td><%= t("streak") %></td>

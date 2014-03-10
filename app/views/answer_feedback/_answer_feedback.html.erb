@@ -2,13 +2,13 @@
 <% if (DateTime.now.to_i - answer.updated_at.to_i) < 2 %>
   <p><%= answer.feedback %></p>
   <% if answer.problem != nil && !answer.correct? %>
-    <p>Vraag: <%= answer.problem.theory %> </p>
+    <p><%= t("answer.feedback.question") %>: <%= answer.problem.theory %> </p>
     <p><%= t("answer.feedback.result", result: answer.value, right_answer: answer.problem.result.round(2)) %></p>
     <%= audio_tag(asset_path("assets/bad.wav"), autoplay:true, hidden:true) %>
   <% else %>
     <%= audio_tag(asset_path("assets/good.wav"), autoplay:true, hidden:true) %>
   <% end %>
 <% else %>
-  <p><%= answer.no_feedback %></p>
+  <p><%= t("answer.no_feedback") %></p>
 <% end %>
 

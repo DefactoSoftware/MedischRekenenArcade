@@ -17,12 +17,16 @@
       <div class="block">
         <%= render 'sessions/scores' %>
       </div>
+      <% if @last_answer %>
       <div class="block">
-        <%= render 'answer_feedback/answer_feedback', answer: @last_answer if @last_answer %>
+        <%= render 'answer_feedback/answer_feedback', answer: @last_answer %>
       </div>
-      <div class="block">
-        <%= render 'activities/index' %>
-      </div>
+      <% end %>
+      <% if !current_user.guest? %>
+        <div class="block">
+          <%= render 'activities/index' %>
+        </div>
+      <% end %>
   </div>
 </div>
 

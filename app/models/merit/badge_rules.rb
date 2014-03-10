@@ -28,39 +28,39 @@ module Merit
     def initialize
       # If it has 10 comments, grant commenter-10 badge
       grant_on 'answers#create', badge: 'questions_answered_a', to: :user do |answer|
-        answer.user.answers.map.count == 10
+        answer.user && answer.user.answers.map.count == 10
       end
 
       grant_on 'answers#create', badge: 'questions_answered_b' do |answer|
-        answer.user.answers.count == 100
+        answer.user && answer.user.answers.count == 100
       end
 
       grant_on 'answers#create', badge: 'questions_answered_c' do |answer|
-        answer.user.answers.count == 1000
+        answer.user && answer.user.answers.count == 1000
       end
 
       grant_on 'answers#create', badge: 'night_owl' do |answer|
-        answer.created_at.hour.between?(NIGHT_START, MORNING_START)
+        answer.user && answer.created_at.hour.between?(NIGHT_START, MORNING_START)
       end
 
       grant_on 'answers#create', badge: 'night_crawler' do |answer|
-        answer.created_at.hour.between?(EVENING_START, NIGHT_START)
+        answer.user && answer.created_at.hour.between?(EVENING_START, NIGHT_START)
       end
 
       grant_on 'answers#create', badge: 'rise_and_shine' do |answer|
-        answer.created_at.hour.between?(MORNING_START, AFTERNOON_START)
+        answer.user && answer.created_at.hour.between?(MORNING_START, AFTERNOON_START)
       end
 
       grant_on 'answers#create', badge: 'cold_feet_a' do |answer|
-        answer.user.answers.count == 10 && UserChallenge.where(user: answer.user).count == 0
+        answer.user && answer.user.answers.count == 10 && UserChallenge.where(user: answer.user).count == 0
       end
 
       grant_on 'answers#create', badge: 'cold_feet_b' do |answer|
-        answer.user.answers.count == 50 && UserChallenge.where(user: answer.user).count == 0
+        answer.user && answer.user.answers.count == 50 && UserChallenge.where(user: answer.user).count == 0
       end
 
       grant_on 'answers#create', badge: 'cold_feet_c' do |answer|
-        answer.user.answers.count == 100 && UserChallenge.where(user: answer.user).count == 0
+        answer.user && answer.user.answers.count == 100 && UserChallenge.where(user: answer.user).count == 0
       end
 
       # If it has 5 votes, grant relevant-commenter badge

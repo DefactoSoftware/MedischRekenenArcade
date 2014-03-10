@@ -182,6 +182,7 @@ nl:
     correct: "Goedzo! Je score ging omhoog met %{points}"
     wrong: "Helaas was dat niet goed... :( Je reeks is op 0 gezet. "
     dead: "Dat was helaas ook fout, de patient is overleden. Probeer de uitdaging opnieuw"
+    no_feedback: "Beantwoord een vraag om feedback te krijgen"
     feedback:
       title: "Antwoord feedback"
       conversion: "Je antwoord was bijna goed, alleen de conversie ging niet goed, waarschijnlijk ben je gewoon de laatste stap vergeten."

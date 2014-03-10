@@ -4,11 +4,11 @@ class SkillSuggester
   end
 
   def skill
-    skills = UserSkill.where(user: @user)
+    skills = @user.user_skills
     lowest = skills.first
     skills.each do |skill|
       lowest = skill if skill.level < lowest.level
     end
-    lowest.skill
+    lowest ? lowest.skill : nil
   end
 end
