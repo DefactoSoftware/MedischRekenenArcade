@@ -1,8 +1,6 @@
 <div class="row">
   <div class="three-column-small">
-    <% if !current_user.guest? %>
-      <%= render 'user_left_sidebar' %>
-    <% end %>
+    <%= render 'user_left_sidebar' unless current_user.guest? %>
   </div>
   <div class="three-column-big block center">
     <h1><%= personalized_welcome(current_user)%></h1>
@@ -16,8 +14,6 @@
     </div>
   </div>
   <div class="three-column-small">
-    <% if !current_user.guest? %>
-      <%= render 'user_right_sidebar' %>
-    <% end %>
+    <%= render 'user_right_sidebar' unless current_user.guest? %>
   </div>
 </div>
