@@ -6,7 +6,7 @@ module HomeHelper
   EVENING_START = 17
 
   def personalized_welcome(user)
-    if user.instance_of? Guest
+    if user.guest?
       "#{greeting_for_time(Time.now)}! "
     else
       "#{greeting_for_time(Time.now)}!"
@@ -14,7 +14,7 @@ module HomeHelper
   end
 
   def personalized_text(user)
-    if user.instance_of? Guest
+    if user.guest?
       Markdown.get.render(t("home.standard_text")).html_safe
     else
       Markdown.get.render(t("home.logged_in_text", points: user.points)).html_safe
@@ -23,7 +23,7 @@ module HomeHelper
 
   def call_to_action_buttons(user)
     content = ActiveSupport::SafeBuffer.new
-    if user.instance_of? Guest
+    if user.guest?
       content.concat sign_up_button
       content.concat sign_in_button
     else

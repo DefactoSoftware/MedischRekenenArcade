@@ -1,6 +1,4 @@
 class ProblemsController < ApplicationController
-  before_action :authenticate_user!
-
   def index
     @last_answer = Answer.where(user:current_user).last
     @suggested_skill = SkillSuggester.new(current_user).skill
