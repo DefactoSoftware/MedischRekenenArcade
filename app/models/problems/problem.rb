@@ -84,6 +84,6 @@ class Problem < ActiveRecord::Base
   end
 
   def info
-    I18n.t("problem_info.basic")
+    I18n.t("problem_info.#{self.class.name.underscore}")
   end
 end

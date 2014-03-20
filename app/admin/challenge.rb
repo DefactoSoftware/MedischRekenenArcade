@@ -4,7 +4,7 @@ ActiveAdmin.register Challenge do
     column :id
     column :number_of_problems
     column :name do |challenge|
-      I18n.t("challenges.#{challenge.name}.title")
+      I18n.t("challenges.#{challenge.name.underscore}.title")
     end
     column :timelimit
     column :bonus
@@ -20,7 +20,7 @@ ActiveAdmin.register Challenge do
       row :id
       row :number_of_problems
       row :name do |challenge|
-        I18n.t("challenges.#{challenge.name}.title")
+        I18n.t("challenges.#{challenge.name.underscore}.title")
       end
 
       row :user_challenges do

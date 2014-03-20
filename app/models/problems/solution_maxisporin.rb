@@ -44,7 +44,7 @@ class SolutionMaxisporin < Problem
   end
 
   def generate_theory(formula)
-    self.theory = I18n.t("problems.theory.#{self.class.name}",
+    self.theory = I18n.t("problems.theory.#{self.class.name.underscore}",
                           operation1_constant1: formula.operations[0].constant1.value,
                           operation1_constant2: formula.operations[0].constant2.value,
                           operation2_constant1: formula.operations[1].constant1.value,
@@ -52,9 +52,5 @@ class SolutionMaxisporin < Problem
                           unit: unit.sign,
                           unit_question: "mg"
                         )
-  end
-
-  def info
-    I18n.t("problem_info.SolutionMaxisporin")
   end
 end
