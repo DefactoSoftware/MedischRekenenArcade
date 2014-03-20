@@ -34,4 +34,8 @@ class Guest
   def user_skills
     UserSkill.none
   end
+
+  def _sash
+    Merit::Sash.none
+  end
 end
