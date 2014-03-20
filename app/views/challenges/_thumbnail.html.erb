@@ -4,14 +4,14 @@
     class="thumb-link"
     data-toggle="popover"
     data-container="body"
-    data-original-title="<%= t("challenges.#{challenge.name}.title") %>"
+    data-original-title="<%= t("challenges.#{challenge.name.underscore}.title") %>"
     title
     data-content='<%=challenge_stat_table(challenge,user)%>'
   >
     <img class="image" src="<%=asset_path(challenge.icon) %>">
     <div class="caption">
       <div class="inner">
-        <h2><%= t("challenges.#{challenge.name}.title") %></h2>
+        <h2><%= t("challenges.#{challenge.name.underscore}.title") %></h2>
         <% if challenge.user_challenges.where(user:current_user, success: true).length > 0 %>
           <div class="more">
             <p class="description"><%= t("challenges.labels.completed_successfully") %></p>

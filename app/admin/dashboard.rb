@@ -39,7 +39,7 @@ ActiveAdmin.register_page "Dashboard" do
             end
             UserChallenge.find(:all, :order => "id desc", :limit => 100).map do |challenge|
               tr do
-                td t("challenges.#{challenge.challenge.name}.title")
+                td t("challenges.#{challenge.challenge.name.underscore}.title")
                 td link_to(challenge.user.username, admin_user_path(challenge.user))
                 td challenge.success? ? "True" : "False"
                 td link_to "click", admin_user_challenge_path(challenge)

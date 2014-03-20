@@ -36,4 +36,8 @@ class Multiplication < Problem
   def generate_theory(formula)
     self.theory = "#{formula.operations[0].constant1.value} #{formula.operations[0].operator} #{formula.operations[0].constant2.value}"
   end
+
+  def info
+    I18n.t("problem_info.basic")
+  end
 end

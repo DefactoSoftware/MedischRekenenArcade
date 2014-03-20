@@ -26,12 +26,12 @@ class TinCanUserChallengeSerializer < ActiveModel::Serializer
       objectType: "Challenge",
       definition: {
         name: {
-            en_US: I18n.t("challenges.#{object.challenge.name}.title", locale: :en),
-            nl_NL: I18n.t("challenges.#{object.challenge.name}.title", locale: :nl)
+            en_US: I18n.t("challenges.#{object.challenge.name.underscore}.title", locale: :en),
+            nl_NL: I18n.t("challenges.#{object.challenge.name.underscore}.title", locale: :nl)
         },
         description: {
-            en_US: I18n.t("challenges.#{object.challenge.name}.info", locale: :en),
-            nl_NL: I18n.t("challenges.#{object.challenge.name}.info", locale: :nl)
+            en_US: I18n.t("challenges.#{object.challenge.name.underscore}.info", locale: :en),
+            nl_NL: I18n.t("challenges.#{object.challenge.name.underscore}.info", locale: :nl)
         }
       }
     }

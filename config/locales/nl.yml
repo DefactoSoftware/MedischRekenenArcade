@@ -232,55 +232,55 @@ nl:
     new_user_group: "Nieuwe gebruikersgroep"
     add_user_group: "Voeg gebruikersgroep toe"
   challenges:
-    Addition:
+    addition:
       title: "Optellen"
       info: "Deze uitdaging bestaat uit 10 basis problemen, je moet telkens getallen optellen."
-    Division:
+    division:
       title: "Delen"
       info: "Deze uitdaging bestaat uit 10 basis problemen, je moet telkens getallen door elkaar delen."
-    Multiplication:
+    multiplication:
       title: "Vermenigvuldigen"
       info: "Deze uitdaging bestaat uit 10 basis problemen, je moet telkens getallen met elkaar vermenigvuldigen."
-    Subtraction:
+    subtraction:
       title: "Aftrekken"
       info: "Deze uitdaging bestaat uit 10 basis problemen, je moet telkens getallen van elkaar aftrekken."
-    Mixed:
+    mixed:
       title: "Basisvaardigheden"
       info: "Deze uitdaging bestaat uit 10 gemixte basis problemen, Het gaat om een paar getallen die je wisselend moet a aftrekken, optellen, vermenigvuldigen of delen."
-    PercentageAmountOfAmount:
+    percentage_amount_of_amount:
       title: "Percentage: percentage van een hoeveelheid"
       info: "Deze uitdaging gaat over het berekenen van percentages. Je hebt een hoeveelheid en daar moet je een percentage van uitrekenen. Je hebt 10 goede antwoorden nodig."
-    PercentageOfUnit:
+    percentage_of_unit:
       title: "Percentage: hoeveelheid in percenten"
       info: "Deze uitdaging gaat over het berekenen van percentages. Je hebt twee hoeveelheden en jij moet berekenen hoeveel percent hoeveelheid A van hoeveelheid B is. Je hebt 10 goede antwoorden nodig."
-    PercentageUnitToHundred:
+    percentage_unit_to_hundred:
       title: "Percentage: reken naar 100%"
       info: "Deze uitdaging gaat over het berekenen van percentages. Je hebt een percentage van een hoeveelheid en jij moet uitrekenen hoeveel 100% is. Je hebt 10 goede antwoorden nodig."
-    SolutionMaxisporin:
+    solution_maxisporin:
       title: "Oplossing: Maxisporin"
       info: "Deze uitdaging gaat over het toedienen van Maxisporin. Dit medicijn gaat via een infuus via meerdere injecties. Jij moet berekenen hoeveel je per injectie moet oplossen. Het gaat om 10 problemen."
-    UnitConversion:
+    unit_conversion:
       title: "Conversie: Gewichten en Volume"
       info: "Bij deze uitdaging moet je verschillende eenheden omrekenen naar andere eenheden, bijvoorbeeld van milliliter naar liters. Na 10 goede antwoorden behaal je de uitdaging"
-    ConcentrationTablet:
+    concentration_tablet:
       title: "Concentratie: tabletten"
       info: "Bij deze uitdaging moet je uitrekenen hoeveel procent Vitamine C er in 1 tablet zit. Na 10 goede antwoorden behaal je de uitdaging"
-    ConcentrationToHundred:
+    concentration_to_hundred:
       title: "Concentratie: naar 100%"
       info: "Bij deze uitdaging moet je uitrekenen hoeveel ml je nodig hebt van een bepaalde vloeistof op basis van een oplossing en benodigde hoeveelheid medicijn. Na 10 goede antwoorden behaal je de uitdaging"
-    ConcentrationAmount:
+    concentration_amount:
       title: "Concentratie: hoeveelheid van oplossing"
       info: "Bij deze uitdaging moet je uitrekenen hoeveel gram van een vloeistof er in een oplossing zit. Na 10 goede antwoorden behaal je de uitdaging"
-    SyringePumpAmount:
+    syringe_pump_amount:
       title: "Spuitenpomp: Hoeveelheden"
       info: "Bij deze uitdaging moet je uitrekenen hoeveel ml van het medicijn je moet voorbereiden.  Na 10 goede antwoorden behaal je de uitdaging"
-    SyringePumpHourly:
+    syringe_pump_hourly:
       title: "Spuitenpomp: Per uur"
       info: "Bij deze uitdaging moet je uitrekenen op welke stand je de spuitenpomp zet en dus hoeveel ml per uur er toegediend wordt. Na 10 goede antwoorden behaal je de uitdaging"
-    DropIvHourly:
+    drop_iv_hourly:
       title: "Druppelgestuurd Infuus: Per uur"
       info: "Bij deze uitdaging moet je uitrekenen op welke stand je het druppel infuus moet zetten en dus hoeveel ml per uur er toegediend wordt."
-    DropIvAmount:
+    drop_iv_amount:
       title: "Druppelgestuurd Infuus: Aantal Druppels"
       info: "Bij deze uitdaging moet je het aantal druppels per minuut dat door het druppel infuus gegeven wordt uitrekenen. Na 10 goede antwoorden behaal je de uitdaging"
     labels:
@@ -298,18 +298,18 @@ nl:
   problem_info:
     title: "Huidig probleem"
     basic: "Dit is een basis wiskundige operatie. Kijk naar het symbool en los het probleem op. Als er meerdere stappen zijn doe dan de kleinste stap eerst. Als de getallen te groot zijn probeer ze dan op te delen. Denk ook aan de volgorde waarin je de stappen uitvoert."
-    PercentageOfUnit: "Deel het gevraagde percentage door 100 en vermenigvuldig dat met de gegeven waarde."
-    PercentageUnitToHundred: "Deel de gegeven waarde door het gegeven percentage, je hebt dan 1%. Vermenigvuldig dat met 100."
-    PercentageAmountOfAmount: "Reken eerst 1% uit door de waarde door 100 te delen. Vermenigvuldig dat vervolgens met het percentage dat gevraagd wordt."
-    SolutionMaxisporin: "Bij het uitrekenen van de hoeveelheid Maxisporin die je moet toedienen per keer moet je een aantal stappen nemen. Eerst reken je uit hoeveel milligram per injectie je moet toedienen, dus bijvoorbeeld bij 750mg Maxisporin per dag en 3 injecties deel je 750 door 3, 25. Dan reken je uit hoeveel van de voorraad opgelost dient te worden. Bij 1000mg in voorraad en 0.5ml te verkrijgen vloeistof deel je 1000 door 0.5 = 2000. Vervolgens deel je het eerste resultaat door het laatste. 25/2000 = 0,125ml. Dus je injecteert 0,125 milliliter per keer."
-    UnitConversion: "Metrische eenheden zijn heel makkelijk om mee te werken, omdat ze allemaal meervouden van tien zijn (of honderd, een-tiende, etc) van elkaar. Je kan tussen de verschillende eenheden wisselen door het decimale punt te verplaatsen."
-    ConcentrationTablet: "Met een concentratie wordt aangegeven welk gedeelte van stof A in stof B zit. Het gaat hier om de hoeveelheid Vitamine C in 1 tablet. Dat betekent dat je de hoeveelheid Vitamine C moet delen door het totale gewicht. Vermenigvuldig nog met 100 om de concentratie in procenten te krijgen"
-    ConcentrationAmount: "Met een concentratie wordt aangegeven welk gedeelte van stof A in stof B zit. Je hebt hier een percentage, dat moet je dus delen door 100. Dat resultaat vermenigvuldig je met de hoeveelheid Glucoseoplossing en je hebt de hoeveelheid Glucose."
-    ConcentrationToHundred: "Deel de gegeven waarde door het gegeven percentage, je hebt dan 1%. Vermenigvuldig dat met 100."
-    SyringePumpAmount: "Deel eerst het totale aantal mg door het aantal mg per ml. Vermenigvuldig dat weer met het aantal ml en je weet hoeveel milliliter je nodig hebt voor 24 uur."
-    SyringePumpHourly: "Deel eerst het totale aantal mg door het aantal uren. Deel dan de verhouding van medicijn en oplossing door elkaar. Deel nu het aantal mg per uur door dat laatste en je hebt het aantal milliliters per uur."
-    DropIvHourly: "Je moet eerst het aantal liters omrekenen naar milliliters. Daarna deel je dat door het aantal uur. Je hebt dan het aantal milliliters per uur."
-    DropIvAmount: "De medische standaard is 1ml is 20 druppels. Eerst moet je dus het aantal liters vermenigvuldigen met 1000 zodat je het aantal milliliters hebt. Vervolgens deel je dat door het aantal minuten (24 uur * 60 minuten). Je hebt nu het aantal milliliters per minuut, nu moet je alleen nog vermenigvuldigen met 20 om het aantal druppels te krijgen."
+    percentage_of_unit: "Deel het gevraagde percentage door 100 en vermenigvuldig dat met de gegeven waarde."
+    percentage_unit_to_hundred: "Deel de gegeven waarde door het gegeven percentage, je hebt dan 1%. Vermenigvuldig dat met 100."
+    percentage_amount_of_amount: "Reken eerst 1% uit door de waarde door 100 te delen. Vermenigvuldig dat vervolgens met het percentage dat gevraagd wordt."
+    solution_maxisporin: "Bij het uitrekenen van de hoeveelheid Maxisporin die je moet toedienen per keer moet je een aantal stappen nemen. Eerst reken je uit hoeveel milligram per injectie je moet toedienen, dus bijvoorbeeld bij 750mg Maxisporin per dag en 3 injecties deel je 750 door 3, 25. Dan reken je uit hoeveel van de voorraad opgelost dient te worden. Bij 1000mg in voorraad en 0.5ml te verkrijgen vloeistof deel je 1000 door 0.5 = 2000. Vervolgens deel je het eerste resultaat door het laatste. 25/2000 = 0,125ml. Dus je injecteert 0,125 milliliter per keer."
+    unit_conversion: "Metrische eenheden zijn heel makkelijk om mee te werken, omdat ze allemaal meervouden van tien zijn (of honderd, een-tiende, etc) van elkaar. Je kan tussen de verschillende eenheden wisselen door het decimale punt te verplaatsen."
+    concentration_tablet: "Met een concentratie wordt aangegeven welk gedeelte van stof A in stof B zit. Het gaat hier om de hoeveelheid Vitamine C in 1 tablet. Dat betekent dat je de hoeveelheid Vitamine C moet delen door het totale gewicht. Vermenigvuldig nog met 100 om de concentratie in procenten te krijgen"
+    concentration_amount: "Met een concentratie wordt aangegeven welk gedeelte van stof A in stof B zit. Je hebt hier een percentage, dat moet je dus delen door 100. Dat resultaat vermenigvuldig je met de hoeveelheid Glucoseoplossing en je hebt de hoeveelheid Glucose."
+    concentration_to_hundred: "Deel de gegeven waarde door het gegeven percentage, je hebt dan 1%. Vermenigvuldig dat met 100."
+    syringe_pump_amount: "Deel eerst het totale aantal mg door het aantal mg per ml. Vermenigvuldig dat weer met het aantal ml en je weet hoeveel milliliter je nodig hebt voor 24 uur."
+    syringe_pump_hourly: "Deel eerst het totale aantal mg door het aantal uren. Deel dan de verhouding van medicijn en oplossing door elkaar. Deel nu het aantal mg per uur door dat laatste en je hebt het aantal milliliters per uur."
+    drop_iv_hourly: "Je moet eerst het aantal liters omrekenen naar milliliters. Daarna deel je dat door het aantal uur. Je hebt dan het aantal milliliters per uur."
+    drop_iv_amount: "De medische standaard is 1ml is 20 druppels. Eerst moet je dus het aantal liters vermenigvuldigen met 1000 zodat je het aantal milliliters hebt. Vervolgens deel je dat door het aantal minuten (24 uur * 60 minuten). Je hebt nu het aantal milliliters per minuut, nu moet je alleen nog vermenigvuldigen met 20 om het aantal druppels te krijgen."
   challenge_sets:
     Week_1: "Basis en Percentages"
     Week_2: "Concentraties en Oplossingen"
@@ -334,43 +334,43 @@ nl:
               confirmation: "is niet gelijk aan wachtwoord"
   problems:
     theory:
-      PercentageAmountOfAmount: "%{operation1_constant1}% van %{operation1_constant2}%{unit}"
-      PercentageOfUnit: "Hoeveel %{unit} is %{operation1_constant1}%{unit_question} van %{operation1_constant2}%{unit_question}"
-      SolutionMaxisporin: |
+      percentage_amount_of_amount: "%{operation1_constant1}% van %{operation1_constant2}%{unit}"
+      percentage_of_unit: "Hoeveel %{unit} is %{operation1_constant1}%{unit_question} van %{operation1_constant2}%{unit_question}"
+      solution_maxisporin: |
                         Geef een patient parentaal %{operation1_constant1}%{unit_question} Maxisporin per dag, verdeeld over %{operation1_constant2} injecties.
                         In voorraad is Maxisporin %{operation2_constant1}%{unit_question}. Dit poeder dient opgelost te worden in 4ml aqua bidestillata
                         ter verkrijging van %{operation2_constant2} injectievloeistof. Hoeveel %{unit} injecteer je per keer
-      PercentageUnitToHundred: "%{operation1_constant1}% is %{operation1_constant2}%{unit}, hoeveel is %{operation2_constant1}%"
-      UnitConversion: "Hoeveel is %{constant1} %{unit_question} in %{unit}"
-      ConcentrationTablet:
+      percentage_unit_to_hundred: "%{operation1_constant1}% is %{operation1_constant2}%{unit}, hoeveel is %{operation2_constant1}%"
+      unit_conversion: "Hoeveel is %{constant1} %{unit_question} in %{unit}"
+      concentration_tablet:
         vitaminc: "Een tablet vitamine C weegt %{operation1_constant1} mg en bevat %{operation1_constant2} mg. Hoe hoog is de concentratie vitamine C in %"
         augmentin_amoxicilline: "Een tablet Augmentin® van %{operation1_constant1} mg bevat %{operation1_constant2} mg amoxicilline. Hoe hoog is de concentratie amoxicilline in %"
         augmentin_clavulaneacid: "Een tablet vitamine C weegt %{operation1_constant1} mg en bevat %{operation1_constant2} mg clavulaanzuur. Wat is de concentratie clavulaanzuur in de tablet %"
         methylfenidaat: "Een pilletje Ritalin® weegt %{operation1_constant1} mg, wat is de concentratie in % als er %{operation1_constant2} mg werkende stof in zit"
-      ConcentrationAmount:
+      concentration_amount:
         glucose: "Hoeveel gram glucose bevat %{operation1_constant1} ml glucoseoplossing %{operation1_constant2} %"
         natriumchloride: "Hoeveel gram natriumchloride bevat %{operation1_constant1} ml fysiologisch zout %{operation1_constant2} %"
-      ConcentrationToHundred:
+      concentration_to_hundred:
         natriumchloride: "In voorraad is fysiologisch zout van %{operation1_constant1}%. Je moet de patient %{operation1_constant2} mg natriumchloride geven, hoeveel ml heb je nodig"
         periciazine: "De patient moet %{operation1_constant2} mg periciazine krijgen. Je beschikt alleen over %{operation1_constant1}% periciazinevloeistof. Hoeveel ml moet je hiervan geven"
         morfine: "De arts geeft je opdracht om de patient morfine te geven. Je beschikt over morfine %{operation1_constant1}%. Je moet haar %{operation1_constant2} mg geven. Hoeveel ml injecteer je"
         lidocaine: "De patient moet %{operation1_constant2} mg periciazine krijgen. Je beschikt alleen over %{operation1_constant1}% periciazinevloeistof. Hoeveel ml moet je hiervan geven"
         pethidine: "Je gaat een ampul klaarmaken met daarin pethidineoplossing %{operation1_constant1}%. Je hebt %{operation1_constant2} mg nodig. Je hebt een ampul van hoeveel ml nodig"
         glucose: "In voorraad is een glucoseoplossing van %{operation1_constant1}%. Je moet de patient %{operation1_constant2} mg glucose geven, hoeveel ml heb je nodig"
-      SyringePumpAmount:
+      syringe_pump_amount:
         insuline: "De patient moet %{operation1_constant1}mg insuline per 24 uur krijgen. Je hebt ampullen van %{operation1_constant2}mg/%{operation2_constant1}ml. Hoeveel %{unit} insuline doe je in een spuit voor 24 uur"
         kci: "De patient heeft %{operation1_constant1}mg KCI nodig. Dit moet toegediend worden in 24 uur. In voorraad zijn ampullen van %{operation1_constant2}mg/%{operation2_constant1}ml. Hoeveel %{unit} KCI heb je nodig voor een spuit voor 24 uur"
         midazolam: "De patient krijgt %{operation1_constant1}mg midazolam per 24 uur. Er zijn ampullen van %{operation1_constant2}mg/%{operation2_constant1}ml in voorraad. Hoeveel %{unit} Midazolam zit er in een spuit voor 24 uur"
         morfine: "De patient heeft pijn en mag daarom %{operation1_constant1}mg morfine per 24 uur krijgen. In voorraad zijn ampullen van %{operation1_constant2}mg/%{operation2_constant1}ml. Hoeveel %{unit} morfine doe je in een spuit voor 24 uur"
         ranitidine: "De patient moet %{operation1_constant1}mg ranitidine per 24 uur krijgen. Je hebt ampullen van %{operation1_constant2}mg/%{operation2_constant1}ml. Hoeveel %{unit} ranitidine heb je nodig voor een spuit voor 24 uur"
-      SyringePumpHourly: #This could be put in one text field with a variable called medicine, but i would like the texts to differentiate like the ConcentrationToHundred texts. Don't know how yet.
+      syringe_pump_hourly: #This could be put in one text field with a variable called medicine, but i would like the texts to differentiate like the ConcentrationToHundred texts. Don't know how yet.
         insuline: "De patient krijgt continu insuline toegediend. De patient heeft %{operation1_constant1}mg insule per 24 uur nodig. Je hebt ampullen van %{operation2_constant1}mg/%{operation2_constant2}ml. Op hoeveel %{unit} per uur zet je de spuitenpomp"
         kci: "De patient krijgt continu KCI toegediend. De patient heeft %{operation1_constant1}mg KCI per 24 uur nodig. Je hebt ampullen van %{operation2_constant1}mg/%{operation2_constant2}ml. Op hoeveel %{unit} per uur zet je de spuitenpomp"
         midazolam: "De patient krijgt continu Midazolam toegediend. De patient heeft %{operation1_constant1}mg Midazolam per 24 uur nodig. Je hebt ampullen van %{operation2_constant1}mg/%{operation2_constant2}ml. Op hoeveel %{unit} per uur zet je de spuitenpomp"
         morfine: "De patient krijgt continu morfine toegediend. De patient heeft %{operation1_constant1}mg morfine per 24 uur nodig. Je hebt ampullen van %{operation2_constant1}mg/%{operation2_constant2}ml. Op hoeveel %{unit} per uur zet je de spuitenpomp"
         ranitidine: "De patient krijgt continu ranitidine toegediend. De patient heeft %{operation1_constant1}mg ranitidine per 24 uur nodig. Je hebt ampullen van %{operation2_constant1}mg/%{operation2_constant2}ml. Op hoeveel %{unit} per uur zet je de spuitenpomp"
-      DropIvHourly: "Een patient is gedehydrateerd. Hij krijgt %{operation1_constant1} liter infuus per %{operation1_constant2} uur. Op hoeveel %{unit} per uur zet je de pomp"
-      DropIvAmount: "Een patient is gedehydrateerd. Hij krijgt %{operation1_constant1} liter infuus per 24 uur. Hoeveel druppels zijn dat per minuut"
+      drop_iv_hourly: "Een patient is gedehydrateerd. Hij krijgt %{operation1_constant1} liter infuus per %{operation1_constant2} uur. Op hoeveel %{unit} per uur zet je de pomp"
+      drop_iv_amount: "Een patient is gedehydrateerd. Hij krijgt %{operation1_constant1} liter infuus per 24 uur. Hoeveel druppels zijn dat per minuut"
   home:
     last_badge: "Laatste Badge"
     last_challenge: "Laatste Challenge"
