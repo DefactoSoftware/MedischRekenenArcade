@@ -30,4 +30,12 @@ describe Guest do
   it "has an answers method" do
     expect(Guest).to have_method :answers
   end
+
+  it "has a user_skills method" do
+    expect(Guest).to have_method :user_skills
+  end
+
+  it "has a _sash method" do
+    expect(Guest).to have_method :_sash
+  end
 end

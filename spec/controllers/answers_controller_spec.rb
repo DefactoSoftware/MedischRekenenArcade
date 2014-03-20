@@ -7,7 +7,7 @@ describe AnswersController do
   let(:badanswer) {FactoryGirl.attributes_for(:answer, problem_id: problem.id, value: problem.get_result + 1)}
   let(:goodanswer) {FactoryGirl.attributes_for(:answer, problem_id: problem.id, value: problem.get_result)}
   let(:conversion_error_answer) {FactoryGirl.attributes_for(:answer, problem_id: problem.id, value: problem.get_result*1000)}
-  let(:rounding_error_answer) {FactoryGirl.attributes_for(:answer, problem_id: problem.id, value: problem.get_result-Float(0.2).round(2))}
+  let(:rounding_error_answer) {FactoryGirl.attributes_for(:answer, problem_id: problem.id, value: problem.get_result-Float(0.1).round(2))}
   let(:skill) { FactoryGirl.create(:skill, name:"Addition") }
   let(:challenge) { FactoryGirl.create(:challenge) }
   let(:user_challenge) { FactoryGirl.create(:user_challenge, challenge: challenge, user: user) }
