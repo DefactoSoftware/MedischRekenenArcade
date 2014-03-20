@@ -231,55 +231,55 @@ en:
     new_user_group: "New usergroup"
     add_user_group: "Add a usergroup"
   challenges:
-    Addition:
+    addition:
       title: "Addition"
       info: "This challenge consists of 10 addition problems, you have to add up numbers"
-    Division:
+    division:
       title: "Division"
       info: "This challenge consists of 10 division problems, you have to divide numbers"
-    Multiplication:
+    multiplication:
       title: "Multiplication"
       info: "This challenge consists of 10 multiplication problems, you have to multiply numbers"
-    Subtraction:
+    subtraction:
       title: "Subtraction"
       info: "This challenge consists of 10 subtraction problems, you have to subtract numbers."
-    Mixed:
+    mixed:
       title: "Mixed"
       info: "This challenge consists of 10 mixed basic problems, you have to divide, multiply, add and subtract numbers."
-    PercentageAmountOfAmount:
+    percentage_amount_of_amount:
       title: "Percentage: percentage amount from unit"
       info: "The challenge is about percentages. You need to calculate the percentage of a certain value. There are 10 problems"
-    PercentageOfUnit:
+    percentage_of_unit:
       title: "Percentage: % of unit"
       info: "The challenge is about percentages. You need to calculate what percentage the first value is of the second value. There are 10 problems."
-    PercentageUnitToHundred:
+    percentage_unit_to_hundred:
       title: "Percentage: convert to 100%"
       info: "The challenge is about percentages. You need to calculate back to a 100%. There are 10 problems."
-    SolutionMaxisporin:
+    solution_maxisporin:
       title: "Solution: Maxisporin"
       info: "This challenge is about giving Maxisporin to a patient. You need to calculate how much powder should be dissolved in every injection."
-    UnitConversion:
+    unit_conversion:
       title: "Conversion: Weights and Volumes"
       info: "In this challenge you need to convert units into other units, for example from milliliter to liter. After 10 good answers you complete the challenge."
-    ConcentrationTablet:
+    concentration_tablet:
       title: "Concentration: tablets"
       info: "In this challenge you have to calculate the amount of Vitamin C in one tablet. You complete the challenge after 10 good answers."
-    ConcentrationToHundred:
+    concentration_to_hundred:
       title: "Concentration: to 100%"
       info: "In this challenge you have to calculate how much ml you need of a certain fluid, based on the solution and amount of medicine. You need 10 good answers to complete it."
-    ConcentrationAmount:
+    concentration_amount:
       title: "Concentration: amount of solution"
       info: "In this challenge you need to calculate the amount of fluid is in a solution. After 10 good answers you complete the challenge."
-    SyringePumpAmount:
+    syringe_pump_amount:
       title: "Syringepump: Amounts"
       info: "In this challenge you have to calculate how much ml of the medicine you need to prepare. After 10 good answers you complete the challenge."
-    SyringePumpHourly:
+    syringe_pump_hourly:
       title: "Syringepum: Per hour"
       info: "In this challenge you need to calculate the amount of ml per hour. 10 good answers will complete the challenge."
-    DropIvHourly:
+    drop_iv_hourly:
       title: "Drop IV: Per hour"
       info: "You have to calculate the setting of the drop iv machine and therefor the amount of ml per hour. After 10 good answers you complete the challenge."
-    DropIvAmount:
+    drop_iv_amount:
       title: "Drop IV Infuus: Number of drops"
       info: "In this challenge you need to calculate the number of drops per minute the patient needs. 10 good answers is the requirement for a completed challenge."
     labels:
@@ -297,18 +297,18 @@ en:
   problem_info:
     title: "Current problem"
     basic: "This is a basic mathematical operation. Look at the operator and solve the problem. If there is more than one step try to do the easiest step first. If the number is too big try to make little chunks."
-    PercentageOfUnit: "Divide the percentage asked by 100 and multiply that with the value."
-    PercentageUnitToHundred: "Divide the given value by the given percentage. You now have 1%. Multiply that again by 100."
-    PercentageAmountOfAmount: "First calculate what 1% is by dividing the value by 100. Then multiply that by the percentage asked."
-    SolutionMaxisporin: "You need to take a few steps for this. First you calculate how much mg you need to inject per time, so with 750mg Maxisporin per day and 3 injections you divide 750 by 3, 25. Then you calculate how much of the stock needs to be dissolved. With 1000mg in stock and 0.5ml needed fluid you divide 1000 by 0.5 = 2000. Then you divide the first result by the last. 25/2000 = 0.125ml per time."
-    UnitConversion: "Metric units are very nice to work with, since they are all multiples of ten (or a hundred, or one-tenth, etc) of each other. You can convert between the various different sizes by merely moving the decimal point the correct number of places."
-    ConcentrationTablet: "Concentration means how much of substance A is in substance B. This is about how much active compound. That means you have to divide the active compound by the total weight of the pill. Multiply that with 100 to get the concentration"
-    ConcentrationAmount: "Concentration means how much of substance A is in substance B. You have a percentage here, divide that by hundred. That result you should multiply with the medicine and you have the amount."
-    ConcentrationToHundred: "First divide the given value by the percentage, now you have 1%. Multiply that by 100 to get the result."
-    SyringePumpAmount: "First divide the total amount of mg by the amount of mg per ml. Multiply that by the amount of ml and you know how much ml you need for 24 hours."
-    SyringePumpHourly: "First divide the total amount of mg by the amount of hours. Then divide the ratio of medicine and solution by each other. Now divide the amount of ml per hour by the last result and you have the amount of ml per time."
-    DropIvHourly: "You first have to convert the amount of liters to milliliters. Then divide that by the amount of hours. You now have the amount of ml per hour."
-    DropIvAmount: "The medical standard is 20 drops per ml. First you have to multiply the amount of liters with 1000 so you have the amount in milliliters. Then you divide that by the amount of minutes (24 hours * 60 minutes). Now you have the amount of milliliters per minute, now you only need to multiply by 20 to get the number of drops."
+    percentage_of_unit: "Divide the percentage asked by 100 and multiply that with the value."
+    percentage_unit_to_hundred: "Divide the given value by the given percentage. You now have 1%. Multiply that again by 100."
+    percentage_amount_of_amount: "First calculate what 1% is by dividing the value by 100. Then multiply that by the percentage asked."
+    solution_maxisporin: "You need to take a few steps for this. First you calculate how much mg you need to inject per time, so with 750mg Maxisporin per day and 3 injections you divide 750 by 3, 25. Then you calculate how much of the stock needs to be dissolved. With 1000mg in stock and 0.5ml needed fluid you divide 1000 by 0.5 = 2000. Then you divide the first result by the last. 25/2000 = 0.125ml per time."
+    unit_conversion: "Metric units are very nice to work with, since they are all multiples of ten (or a hundred, or one-tenth, etc) of each other. You can convert between the various different sizes by merely moving the decimal point the correct number of places."
+    concentration_tablet: "Concentration means how much of substance A is in substance B. This is about how much active compound. That means you have to divide the active compound by the total weight of the pill. Multiply that with 100 to get the concentration"
+    concentration_amount: "Concentration means how much of substance A is in substance B. You have a percentage here, divide that by hundred. That result you should multiply with the medicine and you have the amount."
+    concentration_to_hundred: "First divide the given value by the percentage, now you have 1%. Multiply that by 100 to get the result."
+    syringe_pump_amount: "First divide the total amount of mg by the amount of mg per ml. Multiply that by the amount of ml and you know how much ml you need for 24 hours."
+    syringe_pump_hourly: "First divide the total amount of mg by the amount of hours. Then divide the ratio of medicine and solution by each other. Now divide the amount of ml per hour by the last result and you have the amount of ml per time."
+    drop_iv_hourly: "You first have to convert the amount of liters to milliliters. Then divide that by the amount of hours. You now have the amount of ml per hour."
+    drop_iv_amount: "The medical standard is 20 drops per ml. First you have to multiply the amount of liters with 1000 so you have the amount in milliliters. Then you divide that by the amount of minutes (24 hours * 60 minutes). Now you have the amount of milliliters per minute, now you only need to multiply by 20 to get the number of drops."
   challenge_sets:
     Week_1: "Basic and Percentages"
     Week_2: "Concentrations and Solutions"
@@ -333,43 +333,43 @@ en:
               confirmation: "is not equal to password"
   problems:
     theory:
-      PercentageAmountOfAmount: "%{operation1_constant1}% of %{operation1_constant2}%{unit}"
-      PercentageOfUnit: "How much %{unit} is %{operation1_constant1}%{unit_question} of %{operation1_constant2}%{unit_question}"
-      SolutionMaxisporin: |
+      percentage_amount_of_amount: "%{operation1_constant1}% of %{operation1_constant2}%{unit}"
+      percentage_of_unit: "How much %{unit} is %{operation1_constant1}%{unit_question} of %{operation1_constant2}%{unit_question}"
+      solution_maxisporin: |
                           Give a patient parenterally %{operation1_constant1} Maxisporin a day, spread out over %{operation1_constant2} injections.
                           In stock is Maxisporin %{operation2_constant1}. This powder should be dissolved in 4ml aqua bidestillata
                           to get %{operation2_constant2} injectionliquid. How much should you inject each time
-      PercentageUnitToHundred: "%{operation1_constant1}% is %{operation1_constant2}%{unit}, how much is %{operation2_constant1}%"
-      UnitConversion: "How much is %{constant1} %{unit_question} in %{unit}"
-      ConcentrationTablet:
+      percentage_unit_to_hundred: "%{operation1_constant1}% is %{operation1_constant2}%{unit}, how much is %{operation2_constant1}%"
+      unit_conversion: "How much is %{constant1} %{unit_question} in %{unit}"
+      concentration_tablet:
         vitaminc: "A tablet Vitamin C weighs %{operation1_constant1} mg and contains %{operation1_constant2} mg. How high is the concentration of Vitamin C in %"
         augmentin_amoxicilline: "A tablet Augmentin® of %{operation1_constant1} mg contains %{operation1_constant2} mg amoxicilline. How high is the concentration of amoxicilline in %"
         augmentin_clavulaneacid: "A tablet vitamine C weighs %{operation1_constant1} mg and contains %{operation1_constant2} mg clavulane acid. What is the concentration of clavulane acid in the tablet in %"
         methylfenidaat: "A pill Ritalin® weighs %{operation1_constant1} mg, what is the concentration in % when there is %{operation1_constant2} mg acting compound in it"
-      ConcentrationAmount:
+      concentration_amount:
         glucose: "How much gram glucose contains %{operation1_constant1} ml glucose solution %{operation1_constant2} %"
         natriumchloride: "How much gram sodium chloride contains %{operation1_constant1} ml saline %{operation1_constant2} %"
-      ConcentrationToHundred:
+      concentration_to_hundred:
         natriumchloride: "In stock is saline of %{operation1_constant1}%. You need to give the patient %{operation1_constant2} mg sodium chloride, how much ml do you need"
         periciazine: "The patient has to get %{operation1_constant2} mg periciazine. You have %{operation1_constant1}% periciazine fluid. How much ml do you need to give"
         morfine: "The doctor assigns you to give morfine. You have morfine %{operation1_constant1}%. You need to give the patient %{operation1_constant2} mg. How much ml do you inject"
         lidocaine: "The patient needs to get %{operation1_constant2} mg periciazine. In stock is %{operation1_constant1}% periciazine fluid. How much ml do you need to give"
         pethidine: "You are going to prepare an ampoule with pethidine solution %{operation1_constant1}%. You need %{operation1_constant2} mg. How much ml needs to be in the ampoule"
         glucose: "In stock is a glucose solution of %{operation1_constant1}%. You need to give the patient %{operation1_constant2} mg glucose, how much ml do you need"
-      SyringePumpAmount:
+      syringe_pump_amount:
         insuline: "The patient has to get %{operation1_constant1}mg insuline per 24 hours. You have ampoules of %{operation1_constant2}mg/%{operation2_constant1}ml. How much %{unit} insuline do you put in a syringe for 24 hours"
         kci: "The patient needs %{operation1_constant1}mg KCI. This needs to be injected in 24 hours. In stock are ampoules of %{operation1_constant2}mg/%{operation2_constant1}ml. How much %{unit} KCI do you need for a syringe for 24 hours"
         midazolam: "The patient gets %{operation1_constant1}mg Midazolam per 24 hours. There are ampoules of %{operation1_constant2}mg/%{operation2_constant1}ml in stock. How much %{unit} Midazolam is there in a syringe for 24 hours"
         morfine: "The patient has pain and is therefor allowed %{operation1_constant1}mg morfine per 24 hours. In stock are ampoules of %{operation1_constant2}mg/%{operation2_constant1}ml. How much %{unit} morfine do you put in a syringe for 24 hours"
         ranitidine: "The patient needs %{operation1_constant1}mg Ranitidine per 24 hours. You have ampoules of %{operation1_constant2}mg/%{operation2_constant1}ml. How much %{unit} Ranitidine do you need for a syringe for 24 hours"
-      SyringePumpHourly: #This could be put in one text field with a variable called medicine, but i would like the texts to differentiate like the ConcentrationToHundred texts. Don't know how yet.
+      syringe_pump_hourly: #This could be put in one text field with a variable called medicine, but i would like the texts to differentiate like the ConcentrationToHundred texts. Don't know how yet.
         insuline: "The patient continuously gets insuline. The patient needs %{operation1_constant1}mg insule per 24 hours. You have ampoules of %{operation2_constant1}mg/%{operation2_constant2}ml. At how much %{unit} per hour do you set the syringe pump"
         kci: "The patient continuously gets KCI. The patient needs %{operation1_constant1}mg KCI per 24 hours. You have ampoules of %{operation2_constant1}mg/%{operation2_constant2}ml. At how much %{unit} per hour do you set the syringe pump"
         midazolam: "The patient continuously gets Midazolam. The patient needs %{operation1_constant1}mg Midazolam per 24 hours. You have ampoules of %{operation2_constant1}mg/%{operation2_constant2}ml. At how much %{unit} per hour do you set the syringe pump"
         morfine: "The patient continuously gets morfine. The patient needs %{operation1_constant1}mg morfine per 24 hours. You have ampoules of %{operation2_constant1}mg/%{operation2_constant2}ml. At how much %{unit} per hour do you set the syringe pump"
         ranitidine: "The patient continuously gets Ranitidine. The patient needs %{operation1_constant1}mg Ranitidine per 24 hours. You have ampoules of %{operation2_constant1}mg/%{operation2_constant2}ml. At how much %{unit} per hour do you set the syringe pump"
-      DropIvHourly: "A patient is dehydrated. He gets %{operation1_constant1} liter IV per %{operation1_constant2} hours. At how much %{unit} per hour do you set the pump"
-      DropIvAmount: "A patient is dehydrated. He gets %{operation1_constant1} liter IV per 24 hours. How many drops a minute is that"
+      drop_iv_hourly: "A patient is dehydrated. He gets %{operation1_constant1} liter IV per %{operation1_constant2} hours. At how much %{unit} per hour do you set the pump"
+      drop_iv_amount: "A patient is dehydrated. He gets %{operation1_constant1} liter IV per 24 hours. How many drops a minute is that"
   home:
     last_badge: "Last Badge"
     last_challenge: "Last Challenge"

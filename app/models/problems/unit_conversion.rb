@@ -39,14 +39,10 @@ class UnitConversion < Problem
   end
 
   def generate_theory(formula)
-    self.theory = I18n.t("problems.theory.#{self.class.name}",
+    self.theory = I18n.t("problems.theory.#{self.class.name.underscore}",
                           constant1: formula.operations[0].constant1.value,
                           unit: unit.sign,
                           unit_question: unit_question.sign
                         )
-  end
-
-  def info
-    I18n.t("problem_info.UnitConversion")
   end
 end
