@@ -277,7 +277,7 @@ en:
       title: "Syringepump: Amounts"
       info: "In this challenge you have to calculate how much ml of the medicine you need to prepare. After 10 good answers you complete the challenge."
     syringe_pump_hourly:
-      title: "Syringepum: Per hour"
+      title: "Syringepump: Per hour"
       info: "In this challenge you need to calculate the amount of ml per hour. 10 good answers will complete the challenge."
     drop_iv_hourly:
       title: "Drop IV: Per hour"
@@ -303,7 +303,7 @@ en:
     percentage_of_unit: "Divide the percentage asked by 100 and multiply that with the value."
     percentage_unit_to_hundred: "Divide the given value by the given percentage. You now have 1%. Multiply that again by 100."
     percentage_amount_of_amount: "First calculate what 1% is by dividing the value by 100. Then multiply that by the percentage asked."
-    solution_maxisporin: "You need to take a few steps for this. First you calculate how much mg you need to inject per time, so with 750mg Maxisporin per day and 3 injections you divide 750 by 3, 25. Then you calculate how much of the stock needs to be dissolved. With 1000mg in stock and 0.5ml needed fluid you divide 1000 by 0.5 = 2000. Then you divide the first result by the last. 25/2000 = 0.125ml per time."
+    solution_maxisporin: "You need to take a few steps for this. First you calculate how much mg you need to inject per time, so with 750mg Maxisporin per day and 3 injections you divide 750 by 3, 250. Then you calculate how much of the stock needs to be dissolved. With 1000mg in stock and 0.5ml needed fluid you divide 1000 by 0.5 = 2000. Then you divide the first result by the last. 25/2000 = 0.125ml per time."
     unit_conversion: "Metric units are very nice to work with, since they are all multiples of ten (or a hundred, or one-tenth, etc) of each other. You can convert between the various different sizes by merely moving the decimal point the correct number of places."
     concentration_tablet: "Concentration means how much of substance A is in substance B. This is about how much active compound. That means you have to divide the active compound by the total weight of the pill. Multiply that with 100 to get the concentration"
     concentration_amount: "Concentration means how much of substance A is in substance B. You have a percentage here, divide that by hundred. That result you should multiply with the medicine and you have the amount."
@@ -380,8 +380,8 @@ en:
     standard_text:  |
                     #### Welcome and congratulations!
 
-                    By openening your page you got your first badge!
-                    As soon as you create your account it 'll be added to your account.
+                    By opening this page you got your first badge!
+                    As soon as you sign up it 'll be added to your account.
 
                     _But wait a second.. what are Medical Arithmetics?_
 
