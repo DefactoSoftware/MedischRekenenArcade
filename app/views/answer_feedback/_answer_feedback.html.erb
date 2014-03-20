@@ -1,14 +1,9 @@
 <h4><%= t("answer.feedback.title") %></h4>
-<% if (DateTime.now.to_i - answer.updated_at.to_i) < 2 %>
-  <p><%= answer.feedback %></p>
-  <% if answer.problem != nil && !answer.correct? %>
-    <p><%= t("answer.feedback.question") %>: <%= answer.problem.theory %> </p>
-    <p><%= t("answer.feedback.result", result: answer.value, right_answer: answer.problem.result.round(2)) %></p>
-    <%= audio_tag(asset_path("assets/bad.wav"), autoplay:true, hidden:true) %>
-  <% else %>
-    <%= audio_tag(asset_path("assets/good.wav"), autoplay:true, hidden:true) %>
-  <% end %>
+<p><%= answer.feedback %></p>
+<% if answer.problem != nil && !answer.correct? %>
+  <p><%= t("answer.feedback.question") %>: <%= answer.problem.theory %> </p>
+  <p><%= t("answer.feedback.result", result: answer.value, right_answer: answer.problem.result.round(2)) %></p>
+  <%= audio_tag(asset_path("assets/bad.wav"), autoplay:true, hidden:true) if (DateTime.now.to_i - answer.updated_at.to_i) < 3 %>
 <% else %>
-  <p><%= t("answer.no_feedback") %></p>
+  <%= audio_tag(asset_path("assets/good.wav"), autoplay:true, hidden:true) if (DateTime.now.to_i - answer.updated_at.to_i) < 3 %>
 <% end %>
-
