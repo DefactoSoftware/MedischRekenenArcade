@@ -28,7 +28,7 @@ class ConcentrationToHundred < Problem
     operations << Operation.new(
                     AVAILABLE_OPERATORS["Division"],
                     Constant.new(Float((rand(1..10)*10).round(2))),
-                    Constant.new(Float(rand(1..15)).round(2))
+                    Constant.new(1000)
                 )
     operations << Operation.new(
                     AVAILABLE_OPERATORS["Multiplication"],
@@ -42,7 +42,7 @@ class ConcentrationToHundred < Problem
     medicine = ["natriumchloride", "periciazine", "morfine", "lidocaine", "pethidine", "glucose"]
     self.theory = I18n.t("problems.theory.#{self.class.name.underscore}.#{medicine.sample}",
                           unit: unit.name,
-                          operation1_constant1: formula.operations[0].constant2.value,
+                          operation1_constant1: Float(rand(1..15)).round(2),
                           operation1_constant2: formula.operations[0].constant1.value
                         )
   end
