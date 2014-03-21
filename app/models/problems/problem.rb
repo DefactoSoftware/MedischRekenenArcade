@@ -32,7 +32,7 @@ class Problem < ActiveRecord::Base
   VALID_PROBLEMS = %w(PercentageAmountOfAmount PercentageOfUnit PercentageUnitToHundred SolutionMaxisporin
                       Division Multiplication Addition Subtraction Mixed UnitConversion ConcentrationTablet
                       ConcentrationAmount ConcentrationToHundred SyringePumpAmount SyringePumpHourly
-                      DropIvHourly DropIvAmount)
+                      DropIvHourly DropIvAmount OxygenTime)
 
   def generate(user)
     self.skill_offset=7
