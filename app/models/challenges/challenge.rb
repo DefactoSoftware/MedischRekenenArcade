@@ -27,7 +27,7 @@ class Challenge < ActiveRecord::Base
                     Division Addition Subtraction Multiplication Mixed
                     UnitConversion ConcentrationTablet ConcentrationToHundred ConcentrationAmount
                     SolutionMaxisporin SyringePumpAmount SyringePumpHourly
-                    DropIvHourly DropIvAmount
+                    DropIvHourly DropIvAmount OxygenTime
                     )
 
   validates :name, inclusion: { in: VALID_NAMES }
