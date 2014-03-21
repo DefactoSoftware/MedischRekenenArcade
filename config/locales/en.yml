@@ -283,7 +283,7 @@ en:
       title: "Drop IV: Per hour"
       info: "You have to calculate the setting of the drop iv machine and therefor the amount of ml per hour. After 10 good answers you complete the challenge."
     drop_iv_amount:
-      title: "Drop IV Infuus: Number of drops"
+      title: "Drop IV: Number of drops"
       info: "In this challenge you need to calculate the number of drops per minute the patient needs. 10 good answers is the requirement for a completed challenge."
     labels:
       stats: "Statistic"
