@@ -36,4 +36,5 @@ task :create_challenges => :environment do
   week4_challenge_set = ChallengeSet.where(name: "Week_4", locked:false).first_or_create
 
   oxygen_time = Challenge.where(name: "OxygenTime", number_of_problems: STANDARD_NO_PROBLEMS, steps: 1, timelimit: 900000, bonus: 20, icon: "challenges/Zuurstof1.png", challenge_set: week4_challenge_set).first_or_create
+  oxygen_pressure = Challenge.where(name: "OxygenPressure", number_of_problems: STANDARD_NO_PROBLEMS, steps: 1, timelimit: 900000, bonus: 20, icon: "challenges/Zuurstof2.png", challenge_set: week4_challenge_set).first_or_create
 end
