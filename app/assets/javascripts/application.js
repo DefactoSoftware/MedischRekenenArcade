@@ -41,12 +41,14 @@ $("#calculator").ready(function() {
 
 //Functions for making answering view interactive
 $(".unit_select").ready(function() {
+  for(var i = 0; i < $(".unit_select").length; i++){
+    if($(".unit_select")[i].dataset.selected == "true") {
+      $("#selectedUnit").html($(".unit_select")[i].dataset.sign + " ▼");
+    }
+  }
   $(".unit_select").on("click", function(element){
     $("#selectedUnit").html($(element.target)[0].dataset.sign + " ▼");
   });
-  if($(".unit_select").length > 0) {
-    $(".unit_select")[0].click();
-  }
 });
 
 var update_profile_picture = function(event) {

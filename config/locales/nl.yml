@@ -286,6 +286,12 @@ nl:
     drop_iv_amount:
       title: "Druppelgestuurd Infuus: Aantal Druppels"
       info: "Bij deze uitdaging moet je het aantal druppels per minuut dat door het druppel infuus gegeven wordt uitrekenen. Na 10 goede antwoorden behaal je de uitdaging"
+    oxygen_time:
+      title: "Zuurstof: Tijd"
+      info: "Bij deze uitdaging moet je uitrekenen hoeveel minuten je kan doen met 1 cilinder aan de hand van de druk. Na 10 goede antwoorden behaal je de uitdaging"
+    oxygen_pressure:
+      title: "Zuurstof: Druk"
+      info: "Bij deze uitdaging moet je druk van de manometer uitrekenen. Na 10 goede antwoorden heb je de uitdaging gehaald."
     labels:
       stats: "Statistiek"
       amount: "Aantal"
@@ -308,15 +314,18 @@ nl:
     unit_conversion: "Metrische eenheden zijn heel makkelijk om mee te werken, omdat ze allemaal meervouden van tien zijn (of honderd, een-tiende, etc) van elkaar. Je kan tussen de verschillende eenheden wisselen door het decimale punt te verplaatsen."
     concentration_tablet: "Met een concentratie wordt aangegeven welk gedeelte van stof A in stof B zit. Het gaat hier om de hoeveelheid Vitamine C in 1 tablet. Dat betekent dat je de hoeveelheid Vitamine C moet delen door het totale gewicht. Vermenigvuldig nog met 100 om de concentratie in procenten te krijgen"
     concentration_amount: "Met een concentratie wordt aangegeven welk gedeelte van stof A in stof B zit. Je hebt hier een percentage, dat moet je dus delen door 100. Dat resultaat vermenigvuldig je met de hoeveelheid Glucoseoplossing en je hebt de hoeveelheid Glucose."
-    concentration_to_hundred: "Deel de gegeven waarde door het gegeven percentage, je hebt dan 1%. Vermenigvuldig dat met 100."
+    concentration_to_hundred: "Deel de gegeven waarde door 1000 om het aantal grammen te krijgen. De oplossing bevat namelijk een hoeveelheid in grammen. Vermenigvuldig dat met 100(ml) en je weet hoeveel ml je nodig hebt."
     syringe_pump_amount: "Deel eerst het totale aantal mg door het aantal mg per ml. Vermenigvuldig dat weer met het aantal ml en je weet hoeveel milliliter je nodig hebt voor 24 uur."
     syringe_pump_hourly: "Deel eerst het totale aantal mg door het aantal uren. Deel dan de verhouding van medicijn en oplossing door elkaar. Deel nu het aantal mg per uur door dat laatste en je hebt het aantal milliliters per uur."
     drop_iv_hourly: "Je moet eerst het aantal liters omrekenen naar milliliters. Daarna deel je dat door het aantal uur. Je hebt dan het aantal milliliters per uur."
     drop_iv_amount: "De medische standaard is 1ml is 20 druppels. Eerst moet je dus het aantal liters vermenigvuldigen met 1000 zodat je het aantal milliliters hebt. Vervolgens deel je dat door het aantal minuten (24 uur * 60 minuten). Je hebt nu het aantal milliliters per minuut, nu moet je alleen nog vermenigvuldigen met 20 om het aantal druppels te krijgen."
+    oxygen_time: "De aanwezige hoeveelheid zuurstof en de druk bepalen hoe lang je met een cilinder kan doen. Als je een cilinder hebt met 10 liter en de manometer staat op 110 bar vermenigvuldig deze getallen om de totale hoeveelheid vrijgekomen zuurstof te berekenen, 110*10 = 1100. Om uit te rekenen hoeveel minuten dat kost tot de cilinder leeg is deel je de uitkomst van de vorige stap door het aantal liters per minuut. Dus bijvoorbeeld bij 2 liter per minuut doe je 1100/2 = 550 minuten."
+    oxygen_pressure: "Je wil weten op welke stand de manometer moet staan. Daarvoor moet je de hoeveelheid zuurstof delen door de grootte van de cilinder."
   challenge_sets:
     Week_1: "Basis en Percentages"
     Week_2: "Concentraties en Oplossingen"
     Week_3: "Druppel Infuus en Spuitenpomp"
+    Week_4: "Zuurstof en Druk"
   activerecord:
     attributes:
       user:
@@ -374,6 +383,8 @@ nl:
         ranitidine: "De patient krijgt continu ranitidine toegediend. De patient heeft %{operation1_constant1}mg ranitidine per 24 uur nodig. Je hebt ampullen van %{operation2_constant1}mg/%{operation2_constant2}ml. Op hoeveel %{unit} per uur zet je de spuitenpomp"
       drop_iv_hourly: "Een patient is gedehydrateerd. Hij krijgt %{operation1_constant1} liter infuus per %{operation1_constant2} uur. Op hoeveel %{unit} per uur zet je de pomp"
       drop_iv_amount: "Een patient is gedehydrateerd. Hij krijgt %{operation1_constant1} liter infuus per 24 uur. Hoeveel druppels zijn dat per minuut"
+      oxygen_time: "Je hebt een cilinder met %{operation1_constant1} liter zuurstof. De manometer staat op %{operation1_constant2} bar. De patient krijgt %{operation2_constant1} liter per minuut. Hoeveel minuten kan je met de cilinder doen?"
+      ogygen_pressure: "De patient heeft %{operation1_constant1} liter zuurstof nodig, je hebt een cilinder met %{operation1_constant2} liter inhoud. Op welke druk moet de manometer staan"
   home:
     last_badge: "Laatste Badge"
     last_challenge: "Laatste Challenge"

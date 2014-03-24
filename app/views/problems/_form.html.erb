@@ -8,7 +8,7 @@
         <span id="selectedUnit" class="input-group-addon dropdown-toggle" data-toggle="dropdown"></span>
         <ul class="dropdown-menu pull-right">
           <% problem.unit.unit_group.units.each do |unit| %>
-            <li><a class="unit_select" data-sign="<%= unit.sign %>"><%= unit.name %></a></li>
+            <li><a class="unit_select" data-selected="<%= "true" if unit == problem.unit %>" data-sign="<%= unit.sign %>"><%= unit.name %></a></li>
           <% end %>
         </ul>
       <% else %>

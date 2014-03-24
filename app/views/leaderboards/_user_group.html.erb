@@ -1,4 +1,4 @@
-<h2><%= current_user.user_group.name %></h2>
+<h2><%= link_to leaderboards_path do current_user.user_group.name end %></h2>
 <table class="table table-striped">
   <thead>
     <tr>

@@ -285,6 +285,12 @@ en:
     drop_iv_amount:
       title: "Drop IV: Number of drops"
       info: "In this challenge you need to calculate the number of drops per minute the patient needs. 10 good answers is the requirement for a completed challenge."
+    oxygen_time:
+      title: "Oxygen: Time"
+      info: "In this challenge you need to calculate how many minutes it takes untill the cylinder of oxygen is empty. You need 10 good answers to complete this challenge."
+    oxygen_pressure:
+      title: "Oxygen: Pressure"
+      info: "In this challenge you need to calculate the pressure the manometer should be set at. You need 10 good answers to complete the challenge."
     labels:
       stats: "Statistic"
       amount: "Amount"
@@ -312,10 +318,13 @@ en:
     syringe_pump_hourly: "First divide the total amount of mg by the amount of hours. Then divide the ratio of medicine and solution by each other. Now divide the amount of ml per hour by the last result and you have the amount of ml per time."
     drop_iv_hourly: "You first have to convert the amount of liters to milliliters. Then divide that by the amount of hours. You now have the amount of ml per hour."
     drop_iv_amount: "The medical standard is 20 drops per ml. First you have to multiply the amount of liters with 1000 so you have the amount in milliliters. Then you divide that by the amount of minutes (24 hours * 60 minutes). Now you have the amount of milliliters per minute, now you only need to multiply by 20 to get the number of drops."
+    oxygen_time: "The amount of oxygen and the pressure decide how long you can use a cylinder. When you have a cylinder with 10 liters of oxygen and the manometer is set to 110 bar you multiply these numbers to get the total amount of released oxygen, 110*10 = 1100. To calculate how many minutes it takes to empty the cylinder you divide the result of the last step by the amount of liters per minute. For example with 2 liters per minute you do 1100/2 = 550 minutes."
+    oxygen_pressure: "You want to know at what pressure the manometer should be set. For that you should divide the amount of oxygen you need by the size of the capacity of the cylinder."
   challenge_sets:
     Week_1: "Basic and Percentages"
     Week_2: "Concentrations and Solutions"
     Week_3: "Drop IV and Syringe Pump"
+    Week_4: "Oxygen and Pressure"
   activerecord:
     attributes:
       user:
@@ -373,6 +382,8 @@ en:
         ranitidine: "The patient continuously gets Ranitidine. The patient needs %{operation1_constant1}mg Ranitidine per 24 hours. You have ampoules of %{operation2_constant1}mg/%{operation2_constant2}ml. At how much %{unit} per hour do you set the syringe pump"
       drop_iv_hourly: "A patient is dehydrated. He gets %{operation1_constant1} liter IV per %{operation1_constant2} hours. At how much %{unit} per hour do you set the pump"
       drop_iv_amount: "A patient is dehydrated. He gets %{operation1_constant1} liter IV per 24 hours. How many drops a minute is that"
+      oxygen_time: "You have a cylinder of %{operation1_constant1} liter oxygen. The manometer is set for %{operation1_constant2} bar. The patient is getting %{operation2_constant1} liter per minute. How many minutes will the cylinder last"
+      oxygen_pressure: "The patient needs %{operation1_constant1} liter oxygen, you have a cylinder with %{operation1_constant2} liter capacity. At how much pressure should the manometer be set"
   home:
     last_badge: "Last Badge"
     last_challenge: "Last Challenge"
