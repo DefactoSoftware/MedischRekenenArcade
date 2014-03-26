@@ -32,7 +32,7 @@
     </div>
     <div>
       <p>
-        <%= t("gamercard.points", count: RedisLeaderboard.get.score_for(user.id).to_i) %>
+        <%= t("gamercard.points", count: user.points) %>
         <%= t("gamercard.challenges", count: user.challenges_completed_successfully) %>
         <%= t("gamercard.badges", count: user.badges.count) %>
       </p>

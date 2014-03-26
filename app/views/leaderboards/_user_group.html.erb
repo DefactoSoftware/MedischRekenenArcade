@@ -12,7 +12,7 @@
     <tr>
       <td class="no-mobile">#<%= i+1 %></td>
       <td><%= link_to user_statistics_path(user) do %><%= user.username %><% end %></td>
-      <td><%= score[:score] %></td>
+      <td><%= score[:score].to_i %></td>
     </tr>
   <% end %>
 </table>
