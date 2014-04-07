@@ -14,17 +14,25 @@
   display: none;
   position: absolute;
   top: 5%;
-  left: 5%;
-  width: 90%;
-  height: 90%;
-  padding: 16px;
-  border: 3px solid #2980b9;
+  left: 25%;
+  width: 50%;
+  padding: 2px 16px 2px 16px;
+
   background-color: white;
   z-index:1002;
   opacity: 1;
   overflow: auto;
-  height: 480px;
   box-shadow: 10px 10px 20px black;
+  border-bottom: 1px solid #1abc9c;
+  border-bottom-width: 2px;
+  border-radius: 0px 0px 5px 5px;
+}
+
+@media (max-width: 768px) {
+  .feedback_report {
+    width: 90%;
+    left:5%;
+  }
 }
 
 .black_overlay{
