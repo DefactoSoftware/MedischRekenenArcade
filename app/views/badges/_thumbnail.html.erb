@@ -1,5 +1,5 @@
-<div class="thumbnail thumbnail-challenge">
-  <%= link_to user_statistics_path(current_user), class:"thumb-link" do %>
+<div id="<%= badge.name %>" class="thumbnail thumbnail-challenge <%= badge_inactive(user, badge)%>">
+  <%= link_to badges_path, class:"thumb-link" do %>
     <img class="image" src="<%=asset_path(badge.image) %>">
     <div class="caption">
       <div class="inner">

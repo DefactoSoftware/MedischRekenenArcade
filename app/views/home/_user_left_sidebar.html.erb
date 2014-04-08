@@ -2,7 +2,7 @@
   <div class="block">
     <h4><%= t("labels.last_badge") %></h4>
     <div class="thumbnail-col">
-      <%= render 'badges/thumbnail', badge: @last_badge %>
+      <%= render 'badges/thumbnail', badge: @last_badge, user: current_user %>
     </div>
   </div>
 <% end %>

@@ -159,6 +159,7 @@ en:
     sign_up: "Register"
     users: "Users"
     help: "Need help?"
+    badges: "Badges"
   calculator:
     info: "If you're stuck you can use this simple calculator. This does however reduce your score"
   practice:

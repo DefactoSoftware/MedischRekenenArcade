@@ -17,6 +17,8 @@ MedischRekenenArcade::Application.routes.draw do
     resources :statistics, only: [:index]
   end
 
+  resources :badges, only: [:index]
+
   resources :feedback_reports, only: [:create]
 
   resources :leaderboards, only: [:index]
