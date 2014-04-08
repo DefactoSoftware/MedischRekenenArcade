@@ -109,13 +109,13 @@ en:
       name: "Challenge Champion (Week 4)"
       description: "You have completed all challenges from week 4"
     enthusiast_a:
-      name: "Enthusiast (3 dagen)"
+      name: "Enthusiast (3 days)"
       description: "You were active for 3 days in a row"
     enthusiast_b:
       name: "Enthusiast (1 week)"
       description: "You were active for 7 days in a row"
     enthusiast_c:
-      name: "Enthusiast (1 maand)"
+      name: "Enthusiast (1 month)"
       description: "You were active for 30 days in a row"
     cold_feet_a:
       name: "Cold Feet (10)"

@@ -39,6 +39,12 @@ $("#calculator").ready(function() {
   $("#calculator").draggable();
 })
 
+$("#messages-toggle").ready(function() {
+  $("#messages-toggle").on("click", function() {
+    $("#messages").toggle()
+  })
+})
+
 //Functions for making answering view interactive
 $(".unit_select").ready(function() {
   for(var i = 0; i < $(".unit_select").length; i++){

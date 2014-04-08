@@ -1,5 +1,8 @@
 <ul class="nav navbar-nav navbar-right">
   <li>
+    <a href="javascript:void();"><%= image_tag("mail.svg", height: "30px", id: "messages-toggle") %></a>
+  </li>
+  <li>
     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
       <img src="<%= current_user.profilepicture_url%>" class="img-circle profile-pic" width="40px" height="40px">
       <%= current_user.username %>

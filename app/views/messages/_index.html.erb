@@ -1,0 +1,7 @@
+<div id="messages">
+  <% all_notifications.each do |message| %>
+    <div class="message">
+      <%= MessagePresenter.new(message, self).render_message%>
+    </div>
+  <% end %>
+</div>

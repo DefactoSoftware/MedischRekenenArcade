@@ -12,7 +12,12 @@ class ApplicationController < ActionController::Base
             .order("created_at DESC").limit(10)
   end
 
+  def all_notifications
+    current_user.notifications
+  end
+
   helper_method :all_activities
+  helper_method :all_notifications
 
   protected
 

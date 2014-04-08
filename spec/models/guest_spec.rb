@@ -38,4 +38,8 @@ describe Guest, type: :model do
   it "has a _sash method" do
     expect(Guest).to have_method :_sash
   end
+
+  it "has a notifications method" do
+    expect(Guest).to have_method :notifications
+  end
 end

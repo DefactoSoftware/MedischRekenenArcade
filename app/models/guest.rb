@@ -34,4 +34,8 @@ class Guest
   def _sash
     Merit::Sash.none
   end
+
+  def notifications
+    Notification.none
+  end
 end
