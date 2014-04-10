@@ -181,9 +181,9 @@ en:
   answer:
     correct: "Correct! Your score went up by %{points}! "
     wrong: "Unfortunately that was not correct :( Your streak was reset. "
-    dead: "That was incorrenct too. Please try the challenge again"
-    no_feedback: "Answer a question to get feedback"
-    call_to_register: "If you register you can track your progress, earn badges and the questions will adapt to your skill level!"
+    dead: "That was incorrenct too. Please try the challenge again. "
+    no_feedback: "Answer a question to get feedback. "
+    call_to_register: "If you register you can track your progress, earn badges and the questions will adapt to your skill level! "
     feedback:
       title: "Answer feedback"
       conversion: "You were almost right but you probably forgot to divide or multiply it by a certain number"
