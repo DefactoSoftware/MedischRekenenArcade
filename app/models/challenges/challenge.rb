@@ -17,9 +17,8 @@
 require "problem_factory"
 
 class Challenge < ActiveRecord::Base
-  has_many :challenge_skills
-  has_many :skills, through: :challenge_skills
   has_many :user_challenges
+  has_many :head_to_head_challenges
   belongs_to :challenge_set
 
   VALID_NAMES =  %w(PercentageAmountOfAmount PercentageOfUnit

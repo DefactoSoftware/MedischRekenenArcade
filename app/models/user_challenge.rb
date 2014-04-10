@@ -15,6 +15,7 @@
 class UserChallenge < ActiveRecord::Base
   belongs_to :user
   belongs_to :challenge
+  belongs_to :head_to_head_challenge
   has_many :answers
 
   after_update :track_activity

@@ -10,6 +10,7 @@
 #  updated_at        :datetime
 #  user_challenge_id :integer
 #  feedback          :string(255)
+#  ip                :string(255)
 #
 
 class Answer < ActiveRecord::Base
