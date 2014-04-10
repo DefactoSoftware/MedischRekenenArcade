@@ -40,6 +40,13 @@ en:
   notifications:
     badge:
       title: "You earned a new badge!"
+    head_to_head_challenge:
+      challenged:
+        title: "You've been invited by %{name} to a challenge"
+        text: "Click the link to complete the challenge"
+      challenger:
+        title: "You've invited %{name} to a challenge"
+        text: "Click the link to complete the challenge"
   feedback_report:
     button: "Report a problem!"
     title: "Write down the problem you encountered"

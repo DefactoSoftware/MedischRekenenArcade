@@ -22,6 +22,8 @@ class HeadToHeadChallenge < ActiveRecord::Base
   belongs_to :challenge
   has_many :user_challenges
 
+  after_create :notify_users
+
   def points_for_challenger
 
   end
@@ -32,5 +34,24 @@ class HeadToHeadChallenge < ActiveRecord::Base
 
   def winner
 
+  end
+
+  def notify_users
+    Notification.create(
+      user: challenger,
+      title: I18n.t('notifications.head_to_head_challenge.challenger.title',
+                     name: challenged.name),
+      text: I18n.t('notifications.head_to_head_challenge.challenger.text'),
+      trackable: self,
+      image: challenge.icon
+    )
+    Notification.create(
+      user: challenged,
+      title: I18n.t('notifications.head_to_head_challenge.challenged.title',
+                     name: challenger.name),
+      text: I18n.t('notifications.head_to_head_challenge.challenged.text'),
+      trackable: self,
+      image: challenge.icon
+    )
   end
 end

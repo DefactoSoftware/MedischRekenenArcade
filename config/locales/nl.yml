@@ -40,6 +40,13 @@ nl:
   notifications:
     badge:
       title: "Je hebt een badge verdiend!"
+    head_to_head_challenge:
+      challenged:
+        title: "Je bent door %{name} uitgenodigd voor een uitdaging"
+        text: "Klik op de link om de uitdaging te doen"
+      challenger:
+        title: "Je hebt %{name} uitgenodigd voor een uitdaging"
+        text: "Klik op de link om de uitdaging te doen"
   feedback_report:
     button: "Meld een probleem!"
     title: "Schrijf het probleem op dat je gevonden hebt"
