@@ -22,12 +22,10 @@ describe HeadToHeadChallenge do
       head_to_head_challenge = FactoryGirl.create(:head_to_head_challenge)
       challenger_notification = head_to_head_challenge.challenger.notifications.last
       challenged_notification = head_to_head_challenge.challenged.notifications.last
-      expect(challenger_notification.text).to eq(I18n.t('notifications.head_to_head_challenge.challenger.text'))
-      expect(challenged_notification.text).to eq(I18n.t('notifications.head_to_head_challenge.challenged.text'))
-      expect(challenger_notification.title).to eq(I18n.t('notifications.head_to_head_challenge.challenger.title',
-                                                          name: head_to_head_challenge.challenged.name))
-      expect(challenged_notification.title).to eq(I18n.t('notifications.head_to_head_challenge.challenged.title',
-                                                          name: head_to_head_challenge.challenger.name))
+      expect(challenger_notification.text).to eq('notifications.head_to_head_challenge.challenger.text')
+      expect(challenged_notification.text).to eq('notifications.head_to_head_challenge.challenged.text')
+      expect(challenger_notification.title).to eq('notifications.head_to_head_challenge.challenger.title')
+      expect(challenged_notification.title).to eq('notifications.head_to_head_challenge.challenged.title')
     end
   end
 end

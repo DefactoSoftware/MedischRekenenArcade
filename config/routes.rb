@@ -15,6 +15,7 @@ MedischRekenenArcade::Application.routes.draw do
 
   resources :users, only: [:show,:index] do
     resources :statistics, only: [:index]
+    resources :challenges, only: [:index, :show], controller: "my_challenges"
   end
 
   resources :badges, only: [:index]
@@ -32,6 +33,8 @@ MedischRekenenArcade::Application.routes.draw do
   resources :user_groups, only: [:create]
 
   resources :notifications, only: [:index]
+
+  resources :head_to_head_challenges, only: [:show, :index]
 
   namespace :api, defaults: { format: 'json' } do
     namespace :v1 do

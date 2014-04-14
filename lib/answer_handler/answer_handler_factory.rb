@@ -14,10 +14,18 @@ class AnswerHandlerFactory
         IncorrectGuestAnswerHandler.new(@session, @user, @skill)
       end
     elsif @session[:challenge]
-      if @answer_is_correct
-        CorrectChallengeAnswerHandler.new(@session, @user, user_challenge, @skill)
+      if !user_challenge.head_to_head_challenge
+        if @answer_is_correct
+          CorrectChallengeAnswerHandler.new(@session, @user, user_challenge, @skill)
+        else
+          IncorrectChallengeAnswerHandler.new(@session, @user, user_challenge, @skill)
+        end
       else
-        IncorrectChallengeAnswerHandler.new(@session, @user, user_challenge, @skill)
+        if @answer_is_correct
+          CorrectHeadToHeadChallengeAnswerHandler.new(@session, @user, user_challenge, @skill)
+        else
+          IncorrectHeadToHeadChallengeAnswerHandler.new(@session, @user, user_challenge, @skill)
+        end
       end
     else
       if @answer_is_correct

@@ -8,6 +8,8 @@ en:
     badge: "the badge"
     challenge: "the challenge"
     you: "You"
+    head_to_head_challenge: "the head to head challenge"
+    against: "playing against "
   title: "Med Math"
   unit: "Unit"
   streak: "Streak"
@@ -206,6 +208,8 @@ en:
     start: "Starting new challenge, good luck! If you make more than 4 consecutive mistakes the patient dies so be careful!"
     time_is_up: "Time is up, try it again!"
     title: "Challenges"
+  head_to_head_challenge:
+    finished: "Awesome! You completed this head to head challenge, here you see the results!"
   users:
     info:
       rank: "Overall rank"

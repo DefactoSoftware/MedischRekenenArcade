@@ -8,6 +8,8 @@ nl:
     badge: "de badge"
     challenge: "de uitdaging"
     you: "Jij"
+    head_to_head_challenge: "the een op een uitdaging"
+    against: "spelend tegen "
   title: "Leren Doseren"
   unit: "Eenheid"
   streak: "Reeks"

@@ -3,8 +3,11 @@ require "spec_helper"
 describe AnswerHandler do
   include Rails.application.routes.url_helpers
 
+<<<<<<< HEAD
   let(:user) { User.new(name: "marthyn", email: "marthyn@live.nl") }
+  let(:user2) { User.new(id: 2, name: "karel", email:"karel@live.nl") }
   let(:challenge) { Challenge.new(number_of_problems: 5, name: "challenge") }
+  let(:head_to_head_challenge) { HeadToHeadChallenge.create(challenger: user, challenged: user2, challenge: challenge) }
   let(:user_challenge) { UserChallenge.new(challenge: challenge, user: user) }
   let(:practicehandler_good) do
     CorrectPracticeAnswerHandler.new({}, user, double)
@@ -34,6 +37,18 @@ describe AnswerHandler do
                                         user,
                                         user_challenge,
                                         double)
+  end
+  let(:head_to_head_challenge_handler_good) do
+    CorrectHeadToHeadChallengeAnswerHandler.new({ challenge_id: challenge.id },
+                                                user,
+                                                head_to_head_user_challenge,
+                                                double)
+  end
+  let(:head_to_head_challenge_handler_wrong) do
+    IncorrectHeadToHeadChallengeAnswerHandler.new({ challenge_id: challenge.id },
+                                                  user,
+                                                  head_to_head_user_challenge,
+                                                  double)
   end
 
   describe "#reset_challenge" do
@@ -162,6 +177,39 @@ describe AnswerHandler do
     end
   end
 
+  describe HeadToHeadChallengeAnswerHandler do
+    it "returns answer is correct as notice" do
+      expect(head_to_head_challenge_handler_good.get_notice).to eq(
+        I18n.t("answer.correct", points: AnswerHandler::STANDARD_POINT_AMOUNT)
+      )
+    end
+
+    it "returns challenge finished as notice" do
+      # setting amount good to number needed -1 so that
+      # adding a good answer will trigger finished
+      head_to_head_user_challenge.update_attributes(amount_good: challenge.number_of_problems)
+      challenge_handler_good = CorrectChallengeAnswerHandler.new(
+        { challenge: challenge.id }, user, user_challenge, double
+      )
+      expect(head_to_head_challenge_handler_good.get_notice).to eq(
+        I18n.t("head_to_head_challenge.finished")
+      )
+    end
+
+    it "returns answer is correct as notice when answer is wrong" do
+      expect(head_to_head_challenge_handler_wrong.get_notice).to eq(I18n.t("answer.wrong"))
+    end
+
+    describe "#redirect_path" do
+      describe "when finished" do
+        it "redirects to /home" do
+          expect(head_to_head_challenge_handler_good).to receive(:finished).and_return(true)
+          expect(head_to_head_challenge_handler_good.redirect_path(double)).to eq(user_challenge_path(user,head_to_head_challenge))
+        end
+      end
+    end
+  end
+
   describe PracticeAnswerHandler do
     it "returns answer is correct notice on good answer" do
       expect(practicehandler_good.get_notice)
@@ -229,8 +277,12 @@ describe AnswerHandlerFactory do
       let(:session) { { challenge: 1 } }
 
       before(:each) do
+<<<<<<< HEAD
         expect(factory)
         .to receive(:user_challenge).and_return(double(challenge: double))
+=======
+        factory.stub(:user_challenge).and_return(double(challenge: double, head_to_head_challenge: nil))
+>>>>>>> Implement head 2 head challenge answer handling
       end
 
       describe "when answer is incorrect" do

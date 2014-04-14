@@ -36,22 +36,26 @@ class HeadToHeadChallenge < ActiveRecord::Base
 
   end
 
+  def other_player(user)
+    challenger if challenged == user
+    challenged if challenger == user
+  end
+
   def notify_users
     Notification.create(
       user: challenger,
-      title: I18n.t('notifications.head_to_head_challenge.challenger.title',
-                     name: challenged.name),
-      text: I18n.t('notifications.head_to_head_challenge.challenger.text'),
+      title: 'notifications.head_to_head_challenge.challenger.title',
+      text: 'notifications.head_to_head_challenge.challenger.text',
       trackable: self,
       image: challenge.icon
     )
     Notification.create(
       user: challenged,
-      title: I18n.t('notifications.head_to_head_challenge.challenged.title',
-                     name: challenger.name),
-      text: I18n.t('notifications.head_to_head_challenge.challenged.text'),
+      title: 'notifications.head_to_head_challenge.challenged.title',
+      text: 'notifications.head_to_head_challenge.challenged.text',
       trackable: self,
       image: challenge.icon
     )
   end
 end
+#HeadToHeadChallenge.create(challenger: User.first, challenged: User.first, challenge: Challenge.first)

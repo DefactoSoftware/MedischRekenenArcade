@@ -3,7 +3,7 @@
 </div>
 <div class="col-lg-9">
   <div class="content">
-    <p><%= notification.title %></p>
-    <p><%= notification.text %></p>
+    <p><%= t(notification.title, name: link_to(message.user.name, user_statistics_path(notification.user))).html_safe %></p>
+    <p><%= t(notification.text) %></p>
   </div>
 </div>

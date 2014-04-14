@@ -1,0 +1,7 @@
+<%= t("actions.#{activity.action}") %>
+<%= t("activity.head_to_head_challenge") %>
+<%= link_to user_challenge_path(activity.trackable) do %>
+  <%= t("challenges.#{activity.trackable.challenge.name.underscore}.title") %>
+<% end %>
+<%= t("activity.against") %>
+<%= link_to(activity.trackable.other_player(activity.user).name, user_statistics_path(activity.trackable.other_player(activity.user))) %>
