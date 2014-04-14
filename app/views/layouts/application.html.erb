@@ -37,7 +37,7 @@
   </div>
 </div>
 
-
+<%= render "messages/index" unless current_user.guest? %>
 
 <div id="main">
   <%= yield %>

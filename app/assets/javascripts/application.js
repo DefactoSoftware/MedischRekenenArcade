@@ -40,7 +40,9 @@ $("#calculator").ready(function() {
 })
 
 $("#messages-toggle").ready(function() {
+
   $("#messages-toggle").on("click", function() {
+    console.log("BAM");
     $("#messages").toggle();
     $("#messages_background").toggle();
   });
