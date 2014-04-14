@@ -41,8 +41,13 @@ $("#calculator").ready(function() {
 
 $("#messages-toggle").ready(function() {
   $("#messages-toggle").on("click", function() {
-    $("#messages").toggle()
-  })
+    $("#messages").toggle();
+    $("#messages_background").toggle();
+  });
+  $("#messages_background").on("click", function() {
+    $("#messages").hide();
+    $("#messages_background").hide();
+  });
 })
 
 //Functions for making answering view interactive
@@ -175,8 +180,27 @@ $("#toggle_feedback").ready(function() {
   $("#feedback_background").on("click", function(){
     $("#feedback_report").toggle();
     $("#feedback_background").toggle();
+
   })
 })
+
+$(".toggle_invite").ready(function() {
+  $(".toggle_invite").on("click", function(element){
+    $("#invite_head_to_head").toggle();
+    $("#invite_background").toggle();
+    $("#messages").hide();
+
+    if(element.currentTarget.dataset.userId > 0) {
+      $("#head_to_head_challenge_challenged_id").val(element.currentTarget.dataset.userId);
+    }
+  });
+  $("#invite_background").on("click", function(){
+    $("#invite_head_to_head").toggle();
+    $("#invite_background").toggle();
+    $("#messages").hide();
+  })
+})
+
 
 //Functions to close alerts and notices
 $(document).ready(function() {

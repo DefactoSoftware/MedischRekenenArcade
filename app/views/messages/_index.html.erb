@@ -1,7 +1,20 @@
 <div id="messages">
+  <div class="message" style="padding-top:10px; float:left;">
+    <span id="messages_title">Messages</span>
+    <span id="messages_links">
+      <span id="messages_invite_link">
+        <a href="javascript:void()" class="toggle_invite">Challenge user</a>
+      </span>
+      ·
+      <span id="messages_message_link">
+        <a href="javascript:void()" class="toggle_message">Send message</a>
+      </span>
+    </span>
+  </div>
   <% all_notifications.each do |message| %>
     <div class="message">
       <%= MessagePresenter.new(message, self).render_message%>
     </div>
   <% end %>
 </div>
+<div id="messages_background" class="transparant_overlay"></div>

@@ -34,7 +34,7 @@ MedischRekenenArcade::Application.routes.draw do
 
   resources :notifications, only: [:index]
 
-  resources :head_to_head_challenges, only: [:show, :index]
+  resources :head_to_head_challenges, only: [:show, :index, :create]
 
   namespace :api, defaults: { format: 'json' } do
     namespace :v1 do

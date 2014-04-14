@@ -10,6 +10,10 @@
   opacity: 1;
   overflow: auto;
   box-shadow: 10px 10px 20px black;
+
+  .content {
+    padding-top:25px;
+  }
 }
 
 #notification .image {
@@ -35,15 +39,28 @@
   overflow:scroll;
   right:0%;
   z-index:9999;
-  width:500px;
+  width:400px;
   background:white;
   border: 1px solid black;
   box-shadow: 0px 9px 10px 0px rgba(50, 50, 50, 1);
+  #messages_title {
+    margin-left:15px;
+    font-size: 17px;
+  }
+  #messages_links {
+    float:right;
+    padding-top:5px;
+  }
+  #messages_invite_link {
+  }
+  #messages_message_link {
+    text-align:right;
+  }
 }
 
 .message {
   width: 100%;
-  padding: 0px 20px 10px 20px;
+  padding: 0px 20px 10px 5px;
   background-color: #ecf0f1;
   border: 2px solid #27ae60;
   border-top:0px;

@@ -210,6 +210,15 @@ en:
     title: "Challenges"
   head_to_head_challenge:
     finished: "Awesome! You completed this head to head challenge, here you see the results!"
+    title: "Select a user and play a challenge against them"
+    labels:
+      challenged: "User you want to challenge"
+      challenge: "The challenge you want to play"
+    form:
+      submit: "Challenge user!"
+    save:
+      success: "You've created a head to head challenge, the user will be notified. "
+      fail: "We could not create the head to head challenge, please try again or contact us. "
   users:
     info:
       rank: "Overall rank"

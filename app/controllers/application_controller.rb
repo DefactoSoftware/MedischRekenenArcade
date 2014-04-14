@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
   end
 
   def all_notifications
-    current_user.notifications.order("created_at DESC")
+    current_user.notifications.order("created_at DESC").limit(20)
   end
 
   helper_method :all_activities

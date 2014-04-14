@@ -208,6 +208,17 @@ nl:
     start: "Je kan nu beginnen met de uitdaging. Let op! Je mag niet meer dan 4 fouten achter elkaar maken!"
     time_is_up: "Tijd is voorbij, probeer het nog eens"
     title: "Uitdagingen"
+  head_to_head_challenge:
+    finished: "Awesome! Je hebt de 1 op 1 uitdaging voltooid, hier zijn je resultaten!"
+    title: "Selecteer een gebruiker en speel een uitdaging tegen ze!"
+    labels:
+      challenged: "De gebruiker die je wil uitdagen"
+      challenge: "De uitdaging die je wil spelen"
+    form:
+      submit: "Daag uit!"
+    save:
+      success: "Je hebt een 1 op 1 uitdaging aangemaakt, de gebruiker wordt op de hoogte gesteld. "
+      fail: "We konden de 1 op 1 uitdaging niet aanmaken, probeer het nog eens of neem contact met ons op. "
   users:
     info:
       rank: "Algemene ranking"
