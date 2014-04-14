@@ -83,11 +83,11 @@ class User < ActiveRecord::Base
   end
 
   def head_to_head_challenges
-    self.user_challenges.where("head_to_head_challenge_id IS NOT NULL")
+    user_challenges.where("head_to_head_challenge_id IS NOT NULL")
   end
 
   def normal_challenges
-    self.user_challenges.where("head_to_head_challenge_id IS NULL")
+    user_challenges.where("head_to_head_challenge_id IS NULL")
   end
 
   def guest?

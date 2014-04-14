@@ -8,11 +8,15 @@ class HeadToHeadChallengesController < AbstractChallengesController
   end
 
   def create_user_challenge
-    user_challenge = UserChallenge.create(challenge: @challenge, user:current_user, head_to_head_challenge: @head_to_head_challenge)
+    user_challenge = UserChallenge.create(user_challenge_params)
     track_activity(@head_to_head_challenge, "start")
   end
 
   def find_user_challenge
     @user_challenge = UserChallenge.where(challenge: Challenge.find(session[:challenge]), user: current_user, head_to_head_challenge: @head_to_head_challenge).last
+  end
+
+  def user_challenge_params
+    { challenge: @challenge, user: current_user, head_to_head_challenge: @head_to_head_challenge }
   end
 end

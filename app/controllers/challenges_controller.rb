@@ -6,17 +6,21 @@ class ChallengesController < AbstractChallengesController
 
   protected
   def set_challenge_variables
-    @challenge = Challenge.where(name:params[:id]).last
+    @challenge = Challenge.where(name: params[:id]).last
     flash[:notice] = t("challenge.start")
     super
   end
 
   def create_user_challenge
-    user_challenge = UserChallenge.create(challenge: @challenge, user:current_user)
+    user_challenge = UserChallenge.create(user_challenge_params)
     track_activity(user_challenge, "start")
   end
 
   def find_user_challenge
-    @user_challenge = UserChallenge.where(challenge: Challenge.find(session[:challenge]), user: current_user).last
+    @user_challenge = UserChallenge.where(user_challenge_params).last
+  end
+
+  def user_challenge_params
+    { challenge: @challenge, user: current_user }
   end
 end

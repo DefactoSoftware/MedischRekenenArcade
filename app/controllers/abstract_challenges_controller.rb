@@ -18,7 +18,8 @@ class AbstractChallengesController < ApplicationController
       redirect_to challenges_path, notice: t("challenge.time_is_up")
     end
     @minutes = (seconds / 60).floor
-    @seconds = (((seconds / 60) - (seconds/60).floor) * 60).floor
+    seconds_left = (seconds / 60) - (seconds / 60).floor
+    @seconds = ((seconds_left * 60).floor)
   end
 
   def set_challenge_variables
@@ -35,7 +36,9 @@ class AbstractChallengesController < ApplicationController
 
   def prepare_challenge_step
     find_user_challenge
-    @progress = (Float(@user_challenge.amount_good) / Float(@user_challenge.challenge.number_of_problems))*100
+    amount_good = Float(@user_challenge.amount_good)
+    amount_fail = Float(@user_challenge.challenge.number_of_problems)
+    @progress = (amount_good / amount_fail) * 100
     calculate_time_left if @challenge.timelimit
     @problem = @challenge.create_problem(current_user)
   end

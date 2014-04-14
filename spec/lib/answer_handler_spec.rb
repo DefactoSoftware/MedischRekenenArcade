@@ -3,11 +3,14 @@ require "spec_helper"
 describe AnswerHandler do
   include Rails.application.routes.url_helpers
 
-<<<<<<< HEAD
   let(:user) { User.new(name: "marthyn", email: "marthyn@live.nl") }
   let(:user2) { User.new(id: 2, name: "karel", email:"karel@live.nl") }
-  let(:challenge) { Challenge.new(number_of_problems: 5, name: "challenge") }
-  let(:head_to_head_challenge) { HeadToHeadChallenge.create(challenger: user, challenged: user2, challenge: challenge) }
+  let(:challenge) { Challenge.new(number_of_problems: 5, name:"challenge") }
+  let(:head_to_head_challenge) do
+    HeadToHeadChallenge.create(challenger: user,
+                               challenged: user2,
+                               challenge: challenge)
+  end
   let(:user_challenge) { UserChallenge.new(challenge: challenge, user: user) }
   let(:practicehandler_good) do
     CorrectPracticeAnswerHandler.new({}, user, double)
@@ -277,12 +280,9 @@ describe AnswerHandlerFactory do
       let(:session) { { challenge: 1 } }
 
       before(:each) do
-<<<<<<< HEAD
-        expect(factory)
-        .to receive(:user_challenge).and_return(double(challenge: double))
-=======
-        factory.stub(:user_challenge).and_return(double(challenge: double, head_to_head_challenge: nil))
->>>>>>> Implement head 2 head challenge answer handling
+        factory.stub(:user_challenge)
+               .and_return(double(challenge: double,
+                                  head_to_head_challenge: nil))
       end
 
       describe "when answer is incorrect" do
