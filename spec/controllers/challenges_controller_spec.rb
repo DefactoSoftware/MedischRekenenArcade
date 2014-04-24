@@ -6,12 +6,9 @@ describe ChallengesController do
   let(:challenge) { FactoryGirl.create(:challenge, name: "Addition") }
   let(:skill) { Skill.create(name: "Addition") }
 
-  let(:challenge_skill) { FactoryGirl.create(:challenge_skill, skill:skill, challenge:challenge)}
-
   before :each do
     challenge.reload
     skill.reload
-    challenge_skill.reload
     sign_in user.reload
   end
 

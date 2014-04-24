@@ -19,8 +19,6 @@ require 'spec_helper'
 
 describe Challenge do
   describe "Associations" do
-    it { should have_many :skills }
-    it { should have_many :challenge_skills }
     it { should have_many :user_challenges }
     it { should belong_to :challenge_set }
   end
