@@ -26,7 +26,10 @@
 
         <div class="form-group">
           <%= f.label :user_group, t("labels.user_group") %>
-          <%= f.select(:user_group_id, UserGroup.all.collect {|usergroup| [ usergroup.name, usergroup.id ] }, {}, {class:"form-control"}) %>
+          <%= f.select(:user_group_id,
+                       UserGroup.all.collect {|usergroup| [ usergroup.name, usergroup.id ] },
+                       {selected: @default_user_group.id },
+                       {class:"form-control"}) %>
           <a href="javascript:void" id="add_user_group_link"><%= t("labels.new_user_group") %></a>
         </div>
 

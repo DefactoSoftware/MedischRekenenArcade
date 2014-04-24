@@ -7,7 +7,7 @@ MedischRekenenArcade::Application.routes.draw do
   ActiveAdmin.routes(self)
   resources :activities
 
-  devise_for :users
+  devise_for :users, controllers: {:registrations => "registrations"}
 
   resources :friendships, only: [:create, :destroy]
 
