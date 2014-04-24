@@ -1,4 +1,4 @@
-class IncorrectHeadToHeadChallengeAnswerHandler < ChallengeAnswerHandler
+class IncorrectHeadToHeadChallengeAnswerHandler < HeadToHeadChallengeAnswerHandler
   def initialize(session, current_user, user_challenge, skill)
     super(session, current_user, user_challenge, skill)
   end

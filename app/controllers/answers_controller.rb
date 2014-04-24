@@ -12,10 +12,15 @@ class AnswersController < ApplicationController
 
     @answer.user = current_user unless current_user.guest?
 
+    user_challenge = UserChallenge
+                     .find(answer_parameters[:user_challenge_id])
+
     handler = AnswerHandlerFactory.new(session,
                                        @answer.correct?,
                                        current_user,
-                                       @answer.problem.skill).build
+                                       @answer.problem.skill,
+                                       user_challenge)
+                                  .build
 
     handler.handle!
     redirection_path = handler.redirect_path(@answer.problem)

@@ -1,8 +1,9 @@
 class AbstractChallengesController < ApplicationController
   before_action :authenticate_user!
   def show
+    puts "START"
     set_challenge_variables
-
+    puts session[:challenge]
     if !session[:challenge]
       start_challenge_session
     end
@@ -36,9 +37,7 @@ class AbstractChallengesController < ApplicationController
 
   def prepare_challenge_step
     find_user_challenge
-    amount_good = Float(@user_challenge.amount_good)
-    amount_fail = Float(@user_challenge.challenge.number_of_problems)
-    @progress = (amount_good / amount_fail) * 100
+    calculate_progress
     calculate_time_left if @challenge.timelimit
     @problem = @challenge.create_problem(current_user)
   end

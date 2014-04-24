@@ -1,9 +1,10 @@
 class AnswerHandlerFactory
-  def initialize(session, answer_is_correct, user, skill)
+  def initialize(session, answer_is_correct, user, skill, user_challenge)
     @session = session
     @answer_is_correct = answer_is_correct
     @user = user
     @skill = skill
+    @user_challenge = user_challenge
   end
 
   def build
@@ -14,13 +15,15 @@ class AnswerHandlerFactory
         IncorrectGuestAnswerHandler.new(@session, @user, @skill)
       end
     elsif @session[:challenge]
-      if !user_challenge.head_to_head_challenge
+      if !@user_challenge.head_to_head_challenge
+        puts "NORMAL"
         if @answer_is_correct
           CorrectChallengeAnswerHandler.new(@session, @user, user_challenge, @skill)
         else
           IncorrectChallengeAnswerHandler.new(@session, @user, user_challenge, @skill)
         end
       else
+        puts "HEAD TO HEAD"
         if @answer_is_correct
           CorrectHeadToHeadChallengeAnswerHandler.new(@session, @user, user_challenge, @skill)
         else
@@ -38,7 +41,7 @@ class AnswerHandlerFactory
 
   private
   def user_challenge
-    UserChallenge.where(
+    @user_challenge || UserChallenge.where(
       challenge: Challenge.find(@session[:challenge]), user: @user
     ).last
   end

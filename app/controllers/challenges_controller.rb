@@ -23,4 +23,10 @@ class ChallengesController < AbstractChallengesController
   def user_challenge_params
     { challenge: @challenge, user: current_user }
   end
+
+  def calculate_progress
+    amount_good = Float(@user_challenge.amount_good)
+    amount_problems = Float(@user_challenge.challenge.number_of_problems)
+    @progress = (amount_good / amount_problems) * 100
+  end
 end

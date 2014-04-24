@@ -19,7 +19,9 @@ class CorrectHeadToHeadChallengeAnswerHandler < HeadToHeadChallengeAnswerHandler
   end
 
   def finish
-    @head_to_head_challenge.check_finish
+    if @head_to_head_challenge.check_finish
+      @head_to_head_challenge.finished!
+    end
     user_challenge.challenge.challenge_set.user_check_completed(@user)
   end
 

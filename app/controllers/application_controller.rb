@@ -44,7 +44,8 @@ class ApplicationController < ActionController::Base
   def check_challenge
     if params[:controller] != "challenges" &&
        params[:controller] != "answers" &&
-       params[:controller] != "notifications"
+       params[:controller] != "notifications" &&
+       params[:controller] != "head_to_head_challenges"
       reset_challenge
     end
   end
