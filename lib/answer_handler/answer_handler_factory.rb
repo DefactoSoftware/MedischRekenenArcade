@@ -16,14 +16,12 @@ class AnswerHandlerFactory
       end
     elsif @session[:challenge]
       if !@user_challenge.head_to_head_challenge
-        puts "NORMAL"
         if @answer_is_correct
           CorrectChallengeAnswerHandler.new(@session, @user, user_challenge, @skill)
         else
           IncorrectChallengeAnswerHandler.new(@session, @user, user_challenge, @skill)
         end
       else
-        puts "HEAD TO HEAD"
         if @answer_is_correct
           CorrectHeadToHeadChallengeAnswerHandler.new(@session, @user, user_challenge, @skill)
         else
@@ -37,12 +35,5 @@ class AnswerHandlerFactory
         IncorrectPracticeAnswerHandler.new(@session, @user, @skill)
       end
     end
-  end
-
-  private
-  def user_challenge
-    @user_challenge || UserChallenge.where(
-      challenge: Challenge.find(@session[:challenge]), user: @user
-    ).last
   end
 end

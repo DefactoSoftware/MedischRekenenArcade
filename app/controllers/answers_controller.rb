@@ -2,18 +2,20 @@ require "answer_handler"
 
 class AnswersController < ApplicationController
   def create
-    session[:ip] = request.env["REMOTE_HOST"]
+    session[:ip] = request.env['REMOTE_HOST']
+    if answer_parameters[:user_challenge_id]
+      user_challenge = UserChallenge
+                       .find(answer_parameters[:user_challenge_id])
+    end
+
     @answer = Answer.new(
-                user_challenge_id: answer_parameters[:user_challenge_id],
+                user_challenge: user_challenge,
                 value: parse_value(answer_parameters[:value]),
                 problem_id: answer_parameters[:problem_id],
                 ip: session[:ip],
                 level: level)
 
     @answer.user = current_user unless current_user.guest?
-
-    user_challenge = UserChallenge
-                     .find(answer_parameters[:user_challenge_id])
 
     handler = AnswerHandlerFactory.new(session,
                                        @answer.correct?,
