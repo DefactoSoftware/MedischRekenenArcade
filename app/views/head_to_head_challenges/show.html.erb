@@ -19,10 +19,5 @@
     <div class="block">
       <%= render 'answer_feedback/answer_feedback', answer: @last_answer %>
     </div>
-    <div class="block">
-      <% if @challenge.timelimit %>
-        <%= render 'sessions/time' %>
-      <% end %>
-    </div>
   </div>
 </div>

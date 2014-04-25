@@ -1,19 +1,15 @@
 # == Schema Information
 #
-# Table name: challenges
+# Table name: head_to_head_challenges
 #
-#  id                 :integer          not null, primary key
-#  number_of_problems :integer
-#  name               :string(255)
-#  timelimit          :integer
-#  bonus              :integer
-#  icon               :string(255)
-#  created_at         :datetime
-#  updated_at         :datetime
-#  steps              :integer
-#  type               :string(255)
-#  challenge_set_id   :integer
-#
+#  id            :integer          not null, primary key
+#  challenger_id :integer
+#  challenged_id :integer
+#  challenge_id  :integer
+#  points_bet    :integer
+#  status        :integer          default(0)
+#  created_at    :datetime
+#  updated_at    :datetime
 
 class HeadToHeadChallenge < ActiveRecord::Base
   enum status: [:open, :accepted, :finished]
@@ -24,16 +20,28 @@ class HeadToHeadChallenge < ActiveRecord::Base
 
   after_create :notify_users
 
-  def points_for_challenger
-
-  end
-
-  def points_for_challenged
-
+  def check_finish
+    challenger_amount_answered == challenge.number_of_problems && challenged_user_challenge.amount_answered == challenge.number_of_problems
   end
 
   def winner
-
+    if !finished?
+      User.none
+    else
+      if challenger_score > challenged_score
+        challenger
+      elsif challenged_score > challenger_score
+        challenged
+      else
+        if challenger_time > challenged_time
+          challenged
+        elsif challenger_time < challenged_time
+          challenger
+        else
+          nil
+        end
+      end
+    end
   end
 
   def other_player(user)
@@ -57,5 +65,37 @@ class HeadToHeadChallenge < ActiveRecord::Base
       image: challenge.icon
     )
   end
+
+  def challenger_amount_answered
+    challenger_user_challenge.amount_answered
+  end
+
+  def challenged_amount_answered
+    challenged_user_challenge.amount_answered
+  end
+
+  def challenger_score
+    challenger_user_challenge.amount_good - challenger_user_challenge.amount_fail
+  end
+
+  def challenged_score
+    challenged_user_challenge.amount_good - challenged_user_challenge.amount_fail
+  end
+
+  def challenger_time
+    challenger_user_challenge.updated_at - challenger_user_challenge.created_at
+  end
+
+  def challenged_time
+    challenged_user_challenge.updated_at - challenged_user_challenge.created_at
+  end
+
+  private
+  def challenger_user_challenge
+    user_challenges.where(user: challenger).last || UserChallenge.new
+  end
+
+  def challenged_user_challenge
+    user_challenges.where(user: challenged).last || UserChallenge.new
+  end
 end
-#HeadToHeadChallenge.create(challenger: User.first, challenged: User.first, challenge: Challenge.first)
