@@ -13,7 +13,7 @@
     <tr>
       <td>#<%= score[:rank] %>
       <td> <%= link_to user_statistics_path(user) do %><%= user.username %><% end %></td>
-      <td><%= user.user_group.name %></td>
+      <td><%= user.user_group.name if user.user_group %></td>
       <td><%= score[:score].to_i %></td>
     </tr>
   <% end %>
