@@ -14,7 +14,7 @@ gem 'unicorn'
 gem 'doorkeeper'
 
 #Merit, for badges
-gem 'merit', '~> 1.7.0'
+gem 'merit', '~> 2.1.0'
 
 #Redis leaderboard
 gem 'leaderboard'
