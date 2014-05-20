@@ -19,6 +19,8 @@
 /config/database.yml
 /public/assets
 
+*.rdb
+
 # OSX
 .DS_Store
 
