@@ -62,13 +62,13 @@ describe AnswerHandler do
   end
 
   it "grants the streakmaster b badge on a streak of 100 good answers" do
-    session[:streak] = 100
+    session[:streak] = 50
     AnswerHandler.new(session, user.reload, double).check_badges
     expect(user.badges).to include(Merit::Badge.find(6))
   end
 
   it "grants the streakmaster a badge on a streak of 1000 good answers" do
-    session[:streak] = 1000
+    session[:streak] = 100
     AnswerHandler.new(session, user.reload, double).check_badges
     expect(user.badges).to include(Merit::Badge.find(7))
   end

@@ -41,10 +41,10 @@ class AnswerHandler
     if !@user.badges.include?(Merit::Badge.find(5)) && @session.streak == 10
       @user.add_badge(5)
     end
-    if !@user.badges.include?(Merit::Badge.find(6)) && @session.streak == 100
+    if !@user.badges.include?(Merit::Badge.find(6)) && @session.streak == 50
       @user.add_badge(6)
     end
-    if !@user.badges.include?(Merit::Badge.find(7)) && @session.streak == 1000
+    if !@user.badges.include?(Merit::Badge.find(7)) && @session.streak == 100
       @user.add_badge(7)
     end
   end
