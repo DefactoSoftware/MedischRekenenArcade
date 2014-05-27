@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140410114235) do
+ActiveRecord::Schema.define(version: 20140527060237) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -71,6 +71,7 @@ ActiveRecord::Schema.define(version: 20140410114235) do
     t.integer  "user_challenge_id"
     t.string   "feedback"
     t.string   "ip"
+    t.integer  "level"
   end
 
   add_index "answers", ["user_challenge_id"], name: "index_answers_on_user_challenge_id", using: :btree
