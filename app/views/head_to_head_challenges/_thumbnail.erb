@@ -1,0 +1,25 @@
+<div class="thumbnail thumbnail-challenge">
+  <a
+    href="<%= my_challenge_path(challenge.challenge) %>"
+    class="thumb-link"
+    data-toggle="popover"
+    data-container="body"
+    data-original-title="<%= t("challenges.#{challenge.challenge.name.underscore}.title") %>"
+    title
+    data-content='<%=challenge_stat_table(challenge.challenge,user)%>'
+  >
+    <img class="image" src="<%=asset_path(challenge.challenge.icon) %>">
+    <div class="caption">
+      <div class="inner">
+        <h2><%= t("challenges.#{challenge.challenge.name.underscore}.title") %></h2>
+        <% if challenge.challenge.user_challenges.where(user:current_user, success: true).length > 0 %>
+          <div class="more">
+            <p class="description"><%= t("challenges.labels.completed_successfully") %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </a>
+</div>
+
+
