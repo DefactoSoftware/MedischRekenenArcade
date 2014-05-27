@@ -50,6 +50,10 @@
   </div>
 <% end %>
 
+<div class="footer">
+© 2014 <a href="http://www.defacto.nl"><%= image_tag("icon.png", height:"35px") %> Defacto</a>
+</div>
+
 <%= render "feedback/feedback.html.erb" unless current_user.guest? %>
 
 <script>

@@ -14,6 +14,20 @@ body {
   }
 }
 
+.footer {
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+  color: white;
+  padding: 5px;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.6);
+
+  a {
+    text-decoration: none;
+  }
+}
+
 #main {
   margin-top:50px;
 }
