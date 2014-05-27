@@ -1,5 +1,5 @@
 class AnswerHandlerFactory
-  def initialize(session, answer_is_correct, user, skill, user_challenge)
+  def initialize(session, answer_is_correct, user, skill, user_challenge=nil)
     @session = session
     @answer_is_correct = answer_is_correct
     @user = user
@@ -17,15 +17,15 @@ class AnswerHandlerFactory
     elsif @session[:challenge]
       if !@user_challenge.head_to_head_challenge
         if @answer_is_correct
-          CorrectChallengeAnswerHandler.new(@session, @user, user_challenge, @skill)
+          CorrectChallengeAnswerHandler.new(@session, @user, @user_challenge, @skill)
         else
-          IncorrectChallengeAnswerHandler.new(@session, @user, user_challenge, @skill)
+          IncorrectChallengeAnswerHandler.new(@session, @user, @user_challenge, @skill)
         end
       else
         if @answer_is_correct
-          CorrectHeadToHeadChallengeAnswerHandler.new(@session, @user, user_challenge, @skill)
+          CorrectHeadToHeadChallengeAnswerHandler.new(@session, @user, @user_challenge, @skill)
         else
-          IncorrectHeadToHeadChallengeAnswerHandler.new(@session, @user, user_challenge, @skill)
+          IncorrectHeadToHeadChallengeAnswerHandler.new(@session, @user, @user_challenge, @skill)
         end
       end
     else

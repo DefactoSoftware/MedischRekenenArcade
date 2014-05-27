@@ -252,11 +252,16 @@ describe AnswerHandlerFactory do
   let(:answer_is_correct) { double }
   let(:user) { double(guest?: false) }
   let(:skill) { double }
+  let(:user_challenge) do
+    double(challenge: double,
+           head_to_head_challenge: nil)
+  end
   let(:factory) do
     AnswerHandlerFactory.new(session,
                              answer_is_correct,
                              user,
-                             skill)
+                             skill,
+                             user_challenge)
   end
 
   describe "#initialize" do

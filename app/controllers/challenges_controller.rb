@@ -7,7 +7,6 @@ class ChallengesController < AbstractChallengesController
   protected
   def set_challenge_variables
     @challenge = Challenge.where(name: params[:id]).last
-    flash[:notice] = t("challenge.start")
     super
   end
 

@@ -1,7 +1,6 @@
 class AbstractChallengesController < ApplicationController
   before_action :authenticate_user!
   def show
-    puts "START"
     set_challenge_variables
     puts session[:challenge]
     if !session[:challenge]
@@ -31,6 +30,7 @@ class AbstractChallengesController < ApplicationController
     session[:challenge] = @challenge.id
     session[:start] = Time.now
     create_user_challenge
+    flash[:notice] = t("challenge.start")
     @info = I18n.t("challenges.info.#{@challenge.class.name}")
     @last_answer = Answer.new(feedback: I18n.t("challenge.start"))
   end

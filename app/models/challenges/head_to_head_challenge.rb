@@ -20,6 +20,14 @@ class HeadToHeadChallenge < ActiveRecord::Base
 
   after_create :notify_users
 
+  def user_finished(user)
+    if challenger == user
+      challenger_amount_answered >= challenge.number_of_problems
+    else
+      challenged_user_challenge.amount_answered >= challenge.number_of_problems
+    end
+  end
+
   def check_finish
     challenger_amount_answered == challenge.number_of_problems && challenged_user_challenge.amount_answered == challenge.number_of_problems
   end

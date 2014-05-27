@@ -14,14 +14,13 @@ class HeadToHeadChallengesController < AbstractChallengesController
 
   def show
     @head_to_head_challenge = HeadToHeadChallenge.find(params[:id])
-    redirect_to my_challenges_path(@head_to_head_challenge) if @head_to_head_challenge.finished?
+    redirect_to my_challenge_path(@head_to_head_challenge) if @head_to_head_challenge.user_finished(current_user)
     super
   end
 
   protected
   def set_challenge_variables
     @challenge = @head_to_head_challenge.challenge
-    flash[:notice] = t("head_to_head_challenge.start")
     super
   end
 
