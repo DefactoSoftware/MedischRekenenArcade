@@ -69,7 +69,7 @@ group :production do
 end
 
 group :test, :development do
-  gem 'rspec-rails'
+  gem 'rspec-rails', '~> 3.0.0'
   gem 'ffaker'
   gem 'factory_girl_rails'
   gem 'database_cleaner'
