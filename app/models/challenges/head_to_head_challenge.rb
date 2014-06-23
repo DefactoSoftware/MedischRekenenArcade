@@ -28,6 +28,10 @@ class HeadToHeadChallenge < ActiveRecord::Base
     end
   end
 
+  def user_is_challenger(user)
+    user == challenger
+  end
+
   def check_finish
     challenger_amount_answered == challenge.number_of_problems && challenged_user_challenge.amount_answered == challenge.number_of_problems
   end
