@@ -270,7 +270,7 @@ GEM
     sdoc (0.4.0)
       json (~> 1.8)
       rdoc (~> 4.0, < 5.0)
-    shoulda-matchers (2.4.0)
+    shoulda-matchers (2.6.1)
       activesupport (>= 3.0.0)
     simplecov (0.8.2)
       docile (~> 1.1.0)
@@ -320,7 +320,7 @@ DEPENDENCIES
   active_model_serializers
   activeadmin!
   annotate
-  capybara
+  capybara (~> 2.3.0)
   coffee-rails (~> 4.0.0)
   database_cleaner
   debugger
@@ -352,7 +352,7 @@ DEPENDENCIES
   rspec_api_documentation!
   sass-rails (~> 4.0.0)
   sdoc
-  shoulda-matchers (~> 2.4.0)
+  shoulda-matchers (~> 2.6.0)
   simplecov
   turbolinks
   twitter-bootstrap-rails!
