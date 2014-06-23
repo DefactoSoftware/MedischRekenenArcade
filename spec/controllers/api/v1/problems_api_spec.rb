@@ -10,7 +10,7 @@ resource "Problem" do
   let(:problem) { Problem::VALID_PROBLEMS.sample }
 
   before :each do
-    Api::V1::ProblemsController.any_instance.stub(:doorkeeper_token) { token }
+    allow_any_instance_of(Api::V1::ProblemsController).to receive(:doorkeeper_token) { token }
   end
 
   get "/api/v1/problems" do

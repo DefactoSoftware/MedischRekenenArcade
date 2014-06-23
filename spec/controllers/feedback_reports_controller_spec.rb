@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe FeedbackReportsController do
+describe FeedbackReportsController, :type => :controller do
   describe "POST create feedback report" do
     let(:user) { FactoryGirl.create(:user) }
     let(:feedback_report_attributes) { FactoryGirl.attributes_for(:feedback_report) }

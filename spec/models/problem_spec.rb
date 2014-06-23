@@ -21,10 +21,10 @@
 require 'spec_helper'
 require 'rake'
 
-describe Problem do
+describe Problem, :type => :model do
   let(:user) { FactoryGirl.create(:user) }
   describe "Associations" do
-    it { should belong_to(:unit) }
+    it { is_expected.to belong_to(:unit) }
   end
 
   describe Division do

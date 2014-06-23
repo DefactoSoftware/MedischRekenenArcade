@@ -1,5 +1,5 @@
 require 'spec_helper'
-describe StatisticsHelper do
+describe StatisticsHelper, :type => :helper do
   include StatisticsHelper
 
   let(:user) { FactoryGirl.create(:user) }

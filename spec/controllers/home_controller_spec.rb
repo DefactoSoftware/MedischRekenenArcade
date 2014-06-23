@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe HomeController do
+describe HomeController, :type => :controller do
   describe "Index" do
     it "should return status 200" do
       get :index

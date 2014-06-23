@@ -17,20 +17,20 @@
 
 require 'spec_helper'
 
-describe Challenge do
+describe Challenge, :type => :model do
   describe "Associations" do
-    it { should have_many :user_challenges }
-    it { should belong_to :challenge_set }
+    it { is_expected.to have_many :user_challenges }
+    it { is_expected.to belong_to :challenge_set }
   end
 
 
 
   describe "Valid challenge names" do
     Challenge::VALID_NAMES.each do |name|
-      it { should allow_value(name).for(:name) }
+      it { is_expected.to allow_value(name).for(:name) }
     end
 
-    it { should_not allow_value(Faker::HipsterIpsum.word).for(:name) }
-    it { should_not allow_value("clearly a faulty challenge name").for(:name) }
+    it { is_expected.not_to allow_value(Faker::HipsterIpsum.word).for(:name) }
+    it { is_expected.not_to allow_value("clearly a faulty challenge name").for(:name) }
   end
 end

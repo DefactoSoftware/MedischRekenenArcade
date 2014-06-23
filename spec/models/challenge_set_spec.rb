@@ -12,8 +12,8 @@
 
 require 'spec_helper'
 
-describe ChallengeSet do
+describe ChallengeSet, :type => :model do
   describe "Associations" do
-     it { should have_many(:challenges) }
+     it { is_expected.to have_many(:challenges) }
   end
 end

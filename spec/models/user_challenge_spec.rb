@@ -14,10 +14,10 @@
 
 require 'spec_helper'
 
-describe UserChallenge do
+describe UserChallenge, :type => :model do
   describe "Associations" do
-    it { should belong_to(:challenge) }
-    it { should belong_to(:user) }
+    it { is_expected.to belong_to(:challenge) }
+    it { is_expected.to belong_to(:user) }
   end
 
   describe "Initialize" do

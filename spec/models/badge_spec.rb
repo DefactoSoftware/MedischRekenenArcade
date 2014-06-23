@@ -35,7 +35,7 @@ describe AnswersController, type: :controller do
   end
 end
 
-describe User do
+describe User, :type => :model do
   let(:user) { FactoryGirl.create(:user) }
   it "grants the particioner badge" do
     expect(user.badges).to include(Merit::Badge.find(24))
@@ -52,7 +52,7 @@ describe User do
   end
 end
 
-describe AnswerHandler do
+describe AnswerHandler, :type => :model do
   let(:user) { FactoryGirl.create(:user) }
   let(:session) { {} }
   it "grants the streakmaster a badge on a streak of 10 good answers" do

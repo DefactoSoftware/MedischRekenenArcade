@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 
-describe AnswersController do
+describe AnswersController, :type => :controller do
   let(:user) { FactoryGirl.create(:user) }
   let(:problem) { PercentageAmountOfAmount.new.generate(user) }
   let(:badanswer) {FactoryGirl.attributes_for(:answer, problem_id: problem.id, value: problem.get_result + 1)}

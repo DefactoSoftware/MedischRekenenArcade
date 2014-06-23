@@ -16,8 +16,8 @@ resource "UserChallenge" do
 
 
   before :each do
-    Api::V1::Tincan::UserChallengesController.any_instance.stub(:doorkeeper_token) { token }
-    Api::V1::BaseController.any_instance.stub(:current_user) { user }
+    allow_any_instance_of(Api::V1::Tincan::UserChallengesController).to receive(:doorkeeper_token) { token }
+    allow_any_instance_of(Api::V1::BaseController).to receive(:current_user) { user }
   end
 
   get "/api/v1/tincan/user_challenges" do

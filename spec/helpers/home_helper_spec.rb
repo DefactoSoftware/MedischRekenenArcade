@@ -1,5 +1,5 @@
 require 'spec_helper'
-describe HomeHelper do
+describe HomeHelper, :type => :helper do
   include HomeHelper
   let(:morning) { Time.gm(DateTime.now.year, DateTime.now.month, DateTime.now.day, 8) }
   let(:afternoon) { Time.gm(DateTime.now.year, DateTime.now.month, DateTime.now.day, 16) }

@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe FriendshipsController do
+describe FriendshipsController, :type => :controller do
   let(:user1) { FactoryGirl.create(:user) }
   let(:user2) { FactoryGirl.create(:user) }
   let(:friendship_attributes) { FactoryGirl.attributes_for(:friendship, friend_id: user2.id) }

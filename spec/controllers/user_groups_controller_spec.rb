@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe UserGroupsController do
+describe UserGroupsController, :type => :controller do
   describe "POST create user group" do
     let(:user_group_attributes) { FactoryGirl.attributes_for(:user_group) }
 

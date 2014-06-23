@@ -19,6 +19,6 @@
 
 require 'spec_helper'
 
-describe AdminUser do
+describe AdminUser, :type => :model do
 
 end

@@ -10,8 +10,8 @@ resource "Answer" do
 
 
   before :each do
-    Api::V1::AnswersController.any_instance.stub(:doorkeeper_token) { token }
-    Api::V1::BaseController.any_instance.stub(:current_user) { user }
+    allow_any_instance_of(Api::V1::AnswersController).to receive(:doorkeeper_token) { token }
+    allow_any_instance_of(Api::V1::BaseController).to receive(:current_user) { user }
   end
 
   post "/api/v1/answers" do

@@ -14,11 +14,11 @@
 
 require 'spec_helper'
 
-describe Answer do
+describe Answer, :type => :model do
   describe "Associations" do
-    it { should belong_to(:user) }
-    it { should belong_to(:problem) }
-    it { should belong_to(:user_challenge) }
+    it { is_expected.to belong_to(:user) }
+    it { is_expected.to belong_to(:problem) }
+    it { is_expected.to belong_to(:user_challenge) }
   end
 
   describe "#user" do

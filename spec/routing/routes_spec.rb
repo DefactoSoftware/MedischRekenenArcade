@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "routing to" do
+describe "routing to", :type => :routing do
   describe "home" do
     it "to root" do
       expect(get: "/").to route_to("home#index")

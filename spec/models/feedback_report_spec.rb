@@ -13,8 +13,8 @@
 
 require 'spec_helper'
 
-describe FeedbackReport do
+describe FeedbackReport, :type => :model do
   describe "Associations" do
-    it { should belong_to(:user) }
+    it { is_expected.to belong_to(:user) }
   end
 end

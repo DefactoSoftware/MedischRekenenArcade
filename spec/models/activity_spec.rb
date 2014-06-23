@@ -14,9 +14,9 @@
 
 require 'spec_helper'
 
-describe Activity do
+describe Activity, :type => :model do
   describe "Associations" do
-    it { should belong_to(:user) }
-    it { should belong_to(:trackable) }
+    it { is_expected.to belong_to(:user) }
+    it { is_expected.to belong_to(:trackable) }
   end
 end

@@ -10,5 +10,5 @@
 
 require 'spec_helper'
 
-describe Skill do
+describe Skill, :type => :model do
 end

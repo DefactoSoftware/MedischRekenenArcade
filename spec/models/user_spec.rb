@@ -29,7 +29,7 @@
 
 require 'spec_helper'
 
-describe User do
+describe User, :type => :model do
   let(:user) { FactoryGirl.create(:user) }
 
   it "should have a default profile picture when not set" do

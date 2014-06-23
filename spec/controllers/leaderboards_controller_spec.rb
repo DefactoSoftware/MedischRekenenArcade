@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe LeaderboardsController do
+describe LeaderboardsController, :type => :controller do
   let(:user_group) { FactoryGirl.create(:user_group, name: "NHL") }
   let(:user1) { FactoryGirl.create(:user, user_group: user_group) }
   let(:user2) { FactoryGirl.create(:user, user_group: user_group) }

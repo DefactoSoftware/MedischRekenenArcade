@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe ChallengesController do
+describe ChallengesController, :type => :controller do
   let(:user) { FactoryGirl.create(:user) }
   let(:challenge_set) { FactoryGirl.create(:challenge_set) }
   let(:challenge) { FactoryGirl.create(:challenge, name: "Addition") }

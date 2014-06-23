@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe StatisticsController do
+describe StatisticsController, :type => :controller do
   let(:user) { FactoryGirl.create(:user) }
   let(:challenge) { FactoryGirl.create(:challenge) }
   let(:user_challenge) { FactoryGirl.create(:user_challenge, user: user, challenge: challenge) }

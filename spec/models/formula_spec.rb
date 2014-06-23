@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Formula do
+describe Formula, :type => :model do
   it "should return 3 on 1+2" do
     operation = Operation.new(:+, Constant.new(1), Constant.new(2))
     formula = Formula.new([operation])
@@ -37,7 +37,7 @@ end
 
 
 
-describe Operation do
+describe Operation, :type => :model do
     it "can add two integers" do
       expect(Operation.new(:+, Constant.new(2),Constant.new(1)).result.round(2)).to eq(3.0)
     end
@@ -77,7 +77,7 @@ describe Operation do
     end
   end
 
-describe Constant do
+describe Constant, :type => :model do
   it "should return result of operation if value1 is operation" do
     operation = Operation.new(:+, Constant.new(2), Constant.new(1))
     expect(Constant.new(operation).value).to eq(3)

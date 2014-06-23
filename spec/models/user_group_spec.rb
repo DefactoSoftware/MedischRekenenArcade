@@ -10,8 +10,8 @@
 
 require 'spec_helper'
 
-describe UserGroup do
+describe UserGroup, :type => :model do
   describe "Associations" do
-    it { should have_many(:users) }
+    it { is_expected.to have_many(:users) }
   end
 end
