@@ -13,7 +13,9 @@ class NotificationPresenter < SimpleDelegator
   end
 
   def render_partial
-    locals = {notification: notification, presenter: self, type: notification.trackable_type}
+    locals = { notification: notification,
+               presenter: self,
+               type: notification.trackable_type }
     render partial_path, locals
   end
 

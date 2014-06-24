@@ -7,13 +7,23 @@ class ActivityPresenter < SimpleDelegator
   end
 
   def render_activity
+    if activity.user == current_user
+      name = I18n.t("activity.you")
+    else
+      name = activity.user.name
+    end
+
     div_for activity do
-      link_to(activity.user == current_user ? I18n.t("activity.you") : activity.user.name, activity.user) + " " + render_partial
+      link_to(name, activity.user) +
+              " " +
+              render_partial
     end
   end
 
   def render_partial
-    locals = {activity: activity, presenter: self, trackable: activity.trackable}
+    locals = { activity: activity,
+               presenter: self,
+               trackable: activity.trackable }
     render partial_path, locals
   end
 

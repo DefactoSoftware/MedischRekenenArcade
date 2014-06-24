@@ -18,8 +18,9 @@ class Answer < ActiveRecord::Base
   belongs_to :user_challenge
 
   alias_method :actual_user, :user
+
   def user
-    self.actual_user || Guest.new
+    actual_user || Guest.new
   end
 
   def correct?
@@ -36,16 +37,21 @@ class Answer < ActiveRecord::Base
   end
 
   def eval_answer_deep
-    if (value / 10).round(2) == problem.result.round(2) || (value / 100).round(2) == problem.result.round(2) || (value / 1000).round(2) == problem.result.round(2)
+    if (value / 10).round(2) == problem.result.round(2) ||
+       (value / 100).round(2) == problem.result.round(2) ||
+       (value / 1000).round(2) == problem.result.round(2)
       self.feedback = I18n.t("answer.feedback.conversion")
       false
-    elsif (value * 10).round(2) == problem.result.round(2) || (value * 100).round(2) == problem.result.round(2) || (value * 1000).round(2) == problem.result.round(2)
+    elsif (value * 10).round(2) == problem.result.round(2) ||
+          (value * 100).round(2) == problem.result.round(2) ||
+          (value * 1000).round(2) == problem.result.round(2)
       self.feedback = I18n.t("answer.feedback.conversion")
       false
     elsif ((value - 0.2)..(value + 0.2)).include?(problem.result)
       self.feedback = I18n.t("answer.feedback.rounding2")
       true
-    elsif value == problem.result || ((value - 1.0)..(value + 1.0)).include?(problem.result)
+    elsif value == problem.result ||
+          ((value - 1.0)..(value + 1.0)).include?(problem.result)
       self.feedback = I18n.t("answer.feedback.rounding")
       false
     else

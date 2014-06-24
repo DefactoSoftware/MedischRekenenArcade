@@ -27,24 +27,23 @@ class ConcentrationTablet < Problem
     operations = []
     operations << Operation.new(
                     AVAILABLE_OPERATORS["Division"],
-                    Constant.new(Float(rand(1...10)*50)),
-                    Constant.new(Float(rand(5...20)*100))
+                    Constant.new(Float(rand(1...10) * 50)),
+                    Constant.new(Float(rand(5...20) * 100))
                   )
     operations << Operation.new(
                     AVAILABLE_OPERATORS["Multiplication"],
                     Constant.new(operations.last),
                     Constant.new(Float(100))
                   )
-    formula = Formula.new(operations)
-
+    Formula.new(operations)
   end
 
   def generate_theory(formula)
-    medicine = ["vitaminc", "augmentin_amoxicilline", "augmentin_clavulaneacid", "methylfenidaat"]
-    self.theory = I18n.t("problems.theory.#{self.class.name.underscore}.#{medicine.sample}",
-                          operation1_constant1: formula.operations[0].constant2.value,
-                          operation1_constant2: formula.operations[0].constant1.value,
-                          operation2_constant1: formula.operations[1].constant2.value
-                        )
+    medicine = ["vitaminc", "augmentin_amoxicilline",
+                "augmentin_clavulaneacid", "methylfenidaat"]
+    I18n.t("problems.theory.#{self.class.name.underscore}.#{medicine.sample}",
+           operation1_constant1: formula.operations[0].constant2.value,
+           operation1_constant2: formula.operations[0].constant1.value,
+           operation2_constant1: formula.operations[1].constant2.value)
   end
 end

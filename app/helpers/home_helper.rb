@@ -17,7 +17,8 @@ module HomeHelper
     if user.guest?
       Markdown.get.render(t("home.standard_text")).html_safe
     else
-      Markdown.get.render(t("home.logged_in_text", points: user.points)).html_safe
+      Markdown.get.render(t("home.logged_in_text",
+                            points: user.points)).html_safe
     end
   end
 
@@ -48,6 +49,7 @@ module HomeHelper
   end
 
   private
+
   def sign_up_button
     link_to new_user_registration_path do
       content_tag(:button, t("menu.sign_up"), class: "btn btn-landing")

@@ -29,11 +29,13 @@ class Addition < Problem
                       Constant.new(Float(rand(1..100))),
                       Constant.new(Float(rand(1..100)))
                     ))
-    formula = Formula.new(operations)
+    Formula.new(operations)
   end
 
   def generate_theory(formula)
-    self.theory = "#{formula.operations[0].constant1.value} #{formula.operations[0].operator} #{formula.operations[0].constant2.value}"
+    "#{formula.operations[0].constant1.value}
+     #{formula.operations[0].operator}
+     #{formula.operations[0].constant2.value}"
   end
 
   def info

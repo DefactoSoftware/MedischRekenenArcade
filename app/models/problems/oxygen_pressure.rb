@@ -27,16 +27,15 @@ class OxygenPressure < Problem
     operations = []
     operations << Operation.new(
                       AVAILABLE_OPERATORS["Division"],
-                      Constant.new(Float((rand(1...10)*100).round(2))),
-                      Constant.new(Float((rand(3..10)*0.5).round(2)))
+                      Constant.new(Float((rand(1...10) * 100).round(2))),
+                      Constant.new(Float((rand(3..10) * 0.5).round(2)))
                     )
-    formula = Formula.new(operations)
+    Formula.new(operations)
   end
 
   def generate_theory(formula)
-    self.theory = I18n.t("problems.theory.#{self.class.name.underscore}",
-                          operation1_constant1: formula.operations[0].constant1.value,
-                          operation1_constant2: formula.operations[0].constant2.value
-                        )
+    I18n.t("problems.theory.#{self.class.name.underscore}",
+           operation1_constant1: formula.operations[0].constant1.value,
+           operation1_constant2: formula.operations[0].constant2.value)
   end
 end

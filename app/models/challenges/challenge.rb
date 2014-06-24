@@ -14,7 +14,7 @@
 #  type               :string(255)
 #  challenge_set_id   :integer
 #
-require 'problem_factory'
+require "problem_factory"
 
 class Challenge < ActiveRecord::Base
   has_many :challenge_skills
@@ -22,36 +22,40 @@ class Challenge < ActiveRecord::Base
   has_many :user_challenges
   belongs_to :challenge_set
 
-  VALID_NAMES =  %w(
-                    PercentageAmountOfAmount PercentageOfUnit PercentageUnitToHundred
-                    Division Addition Subtraction Multiplication Mixed
-                    UnitConversion ConcentrationTablet ConcentrationToHundred ConcentrationAmount
-                    SolutionMaxisporin SyringePumpAmount SyringePumpHourly
-                    DropIvHourly DropIvAmount OxygenTime OxygenPressure
-                    )
+  VALID_NAMES =  %w(PercentageAmountOfAmount PercentageOfUnit
+                    PercentageUnitToHundred Division
+                    Addition Subtraction Multiplication
+                    Mixed UnitConversion ConcentrationTablet
+                    ConcentrationToHundred ConcentrationAmount
+                    SolutionMaxisporin SyringePumpAmount
+                    SyringePumpHourly DropIvHourly DropIvAmount
+                    OxygenTime OxygenPressure)
 
   validates :name, inclusion: { in: VALID_NAMES }
 
-
   def total_correct_answers_for_user(user)
-    userchallenges = self.user_challenges.where(user: user)
-    userchallenges.reduce(0) { |total, userchallenge|  total += userchallenge.amount_good }
+    userchallenges = user_challenges.where(user: user)
+    userchallenges.inject(0) do |total, userchallenge|
+      total + userchallenge.amount_good
+    end
   end
 
   def total_incorrect_answers_for_user(user)
-    userchallenges = self.user_challenges.where(user: user)
-    userchallenges.reduce(0) { |total, userchallenge|  total += userchallenge.amount_fail }
+    userchallenges = user_challenges.where(user: user)
+    userchallenges.inject(0) do |total, userchallenge|
+      total + userchallenge.amount_fail
+    end
   end
 
   def total_success_for_user(user)
-    self.user_challenges.where(user: user, success: true).count
+    user_challenges.where(user: user, success: true).count
   end
 
   def total_failed_for_user(user)
-    self.user_challenges.where(user: user, success: false || nil).count
+    user_challenges.where(user: user, success: false || nil).count
   end
 
   def create_problem(user)
-    ProblemFactory.new(self.name, user).problem
+    ProblemFactory.new(name, user).problem
   end
 end

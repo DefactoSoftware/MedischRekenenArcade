@@ -2,7 +2,11 @@ module Api
   module V1
     class ProblemsController < BaseController
       def index
-        render json: ProblemFactory.new(params[:problem] || "Mixed", current_user).problem, status: :created, serializer: ProblemSerializer
+        problem_name = params[:problem] || "Mixed"
+        problem = ProblemFactory.new(problem_name, current_user).problem
+        render json: problem,
+               status: :created,
+               serializer: ProblemSerializer
       end
     end
   end

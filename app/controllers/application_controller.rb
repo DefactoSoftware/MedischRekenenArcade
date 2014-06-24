@@ -6,27 +6,40 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :set_locale
 
-
-
   def all_activities
-    activities = Activity.where(user_id: User.where(user_group: current_user.user_group).map(&:id)).order("created_at DESC").limit(10)
+    users = User.where(user_group: current_user.user_group)
+    Activity.where(user_id: users.map(&:id)).
+    order("created_at DESC").limit(10)
   end
 
   helper_method :all_activities
 
   protected
+
   def set_locale
     I18n.locale = extract_locale_from_tld || I18n.default_locale
   end
 
   def update_sanitized_params
-    devise_parameter_sanitizer.for(:sign_up) {|u| u.permit(:email, :username, :name, :password, :password_confirmation, :profilepicture_url, :user_group_id)}
-    devise_parameter_sanitizer.for(:sign_in) { |u| u.permit(:email, :password, :remember_me) }
-    devise_parameter_sanitizer.for(:account_update)  {|u| u.permit(:email, :username, :name, :password, :password_confirmation, :current_password, :profilepicture_url, :user_group_id)}
+    devise_parameter_sanitizer.for(:sign_up) do |u|
+      u.permit(:email, :username, :name, :password,
+               :password_confirmation, :profilepicture_url,
+               :user_group_id)
+    end
+    devise_parameter_sanitizer.for(:sign_in) do |u|
+      u.permit(:email, :password, :remember_me)
+    end
+    devise_parameter_sanitizer.for(:account_update) do |u|
+      u.permit(:email, :username, :name, :password,
+               :password_confirmation, :current_password,
+               :profilepicture_url, :user_group_id)
+    end
   end
 
   def check_challenge
-    if params[:controller] != "challenges" && params[:controller] != "answers" && params[:controller] != "notifications"
+    if params[:controller] != "challenges" &&
+       params[:controller] != "answers" &&
+       params[:controller] != "notifications"
       reset_challenge
     end
   end
@@ -38,16 +51,16 @@ class ApplicationController < ActionController::Base
   end
 
   def extract_locale_from_tld
-    parsed_locale = request.host.split('.').last
+    parsed_locale = request.host.split(".").last
     I18n.available_locales.include?(parsed_locale.to_sym) ? parsed_locale  : nil
   end
 
   def devise_current_user
-    @devise_current_user ||= warden.authenticate(:scope => :user)
+    @devise_current_user ||= warden.authenticate(scope: :user)
   end
 
   def current_user
-     devise_current_user || Guest.new
+    devise_current_user || Guest.new
   end
 
   def track_activity(trackable, action = params[:action])

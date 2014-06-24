@@ -10,6 +10,7 @@ class UserGroupsController < ApplicationController
   end
 
   private
+
   def user_group_parameters
     params.require(:user_group).permit(:name)
   end

@@ -43,10 +43,13 @@ class User < ActiveRecord::Base
   has_many :notifications
 
   has_many :friendships
-  has_many :friends, :through => :friendships
-  has_many :inverse_friendships, :class_name => "Friendship", :foreign_key => "friend_id"
-  has_many :inverse_friends, :through => :inverse_friendships, :source => :user
-
+  has_many :friends, through: :friendships
+  has_many :inverse_friendships,
+           class_name: "Friendship",
+           foreign_key: "friend_id"
+  has_many :inverse_friends,
+           through: :inverse_friendships,
+           source: :user
 
   validates :username, presence: true, uniqueness: true
 
@@ -57,8 +60,8 @@ class User < ActiveRecord::Base
   has_many :user_challenges
   has_many :challenges, -> { uniq }, through: :user_challenges
 
-  def recent_activities(limit=6)
-    activities.order('created_at DESC').limit(limit)
+  def recent_activities(limit = 6)
+    activities.order("created_at DESC").limit(limit)
   end
 
   def increase_points(value)
@@ -68,7 +71,7 @@ class User < ActiveRecord::Base
 
   def decrease_points(value)
     subtract_points(value)
-    update_leaderboard(value*-1)
+    update_leaderboard(value * -1)
   end
 
   def challenges_completed_successfully
@@ -88,8 +91,9 @@ class User < ActiveRecord::Base
   end
 
   private
+
   def init_redis
-    RedisLeaderboard.get.rank_member(self.id, 0)
+    RedisLeaderboard.get.rank_member(id, 0)
   end
 
   def init_user_skills
@@ -100,20 +104,26 @@ class User < ActiveRecord::Base
 
   def update_leaderboard(value)
     highscore_lb = RedisLeaderboard.get
-    new_score = highscore_lb.score_for(id) ? highscore_lb.score_for(id) + value : value
+    if highscore_lb.score_for(id)
+      new_score = highscore_lb.score_for(id) + value
+    else
+      value
+    end
     highscore_lb.rank_member(id, new_score)
   end
 
   def grant_sign_up_badge
-    if !self.badges.include?(Merit::Badge.find(24)) && self.confirmed_at != nil
-      self.add_badge(24)
+    if !badges.include?(Merit::Badge.find(24)) &&
+       confirmed_at
+      add_badge(24)
     end
   end
 
   def grant_vanity_badge
-    if !self.badges.include?(Merit::Badge.find(25)) && self.confirmed_at != nil && profilepicture_url != "/assets/no_profile.jpg"
-      self.add_badge(25)
+    if !badges.include?(Merit::Badge.find(25)) &&
+       confirmed_at &&
+       profilepicture_url != "/assets/no_profile.jpg"
+      add_badge(25)
     end
   end
 end
-
