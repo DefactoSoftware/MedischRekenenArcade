@@ -11,7 +11,7 @@ module Features
 
     def current_admin_user
       @current_admin_user ||= AdminUser.create!(email: "admin@example.com",
-                                               password: admin_password)
+                                                password: admin_password)
     end
   end
 end

@@ -10,10 +10,10 @@
 #  badge      :integer
 #
 
-require 'spec_helper'
+require "spec_helper"
 
-describe ChallengeSet, :type => :model do
+describe ChallengeSet, type: :model do
   describe "Associations" do
-     it { is_expected.to have_many(:challenges) }
+    it { is_expected.to have_many(:challenges) }
   end
 end

@@ -1,10 +1,19 @@
-require 'spec_helper'
-describe HomeHelper, :type => :helper do
+require "spec_helper"
+describe HomeHelper, type: :helper do
   include HomeHelper
-  let(:morning) { Time.gm(DateTime.now.year, DateTime.now.month, DateTime.now.day, 8) }
-  let(:afternoon) { Time.gm(DateTime.now.year, DateTime.now.month, DateTime.now.day, 16) }
-  let(:evening) { Time.gm(DateTime.now.year, DateTime.now.month, DateTime.now.day, 19) }
-  let(:night) { Time.gm(DateTime.now.year, DateTime.now.month, DateTime.now.day, 4) }
+  let(:morning) do
+    Time.gm(DateTime.now.year, DateTime.now.month, DateTime.now.day, 8)
+  end
+  let(:afternoon) do
+    Time.gm(DateTime.now.year, DateTime.now.month, DateTime.now.day, 16)
+  end
+  let(:evening) do
+    Time.gm(DateTime.now.year, DateTime.now.month, DateTime.now.day, 19)
+  end
+  let(:night) do
+    Time.gm(DateTime.now.year, DateTime.now.month, DateTime.now.day, 4)
+  end
+
   describe "greetings_for_time" do
     it "Should return Good morning if time is morning" do
       expect(greeting_for_time(morning)).to eq(t("greetings.morning"))

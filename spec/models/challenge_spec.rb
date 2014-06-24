@@ -15,15 +15,13 @@
 #  challenge_set_id   :integer
 #
 
-require 'spec_helper'
+require "spec_helper"
 
-describe Challenge, :type => :model do
+describe Challenge, type: :model do
   describe "Associations" do
     it { is_expected.to have_many :user_challenges }
     it { is_expected.to belong_to :challenge_set }
   end
-
-
 
   describe "Valid challenge names" do
     Challenge::VALID_NAMES.each do |name|
@@ -31,6 +29,7 @@ describe Challenge, :type => :model do
     end
 
     it { is_expected.not_to allow_value(Faker::HipsterIpsum.word).for(:name) }
-    it { is_expected.not_to allow_value("clearly a faulty challenge name").for(:name) }
+    faulty_challenge_name = "clearly a faulty challenge name"
+    it { is_expected.not_to allow_value(faulty_challenge_name).for(:name) }
   end
 end

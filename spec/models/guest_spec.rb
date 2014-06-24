@@ -1,6 +1,6 @@
-require 'spec_helper'
+require "spec_helper"
 
-describe Guest, :type => :model do
+describe Guest, type: :model do
   let(:guest) { Guest.new }
 
   it "has an id method" do

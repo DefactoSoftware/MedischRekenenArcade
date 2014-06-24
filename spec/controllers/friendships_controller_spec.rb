@@ -1,13 +1,15 @@
-require 'spec_helper'
+require "spec_helper"
 
-describe FriendshipsController, :type => :controller do
-  let(:user1) { FactoryGirl.create(:user) }
-  let(:user2) { FactoryGirl.create(:user) }
-  let(:friendship_attributes) { FactoryGirl.attributes_for(:friendship, friend_id: user2.id) }
+describe FriendshipsController, type: :controller do
+  let(:user1) { create(:user) }
+  let(:user2) { create(:user) }
+  let(:friendship_attributes) do
+    attributes_for(:friendship, friend_id: user2.id)
+  end
 
   describe "POST create" do
     before :each do
-      @request.env['HTTP_REFERER'] = root_path
+      @request.env["HTTP_REFERER"] = root_path
       sign_in user1.reload
     end
 
@@ -17,7 +19,8 @@ describe FriendshipsController, :type => :controller do
     end
 
     it "creates a new friendship" do
-      friendship_attributes = FactoryGirl.attributes_for(:friendship, friend_id: user2.id)
+      friendship_attributes = attributes_for(:friendship,
+                                             friend_id: user2.id)
       expect {
         post :create, friendship: friendship_attributes
       }.to change(Friendship, :count).by(1)
@@ -30,7 +33,7 @@ describe FriendshipsController, :type => :controller do
 
   describe "DELETE destroy" do
     it "deletes a friendship" do
-      @request.env['HTTP_REFERER'] = root_path
+      @request.env["HTTP_REFERER"] = root_path
       sign_in user1.reload
       friendship = Friendship.create(user_id: user1.id, friend_id: user2.id)
       expect {

@@ -18,11 +18,11 @@
 #  unit_question  :string(255)
 #
 
-require 'spec_helper'
-require 'rake'
+require "spec_helper"
+require "rake"
 
-describe Problem, :type => :model do
-  let(:user) { FactoryGirl.create(:user) }
+describe Problem, type: :model do
+  let(:user) { create(:user) }
   describe "Associations" do
     it { is_expected.to belong_to(:unit) }
   end
@@ -161,7 +161,6 @@ describe Problem, :type => :model do
       end
     end
   end
-
 
   describe PercentageAmountOfAmount do
     let(:unit) { Unit.create(name: "Milliliter") }
@@ -349,7 +348,7 @@ describe Problem, :type => :model do
     end
   end
 
-   describe SyringePumpAmount do
+  describe SyringePumpAmount do
     let(:problem_factory) { ProblemFactory.new("SyringePumpAmount", user) }
 
     it "creates a problem" do

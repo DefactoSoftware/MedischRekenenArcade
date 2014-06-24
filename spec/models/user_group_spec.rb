@@ -8,9 +8,9 @@
 #  updated_at :datetime
 #
 
-require 'spec_helper'
+require "spec_helper"
 
-describe UserGroup, :type => :model do
+describe UserGroup, type: :model do
   describe "Associations" do
     it { is_expected.to have_many(:users) }
   end

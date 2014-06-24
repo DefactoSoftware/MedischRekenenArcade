@@ -1,29 +1,33 @@
-require 'spec_helper'
-describe StatisticsHelper, :type => :helper do
+require "spec_helper"
+describe StatisticsHelper, type: :helper do
   include StatisticsHelper
 
-  let(:user) { FactoryGirl.create(:user) }
-  let(:challenge) { FactoryGirl.create(:challenge) }
+  let(:user) { create(:user) }
+  let(:challenge) { create(:challenge) }
   2.times do
-    let(:userchallenge) { FactoryGirl.create(:user_challenge, user: user.reload, challenge: challenge.reload) }
+    let(:userchallenge) do
+      create(:user_challenge,
+             user: user.reload,
+             challenge: challenge.reload)
+    end
   end
 
   it "should return the correct table" do
     table = "<table class='table table-striped'>
       <tr>
-        <th>#{t('challenges.labels.stats')}</th>
-        <th>#{t('challenges.labels.amount')}</th>
+        <th>#{t("challenges.labels.stats")}</th>
+        <th>#{t("challenges.labels.amount")}</th>
       </tr>
       <tr>
-        <td>#{t('challenges.labels.attempts')}</td>
+        <td>#{t("challenges.labels.attempts")}</td>
         <td>0</td>
       </tr>
       <tr>
-        <td>#{t('challenges.labels.successfull')}</td>
+        <td>#{t("challenges.labels.successfull")}</td>
         <td>0</td>
       </tr>
       <tr>
-        <td>#{t('challenges.labels.failed')}</td>
+        <td>#{t("challenges.labels.failed")}</td>
         <td>0</td>
       </tr>
     </table>"

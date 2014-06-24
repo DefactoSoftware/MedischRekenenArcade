@@ -13,9 +13,9 @@
 #  updated_at     :datetime
 #
 
-require 'spec_helper'
+require "spec_helper"
 
-describe Notification, :type => :model do
+describe Notification, type: :model do
   describe "Associations" do
     it { is_expected.to belong_to(:user) }
     it { is_expected.to belong_to(:trackable) }

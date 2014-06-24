@@ -1,5 +1,5 @@
-require 'spec_helper'
+require "spec_helper"
 
-describe ProblemsController, :type => :controller do
+describe ProblemsController, type: :controller do
 
 end

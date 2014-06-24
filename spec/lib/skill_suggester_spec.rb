@@ -1,11 +1,15 @@
-require 'spec_helper'
+require "spec_helper"
 
 describe SkillSuggester do
-  let(:user) { FactoryGirl.create(:user) }
-  let(:skill1) { FactoryGirl.create(:skill) }
-  let(:skill2) { FactoryGirl.create(:skill) }
-  let(:user_skill1) { FactoryGirl.create(:user_skill, skill: skill1, user: user, level: 2) }
-  let(:user_skill2) { FactoryGirl.create(:user_skill, skill: skill2, user: user, level: 10) }
+  let(:user) { create(:user) }
+  let(:skill1) { create(:skill) }
+  let(:skill2) { create(:skill) }
+  let(:user_skill1) do
+    create(:user_skill, skill: skill1, user: user, level: 2)
+  end
+  let(:user_skill2) do
+    create(:user_skill, skill: skill2, user: user, level: 10)
+  end
   let(:skill_suggester) { SkillSuggester.new(user) }
 
   it "returns the lowest ranked skill for user" do

@@ -1,22 +1,24 @@
-require 'spec_helper'
+require "spec_helper"
 
-describe FeedbackReportsController, :type => :controller do
+describe FeedbackReportsController, type: :controller do
   describe "POST create feedback report" do
-    let(:user) { FactoryGirl.create(:user) }
-    let(:feedback_report_attributes) { FactoryGirl.attributes_for(:feedback_report) }
+    let(:user) { create(:user) }
+    let(:feedback_report_attributes) { attributes_for(:feedback_report) }
 
     before :each do
-      @request.env['HTTP_REFERER'] = root_path
+      @request.env["HTTP_REFERER"] = root_path
       sign_in user
       post :create, feedback_report: feedback_report_attributes
     end
 
     it "creates a report with text" do
-      expect(FeedbackReport.last.text).to eq(feedback_report_attributes[:text])
+      expect(FeedbackReport.last.text).
+        to eq(feedback_report_attributes[:text])
     end
 
     it "creates a report with subject" do
-      expect(FeedbackReport.last.subject).to eq(feedback_report_attributes[:subject])
+      expect(FeedbackReport.last.subject).
+        to eq(feedback_report_attributes[:subject])
     end
 
     it "creates a report with page equal to request referer" do

@@ -4,7 +4,7 @@ FactoryGirl.define do
   end
 
   factory :friendship do
-    friend_id { FactoryGirl.create(:user).id }
+    friend_id { create(:user).id }
   end
 
   factory :skill do

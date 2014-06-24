@@ -1,10 +1,15 @@
-require 'spec_helper'
+require "spec_helper"
 
 describe AnswersController, type: :controller do
   include Devise::TestHelpers
-  let(:user) { FactoryGirl.create(:user) }
+  let(:user) { create(:user) }
   let(:problem) { PercentageAmountOfAmount.new.generate(user) }
-  let(:goodanswer) {FactoryGirl.attributes_for(:answer, problem_id: problem.id, user: user, value: problem.get_result)}
+  let(:goodanswer) do
+    attributes_for(:answer,
+                   problem_id: problem.id,
+                   user: user,
+                   value: problem.get_result)
+  end
 
   before :each do
     sign_in user.reload
@@ -12,7 +17,7 @@ describe AnswersController, type: :controller do
 
   it "grants the questions_answered_a badge" do
     9.times do
-      Answer.create(user:user)
+      Answer.create(user: user)
     end
     post :create, answer: goodanswer
     expect(user.reload.badges).to include(Merit::Badge.find(8))
@@ -20,7 +25,7 @@ describe AnswersController, type: :controller do
 
   it "grants the questions_answered_b badge" do
     99.times do
-      Answer.create(user:user)
+      Answer.create(user: user)
     end
     post :create, answer: goodanswer
     expect(user.reload.badges).to include(Merit::Badge.find(9))
@@ -28,21 +33,21 @@ describe AnswersController, type: :controller do
 
   it "grants the questions_answered_c badge" do
     999.times do
-      Answer.create(user:user)
+      Answer.create(user: user)
     end
     post :create, answer: goodanswer
     expect(user.reload.badges).to include(Merit::Badge.find(10))
   end
 end
 
-describe User, :type => :model do
-  let(:user) { FactoryGirl.create(:user) }
+describe User, type: :model do
+  let(:user) { create(:user) }
   it "grants the particioner badge" do
     expect(user.badges).to include(Merit::Badge.find(24))
   end
 
   it "grants the narcissist badge on signup" do
-    user = FactoryGirl.create(:user, profilepicture_url: "test.jpg")
+    user = create(:user, profilepicture_url: "test.jpg")
     expect(user.badges).to include(Merit::Badge.find(25))
   end
 
@@ -52,8 +57,8 @@ describe User, :type => :model do
   end
 end
 
-describe AnswerHandler, :type => :model do
-  let(:user) { FactoryGirl.create(:user) }
+describe AnswerHandler, type: :model do
+  let(:user) { create(:user) }
   let(:session) { {} }
   it "grants the streakmaster a badge on a streak of 10 good answers" do
     session[:streak] = 10

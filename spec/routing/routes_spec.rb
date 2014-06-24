@@ -1,6 +1,6 @@
-require 'spec_helper'
+require "spec_helper"
 
-describe "routing to", :type => :routing do
+describe "routing to", type: :routing do
   describe "home" do
     it "to root" do
       expect(get: "/").to route_to("home#index")
@@ -51,6 +51,4 @@ describe "routing to", :type => :routing do
       expect(post: "/answers").to route_to("answers#create")
     end
   end
-
-
 end

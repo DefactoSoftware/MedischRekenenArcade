@@ -12,9 +12,9 @@
 #  notified       :boolean          default(FALSE)
 #
 
-require 'spec_helper'
+require "spec_helper"
 
-describe Activity, :type => :model do
+describe Activity, type: :model do
   describe "Associations" do
     it { is_expected.to belong_to(:user) }
     it { is_expected.to belong_to(:trackable) }

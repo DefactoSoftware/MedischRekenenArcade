@@ -1,6 +1,6 @@
-require 'spec_helper'
+require "spec_helper"
 
-describe HomeController, :type => :controller do
+describe HomeController, type: :controller do
   describe "Index" do
     it "should return status 200" do
       get :index
@@ -9,9 +9,11 @@ describe HomeController, :type => :controller do
   end
 
   describe "Last challenge" do
-    let(:user) { FactoryGirl.create(:user) }
-    let(:challenge) { FactoryGirl.create(:challenge) }
-    let(:user_challenge) { FactoryGirl.create(:user_challenge, challenge: challenge, user: user) }
+    let(:user) { create(:user) }
+    let(:challenge) { create(:challenge) }
+    let(:user_challenge) do
+      create(:user_challenge, challenge: challenge, user: user)
+    end
 
     describe "when logged in" do
       it "has a last challenge" do

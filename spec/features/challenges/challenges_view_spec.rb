@@ -1,9 +1,20 @@
 require "spec_helper"
 
 describe "Challenges", type: :feature do
-  let(:challenge_set) { ChallengeSet.where(name: "Week_1", locked: false).first_or_create }
-  let(:challenge) { Challenge.where(name: "Addition", number_of_problems: 10, steps: 1, timelimit: 900000, bonus: 20, icon: "challenges/Menu_Optellen.png", challenge_set: challenge_set).first_or_create }
-  let(:user) { FactoryGirl.create(:user) }
+  let(:challenge_set) do
+    ChallengeSet.where(name: "Week_1", locked: false).first_or_create
+  end
+  let(:challenge) do
+    Challenge.where(name: "Addition",
+                    number_of_problems: 10,
+                    steps: 1,
+                    timelimit: 900000,
+                    bonus: 20,
+                    icon: "challenges/Menu_Optellen.png",
+                    challenge_set: challenge_set).
+    first_or_create
+  end
+  let(:user) { create(:user) }
 
   before :each do
     user.confirm!
@@ -36,7 +47,7 @@ describe "Challenges", type: :feature do
       visit "/challenges/#{challenge.name}"
       find("#answer_value").set("2")
       find("#submit_answer").click
-      expect(page).to have_selector('#theory')
+      expect(page).to have_selector("#theory")
     end
   end
 

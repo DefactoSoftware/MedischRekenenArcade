@@ -1,7 +1,7 @@
 require "spec_helper"
 
 describe "Practice", type: :feature do
-  let(:user) { FactoryGirl.create(:user) }
+  let(:user) { create(:user) }
 
   context "Guest user" do
     it "can answer a practice question" do
