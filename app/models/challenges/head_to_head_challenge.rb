@@ -13,8 +13,9 @@
 
 class HeadToHeadChallenge < ActiveRecord::Base
   enum status: [:open, :accepted, :finished]
-  belongs_to :challenger, class_name: 'User'
-  belongs_to :challenged, class_name: 'User'
+
+  belongs_to :challenger, class_name: "User"
+  belongs_to :challenged, class_name: "User"
   belongs_to :challenge
   has_many :user_challenges
 
@@ -33,7 +34,8 @@ class HeadToHeadChallenge < ActiveRecord::Base
   end
 
   def check_finish
-    challenger_amount_answered == challenge.number_of_problems && challenged_user_challenge.amount_answered == challenge.number_of_problems
+    challenger_amount_answered == challenge.number_of_problems &&
+    challenged_user_challenge.amount_answered == challenge.number_of_problems
   end
 
   def winner
@@ -64,15 +66,15 @@ class HeadToHeadChallenge < ActiveRecord::Base
   def notify_users
     Notification.create(
       user: challenger,
-      title: 'notifications.head_to_head_challenge.challenger.title',
-      text: 'notifications.head_to_head_challenge.challenger.text',
+      title: "notifications.head_to_head_challenge.challenger.title",
+      text: "notifications.head_to_head_challenge.challenger.text",
       trackable: self,
       image: challenge.icon
     )
     Notification.create(
       user: challenged,
-      title: 'notifications.head_to_head_challenge.challenged.title',
-      text: 'notifications.head_to_head_challenge.challenged.text',
+      title: "notifications.head_to_head_challenge.challenged.title",
+      text: "notifications.head_to_head_challenge.challenged.text",
       trackable: self,
       image: challenge.icon
     )
@@ -87,22 +89,27 @@ class HeadToHeadChallenge < ActiveRecord::Base
   end
 
   def challenger_score
-    challenger_user_challenge.amount_good - challenger_user_challenge.amount_fail
+    challenger_user_challenge.amount_good -
+    challenger_user_challenge.amount_fail
   end
 
   def challenged_score
-    challenged_user_challenge.amount_good - challenged_user_challenge.amount_fail
+    challenged_user_challenge.amount_good -
+    challenged_user_challenge.amount_fail
   end
 
   def challenger_time
-    challenger_user_challenge.updated_at - challenger_user_challenge.created_at
+    challenger_user_challenge.updated_at -
+    challenger_user_challenge.created_at
   end
 
   def challenged_time
-    challenged_user_challenge.updated_at - challenged_user_challenge.created_at
+    challenged_user_challenge.updated_at -
+    challenged_user_challenge.created_at
   end
 
   private
+
   def challenger_user_challenge
     user_challenges.where(user: challenger).last || UserChallenge.new
   end

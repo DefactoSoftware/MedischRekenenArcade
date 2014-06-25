@@ -13,7 +13,7 @@ class MessagePresenter < SimpleDelegator
   end
 
   def render_partial
-    locals = {message: message, presenter: self, type: message.trackable_type}
+    locals = { message: message, presenter: self, type: message.trackable_type }
     render partial_path, locals
   end
 

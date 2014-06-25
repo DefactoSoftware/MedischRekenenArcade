@@ -2,7 +2,7 @@ require "answer_handler"
 
 class AnswersController < ApplicationController
   def create
-    session[:ip] = request.env['REMOTE_HOST']
+    session[:ip] = request.env["REMOTE_HOST"]
     if answer_parameters[:user_challenge_id]
       user_challenge = UserChallenge
                        .find(answer_parameters[:user_challenge_id])

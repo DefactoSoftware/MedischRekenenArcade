@@ -65,7 +65,7 @@ en:
       success: "Added new user group"
       error: "Could not add new user group"
   badges:
-    go_to_statistics: "Go to statistiscs to view your overview!"
+    link: "Go to badges to view your overview!"
     night_owl:
       name: "Night Owl"
       description: "You've been active during the night"
@@ -169,6 +169,7 @@ en:
     users: "Users"
     help: "Need help?"
     badges: "Badges"
+    my_challenges: "Challenges"
   calculator:
     info: "If you're stuck you can use this simple calculator. This does however reduce your score"
   practice:

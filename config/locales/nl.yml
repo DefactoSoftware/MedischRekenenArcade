@@ -65,7 +65,7 @@ nl:
       success: "Nieuwe gebruikersgroep toegevoegd"
       error: "Kon de gebruikersgroep niet toevoegen"
   badges:
-    go_to_statistics: "Ga naar statistieken om je overzicht te zien!"
+    link: "Ga naar badges om je overzicht te zien!"
     night_owl:
       name: "Night Owl"
       description: "Je bent actief geweest tijdens de nacht"
@@ -169,6 +169,7 @@ nl:
     sign_up: "Registreer"
     help: "Hulp nodig?"
     badges: "Badges"
+    my_challenges: "Uitdagingen"
   calculator:
     info: "Als je vast zit kan je deze simpele rekenmachine gebruiken. Dit verlaagt wel je score"
   practice:
