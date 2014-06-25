@@ -69,12 +69,12 @@ group :production do
 end
 
 group :test, :development do
-  gem 'rspec-rails'
+  gem 'rspec-rails', '~> 3.0.0'
   gem 'ffaker'
   gem 'factory_girl_rails'
   gem 'database_cleaner'
   gem 'rspec_api_documentation', :github => 'zipmark/rspec_api_documentation'
-  gem 'capybara'
+  gem 'capybara', "~> 2.3.0"
 end
 
 group :development do
@@ -84,7 +84,7 @@ end
 
 group :test do
   gem 'guard-rspec'
-  gem 'shoulda-matchers', '~> 2.4.0'
+  gem 'shoulda-matchers', '~> 2.6.0'
   gem 'simplecov', :require => false
   gem 'json_spec'
   gem 'rake'

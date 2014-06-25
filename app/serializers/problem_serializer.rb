@@ -3,6 +3,6 @@ class ProblemSerializer < ActiveModel::Serializer
 
   def unit
     unit = Unit.find(object.unit_id) if object.unit_id
-    {id: unit.id, sign: unit.sign} if unit
+    { id: unit.id, sign: unit.sign } if unit
   end
 end

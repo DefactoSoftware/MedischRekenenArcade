@@ -27,18 +27,20 @@
 #  level                  :integer          default(0)
 #
 
-require 'spec_helper'
+require "spec_helper"
 
-describe User do
-  let(:user) { FactoryGirl.create(:user) }
+describe User, type: :model do
+  let(:user) { create(:user) }
 
   it "should have a default profile picture when not set" do
-    User.create(email: "newuser@example.com", username: "test", password: "test1234")
+    User.create(email: "newuser@example.com",
+                username: "test",
+                password: "test1234")
     expect change(User, :count).by(1)
   end
 
   it "should not create a user when username is not specified" do
-    expect { User.create(email: "test2@example.com", password: "test1234") }
+    User.create(email: "test2@example.com", password: "test1234")
     expect change(User, :count).by(0)
   end
 
@@ -48,7 +50,9 @@ describe User do
   end
 
   it "should accumulate points" do
-    user = User.create(email: "test@example.com", username: "test", password: "test1234")
+    user = User.create(email: "test@example.com",
+                       username: "test",
+                       password: "test1234")
     user.increase_points(6)
     user.decrease_points(3)
     user.increase_points(9)

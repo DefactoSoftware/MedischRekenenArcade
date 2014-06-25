@@ -17,8 +17,8 @@
 #  updated_at             :datetime
 #
 
-require 'spec_helper'
+require "spec_helper"
 
-describe AdminUser do
+describe AdminUser, type: :model do
 
 end

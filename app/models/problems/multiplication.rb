@@ -30,11 +30,13 @@ class Multiplication < Problem
                       Constant.new(Float(5 * rand(1..10)).round(2))
                     ))
 
-    formula = Formula.new(operations)
+    Formula.new(operations)
   end
 
   def generate_theory(formula)
-    self.theory = "#{formula.operations[0].constant1.value} #{formula.operations[0].operator} #{formula.operations[0].constant2.value}"
+    "#{formula.operations[0].constant1.value}
+     #{formula.operations[0].operator}
+     #{formula.operations[0].constant2.value}"
   end
 
   def info

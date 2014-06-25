@@ -1,18 +1,17 @@
-require 'spec_helper'
+require "spec_helper"
 
-describe LeaderboardsController do
-  let(:user_group) { FactoryGirl.create(:user_group, name: "NHL") }
-  let(:user1) { FactoryGirl.create(:user, user_group: user_group) }
-  let(:user2) { FactoryGirl.create(:user, user_group: user_group) }
-  let(:user3) { FactoryGirl.create(:user) }
+describe LeaderboardsController, type: :controller do
+  let(:user_group) { create(:user_group, name: "NHL") }
+  let(:user1) { create(:user, user_group: user_group) }
+  let(:user2) { create(:user, user_group: user_group) }
+  let(:user3) { create(:user) }
   let(:random_score1) { rand(10..20) }
   let(:random_score2) { rand(21..50) }
   let(:random_score3) { rand(51..100) }
 
-
   describe "GET index" do
     it "Assigns 3 variables with scores" do
-      Leaderboard.new('test_highscores').delete_leaderboard
+      Leaderboard.new("test_highscores").delete_leaderboard
 
       sign_in user1.reload
 

@@ -14,6 +14,7 @@ class FeedbackReportsController < ApplicationController
   end
 
   private
+
   def feedback_report_parameters
     params.require(:feedback_report).permit(:text, :subject, :page)
   end

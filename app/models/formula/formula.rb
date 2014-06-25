@@ -1,4 +1,4 @@
-require 'difficulty_calculator'
+require "difficulty_calculator"
 
 class Formula
   attr_reader :result, :operations
@@ -23,7 +23,6 @@ class Formula
     end
   end
 end
-
 
 class Constant
   def initialize(value)
@@ -52,6 +51,6 @@ class Operation
   end
 
   def result
-    result = @constant1.value.send(@operator, @constant2.value)
+    @constant1.value.send(@operator, @constant2.value)
   end
 end

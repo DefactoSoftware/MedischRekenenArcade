@@ -2,9 +2,9 @@ require "spec_helper"
 
 feature "admin views a problem" do
   scenario "views the problem" do
-    user = FactoryGirl.create(:user)
-    problem = FactoryGirl.create(:problem)
-    answer = FactoryGirl.create(:answer, problem: problem, user: user)
+    user = create(:user)
+    create(:problem)
+    create(:answer, problem: problem, user: user)
 
     sign_in_admin_user
     visit admin_problem_path(problem)

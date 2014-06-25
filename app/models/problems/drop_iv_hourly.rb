@@ -27,22 +27,21 @@ class DropIvHourly < Problem
     operations = []
     operations << Operation.new(
                     AVAILABLE_OPERATORS["Multiplication"],
-                    Constant.new(Float(0.5*rand(2..10)).round(2)),
+                    Constant.new(Float(0.5 * rand(2..10)).round(2)),
                     Constant.new(Float(1000))
                 )
     operations << Operation.new(
                     AVAILABLE_OPERATORS["Division"],
                     Constant.new(operations.last),
-                    Constant.new(Float(4*(rand(1..6))))
+                    Constant.new(Float(4 * (rand(1..6))))
                 )
-    formula = Formula.new(operations)
+    Formula.new(operations)
   end
 
   def generate_theory(formula)
-    self.theory = I18n.t("problems.theory.#{self.class.name.underscore}",
-                          unit: unit.sign,
-                          operation1_constant1: formula.operations[0].constant1.value,
-                          operation1_constant2: formula.operations[1].constant2.value
-                        )
+    I18n.t("problems.theory.#{self.class.name.underscore}",
+           unit: unit.sign,
+           operation1_constant1: formula.operations[0].constant1.value,
+           operation1_constant2: formula.operations[1].constant2.value)
   end
 end

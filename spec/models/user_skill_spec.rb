@@ -10,11 +10,11 @@
 #  updated_at :datetime
 #
 
-require 'spec_helper'
+require "spec_helper"
 
-describe UserSkill do
+describe UserSkill, type: :model do
   describe "Associations" do
-    it { should belong_to(:user) }
-    it { should belong_to(:skill) }
+    it { is_expected.to belong_to(:user) }
+    it { is_expected.to belong_to(:skill) }
   end
 end

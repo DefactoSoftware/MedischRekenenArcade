@@ -18,24 +18,30 @@
 #  unit_question  :string(255)
 #
 
-require 'formula'
+require "formula"
 
 class Problem < ActiveRecord::Base
   belongs_to :skill
   has_many :answers, dependent: :destroy
   belongs_to :unit
 
-
-  AVAILABLE_OPERATORS = { "Addition" => :+, "Division" => :/, "Multiplication" => :*, "Subtraction" => :- }
+  AVAILABLE_OPERATORS = { "Addition" => :+,
+                          "Division" => :/,
+                          "Multiplication" => :*,
+                          "Subtraction" => :- }
   AVAILABLE_UNITS = ["mg", "gr", "kg", "ml", "cl", "dl", "l"]
 
-  VALID_PROBLEMS = %w(PercentageAmountOfAmount PercentageOfUnit PercentageUnitToHundred SolutionMaxisporin
-                      Division Multiplication Addition Subtraction Mixed UnitConversion ConcentrationTablet
-                      ConcentrationAmount ConcentrationToHundred SyringePumpAmount SyringePumpHourly
-                      DropIvHourly DropIvAmount OxygenTime OxygenPressure)
+  VALID_PROBLEMS = %w(PercentageAmountOfAmount PercentageOfUnit
+                      PercentageUnitToHundred SolutionMaxisporin
+                      Division Multiplication Addition Subtraction
+                      Mixed UnitConversion ConcentrationTablet
+                      ConcentrationAmount ConcentrationToHundred
+                      SyringePumpAmount SyringePumpHourly
+                      DropIvHourly DropIvAmount OxygenTime
+                      OxygenPressure)
 
   def generate(user)
-    self.skill_offset=7
+    self.skill_offset = 7
     generate_unit
     generate_skill
 
@@ -46,15 +52,16 @@ class Problem < ActiveRecord::Base
       formula = lazy_generate(user_skill.level)
     end
 
-    generate_theory(formula)
-    generate_result(formula)
+    self.theory = generate_theory(formula)
+    self.result = generate_result(formula)
 
-    self.save
+    save
     self
   end
 
   def compare_skill_difficulty(level, formula)
-    (level-skill_offset..level+skill_offset).include?(formula.difficulty) || level > max_difficulty
+    range = (level - skill_offset..level + skill_offset)
+    range.include?(formula.difficulty) || level > max_difficulty
   end
 
   def generate_skill
@@ -62,11 +69,13 @@ class Problem < ActiveRecord::Base
   end
 
   def generate_unit
-    self.unit = Unit.where(sign:AVAILABLE_UNITS[rand(0...AVAILABLE_UNITS.length)]).first_or_create
+    random = rand(0...AVAILABLE_UNITS.length)
+    self.unit = Unit.where(
+                  sign: AVAILABLE_UNITS[random]).first_or_create
   end
 
   def generate_result(formula)
-    self.result = formula.result
+    formula.result
   end
 
   def generate_for_guest

@@ -8,10 +8,10 @@
 #  updated_at :datetime
 #
 
-require 'spec_helper'
+require "spec_helper"
 
-describe UnitGroup do
+describe UnitGroup, type: :model do
   describe "Associations" do
-    it { should have_many(:units) }
+    it { is_expected.to have_many(:units) }
   end
 end

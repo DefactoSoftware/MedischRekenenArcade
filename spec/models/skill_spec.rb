@@ -8,7 +8,7 @@
 #  updated_at :datetime
 #
 
-require 'spec_helper'
+require "spec_helper"
 
-describe Skill do
+describe Skill, type: :model do
 end

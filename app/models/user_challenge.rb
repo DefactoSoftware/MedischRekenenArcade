@@ -20,6 +20,7 @@ class UserChallenge < ActiveRecord::Base
   after_update :track_activity
 
   private
+
   def track_activity
     if self.success_changed?
       if success?
@@ -35,7 +36,7 @@ class UserChallenge < ActiveRecord::Base
     if user.challenges_completed_successfully == 1
       user.add_badge(28)
     end
-    if self.amount_fail == 0 && self.success? && !user.badges.include?(Badge.find(29))
+    if amount_fail == 0 && success? && !user.badges.include?(Badge.find(29))
       user.add_badge(29)
     end
   end

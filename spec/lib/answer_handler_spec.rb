@@ -1,22 +1,49 @@
-require 'spec_helper'
+require "spec_helper"
 
 describe AnswerHandler do
   include Rails.application.routes.url_helpers
 
-  let(:user) { User.new(name: "marthyn", email:"marthyn@live.nl") }
-  let(:challenge) { Challenge.new(number_of_problems: 5, name:"challenge") }
-  let(:user_challenge) { UserChallenge.new(challenge:challenge, user:user) }
-  let(:practicehandler_good) { CorrectPracticeAnswerHandler.new({}, user, double) }
-  let(:practicehandler_bad) { IncorrectPracticeAnswerHandler.new({}, user, double) }
+  let(:user) { User.new(name: "marthyn", email: "marthyn@live.nl") }
+  let(:challenge) { Challenge.new(number_of_problems: 5, name: "challenge") }
+  let(:user_challenge) { UserChallenge.new(challenge: challenge, user: user) }
+  let(:practicehandler_good) do
+    CorrectPracticeAnswerHandler.new({}, user, double)
+  end
+  let(:practicehandler_bad) do
+    IncorrectPracticeAnswerHandler.new({}, user, double)
+  end
   let(:guesthandler_good) { CorrectGuestAnswerHandler.new({}, user, double) }
   let(:guesthandler_bad) { IncorrectGuestAnswerHandler.new({}, user, double) }
-  let(:challenge_handler_good) { CorrectChallengeAnswerHandler.new({ challenge_id: challenge.id}, user, user_challenge, double)}
-  let(:challenge_handler_dead) { IncorrectChallengeAnswerHandler.new({ challenge_id: challenge.id, damage: ChallengeAnswerHandler::STANDARD_DEATH_CEILING + 1 }, user, user_challenge, double) }
-  let(:challenge_handler_wrong) { IncorrectChallengeAnswerHandler.new({ challenge_id: challenge.id}, user, user_challenge, double) }
+  let(:challenge_handler_good) do
+    CorrectChallengeAnswerHandler.new(
+      { challenge_id: challenge.id }, user, user_challenge, double)
+  end
+
+  let(:challenge_handler_dead) do
+    damage = ChallengeAnswerHandler::STANDARD_DEATH_CEILING + 1
+    IncorrectChallengeAnswerHandler.new({ challenge_id: challenge.id,
+                                          damage: damage
+                                        },
+                                        user,
+                                        user_challenge,
+                                        double)
+  end
+
+  let(:challenge_handler_wrong) do
+    IncorrectChallengeAnswerHandler.new({ challenge_id: challenge.id },
+                                        user,
+                                        user_challenge,
+                                        double)
+  end
 
   describe "#reset_challenge" do
     let(:session) { double("session", delete: "foo") }
-    let(:handler) { IncorrectChallengeAnswerHandler.new(session, double, double(challenge: double), double) }
+    let(:handler) do
+      IncorrectChallengeAnswerHandler.new(session,
+                                          double,
+                                          double(challenge: double),
+                                          double)
+    end
 
     describe "deleting the session" do
       before(:each) do
@@ -38,7 +65,7 @@ describe AnswerHandler do
   end
 
   describe "#reset_streak!" do
-    let(:handler) { AnswerHandler.new({streak: 1}, double, double)}
+    let(:handler) { AnswerHandler.new({ streak: 1 }, double, double) }
     it "resets the sessions streak" do
       handler.reset_streak!
       expect(handler.session.streak).to eq(0)
@@ -46,13 +73,13 @@ describe AnswerHandler do
   end
 
   describe "#decrease_damage" do
-    let(:handler) { AnswerHandler.new({ damage: 2 }, double, double)}
+    let(:handler) { AnswerHandler.new({ damage: 2 }, double, double) }
     it "decreases to 1 when damage is 2" do
       handler.decrease_damage!
       expect(handler.session.damage).to eq(1)
     end
 
-    let(:handler2) { AnswerHandler.new({damage:1}, double, double)}
+    let(:handler2) { AnswerHandler.new({ damage: 1 }, double, double) }
     it "returns 0 when damage is 1" do
       handler2.decrease_damage!
       expect(handler2.session.damage).to eq(0)
@@ -60,7 +87,7 @@ describe AnswerHandler do
   end
 
   describe "#increase_streak" do
-    let(:handler) { AnswerHandler.new({streak:0}, user, double) }
+    let(:handler) { AnswerHandler.new({ streak: 0 }, user, double) }
     it "increases the streak" do
       handler.increase_streak!
       expect(handler.session.streak).to eq(1)
@@ -85,11 +112,11 @@ describe AnswerHandler do
   end
 
   describe ChallengeAnswerHandler do
-    it "is dead when damage is higher than STANDARD_DEATH_CEILING" do
+    it "is dead when damage is higher than standard death" do
       expect(challenge_handler_dead.is_dead).to be(true)
     end
 
-    it "returns message dead when damage is higher than STANDARD_DEATH_CEILING" do
+    it "returns message dead when damage is higher than standard death" do
       expect(challenge_handler_dead.get_notice).to eq(I18n.t("answer.dead"))
     end
 
@@ -102,7 +129,8 @@ describe AnswerHandler do
     it "returns challenge finished as notice" do
       # setting amount good to number needed -1 so that
       # adding a good answer will trigger finished
-      user_challenge.update_attributes(amount_good: challenge.number_of_problems)
+      user_challenge
+      .update_attributes(amount_good: challenge.number_of_problems)
       challenge_handler_good = CorrectChallengeAnswerHandler.new(
         { challenge: challenge.id }, user, user_challenge, double
       )
@@ -119,14 +147,16 @@ describe AnswerHandler do
       describe "when finished" do
         it "redirects to /challenges" do
           expect(challenge_handler_good).to receive(:finished).and_return(true)
-          expect(challenge_handler_good.redirect_path(double)).to eq(challenges_path)
+          expect(challenge_handler_good.redirect_path(double))
+          .to eq(challenges_path)
         end
       end
 
       describe "when dead" do
         it "redirects to /challenges" do
           expect(challenge_handler_good).to receive(:is_dead).and_return(true)
-          expect(challenge_handler_good.redirect_path(double)).to eq(challenges_path)
+          expect(challenge_handler_good.redirect_path(double))
+          .to eq(challenges_path)
         end
       end
     end
@@ -134,7 +164,9 @@ describe AnswerHandler do
 
   describe PracticeAnswerHandler do
     it "returns answer is correct notice on good answer" do
-      expect(practicehandler_good.get_notice).to eq(I18n.t("answer.correct", points: AnswerHandler::STANDARD_POINT_AMOUNT))
+      expect(practicehandler_good.get_notice)
+      .to eq(I18n.t("answer.correct",
+                    points: AnswerHandler::STANDARD_POINT_AMOUNT))
     end
 
     it "returns answer is wrong notice on bad answer" do
@@ -142,19 +174,24 @@ describe AnswerHandler do
     end
   end
 
-   describe GuestAnswerHandler do
+  describe GuestAnswerHandler do
     it "returns answer is correct notice on good answer" do
-      expect(guesthandler_good.get_notice).to eq(I18n.t("answer.correct", points: AnswerHandler::STANDARD_POINT_AMOUNT) + I18n.t("answer.call_to_register"))
+      expect(guesthandler_good.get_notice)
+      .to eq(I18n.t("answer.correct",
+                    points: AnswerHandler::STANDARD_POINT_AMOUNT) +
+                    I18n.t("answer.call_to_register"))
     end
 
     it "returns answer is wrong notice on bad answer" do
-      expect(guesthandler_bad.get_notice).to eq(I18n.t("answer.wrong") + I18n.t("answer.call_to_register"))
+      expect(guesthandler_bad.get_notice)
+      .to eq(I18n.t("answer.wrong") + I18n.t("answer.call_to_register"))
     end
   end
 
   describe "#redirect_path" do
     it "does not redirect anywhere" do
-      expect(practicehandler_good.redirect_path(double)).to eq(practice_path+"?problem=#{double.class.name}")
+      expect(practicehandler_good.redirect_path(double))
+      .to eq(practice_path + "?problem=#{double.class.name}")
     end
   end
 end
@@ -164,15 +201,22 @@ describe AnswerHandlerFactory do
   let(:answer_is_correct) { double }
   let(:user) { double(guest?: false) }
   let(:skill) { double }
-  let(:factory) { AnswerHandlerFactory.new(session, answer_is_correct, user, skill) }
+  let(:factory) do
+    AnswerHandlerFactory.new(session,
+                             answer_is_correct,
+                             user,
+                             skill)
+  end
 
   describe "#initialize" do
     it "initializes session" do
-      expect(factory.instance_variable_get(:@session)).to eq(session)
+      expect(factory.instance_variable_get(:@session))
+      .to eq(session)
     end
 
     it "intializes answer_is_correct" do
-      expect(factory.instance_variable_get(:@answer_is_correct)).to eq(answer_is_correct)
+      expect(factory.instance_variable_get(:@answer_is_correct))
+      .to eq(answer_is_correct)
     end
 
     it "initializes user" do
@@ -185,23 +229,26 @@ describe AnswerHandlerFactory do
       let(:session) { { challenge: 1 } }
 
       before(:each) do
-        expect(factory).to receive(:user_challenge).and_return(double(challenge: double))
+        expect(factory)
+        .to receive(:user_challenge).and_return(double(challenge: double))
       end
 
       describe "when answer is incorrect" do
         let(:answer_is_correct) { false }
 
         describe "when dead" do
-          let(:session) { {damage: 6, challenge: 1} }
+          let(:session) { { damage: 6, challenge: 1 } }
           it "returns an IncorrectChallengeAnswerHandler" do
-            expect(factory.build).to be_instance_of(IncorrectChallengeAnswerHandler)
+            expect(factory.build)
+            .to be_instance_of(IncorrectChallengeAnswerHandler)
           end
         end
 
         describe "when not dead" do
           let(:session) { { damage: rand(0...5), challenge: 1 } }
           it "returns an IncorrectChallengeAnswerHandler" do
-            expect(factory.build).to be_instance_of(IncorrectChallengeAnswerHandler)
+            expect(factory.build)
+            .to be_instance_of(IncorrectChallengeAnswerHandler)
           end
         end
       end
@@ -212,13 +259,15 @@ describe AnswerHandlerFactory do
 
         describe "when finished" do
           it "returns a CorrectChallengeAnswerHandler" do
-            expect(factory.build).to be_instance_of(CorrectChallengeAnswerHandler)
+            expect(factory.build)
+            .to be_instance_of(CorrectChallengeAnswerHandler)
           end
         end
 
         describe "when not finished" do
           it "returns a CorrectChallengeAnswerHandler" do
-            expect(factory.build).to be_instance_of(CorrectChallengeAnswerHandler)
+            expect(factory.build)
+            .to be_instance_of(CorrectChallengeAnswerHandler)
           end
         end
       end
@@ -231,7 +280,8 @@ describe AnswerHandlerFactory do
         let(:answer_is_correct) { false }
 
         it "returns an IncorrectPracticeAnswerHandler" do
-          expect(factory.build).to be_instance_of(IncorrectPracticeAnswerHandler)
+          expect(factory.build)
+          .to be_instance_of(IncorrectPracticeAnswerHandler)
         end
       end
 
@@ -239,7 +289,8 @@ describe AnswerHandlerFactory do
         let(:answer_is_correct) { true }
 
         it "returns a CorrectPracticeAnswerHandler" do
-          expect(factory.build).to be_instance_of(CorrectPracticeAnswerHandler)
+          expect(factory.build)
+          .to be_instance_of(CorrectPracticeAnswerHandler)
         end
       end
     end
@@ -250,7 +301,8 @@ describe AnswerHandlerFactory do
         let(:user) { double(guest?: true) }
 
         it "returns an IncorrectPracticeAnswerHandler" do
-          expect(factory.build).to be_instance_of(IncorrectGuestAnswerHandler)
+          expect(factory.build)
+          .to be_instance_of(IncorrectGuestAnswerHandler)
         end
       end
 
@@ -259,7 +311,8 @@ describe AnswerHandlerFactory do
         let(:user) { double(guest?: true) }
 
         it "returns a CorrectPracticeAnswerHandler" do
-          expect(factory.build).to be_instance_of(CorrectGuestAnswerHandler)
+          expect(factory.build)
+          .to be_instance_of(CorrectGuestAnswerHandler)
         end
       end
     end
@@ -270,14 +323,14 @@ describe GameSession do
   let(:game_session) { GameSession.new(session) }
   describe "#initialize" do
     describe "when challenge" do
-      let(:session) {
+      let(:session) do
         {
           challenge_id: double,
           start_time: double,
           damage: double,
           streak: double
         }
-      }
+      end
 
       it "initializes damage" do
         expect(game_session.damage).to_not eq(nil)

@@ -1,9 +1,11 @@
-require 'spec_helper'
+require "spec_helper"
 
-describe StatisticsController do
-  let(:user) { FactoryGirl.create(:user) }
-  let(:challenge) { FactoryGirl.create(:challenge) }
-  let(:user_challenge) { FactoryGirl.create(:user_challenge, user: user, challenge: challenge) }
+describe StatisticsController, type: :controller do
+  let(:user) { create(:user) }
+  let(:challenge) { create(:challenge) }
+  let(:user_challenge) do
+    create(:user_challenge, user: user, challenge: challenge)
+  end
 
   before :each do
     sign_in user

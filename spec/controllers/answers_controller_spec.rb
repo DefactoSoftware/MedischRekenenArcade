@@ -1,19 +1,36 @@
-require 'spec_helper'
+require "spec_helper"
 
-
-describe AnswersController do
-  let(:user) { FactoryGirl.create(:user) }
+describe AnswersController, type: :controller do
+  let(:user) { create(:user) }
   let(:problem) { PercentageAmountOfAmount.new.generate(user) }
-  let(:badanswer) {FactoryGirl.attributes_for(:answer, problem_id: problem.id, value: problem.get_result + 1)}
-  let(:goodanswer) {FactoryGirl.attributes_for(:answer, problem_id: problem.id, value: problem.get_result)}
-  let(:conversion_error_answer) {FactoryGirl.attributes_for(:answer, problem_id: problem.id, value: problem.get_result*1000)}
-  let(:rounding_error_answer) {FactoryGirl.attributes_for(:answer, problem_id: problem.id, value: problem.get_result-Float(0.1).round(2))}
-  let(:skill) { FactoryGirl.create(:skill, name:"Addition") }
-  let(:challenge) { FactoryGirl.create(:challenge) }
-  let(:user_challenge) { FactoryGirl.create(:user_challenge, challenge: challenge, user: user) }
+  let(:badanswer) do
+    attributes_for(:answer,
+                   problem_id: problem.id,
+                   value: problem.get_result + 1)
+  end
+  let(:goodanswer) do
+    attributes_for(:answer,
+                   problem_id: problem.id,
+                   value: problem.get_result)
+  end
+  let(:conversion_error_answer) do
+    attributes_for(:answer,
+                   problem_id: problem.id,
+                   value: problem.get_result * 1000)
+  end
+  let(:rounding_error_answer) do
+    attributes_for(:answer,
+                   problem_id: problem.id,
+                   value: problem.get_result - Float(0.1).round(2))
+  end
+  let(:skill) { create(:skill, name: "Addition") }
+  let(:challenge) { create(:challenge) }
+  let(:user_challenge) do
+    create(:user_challenge, challenge: challenge, user: user)
+  end
 
   before :each do
-    @request.env['HTTP_REFERER'] = root_path
+    @request.env["HTTP_REFERER"] = root_path
     skill.reload
     problem.reload
     sign_in user.reload
@@ -35,10 +52,9 @@ describe AnswersController do
       expect(session[:damage]).to eq(nil)
     end
 
-
     it "score does not go up on bad answer" do
       expect {
-         post :create, answer: badanswer
+        post :create, answer: badanswer
       }.to change(user, :points).by(0)
     end
 

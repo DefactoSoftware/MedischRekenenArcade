@@ -10,10 +10,10 @@
 #  updated_at    :datetime
 #
 
-require 'spec_helper'
+require "spec_helper"
 
-describe Unit do
+describe Unit, type: :model do
   describe "Associations" do
-    it { should belong_to(:unit_group) }
+    it { is_expected.to belong_to(:unit_group) }
   end
 end

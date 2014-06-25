@@ -20,29 +20,32 @@
 
 class UnitConversion < Problem
   def generate_formula
-    weight_range = UnitGroup.where(name: 'grams').first
-    volume_range = UnitGroup.where(name: 'liters').first
+    weight_range = UnitGroup.where(name: "grams").first
+    volume_range = UnitGroup.where(name: "liters").first
     ranges = [weight_range, volume_range]
     range = ranges.sample
 
     self.unit_question = range.units.sample
-    until self.unit && self.unit_question.sign != self.unit.sign && unit.unit_group == unit_question.unit_group do
+    until unit && unit_question.sign != unit.sign &&
+          unit.unit_group == unit_question.unit_group
       self.unit = range.units.sample
     end
 
     operations = Array(Operation.new(
                     :*,
-                    Constant.new(Float(rand(1..100) + (10 ** (range.units.index(unit) - range.units.index(unit_question)).abs))),
-                    Constant.new(Float(10 ** (range.units.index(unit_question) - range.units.index(unit))))
+                    Constant.new(Float(rand(1..100) +
+                                       (10**(range.units.index(unit) -
+                                       range.units.index(unit_question)).abs))),
+                    Constant.new(Float(10**(range.units.index(unit_question) -
+                                       range.units.index(unit))))
                   ))
-    return Formula.new(operations)
+    Formula.new(operations)
   end
 
   def generate_theory(formula)
-    self.theory = I18n.t("problems.theory.#{self.class.name.underscore}",
-                          constant1: formula.operations[0].constant1.value,
-                          unit: unit.sign,
-                          unit_question: unit_question.sign
-                        )
+    I18n.t("problems.theory.#{self.class.name.underscore}",
+           constant1: formula.operations[0].constant1.value,
+           unit: unit.sign,
+           unit_question: unit_question.sign)
   end
 end

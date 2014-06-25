@@ -1,8 +1,8 @@
-require 'answer_handler'
+require "answer_handler"
 
 class AnswersController < ApplicationController
   def create
-    session[:ip] = request.env['REMOTE_HOST']
+    session[:ip] = request.env["REMOTE_HOST"]
     @answer = Answer.new(
                 user_challenge_id: answer_parameters[:user_challenge_id],
                 value: parse_value(answer_parameters[:value]),
@@ -12,7 +12,10 @@ class AnswersController < ApplicationController
 
     @answer.user = current_user unless current_user.guest?
 
-    handler = AnswerHandlerFactory.new(session, @answer.correct?, current_user, @answer.problem.skill).build
+    handler = AnswerHandlerFactory.new(session,
+                                       @answer.correct?,
+                                       current_user,
+                                       @answer.problem.skill).build
 
     handler.handle!
     redirection_path = handler.redirect_path(@answer.problem)
@@ -27,6 +30,7 @@ class AnswersController < ApplicationController
   end
 
   private
+
   def answer_parameters
     params.require(:answer).permit(:problem_id, :value, :user_challenge_id)
   end
@@ -41,9 +45,6 @@ class AnswersController < ApplicationController
   end
 
   def parse_value(value)
-    value.gsub(',', '.')
+    value.gsub(",", ".")
   end
 end
-
-
-
