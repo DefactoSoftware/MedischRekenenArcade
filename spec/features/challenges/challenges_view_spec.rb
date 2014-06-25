@@ -11,8 +11,8 @@ describe "Challenges", type: :feature do
                     timelimit: 900000,
                     bonus: 20,
                     icon: "challenges/Menu_Optellen.png",
-                    challenge_set: challenge_set).
-    first_or_create
+                    challenge_set: challenge_set)
+             .first_or_create
   end
   let(:user) { create(:user) }
 

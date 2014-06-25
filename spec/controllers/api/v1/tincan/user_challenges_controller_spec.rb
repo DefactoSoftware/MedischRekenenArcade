@@ -19,10 +19,10 @@ resource "UserChallenge" do
   let(:token) { double(accessible?: true, resource_owner_id: user.id) }
 
   before :each do
-    allow_any_instance_of(Api::V1::Tincan::UserChallengesController).
-      to receive(:doorkeeper_token) { token }
-    allow_any_instance_of(Api::V1::BaseController).
-      to receive(:current_user) { user }
+    allow_any_instance_of(Api::V1::Tincan::UserChallengesController)
+    .to receive(:doorkeeper_token) { token }
+    allow_any_instance_of(Api::V1::BaseController)
+    .to receive(:current_user) { user }
   end
 
   get "/api/v1/tincan/user_challenges" do

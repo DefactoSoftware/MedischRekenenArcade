@@ -20,9 +20,9 @@ describe ChallengesController, type: :controller do
 
     it "should assign @challengesets" do
       get :index
-      expect(assigns(:challengesets)).
-        to eq(ChallengeSet.where(locked: false).
-          order("NAME ASC"))
+      expect(assigns(:challengesets))
+      .to eq(ChallengeSet.where(locked: false)
+      .order("NAME ASC"))
     end
   end
 

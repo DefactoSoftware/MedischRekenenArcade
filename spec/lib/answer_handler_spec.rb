@@ -129,8 +129,8 @@ describe AnswerHandler do
     it "returns challenge finished as notice" do
       # setting amount good to number needed -1 so that
       # adding a good answer will trigger finished
-      user_challenge.
-        update_attributes(amount_good: challenge.number_of_problems)
+      user_challenge
+      .update_attributes(amount_good: challenge.number_of_problems)
       challenge_handler_good = CorrectChallengeAnswerHandler.new(
         { challenge: challenge.id }, user, user_challenge, double
       )
@@ -147,16 +147,16 @@ describe AnswerHandler do
       describe "when finished" do
         it "redirects to /challenges" do
           expect(challenge_handler_good).to receive(:finished).and_return(true)
-          expect(challenge_handler_good.redirect_path(double)).
-            to eq(challenges_path)
+          expect(challenge_handler_good.redirect_path(double))
+          .to eq(challenges_path)
         end
       end
 
       describe "when dead" do
         it "redirects to /challenges" do
           expect(challenge_handler_good).to receive(:is_dead).and_return(true)
-          expect(challenge_handler_good.redirect_path(double)).
-            to eq(challenges_path)
+          expect(challenge_handler_good.redirect_path(double))
+          .to eq(challenges_path)
         end
       end
     end
@@ -164,9 +164,9 @@ describe AnswerHandler do
 
   describe PracticeAnswerHandler do
     it "returns answer is correct notice on good answer" do
-      expect(practicehandler_good.get_notice).
-        to eq(I18n.t("answer.correct",
-                     points: AnswerHandler::STANDARD_POINT_AMOUNT))
+      expect(practicehandler_good.get_notice)
+      .to eq(I18n.t("answer.correct",
+                    points: AnswerHandler::STANDARD_POINT_AMOUNT))
     end
 
     it "returns answer is wrong notice on bad answer" do
@@ -176,22 +176,22 @@ describe AnswerHandler do
 
   describe GuestAnswerHandler do
     it "returns answer is correct notice on good answer" do
-      expect(guesthandler_good.get_notice).
-        to eq(I18n.t("answer.correct",
-                     points: AnswerHandler::STANDARD_POINT_AMOUNT) +
-                             I18n.t("answer.call_to_register"))
+      expect(guesthandler_good.get_notice)
+      .to eq(I18n.t("answer.correct",
+                    points: AnswerHandler::STANDARD_POINT_AMOUNT) +
+                    I18n.t("answer.call_to_register"))
     end
 
     it "returns answer is wrong notice on bad answer" do
-      expect(guesthandler_bad.get_notice).
-        to eq(I18n.t("answer.wrong") + I18n.t("answer.call_to_register"))
+      expect(guesthandler_bad.get_notice)
+      .to eq(I18n.t("answer.wrong") + I18n.t("answer.call_to_register"))
     end
   end
 
   describe "#redirect_path" do
     it "does not redirect anywhere" do
-      expect(practicehandler_good.redirect_path(double)).
-        to eq(practice_path + "?problem=#{double.class.name}")
+      expect(practicehandler_good.redirect_path(double))
+      .to eq(practice_path + "?problem=#{double.class.name}")
     end
   end
 end
@@ -210,13 +210,13 @@ describe AnswerHandlerFactory do
 
   describe "#initialize" do
     it "initializes session" do
-      expect(factory.instance_variable_get(:@session)).
-        to eq(session)
+      expect(factory.instance_variable_get(:@session))
+      .to eq(session)
     end
 
     it "intializes answer_is_correct" do
-      expect(factory.instance_variable_get(:@answer_is_correct)).
-        to eq(answer_is_correct)
+      expect(factory.instance_variable_get(:@answer_is_correct))
+      .to eq(answer_is_correct)
     end
 
     it "initializes user" do
@@ -229,8 +229,8 @@ describe AnswerHandlerFactory do
       let(:session) { { challenge: 1 } }
 
       before(:each) do
-        expect(factory).
-          to receive(:user_challenge).and_return(double(challenge: double))
+        expect(factory)
+        .to receive(:user_challenge).and_return(double(challenge: double))
       end
 
       describe "when answer is incorrect" do
@@ -239,16 +239,16 @@ describe AnswerHandlerFactory do
         describe "when dead" do
           let(:session) { { damage: 6, challenge: 1 } }
           it "returns an IncorrectChallengeAnswerHandler" do
-            expect(factory.build).
-              to be_instance_of(IncorrectChallengeAnswerHandler)
+            expect(factory.build)
+            .to be_instance_of(IncorrectChallengeAnswerHandler)
           end
         end
 
         describe "when not dead" do
           let(:session) { { damage: rand(0...5), challenge: 1 } }
           it "returns an IncorrectChallengeAnswerHandler" do
-            expect(factory.build).
-              to be_instance_of(IncorrectChallengeAnswerHandler)
+            expect(factory.build)
+            .to be_instance_of(IncorrectChallengeAnswerHandler)
           end
         end
       end
@@ -259,15 +259,15 @@ describe AnswerHandlerFactory do
 
         describe "when finished" do
           it "returns a CorrectChallengeAnswerHandler" do
-            expect(factory.build).
-              to be_instance_of(CorrectChallengeAnswerHandler)
+            expect(factory.build)
+            .to be_instance_of(CorrectChallengeAnswerHandler)
           end
         end
 
         describe "when not finished" do
           it "returns a CorrectChallengeAnswerHandler" do
-            expect(factory.build).
-              to be_instance_of(CorrectChallengeAnswerHandler)
+            expect(factory.build)
+            .to be_instance_of(CorrectChallengeAnswerHandler)
           end
         end
       end
@@ -280,8 +280,8 @@ describe AnswerHandlerFactory do
         let(:answer_is_correct) { false }
 
         it "returns an IncorrectPracticeAnswerHandler" do
-          expect(factory.build).
-            to be_instance_of(IncorrectPracticeAnswerHandler)
+          expect(factory.build)
+          .to be_instance_of(IncorrectPracticeAnswerHandler)
         end
       end
 
@@ -289,8 +289,8 @@ describe AnswerHandlerFactory do
         let(:answer_is_correct) { true }
 
         it "returns a CorrectPracticeAnswerHandler" do
-          expect(factory.build).
-            to be_instance_of(CorrectPracticeAnswerHandler)
+          expect(factory.build)
+          .to be_instance_of(CorrectPracticeAnswerHandler)
         end
       end
     end
@@ -301,8 +301,8 @@ describe AnswerHandlerFactory do
         let(:user) { double(guest?: true) }
 
         it "returns an IncorrectPracticeAnswerHandler" do
-          expect(factory.build).
-            to be_instance_of(IncorrectGuestAnswerHandler)
+          expect(factory.build)
+          .to be_instance_of(IncorrectGuestAnswerHandler)
         end
       end
 
@@ -311,8 +311,8 @@ describe AnswerHandlerFactory do
         let(:user) { double(guest?: true) }
 
         it "returns a CorrectPracticeAnswerHandler" do
-          expect(factory.build).
-            to be_instance_of(CorrectGuestAnswerHandler)
+          expect(factory.build)
+          .to be_instance_of(CorrectGuestAnswerHandler)
         end
       end
     end

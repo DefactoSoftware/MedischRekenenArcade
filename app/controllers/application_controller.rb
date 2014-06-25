@@ -8,8 +8,8 @@ class ApplicationController < ActionController::Base
 
   def all_activities
     users = User.where(user_group: current_user.user_group)
-    Activity.where(user_id: users.map(&:id)).
-    order("created_at DESC").limit(10)
+    Activity.where(user_id: users.map(&:id))
+            .order("created_at DESC").limit(10)
   end
 
   helper_method :all_activities

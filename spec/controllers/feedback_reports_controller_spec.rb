@@ -12,13 +12,13 @@ describe FeedbackReportsController, type: :controller do
     end
 
     it "creates a report with text" do
-      expect(FeedbackReport.last.text).
-        to eq(feedback_report_attributes[:text])
+      expect(FeedbackReport.last.text)
+      .to eq(feedback_report_attributes[:text])
     end
 
     it "creates a report with subject" do
-      expect(FeedbackReport.last.subject).
-        to eq(feedback_report_attributes[:subject])
+      expect(FeedbackReport.last.subject)
+      .to eq(feedback_report_attributes[:subject])
     end
 
     it "creates a report with page equal to request referer" do
