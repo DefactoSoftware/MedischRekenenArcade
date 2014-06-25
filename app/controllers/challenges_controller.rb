@@ -1,23 +1,14 @@
 class ChallengesController < ApplicationController
   before_action :authenticate_user!
   def show
-    @last_answer = Answer.where(user: current_user).last
-    @challenge = Challenge.where(name: params[:id]).first
+    @last_answer = Answer.where(user: current_user).order("ID DESC").first
+    @challenge = Challenge.find_by(name: params[:id])
     if !session[:challenge]
-      session[:challenge] = @challenge.id
-      session[:start] = Time.now
-      flash[:notice] = t("challenge.start")
-      user_challenge = UserChallenge.create(challenge: @challenge,
-                                            user: current_user)
-      track_activity(user_challenge, "start")
-      @info = I18n.t("challenges.info.#{@challenge.class.name}")
-      @last_answer = Answer.new(feedback: I18n.t("challenge.start"))
+      start_challenge
     end
-    challenge = Challenge.find(session[:challenge])
-    @user_challenge = UserChallenge.where(challenge: challenge,
+    @user_challenge = UserChallenge.where(challenge: @challenge,
                                           user: current_user).last
-    @progress = (Float(@user_challenge.amount_good) /
-                Float(@user_challenge.challenge.number_of_problems)) * 100
+    @progress = calculate_progress
     calculate_time_left if @challenge.timelimit
     @problem = @challenge.create_problem(current_user)
   end
@@ -28,6 +19,22 @@ class ChallengesController < ApplicationController
   end
 
   private
+
+  def calculate_progress
+    (Float(@user_challenge.amount_good) /
+     Float(@user_challenge.challenge.number_of_problems)) * 100
+  end
+
+  def start_challenge
+    session[:challenge] = @challenge.id
+    session[:start] = Time.now
+    flash[:notice] = t("challenge.start")
+    user_challenge = UserChallenge.create(challenge: @challenge,
+                                          user: current_user)
+    track_activity(user_challenge, "start")
+    @info = I18n.t("challenges.info.#{@challenge.class.name}")
+    @last_answer = Answer.new(feedback: I18n.t("challenge.start"))
+  end
 
   def calculate_time_left
     timelimit = Challenge.find(session[:challenge]).timelimit
