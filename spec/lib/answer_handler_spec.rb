@@ -3,13 +3,19 @@ require "spec_helper"
 describe AnswerHandler do
   include Rails.application.routes.url_helpers
 
-  let(:user) { User.new(name: "marthyn", email: "marthyn@live.nl") }
-  let(:user2) { User.new(id: 2, name: "karel", email:"karel@live.nl") }
-  let(:challenge) { Challenge.new(number_of_problems: 5, name:"challenge") }
+  let(:user) { create(:user, name: "marthyn", email: "marthyn@live.nl") }
+  let(:user2) { create(:user, name: "karel", email: "karel@live.nl") }
+  let(:challenge) { Challenge.new(number_of_problems: 5, name: "challenge") }
   let(:head_to_head_challenge) do
-    HeadToHeadChallenge.create(challenger: user,
-                               challenged: user2,
-                               challenge: challenge)
+    create(:head_to_head_challenge,
+           challenger: user,
+           challenged: user2,
+           challenge: challenge)
+  end
+  let(:head_to_head_user_challenge) do
+    UserChallenge.new(challenge: challenge,
+                      user: user,
+                      head_to_head_challenge: head_to_head_challenge)
   end
   let(:user_challenge) { UserChallenge.new(challenge: challenge, user: user) }
   let(:practicehandler_good) do
@@ -37,7 +43,7 @@ describe AnswerHandler do
 
   let(:challenge_handler_wrong) do
     IncorrectChallengeAnswerHandler.new({ challenge_id: challenge.id },
-                                        user,
+                                        user.reload,
                                         user_challenge,
                                         double)
   end
@@ -48,10 +54,11 @@ describe AnswerHandler do
                                                 double)
   end
   let(:head_to_head_challenge_handler_wrong) do
-    IncorrectHeadToHeadChallengeAnswerHandler.new({ challenge_id: challenge.id },
-                                                  user,
-                                                  head_to_head_user_challenge,
-                                                  double)
+    IncorrectHeadToHeadChallengeAnswerHandler
+    .new({ challenge_id: challenge.id },
+         user,
+         head_to_head_user_challenge,
+         double)
   end
 
   describe "#reset_challenge" do
@@ -190,8 +197,10 @@ describe AnswerHandler do
     it "returns challenge finished as notice" do
       # setting amount good to number needed -1 so that
       # adding a good answer will trigger finished
-      head_to_head_user_challenge.update_attributes(amount_good: challenge.number_of_problems)
-      challenge_handler_good = CorrectChallengeAnswerHandler.new(
+      head_to_head_user_challenge
+      .update_attributes(amount_good: challenge.number_of_problems)
+
+      CorrectChallengeAnswerHandler.new(
         { challenge: challenge.id }, user, user_challenge, double
       )
       expect(head_to_head_challenge_handler_good.get_notice).to eq(
@@ -200,14 +209,18 @@ describe AnswerHandler do
     end
 
     it "returns answer is correct as notice when answer is wrong" do
-      expect(head_to_head_challenge_handler_wrong.get_notice).to eq(I18n.t("answer.wrong"))
+      expect(head_to_head_challenge_handler_wrong.get_notice)
+      .to eq(I18n.t("answer.wrong"))
     end
 
     describe "#redirect_path" do
       describe "when finished" do
         it "redirects to /home" do
-          expect(head_to_head_challenge_handler_good).to receive(:finished).and_return(true)
-          expect(head_to_head_challenge_handler_good.redirect_path(double)).to eq(user_challenge_path(user,head_to_head_challenge))
+          expect(head_to_head_challenge_handler_good)
+          .to receive(:finished).and_return(true)
+
+          expect(head_to_head_challenge_handler_good.redirect_path(double))
+          .to eq(user_challenge_path(user, head_to_head_challenge))
         end
       end
     end
@@ -285,9 +298,10 @@ describe AnswerHandlerFactory do
       let(:session) { { challenge: 1 } }
 
       before(:each) do
-        factory.stub(:user_challenge)
-               .and_return(double(challenge: double,
-                                  head_to_head_challenge: nil))
+        allow(factory).to receive(:user_challenge) {
+          double(challenge: double,
+                 head_to_head_challenge: nil)
+        }
       end
 
       describe "when answer is incorrect" do

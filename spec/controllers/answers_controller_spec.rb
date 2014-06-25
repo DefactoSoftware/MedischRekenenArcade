@@ -31,7 +31,6 @@ describe AnswersController, type: :controller do
   end
   let(:skill) { create(:skill, name: "Addition") }
 
-
   before :each do
     @request.env["HTTP_REFERER"] = root_path
     skill.reload

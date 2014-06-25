@@ -24,7 +24,7 @@ class HeadToHeadChallengeAnswerHandler < AnswerHandler
 
   def redirect_path(problem)
     if finished
-      Rails.application.routes.url_helpers.user_challenge_path(@user,@head_to_head_challenge)
+      Rails.application.routes.url_helpers.user_challenge_path(@user, @head_to_head_challenge)
     else
       Rails.application.routes.url_helpers.head_to_head_challenge_path(@head_to_head_challenge)
     end

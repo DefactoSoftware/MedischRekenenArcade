@@ -57,7 +57,7 @@ class HeadToHeadChallenge < ActiveRecord::Base
   end
 
   def other_player(user)
-    challenger if challenged == user
+    return challenger if challenged == user
     challenged if challenger == user
   end
 

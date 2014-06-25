@@ -21,7 +21,9 @@ describe "Badges", type: :feature do
     it "shows users badges without inactive class" do
       user.add_badge(1)
       visit "/badges"
-      expect(page).to have_no_xpath("a[@class='inactive' and @id='#{Merit::Badge.find(1).name}']")
+      xpath = "a[@class='inactive' and @id='#{Merit::Badge.find(1).name}']"
+      expect(page)
+      .to have_no_xpath(xpath)
     end
   end
 

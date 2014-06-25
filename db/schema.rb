@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 20140527060237) do
     t.string   "trackable_type"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "notified"
+    t.boolean  "notified",       default: false
   end
 
   add_index "activities", ["trackable_id"], name: "index_activities_on_trackable_id", using: :btree
@@ -95,13 +95,6 @@ ActiveRecord::Schema.define(version: 20140527060237) do
     t.integer  "badge"
   end
 
-  create_table "challenge_skills", force: true do |t|
-    t.integer  "skill_id"
-    t.integer  "challenge_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "challenges", force: true do |t|
     t.integer  "number_of_problems"
     t.string   "name"
@@ -133,6 +126,16 @@ ActiveRecord::Schema.define(version: 20140527060237) do
   end
 
   add_index "friendships", ["friend_id", "user_id"], name: "index_friendships_on_friend_id_and_user_id", unique: true, using: :btree
+
+  create_table "head_to_head_challenges", force: true do |t|
+    t.integer  "challenger_id"
+    t.integer  "challenged_id"
+    t.integer  "challenge_id"
+    t.integer  "points_bet"
+    t.integer  "status",        default: 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "merit_actions", force: true do |t|
     t.integer  "user_id"
@@ -271,10 +274,11 @@ ActiveRecord::Schema.define(version: 20140527060237) do
     t.integer  "user_id"
     t.integer  "challenge_id"
     t.boolean  "success"
-    t.integer  "amount_fail",  default: 0
-    t.integer  "amount_good",  default: 0
+    t.integer  "amount_fail",               default: 0
+    t.integer  "amount_good",               default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "head_to_head_challenge_id"
   end
 
   create_table "user_groups", force: true do |t|
