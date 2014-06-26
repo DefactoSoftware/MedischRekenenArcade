@@ -1,3 +1,30 @@
 <div class="inside-row" >
 <%= render 'users/gamercard', user: @user %>
 </div>
+
+<div class="row">
+  <div class="two-column-fill">
+    <div id="challenges_block" class="row block">
+      <h1><%= t("challenge.title") %></h1>
+        <% @challenge_sets.each do |challenge_set| %>
+          <div id="challenges_block">
+          <% challenge_set.challenges.each do |challenge| %>
+            <div class="col-sm-6 col-md-3 col-lg-3 thumbnail-col">
+              <%= render "challenges/thumbnail", challenge: challenge, user: @user %>
+            </div>
+          <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  <div class="two-column-fill" >
+    <div id="badges_block" class="row block">
+      <h1>Badges</h1>
+        <% @badges.each do |badge| %>
+          <div class="col-sm-6 col-md-3 col-lg-3 thumbnail-col">
+            <%= render 'badges/thumbnail', badge: badge, user: @user %>
+          </div>
+        <% end %>
+    </div>
+  </div>
+</div>
