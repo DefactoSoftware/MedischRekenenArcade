@@ -15,7 +15,8 @@ class CorrectHeadToHeadChallengeAnswerHandler < HeadToHeadChallengeAnswerHandler
 
   def update_user_challenge!
     super
-    user_challenge.update_attributes(amount_good: user_challenge.amount_good + 1)
+    user_challenge.update_attributes(
+      amount_good: user_challenge.amount_good + 1)
   end
 
   def finish

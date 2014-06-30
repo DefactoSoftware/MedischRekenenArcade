@@ -7,12 +7,16 @@ class FormulaDifficultyCalculator
     difficulty = 0
     @formula.operations.each do |operation|
       constant1, constant2 = get_constants(operation)
-      difficulty = difficulty + build_operation_difficulty_calculator(operation.operator, constant1, constant2)
+      difficulty = difficulty +
+                   build_operation_difficulty_calculator(operation.operator,
+                                                         constant1,
+                                                         constant2)
     end
     difficulty
   end
 
   private
+
   def build_operation_difficulty_calculator(operator, numbers1, numbers2)
     klass = case operator
             when :+ then AdditionOperationDifficultyCalculator
@@ -48,7 +52,8 @@ class OperationDifficultyCalculator
   end
 end
 
-class SubtractionOperationDifficultyCalculator < OperationDifficultyCalculator
+class SubtractionOperationDifficultyCalculator <
+      OperationDifficultyCalculator
   DIFFICULTIES = {
     digit_zero: 1,    # difference of zero and any digit
     same_digits: 1,    # difference of same values digits
@@ -63,9 +68,8 @@ class SubtractionOperationDifficultyCalculator < OperationDifficultyCalculator
     if @numbers1.length < @numbers2.length
       @difficulty += DIFFICULTIES[:borrow]
     end
-    @numbers1.reverse.each_with_index { | a , index |
+    @numbers1.reverse.each_with_index do | a , index |
       b = @numbers2.reverse[index]
-      carry = 0
       case
       when a == nil || b == nil
         @difficulty += DIFFICULTIES[:digit_zero]
@@ -81,12 +85,13 @@ class SubtractionOperationDifficultyCalculator < OperationDifficultyCalculator
       else
         @difficulty += DIFFICULTIES[:even_odd]
       end
-    }
-  @difficulty
+    end
+    @difficulty
   end
 end
 
-class DivisionOperationDifficultyCalculator < OperationDifficultyCalculator
+class DivisionOperationDifficultyCalculator <
+      OperationDifficultyCalculator
   DIFFICULTIES = {
     digit_zero: 0,
     digit_one: 1,
@@ -95,7 +100,7 @@ class DivisionOperationDifficultyCalculator < OperationDifficultyCalculator
   }
 
   def compute_difficulty
-    @numbers1.reverse.each_with_index { | a , index |
+    @numbers1.reverse.each_with_index do | _ , index |
       b = @numbers2.reverse[index]
       case b
       when 0
@@ -107,12 +112,13 @@ class DivisionOperationDifficultyCalculator < OperationDifficultyCalculator
       else
         @difficulty += DIFFICULTIES[:digit_other]
       end
-    }
+    end
     @difficulty = @difficulty * @numbers2.length
   end
 end
 
-class MultiplicationOperationDifficultyCalculator < OperationDifficultyCalculator
+class MultiplicationOperationDifficultyCalculator <
+      OperationDifficultyCalculator
   DIFFICULTIES = {
     digit_zero: 0,
     digit_one: 1,
@@ -129,14 +135,14 @@ class MultiplicationOperationDifficultyCalculator < OperationDifficultyCalculato
     @difficulty
   end
 
-
   private
+
   def compare(numbersa, numbersb)
-    numbersa.reverse.each_with_index { | a , index |
+    numbersa.reverse.each_with_index do | a , index |
       b = numbersb.reverse[index]
       @difficulty = add_multiplication_difficulties(a)
       @difficulty = add_multiplication_difficulties(b)
-    }
+    end
   end
 
   def add_multiplication_difficulties(number)
@@ -171,22 +177,20 @@ class AdditionOperationDifficultyCalculator < OperationDifficultyCalculator
   end
 
   def compare(numbersa, numbersb)
-    numbersa.reverse.each_with_index { |a , index|
+    numbersa.reverse.each_with_index do |a , index|
       b = numbersb.reverse[index]
-      carry = 0
       case
       when a == nil || b == nil
         @difficulty += DIFFICULTIES[:digit_zero]
       when a == 0 || b == 0
         @difficulty += DIFFICULTIES[:digit_zero]
-      when ( a + b ) == 10
+      when (a + b) == 10
         @difficulty += DIFFICULTIES[:ten]
-      when ( a + b ) > 10
+      when (a + b) > 10
         @difficulty += DIFFICULTIES[:above_ten]
       else
         @difficulty += DIFFICULTIES[:under_ten]
       end
-    }
+    end
   end
-
 end

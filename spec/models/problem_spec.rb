@@ -59,6 +59,7 @@ describe Problem, type: :model do
       grams.reload
       liters.reload
     end
+
     it "generates a problem" do
       Problem::VALID_PROBLEMS.each do |name|
         problem = ProblemFactory.new(name, user).problem

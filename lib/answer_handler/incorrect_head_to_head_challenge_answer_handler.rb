@@ -1,4 +1,5 @@
-class IncorrectHeadToHeadChallengeAnswerHandler < HeadToHeadChallengeAnswerHandler
+class IncorrectHeadToHeadChallengeAnswerHandler <
+      HeadToHeadChallengeAnswerHandler
   def initialize(session, current_user, user_challenge, skill)
     super(session, current_user, user_challenge, skill)
   end
@@ -17,7 +18,8 @@ class IncorrectHeadToHeadChallengeAnswerHandler < HeadToHeadChallengeAnswerHandl
 
   def update_user_challenge!
     super
-    user_challenge.update_attributes(amount_fail: user_challenge.amount_fail + 1)
+    user_challenge.update_attributes(
+      amount_fail: user_challenge.amount_fail + 1)
   end
 
   def get_notice

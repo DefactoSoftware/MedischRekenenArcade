@@ -8,9 +8,9 @@ describe BadgesHelper, type: :helper do
     it "returns inactive" do
       expect(badge_inactive(user, Merit::Badge.find(1)))
       .to eq("inactive")
-
     end
   end
+
   describe "When user has badge" do
     it "doesn't return inactive" do
       user.add_badge(1)

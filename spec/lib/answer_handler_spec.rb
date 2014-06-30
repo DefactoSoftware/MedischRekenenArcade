@@ -54,11 +54,11 @@ describe AnswerHandler do
                                                 double)
   end
   let(:head_to_head_challenge_handler_wrong) do
-    IncorrectHeadToHeadChallengeAnswerHandler
-    .new({ challenge_id: challenge.id },
-         user,
-         head_to_head_user_challenge,
-         double)
+    IncorrectHeadToHeadChallengeAnswerHandler.new(
+      { challenge_id: challenge.id },
+      user,
+      head_to_head_user_challenge,
+      double)
   end
 
   describe "#reset_challenge" do
@@ -138,7 +138,7 @@ describe AnswerHandler do
 
   describe ChallengeAnswerHandler do
     it "is dead when damage is higher than standard death" do
-      expect(challenge_handler_dead.is_dead).to be(true)
+      expect(challenge_handler_dead.dead?).to be(true)
     end
 
     it "returns message dead when damage is higher than standard death" do
@@ -179,7 +179,7 @@ describe AnswerHandler do
 
       describe "when dead" do
         it "redirects to /challenges" do
-          expect(challenge_handler_good).to receive(:is_dead).and_return(true)
+          expect(challenge_handler_good).to receive(:dead?).and_return(true)
           expect(challenge_handler_good.redirect_path(double))
           .to eq(challenges_path)
         end
@@ -197,8 +197,8 @@ describe AnswerHandler do
     it "returns challenge finished as notice" do
       # setting amount good to number needed -1 so that
       # adding a good answer will trigger finished
-      head_to_head_user_challenge
-      .update_attributes(amount_good: challenge.number_of_problems)
+      head_to_head_user_challenge.update_attributes(
+        amount_good: challenge.number_of_problems)
 
       CorrectChallengeAnswerHandler.new(
         { challenge: challenge.id }, user, user_challenge, double
@@ -216,11 +216,11 @@ describe AnswerHandler do
     describe "#redirect_path" do
       describe "when finished" do
         it "redirects to /home" do
-          expect(head_to_head_challenge_handler_good)
-          .to receive(:finished).and_return(true)
+          expect(head_to_head_challenge_handler_good).to(
+            receive(:finished).and_return(true))
 
-          expect(head_to_head_challenge_handler_good.redirect_path(double))
-          .to eq(user_challenge_path(user, head_to_head_challenge))
+          expect(head_to_head_challenge_handler_good.redirect_path(double)).to(
+            eq(user_challenge_path(user, head_to_head_challenge)))
         end
       end
     end
@@ -229,8 +229,8 @@ describe AnswerHandler do
   describe PracticeAnswerHandler do
     it "returns answer is correct notice on good answer" do
       expect(practicehandler_good.get_notice)
-      .to eq(I18n.t("answer.correct",
-                    points: AnswerHandler::STANDARD_POINT_AMOUNT))
+      .to eq(I18n.t(
+        "answer.correct", points: AnswerHandler::STANDARD_POINT_AMOUNT))
     end
 
     it "returns answer is wrong notice on bad answer" do
@@ -298,10 +298,10 @@ describe AnswerHandlerFactory do
       let(:session) { { challenge: 1 } }
 
       before(:each) do
-        allow(factory).to receive(:user_challenge) {
+        allow(factory).to receive(:user_challenge) do
           double(challenge: double,
                  head_to_head_challenge: nil)
-        }
+        end
       end
 
       describe "when answer is incorrect" do

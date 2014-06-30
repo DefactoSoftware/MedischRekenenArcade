@@ -10,7 +10,11 @@
       %>
     </p>
     <%= link_to head_to_head_challenge_path(message.trackable) do %>
-    <p><%= t(message.text) %></p>
+      <% if message.trackable.check_finish %>
+        <p><%= t('message.finished_text') %></p>
+      <% else %>
+        <p><%= t(message.text) %></p>
+      <% end %>
     <% end %>
   </div>
 </div>

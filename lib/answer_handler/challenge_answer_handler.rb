@@ -17,21 +17,27 @@ class ChallengeAnswerHandler < AnswerHandler
     @finished ||= user_challenge.amount_good  >= challenge.number_of_problems
   end
 
-  def is_dead
+  def dead?
     @dead ||= session.damage && session.damage > STANDARD_DEATH_CEILING
   end
 
   def update_user_challenge!
-    if is_dead || finished
+    if dead? || finished
       reset_challenge!
     end
   end
 
-  def redirect_path(problem)
-    if is_dead || finished
-      Rails.application.routes.url_helpers.challenges_path
+  def redirect_path(_problem)
+    if dead? || finished
+      Rails.application
+           .routes
+           .url_helpers
+           .challenges_path
     else
-      Rails.application.routes.url_helpers.challenge_path(challenge.name)
+      Rails.application
+           .routes
+           .url_helpers
+           .challenge_path(challenge.name)
     end
   end
 end

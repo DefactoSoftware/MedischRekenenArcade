@@ -4,6 +4,16 @@ en:
     complete: "completed"
     fail: "didn't complete"
     collect: "collected"
+  head_to_head_challenge:
+    yes: "Yes"
+    no: "No"
+    theory: "Theory"
+    answer: "Answer"
+    user: "user"
+    problems: "problems"
+    correct: "Correct"
+  message:
+    finished_text: "You've finished this challenge, click here to see results"
   activity:
     badge: "the badge"
     challenge: "the challenge"

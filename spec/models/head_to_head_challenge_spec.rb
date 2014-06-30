@@ -25,7 +25,7 @@ describe HeadToHeadChallenge do
 
   describe "Status" do
     it "should start with open status" do
-      head_to_head_challenge = FactoryGirl.create(:head_to_head_challenge)
+      head_to_head_challenge = create(:head_to_head_challenge)
       expect(head_to_head_challenge.status).to eq("open")
       expect(head_to_head_challenge.open?).to be(true)
     end
@@ -55,57 +55,43 @@ describe HeadToHeadChallenge do
 
     it "returns false if the amount
         of answers is less than number of problems" do
+      rand = rand(0..(
+        head_to_head_challenge.challenge.number_of_problems - 1))
+
       challenged_user_challenge.reload.update_attributes(
-        amount_good: rand(0..(head_to_head_challenge
-                              .challenge
-                              .number_of_problems - 1)))
-      challenger_user_challenge
-      .reload
-      .update_attributes(
-        amount_fail: rand(0..(head_to_head_challenge
-                             .challenge
-                             .number_of_problems - 1)))
+        amount_good: rand)
+
       expect(head_to_head_challenge.check_finish).to be(false)
     end
 
     it "returns true if both user challenges
         have an equal amount of answers to the number of problems" do
-      challenged_user_challenge
-      .reload
-      .update_attributes(amount_good: head_to_head_challenge
-                                      .challenge
-                                      .number_of_problems)
+      challenged_user_challenge.reload.update_attributes(
+        amount_good: head_to_head_challenge.challenge.number_of_problems)
 
-      challenger_user_challenge
-      .reload
-      .update_attributes(amount_fail: head_to_head_challenge
-                                      .challenge
-                                      .number_of_problems)
+      challenger_user_challenge.reload.update_attributes(
+        amount_fail: head_to_head_challenge.challenge.number_of_problems)
       expect(head_to_head_challenge.check_finish).to be(true)
     end
   end
 
   describe "Notifying users" do
     it "should create notifications for both users after create" do
-      head_to_head_challenge = FactoryGirl.create(:head_to_head_challenge)
-      challenger_notification = head_to_head_challenge
-                                .challenger
-                                .notifications
-                                .last
-      challenged_notification = head_to_head_challenge
-                                .challenged
-                                .notifications
-                                .last
-      expect(challenger_notification.text)
-      .to eq("notifications.head_to_head_challenge.challenger.text")
-      expect(challenged_notification.text)
-      .to eq("notifications.head_to_head_challenge.challenged.text")
-      expect(challenger_notification.title)
-      .to eq("notifications.head_to_head_challenge.challenger.title")
-      expect(challenged_notification.title)
-      .to eq("notifications.head_to_head_challenge.challenged.title")
+      head_to_head_challenge = create(:head_to_head_challenge)
+      challenger_notification = head_to_head_challenge.challenger
+                                                      .notifications
+                                                      .last
+      challenged_notification = head_to_head_challenge.challenged
+                                                      .notifications
+                                                      .last
+      expect(challenger_notification.text).to eq(
+        "notifications.head_to_head_challenge.challenger.text")
+      expect(challenged_notification.text).to eq(
+        "notifications.head_to_head_challenge.challenged.text")
+      expect(challenger_notification.title).to eq(
+        "notifications.head_to_head_challenge.challenger.title")
+      expect(challenged_notification.title).to eq(
+        "notifications.head_to_head_challenge.challenged.title")
     end
   end
-
-  describe
 end

@@ -26,12 +26,13 @@
 
         </div>
         <div class="three-column-big">
-          <h2> Questions </h2>
+          <h2> <%= t("head_to_head_challenge.problems") %> </h2>
           <table class="table table-striped">
             <thead>
               <tr>
                 <td>Theory</td>
                 <td>Answer</td>
+                <td>Correct</td>
                 <td>User</td>
               </tr>
             </thead>
@@ -39,6 +40,7 @@
               <tr>
                 <td><%= answer.problem.theory %></td>
                 <td><%= answer.value %></td>
+                <td><%= answer.correct? ? t("head_to_head_challenge.yes") : t("head_to_head_challenge.no") %></td>
                 <td><%= answer.user.username %></td>
               </tr>
             <% end %>
@@ -46,6 +48,7 @@
               <tr>
                 <td><%= answer.problem.theory %></td>
                 <td><%= answer.value %></td>
+                <td><%= answer.correct? ? t("head_to_head_challenge.yes") : t("head_to_head_challenge.no") %></td>
                 <td><%= answer.user.username %></td>
               </tr>
             <% end %>

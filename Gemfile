@@ -22,8 +22,6 @@ gem 'leaderboard'
 #Hashtel colors
 gem 'hashtel'
 
-
-
 gem 'twitter-bootstrap-rails', github: 'seyhunak/twitter-bootstrap-rails', branch: 'bootstrap3'
 
 # Use SCSS for stylesheets

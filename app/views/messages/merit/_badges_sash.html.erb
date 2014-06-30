@@ -5,6 +5,8 @@
   <div class="content">
     <p><%= t("notifications.badge.title") %></p>
     <p class="bold"><%= t("badges.#{message.trackable.badge.name}.name") %></p>
-    <%= link_to badges_path() do%><%= t("badges.link") %><% end %>
+    <%= link_to badges_path() do %>
+      <%= t("badges.link") %>
+    <% end %>
   </div>
 </div>

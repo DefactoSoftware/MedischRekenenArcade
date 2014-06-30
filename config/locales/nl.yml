@@ -10,6 +10,15 @@ nl:
     you: "Jij"
     head_to_head_challenge: "the een op een uitdaging"
     against: "spelend tegen "
+  head_to_head_challenge:
+    yes: "Ja"
+    no: "Nee"
+    theory: "Theorie"
+    answer: "Antwoord"
+    user: "Gebruiker"
+    problems: "Problemen"
+  message:
+    finished_text: "You've finished this challenge, click here to see results"
   title: "Leren Doseren"
   unit: "Eenheid"
   streak: "Reeks"
