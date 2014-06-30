@@ -19,6 +19,8 @@ nl:
     problems: "Problemen"
   message:
     finished_text: "You've finished this challenge, click here to see results"
+    challenge_user: "Daag speler uit"
+    title: "Berichten"
   title: "Leren Doseren"
   unit: "Eenheid"
   streak: "Reeks"

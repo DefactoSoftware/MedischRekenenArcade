@@ -14,6 +14,8 @@ en:
     correct: "Correct"
   message:
     finished_text: "You've finished this challenge, click here to see results"
+    challenge_user: "Challenge User"
+    title: "Messages"
   activity:
     badge: "the badge"
     challenge: "the challenge"
