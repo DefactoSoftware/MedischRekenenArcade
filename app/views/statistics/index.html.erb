@@ -8,7 +8,6 @@
       <h1><%= t("challenge.title") %></h1>
         <% @challenge_sets.each do |challenge_set| %>
           <div id="challenges_block">
-          <h4><%= t("challenge_sets.#{challenge_set.name}") %></h4>
           <% challenge_set.challenges.each do |challenge| %>
             <div class="col-sm-6 col-md-3 col-lg-3 thumbnail-col">
               <%= render "challenges/thumbnail", challenge: challenge, user: @user %>

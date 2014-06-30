@@ -82,6 +82,14 @@ class User < ActiveRecord::Base
     amount
   end
 
+  def head_to_head_challenges
+    user_challenges.where("head_to_head_challenge_id IS NOT NULL")
+  end
+
+  def normal_challenges
+    user_challenges.where("head_to_head_challenge_id IS NULL")
+  end
+
   def guest?
     false
   end

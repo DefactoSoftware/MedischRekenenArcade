@@ -1,13 +1,21 @@
 <ul class="nav navbar-nav navbar-right">
   <li>
+    <a href="javascript:void();" id="messages-toggle"><%= image_tag("mail.svg", height: "30px") %> <span>▼</span></a>
+  </li>
+  <li>
     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
       <img src="<%= current_user.profilepicture_url%>" class="img-circle profile-pic" width="40px" height="40px">
       <%= current_user.username %>
        ▼
     </a>
     <ul class="dropdown-menu">
-      <li><%= link_to "#{ENV['HIPCHAT_ROOM']}?name=#{current_user.name}" do %><%= t("menu.help") %> <%= image_tag("hipchat.png", title: "Help!", height: "20px") %><% end %></li>
+      <li><%= link_to "#{ENV['HIPCHAT_ROOM']}?name=#{current_user.name}" do %>
+            <%= t("menu.help") %> <%= image_tag("hipchat.png", title: "Help!", height: "20px") %>
+          <% end %>
+      </li>
       <li><%= link_to edit_user_registration_path(current_user) do %><%= t("menu.settings")%><% end %></li>
+      <li><%= link_to badges_path do %><%= t("menu.badges") %><% end %></li>
+      <li><%= link_to my_challenges_path(current_user) do %><%= t("menu.my_challenges") %><% end %></li>
       <li><%= link_to user_statistics_path(current_user) do %><%= t("menu.statistics") %><% end %></li>
       <li><%= link_to leaderboards_path do %><%= t("menu.leaderboards") %><% end %></li>
       <li><%= link_to users_path do %><%= t("menu.users") %><% end %></li>

@@ -24,11 +24,21 @@
   <div class="right_card">
     <div class="top">
       <div class="name">
-        <span class="level_name"><%= t("levels.level_#{user.level}") %></span><br>
-        <%= link_to user_statistics_path(user) do %><span><%= user.username %></span><% end %>
-
+        <span class="level_name">
+          <%= t("levels.level_#{user.level}") %>
+          <% if current_user != user %>
+            <span class="toggle_invite" data-user-id="<%= user.id %>">
+              <img height="20" src="/assets/challenge.png" >
+            </span>
+          <% end %>
+        </span><br>
+        <%= link_to user_statistics_path(user) do %>
+          <span><%= user.username %></span>
+        <% end %>
       </div>
-      <div class="level" title="Level" style="border: 5px solid <%= user.username.pastel_color %>"><span ><%= user.level %></span></div>
+      <div class="level" title="Level" style="border: 5px solid <%= user.username.pastel_color %>">
+        <span><%= user.level %></span>
+      </div>
     </div>
     <div>
       <p>
@@ -36,6 +46,7 @@
         <%= t("gamercard.challenges", count: user.challenges_completed_successfully) %>
         <%= t("gamercard.badges", count: user.badges.count) %>
       </p>
+      <p style="text-align:right; margin-bottom:20px;"></p>
     </div>
   </div>
 </div>

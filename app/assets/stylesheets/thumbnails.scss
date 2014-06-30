@@ -107,3 +107,14 @@ a.thumbnail:focus {
 .thumbnail .more .description {
   margin: 0;
 }
+
+.inactive {
+  .image {
+    opacity: 0.1;
+    filter: alpha(opacity=80);
+  }
+
+  a:hover .image {
+    opacity: 0.1;
+  }
+}

@@ -12,16 +12,4 @@
 
 class ChallengeSet < ActiveRecord::Base
   has_many :challenges
-
-  def user_check_completed(user)
-    if user.badges.include?(Merit::Badge.find(badge))
-      completed = false
-      challenges.each do |challenge|
-        completed = UserChallenge.where(challenge: challenge, user: user)
-      end
-      if completed
-        user.add_badge(badge)
-      end
-    end
-  end
 end

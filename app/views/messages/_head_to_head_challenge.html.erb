@@ -1,0 +1,20 @@
+<div class="col-lg-3">
+  <%= image_tag(message.image) %>
+</div>
+<div class="col-lg-9">
+  <div class="content">
+    <p>
+      <%= t(message.title,
+            name: link_to(message.trackable.other_player(current_user).name,
+                          user_statistics_path(message.trackable.other_player(current_user)))).html_safe
+      %>
+    </p>
+    <%= link_to head_to_head_challenge_path(message.trackable) do %>
+      <% if message.trackable.check_finish %>
+        <p><%= t('message.finished_text') %></p>
+      <% else %>
+        <p><%= t(message.text) %></p>
+      <% end %>
+    <% end %>
+  </div>
+</div>

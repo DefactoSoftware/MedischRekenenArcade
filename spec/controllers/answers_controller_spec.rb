@@ -3,15 +3,21 @@ require "spec_helper"
 describe AnswersController, type: :controller do
   let(:user) { create(:user) }
   let(:problem) { PercentageAmountOfAmount.new.generate(user) }
+  let(:challenge) { create(:challenge) }
+  let(:user_challenge) do
+    create(:user_challenge, challenge: challenge, user: user)
+  end
   let(:badanswer) do
     attributes_for(:answer,
                    problem_id: problem.id,
-                   value: problem.get_result + 1)
+                   value: problem.get_result + 1,
+                   user_challenge_id: user_challenge.id)
   end
   let(:goodanswer) do
     attributes_for(:answer,
                    problem_id: problem.id,
-                   value: problem.get_result)
+                   value: problem.get_result,
+                   user_challenge_id: user_challenge.id)
   end
   let(:conversion_error_answer) do
     attributes_for(:answer,
@@ -24,10 +30,6 @@ describe AnswersController, type: :controller do
                    value: problem.get_result - Float(0.1).round(2))
   end
   let(:skill) { create(:skill, name: "Addition") }
-  let(:challenge) { create(:challenge) }
-  let(:user_challenge) do
-    create(:user_challenge, challenge: challenge, user: user)
-  end
 
   before :each do
     @request.env["HTTP_REFERER"] = root_path

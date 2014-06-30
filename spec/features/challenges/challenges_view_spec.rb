@@ -18,7 +18,7 @@ describe "Challenges", type: :feature do
 
   before :each do
     user.confirm!
-    sign_in(user.email)
+    sign_in_user(user.email, "welkom1234")
     challenge_set.reload
     challenge.reload
   end
@@ -48,15 +48,6 @@ describe "Challenges", type: :feature do
       find("#answer_value").set("2")
       find("#submit_answer").click
       expect(page).to have_selector("#theory")
-    end
-  end
-
-  def sign_in(email)
-    visit "/users/sign_in"
-    within("#new_user") do
-      fill_in "user_email", with: email
-      fill_in "user_password", with: "welkom1234"
-      click_button("Sign in")
     end
   end
 end

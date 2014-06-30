@@ -1,0 +1,28 @@
+<div class="row">
+  <div class="two-column-fill">
+    <div id="challenges_block" class="row block">
+      <h1><%= t("challenge.title") %></h1>
+        <% @challenge_sets.each do |challenge_set| %>
+          <div class="challenge-set">
+            <h4><%= t("challenge_sets.#{challenge_set.name}") %></h4>
+            <% challenge_set.challenges.each do |challenge| %>
+              <div class="col-sm-6 col-md-3 col-lg-3 thumbnail-col">
+                <%= render "challenges/thumbnail", challenge: challenge, user: @user %>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  <div class="two-column-fill" >
+    <div id="challenges_block" class="row block">
+      <h1>Head to Head Challenges</h1>
+        <% @head_to_head_challenges.each do |challenge| %>
+          <div class="col-sm-6 col-md-3 col-lg-3 thumbnail-col">
+             <%= render "head_to_head_challenges/thumbnail", challenge: challenge, user: @user %>
+          </div>
+        <% end %>
+    </div>
+  </div>
+</div>
+

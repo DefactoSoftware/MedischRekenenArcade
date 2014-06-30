@@ -23,8 +23,49 @@ require "rake"
 
 describe Problem, type: :model do
   let(:user) { create(:user) }
+
+  let(:grams) { UnitGroup.create(name: "grams") }
+  let(:liters) { UnitGroup.create(name: "liters") }
+
+  let(:ml) { Unit.create(name: "Milliter", sign: "ml", unit_group: liters) }
+  let(:cl) { Unit.create(name: "Centiliter", sign: "cl", unit_group: liters) }
+  let(:dl) { Unit.create(name: "Deciliter", sign: "dl", unit_group: liters) }
+  let(:l) { Unit.create(name: "Liter", sign: "l", unit_group: liters) }
+  let(:mg) { Unit.create(name: "Milligram", sign: "mg", unit_group: grams) }
+  let(:cg) { Unit.create(name: "Centigram", sign: "cg", unit_group: grams) }
+  let(:dg) { Unit.create(name: "Decigram", sign: "dg", unit_group: grams) }
+  let(:g) { Unit.create(name: "Gram", sign: "g", unit_group: grams) }
+  let(:dag) { Unit.create(name: "Decagram", sign: "dag", unit_group: grams) }
+  let(:hg) { Unit.create(name: "Hectogram", sign: "hg", unit_group: grams) }
+  let(:kg) { Unit.create(name: "Kilogram", sign: "kg", unit_group: grams) }
+
   describe "Associations" do
     it { is_expected.to belong_to(:unit) }
+  end
+
+  describe "generating" do
+    before :each do
+      ml.reload
+      cl.reload
+      dl.reload
+      l.reload
+      mg.reload
+      cg.reload
+      dg.reload
+      g.reload
+      dag.reload
+      hg.reload
+      kg.reload
+      grams.reload
+      liters.reload
+    end
+
+    it "generates a problem" do
+      Problem::VALID_PROBLEMS.each do |name|
+        problem = ProblemFactory.new(name, user).problem
+        expect(problem).to be_a(Problem)
+      end
+    end
   end
 
   describe Division do
@@ -453,21 +494,6 @@ describe Problem, type: :model do
   end
 
   describe UnitConversion do
-    let(:grams) { UnitGroup.create(name: "grams") }
-    let(:liters) { UnitGroup.create(name: "liters") }
-
-    let(:ml) { Unit.create(name: "Milliter", sign: "ml", unit_group: liters) }
-    let(:cl) { Unit.create(name: "Centiliter", sign: "cl", unit_group: liters) }
-    let(:dl) { Unit.create(name: "Deciliter", sign: "dl", unit_group: liters) }
-    let(:l) { Unit.create(name: "Liter", sign: "l", unit_group: liters) }
-    let(:mg) { Unit.create(name: "Milligram", sign: "mg", unit_group: grams) }
-    let(:cg) { Unit.create(name: "Centigram", sign: "cg", unit_group: grams) }
-    let(:dg) { Unit.create(name: "Decigram", sign: "dg", unit_group: grams) }
-    let(:g) { Unit.create(name: "Gram", sign: "g", unit_group: grams) }
-    let(:dag) { Unit.create(name: "Decagram", sign: "dag", unit_group: grams) }
-    let(:hg) { Unit.create(name: "Hectogram", sign: "hg", unit_group: grams) }
-    let(:kg) { Unit.create(name: "Kilogram", sign: "kg", unit_group: grams) }
-
     let(:challenge) { Challenge.new(name: "UnitConversion") }
     let(:problem_factory) { ProblemFactory.new(challenge.name, user) }
 

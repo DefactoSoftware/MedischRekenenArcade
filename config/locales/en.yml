@@ -4,10 +4,22 @@ en:
     complete: "completed"
     fail: "didn't complete"
     collect: "collected"
+  head_to_head_challenge:
+    yes: "Yes"
+    no: "No"
+    theory: "Theory"
+    answer: "Answer"
+    user: "user"
+    problems: "problems"
+    correct: "Correct"
+  message:
+    finished_text: "You've finished this challenge, click here to see results"
   activity:
     badge: "the badge"
     challenge: "the challenge"
     you: "You"
+    head_to_head_challenge: "the head to head challenge"
+    against: "playing against "
   title: "Med Math"
   unit: "Unit"
   streak: "Streak"
@@ -40,6 +52,13 @@ en:
   notifications:
     badge:
       title: "You earned a new badge!"
+    head_to_head_challenge:
+      challenged:
+        title: "You've been invited by %{name} to a challenge"
+        text: "Click the link to complete the challenge"
+      challenger:
+        title: "You've invited %{name} to a challenge"
+        text: "Click the link to complete the challenge"
   feedback_report:
     button: "Report a problem!"
     title: "Write down the problem you encountered"
@@ -56,7 +75,7 @@ en:
       success: "Added new user group"
       error: "Could not add new user group"
   badges:
-    go_to_statistics: "Go to statistiscs to view your overview!"
+    link: "Go to badges to view your overview!"
     night_owl:
       name: "Night Owl"
       description: "You've been active during the night"
@@ -109,13 +128,13 @@ en:
       name: "Challenge Champion (Week 4)"
       description: "You have completed all challenges from week 4"
     enthusiast_a:
-      name: "Enthusiast (3 dagen)"
+      name: "Enthusiast (3 days)"
       description: "You were active for 3 days in a row"
     enthusiast_b:
       name: "Enthusiast (1 week)"
       description: "You were active for 7 days in a row"
     enthusiast_c:
-      name: "Enthusiast (1 maand)"
+      name: "Enthusiast (1 month)"
       description: "You were active for 30 days in a row"
     cold_feet_a:
       name: "Cold Feet (10)"
@@ -159,6 +178,8 @@ en:
     sign_up: "Register"
     users: "Users"
     help: "Need help?"
+    badges: "Badges"
+    my_challenges: "Challenges"
   calculator:
     info: "If you're stuck you can use this simple calculator. This does however reduce your score"
   practice:
@@ -198,6 +219,17 @@ en:
     start: "Starting new challenge, good luck! If you make more than 4 consecutive mistakes the patient dies so be careful!"
     time_is_up: "Time is up, try it again!"
     title: "Challenges"
+  head_to_head_challenge:
+    finished: "Awesome! You completed this head to head challenge, here you see the results!"
+    title: "Select a user and play a challenge against them"
+    labels:
+      challenged: "User you want to challenge"
+      challenge: "The challenge you want to play"
+    form:
+      submit: "Challenge user!"
+    save:
+      success: "You've created a head to head challenge, the user will be notified. "
+      fail: "We could not create the head to head challenge, please try again or contact us. "
   users:
     info:
       rank: "Overall rank"

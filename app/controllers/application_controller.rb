@@ -1,8 +1,8 @@
 class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
-  before_filter :update_sanitized_params, if: :devise_controller?
-  before_filter :check_challenge
+  before_action :update_sanitized_params, if: :devise_controller?
+  before_action :check_challenge
   protect_from_forgery with: :exception
   before_action :set_locale
 
@@ -12,7 +12,12 @@ class ApplicationController < ActionController::Base
             .order("created_at DESC").limit(10)
   end
 
+  def all_notifications
+    current_user.notifications.order("created_at DESC").limit(20)
+  end
+
   helper_method :all_activities
+  helper_method :all_notifications
 
   protected
 
@@ -39,7 +44,8 @@ class ApplicationController < ActionController::Base
   def check_challenge
     if params[:controller] != "challenges" &&
        params[:controller] != "answers" &&
-       params[:controller] != "notifications"
+       params[:controller] != "notifications" &&
+       params[:controller] != "head_to_head_challenges"
       reset_challenge
     end
   end

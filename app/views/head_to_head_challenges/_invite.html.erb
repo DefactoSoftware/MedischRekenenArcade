@@ -1,0 +1,22 @@
+<div id="invite_head_to_head" class="feedback_report">
+  <%= form_for(HeadToHeadChallenge.new) do |f| %>
+    <h4><%= t("head_to_head_challenge.title") %></h4>
+    <div class="form-group">
+      <%= f.label(:challenged_id, t("head_to_head_challenge.labels.challenged")) %>
+      <%= f.select(:challenged_id, current_user.user_group.users.collect {|user| [ user.username, user.id ] }, {}, {class:"form-control", required: true}) %>
+    </div>
+    <div class="form-group">
+      <%= f.label(:challenge_id, t("head_to_head_challenge.labels.challenge")) %>
+      <%= f.select(
+          :challenge_id,
+          Challenge.all.collect { |challenge| [ t("challenges.#{challenge.name.underscore}.title"), challenge.id ] },
+          {},
+          {class:"form-control", required: true})
+      %>
+    </div>
+    <div class="form-group">
+    <%= f.submit t("head_to_head_challenge.form.submit"), class:"btn btn-submit" %>
+    </div>
+  <% end %>
+</div>
+<div id="invite_background" class="black_overlay"></div>

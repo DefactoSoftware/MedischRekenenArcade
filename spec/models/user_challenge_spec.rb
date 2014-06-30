@@ -2,14 +2,15 @@
 #
 # Table name: user_challenges
 #
-#  id           :integer          not null, primary key
-#  user_id      :integer
-#  challenge_id :integer
-#  success      :boolean
-#  amount_fail  :integer          default(0)
-#  amount_good  :integer          default(0)
-#  created_at   :datetime
-#  updated_at   :datetime
+#  id                        :integer          not null, primary key
+#  user_id                   :integer
+#  challenge_id              :integer
+#  success                   :boolean
+#  amount_fail               :integer          default(0)
+#  amount_good               :integer          default(0)
+#  created_at                :datetime
+#  updated_at                :datetime
+#  head_to_head_challenge_id :integer
 #
 
 require "spec_helper"

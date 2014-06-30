@@ -18,22 +18,23 @@ class AnswerHandler
     session.send(method, *args, &block)
   end
 
-  def increase_skill!(value=1)
+  def increase_skill!(value = 1)
     user_skill = UserSkill.where(user: @user, skill: @skill).first_or_create
-    user_skill.update_attributes(level: user_skill.level+value)
+    user_skill.update_attributes(level: user_skill.level + value)
   end
 
-  def decrease_skill!(value=1)
+  def decrease_skill!(value = 1)
     user_skill = UserSkill.where(user: @user, skill: @skill).first_or_create
-    user_skill.update_attributes(level: user_skill.level-value) if user_skill.level > 0
+    if user_skill.level > 0
+      user_skill.update_attributes(level: user_skill.level - value)
+    end
   end
 
-
-  def increase_points!(value=1)
+  def increase_points!(value = 1)
     user.increase_points(value)
   end
 
-  def decrease_points!(value=1)
+  def decrease_points!(value = 1)
     user.decrease_points(value)
   end
 

@@ -1,0 +1,63 @@
+<div class="row">
+  <div class="three-column-small">
+  </div>
+
+  <div class="three-column-big">
+    <div class="block head-to-head-overview">
+      <div class="row">
+        <div class="three-column-small">
+          <img src="<%= @head_to_head_challenge.challenger.profilepicture_url %>" width="98px" height="99px">
+        </div>
+        <div class="three-column-big">
+            <h1><%= @head_to_head_challenge.challenger_score %></h1>
+            <h1><%= @head_to_head_challenge.challenger.username %></h1>
+            <h3>VS</h3>
+            <h1><%= @head_to_head_challenge.challenged.username %></h1>
+            <h1><%= @head_to_head_challenge.challenged_score %></h1>
+          </h1>
+        </div>
+        <div class="three-column-small">
+          <img src="<%= @head_to_head_challenge.challenged.profilepicture_url %>" width="98px" height="99px">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="three-column-small">
+
+        </div>
+        <div class="three-column-big">
+          <h2> <%= t("head_to_head_challenge.problems") %> </h2>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <td>Theory</td>
+                <td>Answer</td>
+                <td>Correct</td>
+                <td>User</td>
+              </tr>
+            </thead>
+            <% @head_to_head_challenge.user_challenges.first.answers.each do |answer| %>
+              <tr>
+                <td><%= answer.problem.theory %></td>
+                <td><%= answer.value %></td>
+                <td><%= answer.correct? ? t("head_to_head_challenge.yes") : t("head_to_head_challenge.no") %></td>
+                <td><%= answer.user.username %></td>
+              </tr>
+            <% end %>
+            <% @head_to_head_challenge.user_challenges.last.answers.each do |answer| %>
+              <tr>
+                <td><%= answer.problem.theory %></td>
+                <td><%= answer.value %></td>
+                <td><%= answer.correct? ? t("head_to_head_challenge.yes") : t("head_to_head_challenge.no") %></td>
+                <td><%= answer.user.username %></td>
+              </tr>
+            <% end %>
+          </table>
+        </div>
+        <div class="three-column-small">
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

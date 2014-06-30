@@ -8,6 +8,17 @@ nl:
     badge: "de badge"
     challenge: "de uitdaging"
     you: "Jij"
+    head_to_head_challenge: "the een op een uitdaging"
+    against: "spelend tegen "
+  head_to_head_challenge:
+    yes: "Ja"
+    no: "Nee"
+    theory: "Theorie"
+    answer: "Antwoord"
+    user: "Gebruiker"
+    problems: "Problemen"
+  message:
+    finished_text: "You've finished this challenge, click here to see results"
   title: "Leren Doseren"
   unit: "Eenheid"
   streak: "Reeks"
@@ -40,6 +51,13 @@ nl:
   notifications:
     badge:
       title: "Je hebt een badge verdiend!"
+    head_to_head_challenge:
+      challenged:
+        title: "Je bent door %{name} uitgenodigd voor een uitdaging"
+        text: "Klik op de link om de uitdaging te doen"
+      challenger:
+        title: "Je hebt %{name} uitgenodigd voor een uitdaging"
+        text: "Klik op de link om de uitdaging te doen"
   feedback_report:
     button: "Meld een probleem!"
     title: "Schrijf het probleem op dat je gevonden hebt"
@@ -56,7 +74,7 @@ nl:
       success: "Nieuwe gebruikersgroep toegevoegd"
       error: "Kon de gebruikersgroep niet toevoegen"
   badges:
-    go_to_statistics: "Ga naar statistieken om je overzicht te zien!"
+    link: "Ga naar badges om je overzicht te zien!"
     night_owl:
       name: "Night Owl"
       description: "Je bent actief geweest tijdens de nacht"
@@ -159,6 +177,8 @@ nl:
     users: "Gebruikers"
     sign_up: "Registreer"
     help: "Hulp nodig?"
+    badges: "Badges"
+    my_challenges: "Uitdagingen"
   calculator:
     info: "Als je vast zit kan je deze simpele rekenmachine gebruiken. Dit verlaagt wel je score"
   practice:
@@ -198,6 +218,17 @@ nl:
     start: "Je kan nu beginnen met de uitdaging. Let op! Je mag niet meer dan 4 fouten achter elkaar maken!"
     time_is_up: "Tijd is voorbij, probeer het nog eens"
     title: "Uitdagingen"
+  head_to_head_challenge:
+    finished: "Awesome! Je hebt de 1 op 1 uitdaging voltooid, hier zijn je resultaten!"
+    title: "Selecteer een gebruiker en speel een uitdaging tegen ze!"
+    labels:
+      challenged: "De gebruiker die je wil uitdagen"
+      challenge: "De uitdaging die je wil spelen"
+    form:
+      submit: "Daag uit!"
+    save:
+      success: "Je hebt een 1 op 1 uitdaging aangemaakt, de gebruiker wordt op de hoogte gesteld. "
+      fail: "We konden de 1 op 1 uitdaging niet aanmaken, probeer het nog eens of neem contact met ons op. "
   users:
     info:
       rank: "Algemene ranking"

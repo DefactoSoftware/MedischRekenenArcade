@@ -155,7 +155,7 @@ Merit::Badge.create!(
     id: 18,
     name: 'enthusiast_a',
     image: "badges/Fanatic-Enthusiast_A.png",
-    description: 'challenge_champion_a.description'
+    description: 'enthusiast_a.description'
   }
 )
 Merit::Badge.create!(
@@ -163,7 +163,7 @@ Merit::Badge.create!(
     id: 19,
     name: 'enthusiast_b',
     image: "badges/Fanatic-Enthusiast_B.png",
-    description: 'challenge_champion_b.description'
+    description: 'enthusiast_b.description'
   }
 )
 Merit::Badge.create!(
@@ -171,7 +171,7 @@ Merit::Badge.create!(
     id: 20,
     name: 'enthusiast_c',
     image: "badges/Fanatic-Enthusiast_C.png",
-    description: 'challenge_champion_c.description'
+    description: 'enthusiast_c.description'
   }
 )
 Merit::Badge.create!(

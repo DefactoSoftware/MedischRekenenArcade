@@ -1,0 +1,12 @@
+<div class="row">
+  <div class="one-column-center">
+    <div id="badges_block" class="row block">
+      <h1>Badges</h1>
+      <% @badges.each do |badge| %>
+        <div class="col-sm-6 col-md-3 col-lg-3 thumbnail-col">
+          <%= render 'badges/thumbnail', badge: badge, user: current_user %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

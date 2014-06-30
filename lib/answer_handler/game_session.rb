@@ -43,7 +43,7 @@ class GameSession
     @session[:damage] = @session[:damage].to_i + 1
   end
 
-  def increase_streak!(value=1)
+  def increase_streak!(value = 1)
     @session[:streak] =  @session[:streak].to_i + value
   end
 end

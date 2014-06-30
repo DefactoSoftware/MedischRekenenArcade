@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.1.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.5'
+gem 'rails', '~> 4.1.0'
 gem 'rails-i18n', '~> 4.0.0' # For 4.0.x
 gem 'rails-observers'
 # Use Postgress as the database for Active Record
@@ -51,7 +51,11 @@ gem 'filepicker-rails', '~> 1.0.0'
 
 gem 'redcarpet'
 
+gem 'formtastic', github: 'justinfrench/formtastic'
+gem 'ransack', github: 'activerecord-hackery/ransack', branch: 'rails-4.1'
+gem 'polyamorous', github: 'activerecord-hackery/polyamorous'
 gem 'activeadmin', github: 'gregbell/active_admin'
+gem 'minitest'
 
 gem 'raddocs'
 

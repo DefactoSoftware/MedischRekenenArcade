@@ -25,6 +25,12 @@ FactoryGirl.define do
 
   end
 
+  factory :head_to_head_challenge do
+    association :challenger, factory: :user
+    association :challenged, factory: :user
+    challenge
+  end
+
   factory :user do
     confirmed_at { DateTime.now }
     name { Faker::HipsterIpsum.name }
@@ -52,11 +58,6 @@ FactoryGirl.define do
     challenge
     amount_good { 0 }
     amount_fail { 0 }
-  end
-
-  factory :challenge_skill do
-    challenge
-    skill
   end
 
   factory :feedback_report do

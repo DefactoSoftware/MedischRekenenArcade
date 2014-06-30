@@ -1,0 +1,17 @@
+<div class="col-lg-3">
+  <%= image_tag(notification.image) %>
+</div>
+<div class="col-lg-9">
+  <div class="content">
+    <p>
+      <%=
+        t(notification.title,
+          name: link_to(notification.trackable.other_player(current_user).name,
+                user_statistics_path(notification.trackable.other_player(current_user)))).html_safe
+      %>
+    </p>
+    <%= link_to head_to_head_challenge_path(notification.trackable) do %>
+      <p><%= t(notification.text) %></p>
+    <% end %>
+  </div>
+</div>

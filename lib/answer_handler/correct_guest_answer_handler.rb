@@ -8,7 +8,8 @@ class CorrectGuestAnswerHandler < GuestAnswerHandler
   end
 
   def get_notice
-    notice = I18n.t("answer.correct", points: AnswerHandler::STANDARD_POINT_AMOUNT)
+    notice = I18n.t(
+      "answer.correct", points: AnswerHandler::STANDARD_POINT_AMOUNT)
     super(notice)
   end
 end
