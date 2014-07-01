@@ -1,7 +1,7 @@
 <div class="row">
   <div class="three-column-small">
     <%= render 'calculator/calculator' %>
-    <div class="block help">
+    <div class="block">
       <%= render 'answer_feedback/current_problem', problem: @problem %>
     </div>
     <div class="block">
@@ -18,9 +18,9 @@
         <%= render 'sessions/scores' %>
       </div>
       <% if @last_answer %>
-      <div class="block">
-        <%= render 'answer_feedback/answer_feedback', answer: @last_answer %>
-      </div>
+        <div class="block">
+          <%= render 'answer_feedback/answer_feedback', answer: @last_answer %>
+        </div>
       <% end %>
       <% if !current_user.guest? %>
         <div class="block">

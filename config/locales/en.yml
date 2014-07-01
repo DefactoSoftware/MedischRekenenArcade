@@ -341,19 +341,70 @@ en:
     title: "Current problem"
     basic: "This is a basic mathematical operation. Look at the operator and solve the problem. If there is more than one step try to do the easiest step first. If the number is too big try to make little chunks."
     percentage_of_unit: "Divide the percentage asked by 100 and multiply that with the value."
-    percentage_unit_to_hundred: "Divide the given value by the given percentage. You now have 1%. Multiply that again by 100."
-    percentage_amount_of_amount: "First calculate what 1% is by dividing the value by 100. Then multiply that by the percentage asked."
-    solution_maxisporin: "You need to take a few steps for this. First you calculate how much mg you need to inject per time, so with 750mg Maxisporin per day and 3 injections you divide 750 by 3, 250. Then you calculate how much of the stock needs to be dissolved. With 1000mg in stock and 0.5ml needed fluid you divide 1000 by 0.5 = 2000. Then you divide the first result by the last. 25/2000 = 0.125ml per time."
+    percentage_unit_to_hundred: |
+                                  1. Divide the given value by the given percentage.
+                                  2. You now have 1%. Multiply that again by 100.
+    percentage_amount_of_amount: |
+                                   1. Calculate what 1% is by dividing the value by 100.
+                                   2. Then multiply that by the percentage asked.
+    solution_maxisporin: |
+                           You need to take a few steps for this.
+
+                           1. Calculate how much mg you need to inject per time, so with 750mg Maxisporin per day and 3 injections you divide 750 by 3, 250
+
+                           2. Calculate how much of the stock needs to be dissolved. With 1000mg in stock and 0.5ml needed fluid you divide 1000 by 0.5 = 2000
+
+                           3. Divide the first result by the last. 25/2000 = 0.125ml per time
     unit_conversion: "Metric units are very nice to work with, since they are all multiples of ten (or a hundred, or one-tenth, etc) of each other. You can convert between the various different sizes by merely moving the decimal point the correct number of places."
-    concentration_tablet: "Concentration means how much of substance A is in substance B. This is about how much active compound. That means you have to divide the active compound by the total weight of the pill. Multiply that with 100 to get the concentration"
-    concentration_amount: "Concentration means how much of substance A is in substance B. You have a percentage here, divide that by hundred. That result you should multiply with the medicine and you have the amount."
-    concentration_to_hundred: "First divide the given value by the percentage, now you have 1%. Multiply that by 100 to get the result."
-    syringe_pump_amount: "First divide the total amount of mg by the amount of mg per ml. Multiply that by the amount of ml and you know how much ml you need for 24 hours."
-    syringe_pump_hourly: "First divide the total amount of mg by the amount of hours. Then divide the ratio of medicine and solution by each other. Now divide the amount of ml per hour by the last result and you have the amount of ml per time."
-    drop_iv_hourly: "You first have to convert the amount of liters to milliliters. Then divide that by the amount of hours. You now have the amount of ml per hour."
-    drop_iv_amount: "The medical standard is 20 drops per ml. First you have to multiply the amount of liters with 1000 so you have the amount in milliliters. Then you divide that by the amount of minutes (24 hours * 60 minutes). Now you have the amount of milliliters per minute, now you only need to multiply by 20 to get the number of drops."
-    oxygen_time: "The amount of oxygen and the pressure decide how long you can use a cylinder. When you have a cylinder with 10 liters of oxygen and the manometer is set to 110 bar you multiply these numbers to get the total amount of released oxygen, 110*10 = 1100. To calculate how many minutes it takes to empty the cylinder you divide the result of the last step by the amount of liters per minute. For example with 2 liters per minute you do 1100/2 = 550 minutes."
-    oxygen_pressure: "You want to know at what pressure the manometer should be set. For that you should divide the amount of oxygen you need by the size of the capacity of the cylinder."
+    concentration_tablet: |
+                            Concentration means how much of substance A is in substance B. This is about how much active compound there is.
+
+                            1. Divide the active compound by the total weight of the pill
+
+                            2. Multiply that with 100 to get the concentration
+    concentration_amount: |
+                            Concentration means how much of substance A is in substance B.
+
+                            1. Divide the percentage by hundred.
+
+                            2. Multiply the result with the medicine
+
+    concentration_to_hundred: |
+                                1. Divide the given value by the percentage, now you have 1%
+
+                                2. Multiply that by 100 to get the result
+    syringe_pump_amount: |
+                           1. Divide the total amount of mg by the amount of mg per ml
+
+                           2. Multiply that by the amount of ml
+    syringe_pump_hourly: |
+                           1. Divide the total amount of mg by the amount of hours
+
+                           2. Divide the ratio of medicine and solution by each other
+
+                           3. Divide the amount of ml per hour by the last result
+    drop_iv_hourly: |
+                      1. Convert the amount of liters to milliliters.
+
+                      2. Divide that by the amount of hours
+    drop_iv_amount: |
+                      The medical standard is 20 drops per ml.
+
+                      1. Multiply the amount of liters with 1000 so you have the amount in milliliters
+
+                      2. Divide that by the amount of minutes (24 hours * 60 minutes). Now you have the amount of milliliters per minute
+
+                      3. Multiply by 20 to get the number of drops
+    oxygen_time: |
+                   The amount of oxygen and the pressure decide how long you can use a cylinder. For example a cylinder with 10 liters of oxygen and the manometer is set to 110 bar.
+
+                   1. Multiply these numbers to get the total amount of released oxygen. (110*10 = 1100)
+
+                   2. Divide the result of the last step by the amount of liters per minute. (2 liters per minute you do 1100/2 = 550 minutes)
+    oxygen_pressure: |
+                       You want to know at what pressure the manometer should be set.
+
+                       1. Divide the amount of oxygen you need by the size of the capacity of the cylinder
   challenge_sets:
     Week_1: "Basic and Percentages"
     Week_2: "Concentrations and Solutions"

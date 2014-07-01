@@ -340,20 +340,86 @@ nl:
   problem_info:
     title: "Huidig probleem"
     basic: "Dit is een basis wiskundige operatie. Kijk naar het symbool en los het probleem op. Als er meerdere stappen zijn doe dan de kleinste stap eerst. Als de getallen te groot zijn probeer ze dan op te delen. Denk ook aan de volgorde waarin je de stappen uitvoert."
-    percentage_of_unit: "Deel het gevraagde percentage door 100 en vermenigvuldig dat met de gegeven waarde."
-    percentage_unit_to_hundred: "Deel de gegeven waarde door het gegeven percentage, je hebt dan 1%. Vermenigvuldig dat met 100."
-    percentage_amount_of_amount: "Reken eerst 1% uit door de waarde door 100 te delen. Vermenigvuldig dat vervolgens met het percentage dat gevraagd wordt."
-    solution_maxisporin: "Bij het uitrekenen van de hoeveelheid Maxisporin die je moet toedienen per keer moet je een aantal stappen nemen. Eerst reken je uit hoeveel milligram per injectie je moet toedienen, dus bijvoorbeeld bij 750mg Maxisporin per dag en 3 injecties deel je 750 door 3, 25. Dan reken je uit hoeveel van de voorraad opgelost dient te worden. Bij 1000mg in voorraad en 0.5ml te verkrijgen vloeistof deel je 1000 door 0.5 = 2000. Vervolgens deel je het eerste resultaat door het laatste. 25/2000 = 0,125ml. Dus je injecteert 0,125 milliliter per keer."
+    percentage_of_unit: |
+                          1. Deel het gevraagde percentage door 100
+
+                          2. Vermenigvuldig dat met de gegeven waarde
+    percentage_unit_to_hundred: |
+                                  1. Deel de gegeven waarde door het gegeven percentage, je hebt dan 1%.
+
+                                  2. Vermenigvuldig dat met 100
+    percentage_amount_of_amount: |
+                                   1. Reken eerst 1% uit door de waarde door 100 te delen.
+
+                                   2. Vermenigvuldig dat met het percentage dat gevraagd wordt
+    solution_maxisporin: |
+                           Bij het uitrekenen van de hoeveelheid Maxisporin die je moet toedienen per keer moet je een aantal stappen nemen.
+
+                           1. Reken uit hoeveel milligram per injectie je moet toedienen, dus bijvoorbeeld bij 750mg Maxisporin per dag en 3 injecties deel je 750 door 3, 25.
+
+                           2. Reken uit hoeveel van de voorraad opgelost dient te worden. Bij 1000mg in voorraad en 0.5ml te verkrijgen vloeistof deel je 1000 door 0.5 = 2000.
+
+                           3. Deel het eerste resultaat door het laatste. 25/2000 = 0,125ml.
+
+                           Dus je injecteert 0,125 milliliter per keer
     unit_conversion: "Metrische eenheden zijn heel makkelijk om mee te werken, omdat ze allemaal meervouden van tien zijn (of honderd, een-tiende, etc) van elkaar. Je kan tussen de verschillende eenheden wisselen door het decimale punt te verplaatsen."
-    concentration_tablet: "Met een concentratie wordt aangegeven welk gedeelte van stof A in stof B zit. Het gaat hier om de hoeveelheid Vitamine C in 1 tablet. Dat betekent dat je de hoeveelheid Vitamine C moet delen door het totale gewicht. Vermenigvuldig nog met 100 om de concentratie in procenten te krijgen"
-    concentration_amount: "Met een concentratie wordt aangegeven welk gedeelte van stof A in stof B zit. Je hebt hier een percentage, dat moet je dus delen door 100. Dat resultaat vermenigvuldig je met de hoeveelheid Glucoseoplossing en je hebt de hoeveelheid Glucose."
-    concentration_to_hundred: "Deel de gegeven waarde door 1000 om het aantal grammen te krijgen. De oplossing bevat namelijk een hoeveelheid in grammen. Vermenigvuldig dat met 100(ml) en je weet hoeveel ml je nodig hebt."
-    syringe_pump_amount: "Deel eerst het totale aantal mg door het aantal mg per ml. Vermenigvuldig dat weer met het aantal ml en je weet hoeveel milliliter je nodig hebt voor 24 uur."
-    syringe_pump_hourly: "Deel eerst het totale aantal mg door het aantal uren. Deel dan de verhouding van medicijn en oplossing door elkaar. Deel nu het aantal mg per uur door dat laatste en je hebt het aantal milliliters per uur."
-    drop_iv_hourly: "Je moet eerst het aantal liters omrekenen naar milliliters. Daarna deel je dat door het aantal uur. Je hebt dan het aantal milliliters per uur."
-    drop_iv_amount: "De medische standaard is 1ml is 20 druppels. Eerst moet je dus het aantal liters vermenigvuldigen met 1000 zodat je het aantal milliliters hebt. Vervolgens deel je dat door het aantal minuten (24 uur * 60 minuten). Je hebt nu het aantal milliliters per minuut, nu moet je alleen nog vermenigvuldigen met 20 om het aantal druppels te krijgen."
-    oxygen_time: "De aanwezige hoeveelheid zuurstof en de druk bepalen hoe lang je met een cilinder kan doen. Als je een cilinder hebt met 10 liter en de manometer staat op 110 bar vermenigvuldig deze getallen om de totale hoeveelheid vrijgekomen zuurstof te berekenen, 110*10 = 1100. Om uit te rekenen hoeveel minuten dat kost tot de cilinder leeg is deel je de uitkomst van de vorige stap door het aantal liters per minuut. Dus bijvoorbeeld bij 2 liter per minuut doe je 1100/2 = 550 minuten."
-    oxygen_pressure: "Je wil weten op welke stand de manometer moet staan. Daarvoor moet je de hoeveelheid zuurstof delen door de grootte van de cilinder."
+    concentration_tablet: |
+                            Met een concentratie wordt aangegeven welk gedeelte van stof A in stof B zit. Het gaat hier om de hoeveelheid Vitamine C in 1 tablet.
+
+                            1. Deel de hoeveelheid Vitamine C door het totale gewicht
+
+                            2. Vermenigvuldig nog met 100 om de concentratie in procenten te krijgen
+    concentration_amount: |
+                            Met een concentratie wordt aangegeven welk gedeelte van stof A in stof B zit.
+
+                            1. Deel het percentage door 100.
+
+                            2. Dat resultaat vermenigvuldig je met de hoeveelheid Glucoseoplossing en je hebt de hoeveelheid Glucose
+    concentration_to_hundred: |
+                                1. Deel de gegeven waarde door 1000 om het aantal grammen te krijgen.
+
+                                2. Vermenigvuldig dat met 100(ml) en je weet hoeveel ml je nodig hebt
+    syringe_pump_amount: |
+                           1. Deel het totale aantal mg door het aantal mg per ml
+                           2. Vermenigvuldig dat weer met het aantal ml
+
+                           Je weet nu hoeveel milliliter je nodig hebt voor 24 uur.
+    syringe_pump_hourly: |
+                           1. Deel het totale aantal mg door het aantal uren.
+
+                           2. Deel de verhouding van medicijn en oplossing door elkaar.
+
+                           3. Deel het aantal mg per uur door dat laatste
+
+                           Je hebt nu het aantal milliliters per uur
+    drop_iv_hourly: |
+                      1. Reken het aantal liters om naar milliliters
+
+                      2. Deel dat door het aantal uur
+
+                      Je hebt nu het aantal milliliters per uur
+    drop_iv_amount: |
+                      De medische standaard is 1ml is 20 druppels.
+
+                      1. Je moet het aantal liters vermenigvuldigen met 1000 zodat je het aantal milliliters hebt.
+
+                      2. Deel dat door het aantal minuten (24 uur * 60 minuten), je hebt nu het aantal milliliters per minuut.
+
+                      3. Vermenigvuldig met 20
+
+                      Nu heb je het aantal druppels.
+    oxygen_time: |
+                   De aanwezige hoeveelheid zuurstof en de druk bepalen hoe lang je met een cilinder kan doen. Je hebt een cilinder met 10 liter en de manometer staat op 110 bar.
+
+                   1. Vermenigvuldig deze getallen om de totale hoeveelheid vrijgekomen zuurstof te berekenen, (110*10 = 1100)
+
+                   2. Deel de uitkomst van de vorige stap door het aantal liters per minuut. Bij 2 liter per minuut (1100/2 = 550 minuten)
+
+                   Je weet nu hoeveel minuten het kost tot de cilinder leeg is
+    oxygen_pressure: |
+                       Je wil weten op welke stand de manometer moet staan.
+
+                       1. Deel de hoeveelheid zuurstof door de grootte van de cilinder
   challenge_sets:
     Week_1: "Basis en Percentages"
     Week_2: "Concentraties en Oplossingen"

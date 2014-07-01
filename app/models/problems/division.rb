@@ -37,4 +37,8 @@ class Division < Problem
      #{formula.operations[0].operator}
      #{formula.operations[0].constant2.value}"
   end
+
+  def info
+    I18n.t("problem_info.basic")
+  end
 end
