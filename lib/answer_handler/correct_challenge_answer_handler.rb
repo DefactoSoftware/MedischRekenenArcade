@@ -22,7 +22,7 @@ class CorrectChallengeAnswerHandler < ChallengeAnswerHandler
   def finish
     increase_points!(user_challenge.challenge.bonus)
     user_challenge.update_attributes(success: true)
-    user_challenge.challenge.challenge_set.user_check_completed(@user)
+    challenge_set_completion_badge
   end
 
   def get_notice

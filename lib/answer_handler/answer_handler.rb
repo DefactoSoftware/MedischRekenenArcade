@@ -14,6 +14,12 @@ class AnswerHandler
     check_badges
   end
 
+  def challenge_set_completion_badge
+    if user_challenge.challenge.challenge_set.check_completion_for(@user)
+      user_challenge.challenge.challenge_set.assign_badge_for(@user)
+    end
+  end
+
   def method_missing(method, *args, &block)
     session.send(method, *args, &block)
   end
