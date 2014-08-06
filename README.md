@@ -18,6 +18,7 @@ MedischRekenenArcade
 - run `rake db:test:prepare` to set up the test db
 - run `rake create_units` to create the units
 - run `rake create_basic_challenges` to create the challenges
+- run `cp .sample.env .env` and set up the env keys
 - Create an Admin User account from the Rails console:
 
 ```ruby
