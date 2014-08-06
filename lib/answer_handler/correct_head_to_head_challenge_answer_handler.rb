@@ -23,7 +23,7 @@ class CorrectHeadToHeadChallengeAnswerHandler < HeadToHeadChallengeAnswerHandler
     if @head_to_head_challenge.check_finish
       @head_to_head_challenge.finished!
     end
-    user_challenge.challenge.challenge_set.user_check_completed(@user)
+    challenge_set_completion_badge
   end
 
   def get_notice

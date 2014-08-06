@@ -45,12 +45,26 @@ FactoryGirl.define do
     problem
   end
 
+  factory :challenge_set do
+    name { Faker::HipsterIpsum.name }
+    locked { false }
+
+    factory :challenge_set_with_challenges do
+      after(:create) do |challenge_set|
+        create_list(:challenge, 2, challenge_set: challenge_set)
+      end
+    end
+  end
+
   factory :challenge do
     number_of_problems { 5 }
-    name { Challenge::VALID_NAMES.sample }
+    sequence(:name) do |n|
+      Challenge::VALID_NAMES[n]
+    end
     timelimit { 9000000 }
     bonus { 20 }
     icon { "google.com/images/srpr/logo11w.png" }
+    challenge_set
   end
 
   factory :user_challenge do
