@@ -8,6 +8,7 @@ script:
 before_script:
 - cp config/database.travis.yml config/database.yml
 - psql -c 'create database mra_test' -U postgres
+- cp .sample.env .env
 notifications:
   hipchat:
     rooms:
