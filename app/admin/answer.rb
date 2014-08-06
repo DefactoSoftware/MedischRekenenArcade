@@ -26,7 +26,7 @@ ActiveAdmin.register Answer do
     column "UserChallenge" do |answer|
       answer.user_challenge ? link_to("click", admin_user_challenge_path(answer.user_challenge)) : "-"
     end
-    default_actions
+    actions
   end
 
   show do |answer|

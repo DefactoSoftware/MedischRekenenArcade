@@ -11,7 +11,7 @@ ActiveAdmin.register Challenge do
     column :icon do |challenge|
       image_tag(challenge.icon, height: "50px")
     end
-    default_actions
+    actions
   end
 
 
