@@ -244,6 +244,7 @@ en:
     email: "Email"
     username: "Username"
     name: "First and last name"
+    user_group_name: "User group name"
   labels:
     email: "Email"
     name: "Name"
