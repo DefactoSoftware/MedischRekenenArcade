@@ -46,7 +46,7 @@ class AnswersController < ApplicationController
     if !current_user.guest?
       user_skills = UserSkill.where(
         user: current_user,
-        skill: Problem.find(answer_parameters[:problem_id]))
+        skill: Problem.find(answer_parameters[:problem_id]).skill)
       user_skills.first_or_create.level
     end
   end
