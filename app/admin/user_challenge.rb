@@ -9,6 +9,6 @@ ActiveAdmin.register UserChallenge do
     column :challenge do |user_challenge|
       link_to "click", admin_challenge_path(user_challenge.challenge)
     end
-    default_actions
+    actions
   end
 end

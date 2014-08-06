@@ -6,7 +6,7 @@ ActiveAdmin.register User do
     column :last_sign_in_at
     column :name
     column :confirmed_at
-    default_actions
+    actions
   end
 
   show do |user|
