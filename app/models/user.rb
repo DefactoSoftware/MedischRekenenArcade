@@ -55,7 +55,6 @@ class User < ActiveRecord::Base
 
   after_create :init_redis
   after_create :init_user_skills
-  after_update :grant_vanity_badge, :grant_sign_up_badge
 
   has_many :user_challenges
   has_many :challenges, -> { uniq }, through: :user_challenges
@@ -118,20 +117,5 @@ class User < ActiveRecord::Base
       value
     end
     highscore_lb.rank_member(id, new_score)
-  end
-
-  def grant_sign_up_badge
-    if !badges.include?(Merit::Badge.find(24)) &&
-       confirmed_at
-      add_badge(24)
-    end
-  end
-
-  def grant_vanity_badge
-    if !badges.include?(Merit::Badge.find(25)) &&
-       confirmed_at &&
-       profilepicture_url != "/assets/no_profile.jpg"
-      add_badge(25)
-    end
   end
 end

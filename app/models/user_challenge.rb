@@ -31,19 +31,9 @@ class UserChallenge < ActiveRecord::Base
     if self.success_changed?
       if success?
         user.activities.create! action: "complete", trackable: self
-        add_badges
       else
         user.activities.create! action: "fail", trackable: self
       end
-    end
-  end
-
-  def add_badges
-    if user.challenges_completed_successfully == 1
-      user.add_badge(28)
-    end
-    if amount_fail == 0 && success? && !user.badges.include?(Badge.find(29))
-      user.add_badge(29)
     end
   end
 end
