@@ -25,6 +25,10 @@ class UserChallenge < ActiveRecord::Base
     amount_fail + amount_good
   end
 
+  def complete?
+    amount_answered == challenge.number_of_problems
+  end
+
   private
 
   def track_activity
