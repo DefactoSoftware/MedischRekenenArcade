@@ -26,7 +26,7 @@ class UserChallenge < ActiveRecord::Base
   end
 
   def complete?
-    amount_answered == challenge.number_of_problems
+    amount_good == challenge.number_of_problems && answers.length != 0
   end
 
   private

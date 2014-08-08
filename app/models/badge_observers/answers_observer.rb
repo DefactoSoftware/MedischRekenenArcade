@@ -6,6 +6,7 @@ class AnswersObserver < BadgesObserver
     check_questions_answered_badges
     check_time_of_day_badges
     check_cold_feet_badges
+    check_practice_badge(answer)
   end
 
   private
@@ -17,6 +18,12 @@ class AnswersObserver < BadgesObserver
       @answer_count = @user.answers.count
       @created_at = answer.created_at
       @challenge_count = UserChallenge.where(user: @user).count
+    end
+  end
+
+  def check_practice_badge(answer)
+    if answer.user_challenge == nil
+      add_badge(BADGES[:practicer])
     end
   end
 
