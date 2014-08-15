@@ -39,7 +39,7 @@ class AnswersObserver < BadgesObserver
   end
 
   def check_time_of_day_badges
-    if @created_at.hour.between?(MORNING_START, AFTERNOON_START)
+    if @created_at && @created_at.hour.between?(MORNING_START, AFTERNOON_START)
       add_badge(BADGES[:rise_and_shine])
     elsif @created_at.hour.between?(EVENING_START, NIGHT_START)
       add_badge(BADGES[:night_crawler])
