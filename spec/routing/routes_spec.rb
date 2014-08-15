@@ -7,20 +7,6 @@ describe "routing to", type: :routing do
     end
   end
 
-  describe "friendships" do
-    it "to #create" do
-      expect(post: "/friendships").to route_to("friendships#create")
-    end
-
-    it "to #destroy" do
-      expect(delete: "/friendships/1").to route_to(
-        controller: "friendships",
-        action: "destroy",
-        id: "1"
-      )
-    end
-  end
-
   describe "users" do
     it "to #index" do
       expect(get: "/users").to route_to("users#index")
