@@ -2,23 +2,23 @@ class AnswersObserver < BadgesObserver
   observe Answer
 
   def after_create(answer)
-    init(answer)
-    check_questions_answered_badges
-    check_time_of_day_badges
-    check_cold_feet_badges
-    check_practice_badge(answer)
+    unless answer.user.guest?
+      init(answer)
+      check_questions_answered_badges
+      check_time_of_day_badges
+      check_cold_feet_badges
+      check_practice_badge(answer)
+    end
   end
 
   private
 
   def init(answer)
-    unless answer.user.guest?
-      @user = answer.user
-      @badges = @user.badges
-      @answer_count = @user.answers.count
-      @created_at = answer.created_at
-      @challenge_count = UserChallenge.where(user: @user).count
-    end
+    @user = answer.user
+    @badges = @user.badges
+    @answer_count = @user.answers.count
+    @created_at = answer.created_at
+    @challenge_count = UserChallenge.where(user: @user).count
   end
 
   def check_practice_badge(answer)
