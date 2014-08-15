@@ -206,9 +206,6 @@ describe AnswerHandler do
       expect(head_to_head_challenge_handler_good.get_notice).to eq(
         I18n.t("head_to_head_challenge.finished")
       )
-      head_to_head_challenge_handler_good.handle!
-      expect(head_to_head_challenge_handler_good).to receive(:finish)
-      expect(head_to_head_challenge_handler_good).to receive(:challenge_set_completion_badge)
     end
 
     it "returns answer is correct as notice when answer is wrong" do

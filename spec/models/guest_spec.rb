@@ -17,6 +17,7 @@ describe Guest, type: :model do
 
   it "has a username method" do
     expect(Guest).to have_method :username
+    expect(guest.username).to eq("guest")
   end
 
   it "has a user_challenges method" do
@@ -37,6 +38,7 @@ describe Guest, type: :model do
 
   it "has a _sash method" do
     expect(Guest).to have_method :_sash
+    expect(guest._sash).to eq(Merit::Sash.none)
   end
 
   it "has a notifications method" do
