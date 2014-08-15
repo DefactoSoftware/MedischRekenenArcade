@@ -94,4 +94,120 @@ describe HeadToHeadChallenge do
         "notifications.head_to_head_challenge.challenged.title")
     end
   end
+
+  describe "Check the winner" do
+    let(:head_to_head_challenge) { create(:head_to_head_challenge) }
+    let(:challenger_user_challenge) do
+      create(:user_challenge,
+             user: head_to_head_challenge.challenger,
+             challenge: head_to_head_challenge.challenge,
+             head_to_head_challenge: head_to_head_challenge)
+    end
+    let(:challenged_user_challenge) do
+      create(:user_challenge,
+             user: head_to_head_challenge.challenged,
+             challenge: head_to_head_challenge.challenge,
+             head_to_head_challenge: head_to_head_challenge)
+    end
+
+    it "returns none when not finished" do
+      head_to_head_challenge.update_attributes(status: :open)
+      expect(head_to_head_challenge.winner).to eq(User.none)
+    end
+
+    it "returns challenger when score is higher" do
+      head_to_head_challenge.update_attributes(status: :finished)
+      challenger_user_challenge.update_attributes(amount_good: 10)
+      challenged_user_challenge.update_attributes(amount_fail: 10)
+      expect(head_to_head_challenge.winner).to(
+        eq(head_to_head_challenge.challenger))
+    end
+
+    it "returns challenged when score is higher" do
+      head_to_head_challenge.update_attributes(status: :finished)
+      challenger_user_challenge.update_attributes(amount_fail: 10)
+      challenged_user_challenge.update_attributes(amount_good: 10)
+      expect(head_to_head_challenge.winner).to(
+        eq(head_to_head_challenge.challenged))
+    end
+
+    it "returns challenger when score equal and time lower" do
+      head_to_head_challenge.update_attributes(status: :finished)
+      challenger_user_challenge.update_attributes(amount_good: 10, created_at: DateTime.now)
+      challenged_user_challenge.update_attributes(amount_good: 10, created_at: DateTime.now - 10.minutes)
+      expect(head_to_head_challenge.winner).to(
+        eq(head_to_head_challenge.challenger))
+    end
+  end
+
+  describe "Other player" do
+    let(:head_to_head_challenge) { create(:head_to_head_challenge) }
+    it "returns the challenger" do
+      expect(head_to_head_challenge.
+             other_player(head_to_head_challenge.
+                          challenged)).to(
+        eq(head_to_head_challenge.challenger))
+
+    end
+
+    it "returns the challenged" do
+      expect(head_to_head_challenge.
+             other_player(head_to_head_challenge.
+                          challenger)).to(
+        eq(head_to_head_challenge.challenged))
+    end
+
+    it "checks the challenger" do
+      expect(head_to_head_challenge.
+             user_is_challenger(head_to_head_challenge.
+                                challenger)).to(
+        eq(true))
+    end
+  end
+
+  describe "Check user is finished" do
+    let(:head_to_head_challenge) { create(:head_to_head_challenge) }
+    let(:challenger_user_challenge) do
+      create(:user_challenge,
+             user: head_to_head_challenge.challenger,
+             challenge: head_to_head_challenge.challenge,
+             head_to_head_challenge: head_to_head_challenge)
+    end
+    let(:challenged_user_challenge) do
+      create(:user_challenge,
+             user: head_to_head_challenge.challenged,
+             challenge: head_to_head_challenge.challenge,
+             head_to_head_challenge: head_to_head_challenge)
+    end
+
+    describe "challenger" do
+      it "is finished" do
+        challenger_user_challenge.update_attributes(amount_good: 10)
+        expect(head_to_head_challenge.
+               user_finished(head_to_head_challenge.challenger)).to(
+          eq(true))
+      end
+
+      it "is not finished" do
+        expect(head_to_head_challenge.
+               user_finished(head_to_head_challenge.challenger)).to(
+          eq(false))
+      end
+    end
+
+    describe "challenged" do
+      it "is finished" do
+        challenged_user_challenge.update_attributes(amount_good: 10)
+        expect(head_to_head_challenge.
+               user_finished(head_to_head_challenge.challenged)).to(
+          eq(true))
+      end
+
+      it "is not finished" do
+        expect(head_to_head_challenge.
+               user_finished(head_to_head_challenge.challenged)).to(
+          eq(false))
+      end
+    end
+  end
 end
