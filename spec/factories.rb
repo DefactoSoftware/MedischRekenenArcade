@@ -11,6 +11,10 @@ FactoryGirl.define do
     name { Faker::HipsterIpsum.word }
   end
 
+  factory :unit do
+    sign { "ml" }
+  end
+
   factory :user_skill do
     skill
     user
@@ -23,6 +27,14 @@ FactoryGirl.define do
 
   factory :problem do
 
+  end
+
+  factory :subtraction do
+
+  end
+
+  factory :oxygen_time do
+    unit
   end
 
   factory :head_to_head_challenge do
