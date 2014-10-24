@@ -188,7 +188,7 @@ nl:
     header: "Bereken de juiste hoeveelheid"
     answer_label: "Antwoord"
     skipquestion: "overslaan"
-    helpquestion: "Help!"
+    helpquestion: "Rekenmachine"
     problem_picker: "Probleem picker"
     clear_filter: "Standaard problemen"
     skill_suggest: "Op basis van je vorige resultaten kan je het beste het probleem '%{skill}' oefenen. Maar je kan hieronder ook een andere kiezen natuurlijk!"

@@ -189,7 +189,7 @@ en:
     header: "Calculate the right amount"
     answer_label: "Answer"
     skipquestion: "skip"
-    helpquestion: "Help!"
+    helpquestion: "Calculator"
     problem_picker: "Problem picker"
     clear_filter: "Standard problems"
     skill_suggest: "Based on previous results you'd best practice the problem '%{skill}'."
