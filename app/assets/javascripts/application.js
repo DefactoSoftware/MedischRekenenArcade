@@ -25,7 +25,7 @@ $(document).ready(function() {
   }).done(function(data) {
     $("body").append(data);
   });
-})
+});
 
 $(document).on('mouseenter', '#badges_block a.thumb-link', function(e) {
   var $inner = $(this).find('.caption .inner');
@@ -37,7 +37,13 @@ $(document).on('mouseenter', '#badges_block a.thumb-link', function(e) {
 
 $("#calculator").ready(function() {
   $("#calculator").draggable();
-})
+});
+
+$(document).ready(function () {
+  var theory = $("#theory").text();
+  var newTheory = theory.replace(".0", "").replace(".0?", "?");
+  $("#theory").text(newTheory);
+});
 
 $("#messages-toggle").ready(function() {
 
@@ -50,7 +56,7 @@ $("#messages-toggle").ready(function() {
     $("#messages").hide();
     $("#messages_background").hide();
   });
-})
+});
 
 //Functions for making answering view interactive
 $(".unit_select").ready(function() {
