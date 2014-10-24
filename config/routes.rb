@@ -20,6 +20,8 @@ MedischRekenenArcade::Application.routes.draw do
 
   resources :badges, only: [:index]
 
+  resources :landing_page, only: [:index]
+
   resources :feedback_reports, only: [:create]
 
   resources :leaderboards, only: [:index]

@@ -1,4 +1,6 @@
 class HomeController < ApplicationController
+  before_action :check_auth
+
   def index
     highscore_lb = RedisLeaderboard.get
     @scores = highscore_lb.ranked_in_list(user_group_users, sort_by: :rank)
@@ -9,6 +11,9 @@ class HomeController < ApplicationController
   end
 
   private
+  def check_auth
+    redirect_to landing_page_index_path if current_user.guest?
+  end
 
   def user_group_users
     current_user.user_group.users.map(&:id)

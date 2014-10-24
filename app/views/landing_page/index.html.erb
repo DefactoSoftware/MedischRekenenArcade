@@ -1,0 +1,39 @@
+<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Roboto:500' rel='stylesheet' type='text/css'>
+<div id="landing-page">
+  <div id="hero">
+    <div class="row">
+      <div class="three-column-small"></div>
+      <div class="three-column-big center">
+        <h1 class="title">Med Math</h1>
+
+        <h2 class="title">Learn how to not kill patients</h2>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="three-column-small"></div>
+      <div class="three-column-big center buttons">
+        <a href="/practice">
+          <button class="btn round">Try out</button>
+        </a>
+        <a href="/users/sign_up">
+          <button class="btn round">Sign up</button>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div id="center" class="copy">
+    <p class="first">Medical Arithmetics is a webapp for training arithmetics in the medical field. In healthcare one mistake can have lethal consequences. What happens if a patient gets 10 milligram instead of 1? You rather not think about that. If you work with patients it's very important you keep your skills up to date.
+    </p>
+    <p class="right">
+    Medical Arithmetics will continuously challenge you. You can get badges and complete challenges. The challenges will adjust to your level of expertise. Share those badges and challenges with your friends and colleagues to stay stimulated.</p>
+  </div>
+  <div id="footer">
+    <ul class="links">
+      <li><%= link_to "Sign in", new_user_session_path()  %></li>
+      <li><%= link_to "Sign up", new_user_registration_path() %></li>
+      <li><a href="http://www.defacto.nl">Defacto</a></li>
+    </ul>
+  </div>
+</div>

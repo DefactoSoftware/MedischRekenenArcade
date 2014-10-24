@@ -52,10 +52,6 @@
   </div>
 <% end %>
 
-<div class="footer">
-© 2014 <a href="http://www.defacto.nl"><%= image_tag("icon.png", height:"35px") %> Defacto</a>
-</div>
-
 <%= render "messages/index" unless current_user.guest? %>
 <%= render "head_to_head_challenges/invite" unless current_user.guest? %>
 
