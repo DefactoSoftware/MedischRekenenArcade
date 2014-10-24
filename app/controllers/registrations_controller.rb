@@ -16,6 +16,6 @@ class RegistrationsController < Devise::RegistrationsController
   private
 
   def default_user_group
-    UserGroup.where(name: "Overig").first || UserGroup.first
+    UserGroup.where(name: ENV['DEFAULT_USER_GROUP']).first || UserGroup.first
   end
 end
