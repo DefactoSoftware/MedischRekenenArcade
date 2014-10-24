@@ -18,7 +18,6 @@ describe "Practice", type: :feature do
 
   context "Logged in user" do
     it "can answer a practice question" do
-      user.confirm!
       sign_in_user(user.email, "welkom1234")
 
       visit "/practice"

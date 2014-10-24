@@ -17,7 +17,6 @@ describe "Challenges", type: :feature do
   let(:user) { create(:user) }
 
   before :each do
-    user.confirm!
     sign_in_user(user.email, "welkom1234")
     challenge_set.reload
     challenge.reload

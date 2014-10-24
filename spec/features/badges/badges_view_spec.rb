@@ -4,7 +4,6 @@ describe "Badges", type: :feature do
   let(:user) { FactoryGirl.create(:user) }
 
   before :each do
-    user.confirm!
     sign_in_user(user.email, "welkom1234")
   end
 
