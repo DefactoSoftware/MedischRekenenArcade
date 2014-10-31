@@ -1,4 +1,4 @@
-rvm: 2.1.0
+rvm: 2.1.4
 bundler_args: --without debug development
 cache: bundler
 services: redis-server

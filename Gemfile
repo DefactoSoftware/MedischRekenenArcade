@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
-ruby '2.1.0'
+ruby '2.1.4'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 4.1.5'
+gem 'rails', '~> 4.1.7'
 gem 'rails-i18n', '~> 4.0.0' # For 4.0.x
 gem 'rails-observers'
 # Use Postgress as the database for Active Record
@@ -85,7 +85,6 @@ end
 
 group :development do
   gem 'annotate'
-  gem 'debugger'
 end
 
 group :test do
