@@ -6,7 +6,7 @@ resource "Problem" do
   header "Content-Type", "application/json"
 
   let(:user) { create(:user) }
-  let(:token) { double(accessible?: true, resource_owner_id: user.id) }
+  let(:token) { double(acceptable?: true, resource_owner_id: user.id) }
   let(:problem) { Problem::VALID_PROBLEMS.sample }
 
   before :each do
