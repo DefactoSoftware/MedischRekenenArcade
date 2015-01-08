@@ -11,7 +11,7 @@ gem 'pg'
 gem 'unicorn'
 
 #Doorkeeper, OAUTH
-gem 'doorkeeper'
+gem 'doorkeeper', '~> 2.0.0'
 
 #Merit, for badges
 gem 'merit', '~> 1.7.0'

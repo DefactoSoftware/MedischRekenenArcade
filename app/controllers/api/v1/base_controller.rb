@@ -2,7 +2,7 @@ module Api
   module V1
     class BaseController < ApplicationController
       skip_before_filter :verify_authenticity_token
-      doorkeeper_for :all
+      before_action :doorkeeper_authorize!
       respond_to :json
 
       private

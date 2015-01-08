@@ -6,7 +6,7 @@ resource "Answer" do
   header "Content-Type", "application/json"
 
   let(:user) { create(:user) }
-  let(:token) { double(accessible?: true, resource_owner_id: user.id) }
+  let(:token) { double(acceptable?: true, resource_owner_id: user.id) }
 
   before :each do
     allow_any_instance_of(Api::V1::AnswersController)
